@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offbeat Peak — Wordmark Spec Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Commissioner:wght@400;500&family=Italiana&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    background: #fafaf7;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 64px 40px; }
+
+  /* Header */
+  .doc-head {
+    padding-bottom: 32px;
+    border-bottom: 1px solid #111;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+  .doc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .doc-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 8px;
+  }
+  .doc-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* Direction block */
+  .direction { margin-bottom: 96px; }
+  .direction-head {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 32px;
+    align-items: baseline;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 48px;
+  }
+  .direction-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    color: #111;
+  }
+  .direction-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  .direction-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .direction-handle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  /* Section */
+  .spec-section { margin-bottom: 56px; }
+  .spec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .spec-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #888;
+  }
+  .spec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .spec-rule {
+    flex: 1;
+    height: 1px;
+    background: #e5e5e0;
+  }
+
+  /* Wordmark stage (live render) */
+  .stage {
+    padding: 96px 40px;
+    text-align: center;
+    margin-bottom: 24px;
+    border: 1px solid #e5e5e0;
+  }
+  .stage.hl { background: #F2ECDD; }
+  .stage.sh { background: #F8F5EF; }
+
+  /* Direction 1 — Highland Heirloom */
+  .hl-primary {
+    font-family: 'Italiana', serif;
+    font-size: 96px;
+    letter-spacing: 0.02em;
+    color: #1F2D24;
+    line-height: 1;
+    font-weight: 400;
+  }
+  .hl-primary .accent { color: #A85438; }
+  .hl-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #B07D3B;
+    margin-top: 24px;
+  }
+
+  /* Direction 2 — Silk Horizon */
+  .sh-primary {
+    font-family: 'Fraunces', serif;
+    font-size: 112px;
+    letter-spacing: -0.03em;
+    color: #15181C;
+    line-height: 1;
+    font-weight: 200;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .sh-primary em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: #2A3445;
+    font-weight: 400;
+  }
+  .sh-sub {
+    font-family: 'Commissioner', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: #717A85;
+    margin-top: 32px;
+    font-weight: 500;
+  }
+  .sh-sub .dot { display: inline-block; margin: 0 10px; color: #D9C9A8; }
+
+  /* Variant grid */
+  .variants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #e5e5e0; }
+  .variant { padding: 56px 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; text-align: center; }
+  .variant-hl-light { background: #F2ECDD; color: #1F2D24; }
+  .variant-hl-dark { background: #1F2D24; color: #F2ECDD; }
+  .variant-hl-clay { background: #A85438; color: #F2ECDD; }
+  .variant-sh-light { background: #F2EDE4; color: #15181C; }
+  .variant-sh-dark { background: #2A3445; color: #F2EDE4; }
+  .variant-sh-sand { background: #D9C9A8; color: #15181C; }
+
+  .vhl {
+    font-family: 'Italiana', serif;
+    font-size: 36px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .vhl .accent { color: #A85438; }
+  .variant-hl-dark .vhl .accent, .variant-hl-clay .vhl .accent { color: inherit; opacity: 0.55; }
+  .vhl-mono { font-family: 'Italiana', serif; font-size: 56px; line-height: 1; }
+
+  .vsh {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 200;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .vsh em { font-family: 'Instrument Serif', serif; font-style: italic; color: #2A3445; font-weight: 400; }
+  .variant-sh-dark .vsh em { color: #D9C9A8; }
+  .variant-sh-sand .vsh em { color: #2A3445; }
+  .vsh-mono { font-family: 'Instrument Serif', serif; font-size: 64px; font-style: italic; line-height: 1; color: #2A3445; }
+  .variant-sh-dark .vsh-mono { color: #D9C9A8; }
+  .variant-sh-sand .vsh-mono { color: #2A3445; }
+
+  .variant-cap {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 20px;
+    opacity: 0.6;
+  }
+  .variant-hl-dark .variant-cap, .variant-hl-clay .variant-cap { color: #F2ECDD; }
+  .variant-sh-dark .variant-cap { color: #D9C9A8; }
+
+  /* Spec tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e0;
+    vertical-align: top;
+  }
+  th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 400;
+    background: #fafaf7;
+    border-top: 1px solid #e5e5e0;
+  }
+  td { font-weight: 300; }
+  td.k {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    width: 180px;
+  }
+  td.v { color: #111; font-weight: 400; }
+  td.v strong { font-weight: 600; }
+  td.code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    background: #fafaf7;
+    padding: 4px 8px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* Color row */
+  .color-row { display: flex; align-items: center; gap: 12px; }
+  .color-chip { width: 24px; height: 24px; border: 1px solid rgba(0,0,0,0.1); flex-shrink: 0; }
+
+  /* Two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* Code block */
+  .code-block {
+    background: #0f1211;
+    color: #f2ede4;
+    padding: 24px 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+  .code-block .c { color: #888; }
+  .code-block .s { color: #D9C9A8; }
+  .code-block .k { color: #B07D3B; }
+
+  /* Rules callout */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
+  .rules-box { padding: 24px; border: 1px solid #e5e5e0; background: #fff; }
+  .rules-box h5 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .rules-box ul { list-style: none; padding: 0; }
+  .rules-box li {
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 300;
+    color: #222;
+    border-bottom: 1px dashed #e5e5e0;
+  }
+  .rules-box li:last-child { border-bottom: 0; }
+  .rules-box.do h5 { color: #2d7a4a; }
+  .rules-box.dont h5 { color: #A85438; }
+
+  /* Clear space diagram */
+  .cs-diagram {
+    padding: 48px;
+    background: #fff;
+    border: 1px solid #e5e5e0;
+    text-align: center;
+    position: relative;
+  }
+  .cs-box {
+    display: inline-block;
+    padding: 48px;
+    border: 1px dashed #A85438;
+    position: relative;
+  }
+  .cs-box.sh { border-color: #2A3445; }
+  .cs-box::before {
+    content: 'X';
+    position: absolute;
+    top: -11px;
+    left: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #A85438;
+    letter-spacing: 0.1em;
+  }
+  .cs-box.sh::before { color: #2A3445; }
+
+  .cs-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 24px;
+  }
+
+  /* Footer */
+  .foot {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5e0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  @media (max-width: 820px) {
+    .wrap { padding: 40px 24px; }
+    .doc-head { grid-template-columns: 1fr; }
+    .direction-head { grid-template-columns: 1fr; gap: 8px; }
+    .hl-primary { font-size: 56px; }
+    .sh-primary { font-size: 64px; }
+    .variants { grid-template-columns: 1fr; }
+    .two-col, .rules-grid { grid-template-columns: 1fr; }
+    td.k { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="doc-head">
+    <div>
+      <div class="doc-title">Offbeat Peak — Wordmark Spec</div>
+      <div class="doc-sub">Two directions · For designer &amp; developer handover</div>
+    </div>
+    <div class="doc-meta">
+      Document · Vol. 02<br>
+      Version · 1.0<br>
+      Prepared · April 2026
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DIRECTION 01 — HIGHLAND HEIRLOOM                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <section class="direction">
+    <div class="direction-head">
+      <div class="direction-num">01</div>
+      <div>
+        <span class="direction-tag">— Direction 01 —</span>
+        <div class="direction-name">Highland Heirloom</div>
+      </div>
+      <div class="direction-handle">Earthen editorial</div>
+    </div>
+
+    <!-- Primary lockup -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.1</span>
+        <span class="spec-title">Primary lockup</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="stage hl">
+        <div class="hl-primary">Offbeat <span class="accent">Peak</span></div>
+        <div class="hl-sub">— a travel studio of the slow kind —</div>
+      </div>
+
+      <table>
+        <tr><td class="k">Wordmark text</td><td class="v"><strong>Offbeat Peak</strong> — two words, capital O and capital P, single space between</td></tr>
+        <tr><td class="k">Tagline (optional)</td><td class="v">— a travel studio of the slow kind —</td></tr>
+        <tr><td class="k">Colour split</td><td class="v">"Offbeat" = Forest Ink &nbsp;·&nbsp; "Peak" = Clay</td></tr>
+        <tr><td class="k">Tagline colour</td><td class="v">Ochre</td></tr>
+        <tr><td class="k">Tagline gap</td><td class="v">24px below the wordmark baseline</td></tr>
+      </table>
+    </div>
+
+    <!-- Typography -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.2</span>
+        <span class="spec-title">Typography</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Font</th>
+          <th>Weight</th>
+          <th>Tracking</th>
+          <th>Source</th>
+        </tr>
+        <tr>
+          <td class="v"><strong>Wordmark</strong></td>
+          <td class="v">Italiana</td>
+          <td class="v">400 · Regular</td>
+          <td class="v">+0.02em</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+        <tr>
+          <td class="v"><strong>Tagline</strong></td>
+          <td class="v">IBM Plex Mono</td>
+          <td class="v">400 · Regular</td>
+          <td class="v">+0.5em, uppercase</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+        <tr>
+          <td class="v"><strong>Monogram</strong></td>
+          <td class="v">Italiana</td>
+          <td class="v">400 · Regular</td>
+          <td class="v">+0.02em</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 24px;">
+        <div class="code-block">
+<span class="c">/* Font loading — paste in &lt;head&gt; */</span>
+<span class="k">@import</span> <span class="s">url('https://fonts.googleapis.com/css2?family=Italiana&family=IBM+Plex+Mono:wght@400;500&display=swap')</span>;
+
+<span class="c">/* Primary wordmark CSS */</span>
+.wordmark {
+  font-family: <span class="s">'Italiana', serif</span>;
+  font-weight: <span class="s">400</span>;
+  font-size: <span class="s">96px</span>;
+  letter-spacing: <span class="s">0.02em</span>;
+  line-height: <span class="s">1</span>;
+  color: <span class="s">#1F2D24</span>;
+}
+.wordmark .accent { color: <span class="s">#A85438</span>; }
+
+.tagline {
+  font-family: <span class="s">'IBM Plex Mono', monospace</span>;
+  font-weight: <span class="s">400</span>;
+  font-size: <span class="s">11px</span>;
+  letter-spacing: <span class="s">0.5em</span>;
+  text-transform: <span class="s">uppercase</span>;
+  color: <span class="s">#B07D3B</span>;
+  margin-top: <span class="s">24px</span>;
+}
+        </div>
+      </div>
+    </div>
+
+    <!-- Colours -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.3</span>
+        <span class="spec-title">Colour system</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>HEX</th>
+          <th>RGB</th>
+          <th>CMYK</th>
+          <th>Pantone</th>
+        </tr>
+        <tr>
+          <td class="v">Primary</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#1F2D24"></span><strong>Forest Ink</strong></div></td>
+          <td class="v">#1F2D24</td>
+          <td class="v">31, 45, 36</td>
+          <td class="v">80 / 50 / 80 / 70</td>
+          <td class="v">5535 C</td>
+        </tr>
+        <tr>
+          <td class="v">Accent</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#A85438"></span><strong>Clay</strong></div></td>
+          <td class="v">#A85438</td>
+          <td class="v">168, 84, 56</td>
+          <td class="v">25 / 75 / 85 / 20</td>
+          <td class="v">7593 C</td>
+        </tr>
+        <tr>
+          <td class="v">Tagline</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#B07D3B"></span><strong>Ochre</strong></div></td>
+          <td class="v">#B07D3B</td>
+          <td class="v">176, 125, 59</td>
+          <td class="v">25 / 50 / 90 / 20</td>
+          <td class="v">7562 C</td>
+        </tr>
+        <tr>
+          <td class="v">Ground</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#F2ECDD"></span><strong>Bone</strong></div></td>
+          <td class="v">#F2ECDD</td>
+          <td class="v">242, 236, 221</td>
+          <td class="v">5 / 5 / 12 / 0</td>
+          <td class="v">9182 C</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Variants -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.4</span>
+        <span class="spec-title">Variants &amp; lockups</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="variants">
+        <div class="variant variant-hl-light">
+          <div class="vhl">Offbeat <span class="accent">Peak</span></div>
+          <div class="variant-cap">— Primary · on Bone —</div>
+        </div>
+        <div class="variant variant-hl-dark">
+          <div class="vhl">Offbeat <span class="accent">Peak</span></div>
+          <div class="variant-cap">— Reversed · on Forest Ink —</div>
+        </div>
+        <div class="variant variant-hl-clay">
+          <div class="vhl-mono">OP</div>
+          <div class="variant-cap">— Monogram · on Clay —</div>
+        </div>
+      </div>
+
+      <table style="margin-top: 24px;">
+        <tr><td class="k">Primary variant</td><td class="v">Forest Ink + Clay on Bone. Use 90% of the time.</td></tr>
+        <tr><td class="k">Reversed variant</td><td class="v">Bone text on Forest Ink ground. Use on dark photography, footers, video end-frames.</td></tr>
+        <tr><td class="k">Monogram "OP"</td><td class="v">Social avatars, favicon, seals, app icon, watermarks. Minimum 32×32px. Must always be square.</td></tr>
+      </table>
+    </div>
+
+    <!-- Sizing -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.5</span>
+        <span class="spec-title">Sizing &amp; clear space</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <table>
+            <tr><td class="k">Minimum size (digital)</td><td class="v">32px cap height</td></tr>
+            <tr><td class="k">Minimum size (print)</td><td class="v">14mm / 40pt</td></tr>
+            <tr><td class="k">Preferred hero size</td><td class="v">96–140px cap height</td></tr>
+            <tr><td class="k">Navigation size</td><td class="v">24–28px cap height</td></tr>
+            <tr><td class="k">Business card</td><td class="v">28–32px cap height</td></tr>
+            <tr><td class="k">Favicon</td><td class="v">Monogram only, 32×32 / 180×180</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="cs-diagram">
+            <div class="cs-box">
+              <div style="font-family:'Italiana',serif; font-size: 36px; color:#1F2D24; letter-spacing: 0.02em; line-height: 1;">Offbeat <span style="color:#A85438">Peak</span></div>
+            </div>
+            <div class="cs-caption">Clear space = cap height of "O" on all four sides</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Do / Don't -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.6</span>
+        <span class="spec-title">Usage rules</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rules-box do">
+          <h5>— Do —</h5>
+          <ul>
+            <li>Keep "Peak" in Clay (#A85438) on light grounds.</li>
+            <li>Maintain clear space equal to one cap-height of "O" all around.</li>
+            <li>Pair with a single tagline in IBM Plex Mono — or use no tagline at all.</li>
+            <li>Use the monogram "OP" for any square or sub-32px application.</li>
+            <li>Keep tracking at +0.02em for the wordmark.</li>
+          </ul>
+        </div>
+        <div class="rules-box dont">
+          <h5>— Don't —</h5>
+          <ul>
+            <li>Never bold, italicise, or outline the wordmark.</li>
+            <li>Never colour the whole wordmark in a single colour other than the three approved.</li>
+            <li>Never place over busy imagery without a solid block or 40%+ overlay behind it.</li>
+            <li>Never stretch, skew, rotate, or add drop shadows.</li>
+            <li>Never use tagline under 11px — it becomes illegible.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deliverables checklist -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">01.7</span>
+        <span class="spec-title">File deliverables</span>
+        <div class="spec-rule"></div>
+      </div>
+      <table>
+        <tr><td class="k">Master file</td><td class="v">Offbeat-Peak_HL_Wordmark.ai (Adobe Illustrator) &nbsp;·&nbsp; outlined text</td></tr>
+        <tr><td class="k">Vectors</td><td class="v">SVG — wordmark primary, wordmark reversed, monogram, tagline lockup</td></tr>
+        <tr><td class="k">Raster</td><td class="v">PNG @ 1x, 2x, 3x &nbsp;·&nbsp; transparent background &nbsp;·&nbsp; on Bone, on Forest Ink</td></tr>
+        <tr><td class="k">Favicons</td><td class="v">16, 32, 48, 180 (apple-touch), 192, 512 PNG &nbsp;·&nbsp; favicon.ico</td></tr>
+        <tr><td class="k">Social avatar</td><td class="v">400×400 PNG &nbsp;·&nbsp; monogram on Clay</td></tr>
+        <tr><td class="k">OG image</td><td class="v">1200×630 PNG &nbsp;·&nbsp; wordmark on Forest Ink</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DIRECTION 02 — SILK HORIZON                      -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <section class="direction">
+    <div class="direction-head">
+      <div class="direction-num">02</div>
+      <div>
+        <span class="direction-tag">— Direction 02 —</span>
+        <div class="direction-name">Silk Horizon</div>
+      </div>
+      <div class="direction-handle">Quiet Asian modern</div>
+    </div>
+
+    <!-- Primary lockup -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.1</span>
+        <span class="spec-title">Primary lockup</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="stage sh">
+        <div class="sh-primary">Offbeat <em>Peak</em></div>
+        <div class="sh-sub">A studio <span class="dot">·</span> for slow journeys <span class="dot">·</span> across Asia</div>
+      </div>
+
+      <table>
+        <tr><td class="k">Wordmark text</td><td class="v"><strong>Offbeat Peak</strong> — two words, capital O and capital P, single space between</td></tr>
+        <tr><td class="k">Style split</td><td class="v">"Offbeat" = Fraunces Light (weight 200) &nbsp;·&nbsp; "Peak" = Instrument Serif Italic</td></tr>
+        <tr><td class="k">Tagline (optional)</td><td class="v">A studio · for slow journeys · across Asia</td></tr>
+        <tr><td class="k">Tagline colour</td><td class="v">Shadow &nbsp;·&nbsp; dots in Sand</td></tr>
+        <tr><td class="k">Tagline gap</td><td class="v">32px below the wordmark baseline</td></tr>
+      </table>
+    </div>
+
+    <!-- Typography -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.2</span>
+        <span class="spec-title">Typography</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Font</th>
+          <th>Weight</th>
+          <th>Tracking</th>
+          <th>Source</th>
+        </tr>
+        <tr>
+          <td class="v"><strong>Wordmark — "Offbeat"</strong></td>
+          <td class="v">Fraunces</td>
+          <td class="v">200 · ExtraLight</td>
+          <td class="v">−0.03em</td>
+          <td class="v">Google Fonts (variable)</td>
+        </tr>
+        <tr>
+          <td class="v"><strong>Wordmark — "Peak"</strong></td>
+          <td class="v">Instrument Serif</td>
+          <td class="v">400 · Italic</td>
+          <td class="v">−0.03em</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+        <tr>
+          <td class="v"><strong>Tagline</strong></td>
+          <td class="v">Commissioner</td>
+          <td class="v">500 · Medium</td>
+          <td class="v">+0.6em, uppercase</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+        <tr>
+          <td class="v"><strong>Monogram</strong></td>
+          <td class="v">Instrument Serif</td>
+          <td class="v">400 · Italic</td>
+          <td class="v">−0.02em</td>
+          <td class="v">Google Fonts</td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 24px;">
+        <div class="code-block">
+<span class="c">/* Font loading — paste in &lt;head&gt; */</span>
+<span class="k">@import</span> <span class="s">url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200..400&family=Instrument+Serif:ital@0;1&family=Commissioner:wght@400;500&display=swap')</span>;
+
+<span class="c">/* Primary wordmark CSS */</span>
+.wordmark {
+  font-family: <span class="s">'Fraunces', serif</span>;
+  font-weight: <span class="s">200</span>;
+  font-size: <span class="s">112px</span>;
+  letter-spacing: <span class="s">-0.03em</span>;
+  line-height: <span class="s">1</span>;
+  color: <span class="s">#15181C</span>;
+  font-variation-settings: <span class="s">"opsz" 144, "SOFT" 50</span>;
+}
+.wordmark em {
+  font-family: <span class="s">'Instrument Serif', serif</span>;
+  font-style: <span class="s">italic</span>;
+  font-weight: <span class="s">400</span>;
+  color: <span class="s">#2A3445</span>;
+}
+
+.tagline {
+  font-family: <span class="s">'Commissioner', sans-serif</span>;
+  font-weight: <span class="s">500</span>;
+  font-size: <span class="s">10px</span>;
+  letter-spacing: <span class="s">0.6em</span>;
+  text-transform: <span class="s">uppercase</span>;
+  color: <span class="s">#717A85</span>;
+  margin-top: <span class="s">32px</span>;
+}
+.tagline .dot { color: <span class="s">#D9C9A8</span>; margin: <span class="s">0 10px</span>; }
+        </div>
+      </div>
+    </div>
+
+    <!-- Colours -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.3</span>
+        <span class="spec-title">Colour system</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>HEX</th>
+          <th>RGB</th>
+          <th>CMYK</th>
+          <th>Pantone</th>
+        </tr>
+        <tr>
+          <td class="v">Primary</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#15181C"></span><strong>Ink</strong></div></td>
+          <td class="v">#15181C</td>
+          <td class="v">21, 24, 28</td>
+          <td class="v">75 / 65 / 55 / 80</td>
+          <td class="v">Black 6 C</td>
+        </tr>
+        <tr>
+          <td class="v">Accent (italic)</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#2A3445"></span><strong>Dusk Indigo</strong></div></td>
+          <td class="v">#2A3445</td>
+          <td class="v">42, 52, 69</td>
+          <td class="v">75 / 60 / 40 / 55</td>
+          <td class="v">2380 C</td>
+        </tr>
+        <tr>
+          <td class="v">Tagline</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#717A85"></span><strong>Shadow</strong></div></td>
+          <td class="v">#717A85</td>
+          <td class="v">113, 122, 133</td>
+          <td class="v">55 / 40 / 30 / 25</td>
+          <td class="v">430 C</td>
+        </tr>
+        <tr>
+          <td class="v">Tagline dot</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#D9C9A8"></span><strong>Sand</strong></div></td>
+          <td class="v">#D9C9A8</td>
+          <td class="v">217, 201, 168</td>
+          <td class="v">15 / 18 / 40 / 0</td>
+          <td class="v">7501 C</td>
+        </tr>
+        <tr>
+          <td class="v">Ground</td>
+          <td class="v"><div class="color-row"><span class="color-chip" style="background:#F2EDE4"></span><strong>Ivory</strong></div></td>
+          <td class="v">#F2EDE4</td>
+          <td class="v">242, 237, 228</td>
+          <td class="v">5 / 5 / 10 / 0</td>
+          <td class="v">9184 C</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Variants -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.4</span>
+        <span class="spec-title">Variants &amp; lockups</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="variants">
+        <div class="variant variant-sh-light">
+          <div class="vsh">Offbeat <em>Peak</em></div>
+          <div class="variant-cap">— Primary · on Ivory —</div>
+        </div>
+        <div class="variant variant-sh-dark">
+          <div class="vsh">Offbeat <em>Peak</em></div>
+          <div class="variant-cap">— Reversed · on Dusk Indigo —</div>
+        </div>
+        <div class="variant variant-sh-sand">
+          <div class="vsh-mono">op.</div>
+          <div class="variant-cap">— Monogram · on Sand —</div>
+        </div>
+      </div>
+
+      <table style="margin-top: 24px;">
+        <tr><td class="k">Primary variant</td><td class="v">Ink Fraunces 200 + Dusk Indigo Instrument Serif Italic on Ivory. Use 90% of the time.</td></tr>
+        <tr><td class="k">Reversed variant</td><td class="v">Ivory text on Dusk Indigo ground. The italic "Peak" shifts to Sand for contrast.</td></tr>
+        <tr><td class="k">Monogram "op."</td><td class="v">Lowercase, italic, with a period. Social avatars, favicon, seals. Minimum 32×32px.</td></tr>
+      </table>
+    </div>
+
+    <!-- Sizing -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.5</span>
+        <span class="spec-title">Sizing &amp; clear space</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <table>
+            <tr><td class="k">Minimum size (digital)</td><td class="v">28px cap height</td></tr>
+            <tr><td class="k">Minimum size (print)</td><td class="v">12mm / 34pt</td></tr>
+            <tr><td class="k">Preferred hero size</td><td class="v">112–160px cap height</td></tr>
+            <tr><td class="k">Navigation size</td><td class="v">22–26px cap height</td></tr>
+            <tr><td class="k">Business card</td><td class="v">28–32px cap height</td></tr>
+            <tr><td class="k">Favicon</td><td class="v">Monogram "op." only, 32×32 / 180×180</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="cs-diagram">
+            <div class="cs-box sh">
+              <div style="font-family:'Fraunces',serif; font-weight: 200; font-size: 40px; color:#15181C; letter-spacing: -0.02em; line-height: 1; font-variation-settings:'opsz' 144, 'SOFT' 50;">Offbeat <em style="font-family:'Instrument Serif',serif; color:#2A3445; font-weight:400;">Peak</em></div>
+            </div>
+            <div class="cs-caption">Clear space = 1.5× cap height of "O" on all four sides</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Do / Don't -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.6</span>
+        <span class="spec-title">Usage rules</span>
+        <div class="spec-rule"></div>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rules-box do">
+          <h5>— Do —</h5>
+          <ul>
+            <li>Always keep "Peak" in italic Instrument Serif — the italic is the signature.</li>
+            <li>Hold Fraunces at weight 200 for the wordmark. Heavier weights break the quiet.</li>
+            <li>Maintain 1.5× cap-height of clear space around the mark.</li>
+            <li>Use Sand for tagline dots only — nowhere else within the wordmark.</li>
+            <li>Use the "op." monogram with the lowercase period included. It is part of the mark.</li>
+          </ul>
+        </div>
+        <div class="rules-box dont">
+          <h5>— Don't —</h5>
+          <ul>
+            <li>Never bold the wordmark. Never use Fraunces above weight 400.</li>
+            <li>Never remove the italic on "Peak" — the whole mark depends on it.</li>
+            <li>Never use the wordmark in Sand or Jade — both lack contrast on Ivory.</li>
+            <li>Never stack the two words vertically. Always horizontal.</li>
+            <li>Never place over photography without a 50%+ dark overlay underneath.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deliverables -->
+    <div class="spec-section">
+      <div class="spec-head">
+        <span class="spec-num">02.7</span>
+        <span class="spec-title">File deliverables</span>
+        <div class="spec-rule"></div>
+      </div>
+      <table>
+        <tr><td class="k">Master file</td><td class="v">Offbeat-Peak_SH_Wordmark.ai (Adobe Illustrator) &nbsp;·&nbsp; outlined text</td></tr>
+        <tr><td class="k">Vectors</td><td class="v">SVG — wordmark primary, wordmark reversed, monogram "op.", tagline lockup</td></tr>
+        <tr><td class="k">Raster</td><td class="v">PNG @ 1x, 2x, 3x &nbsp;·&nbsp; transparent background &nbsp;·&nbsp; on Ivory, on Dusk Indigo</td></tr>
+        <tr><td class="k">Favicons</td><td class="v">16, 32, 48, 180 (apple-touch), 192, 512 PNG &nbsp;·&nbsp; favicon.ico</td></tr>
+        <tr><td class="k">Social avatar</td><td class="v">400×400 PNG &nbsp;·&nbsp; "op." monogram on Sand</td></tr>
+        <tr><td class="k">OG image</td><td class="v">1200×630 PNG &nbsp;·&nbsp; wordmark on Dusk Indigo</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+
+  <!-- Quick reference -->
+  <section class="direction">
+    <div class="direction-head">
+      <div class="direction-num">03</div>
+      <div>
+        <span class="direction-tag">— Quick reference —</span>
+        <div class="direction-name">At-a-glance comparison</div>
+      </div>
+      <div class="direction-handle">For handover</div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Detail</th>
+        <th>Direction 01 — Highland Heirloom</th>
+        <th>Direction 02 — Silk Horizon</th>
+      </tr>
+      <tr>
+        <td class="k">Wordmark font (primary)</td>
+        <td class="v">Italiana · 400</td>
+        <td class="v">Fraunces · 200 · opsz 144</td>
+      </tr>
+      <tr>
+        <td class="k">Wordmark font (accent)</td>
+        <td class="v">— (same font, colour split)</td>
+        <td class="v">Instrument Serif · 400 · Italic</td>
+      </tr>
+      <tr>
+        <td class="k">Tagline font</td>
+        <td class="v">IBM Plex Mono · 400</td>
+        <td class="v">Commissioner · 500</td>
+      </tr>
+      <tr>
+        <td class="k">Primary colour</td>
+        <td class="v">#1F2D24 · Forest Ink</td>
+        <td class="v">#15181C · Ink</td>
+      </tr>
+      <tr>
+        <td class="k">Accent colour</td>
+        <td class="v">#A85438 · Clay</td>
+        <td class="v">#2A3445 · Dusk Indigo</td>
+      </tr>
+      <tr>
+        <td class="k">Tagline colour</td>
+        <td class="v">#B07D3B · Ochre</td>
+        <td class="v">#717A85 · Shadow</td>
+      </tr>
+      <tr>
+        <td class="k">Ground colour</td>
+        <td class="v">#F2ECDD · Bone</td>
+        <td class="v">#F2EDE4 · Ivory</td>
+      </tr>
+      <tr>
+        <td class="k">Wordmark tracking</td>
+        <td class="v">+0.02em (open)</td>
+        <td class="v">−0.03em (tight)</td>
+      </tr>
+      <tr>
+        <td class="k">Minimum digital size</td>
+        <td class="v">32px cap height</td>
+        <td class="v">28px cap height</td>
+      </tr>
+      <tr>
+        <td class="k">Monogram</td>
+        <td class="v">OP (uppercase, Italiana)</td>
+        <td class="v">op. (lowercase italic with period, Instrument Serif)</td>
+      </tr>
+      <tr>
+        <td class="k">All fonts free?</td>
+        <td class="v">Yes — Google Fonts</td>
+        <td class="v">Yes — Google Fonts</td>
+      </tr>
+      <tr>
+        <td class="k">License</td>
+        <td class="v">SIL Open Font License — commercial OK</td>
+        <td class="v">SIL Open Font License — commercial OK</td>
+      </tr>
+    </table>
+  </section>
+
+
+  <div class="foot">
+    <span>— Offbeat Peak · Wordmark Spec · v1.0 —</span>
+    <span>— End of document —</span>
+  </div>
+
+</div>
+
+</body>
+</html>
