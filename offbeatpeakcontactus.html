@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Offbeat Peak | Say hi, ask a question, plan a trip</title>
+<meta name="description" content="Reach us on WhatsApp, email, or the form. A real human replies to every message within 4 hours during business hours. Usually faster.">
+<link rel="canonical" href="https://offbeatpeak.com/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Commissioner:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="offbeat-peak.css">
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: start; }
+.contact-form-card { background: var(--parchment); border-radius: 20px; padding: 50px; box-shadow: 0 40px 80px -40px rgba(47, 74, 58, 0.25); position: relative; }
+.contact-form-card::before { content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 120px; height: 24px; background: var(--mustard); opacity: 0.55; border-radius: 3px; }
+.contact-form-card h2 { font-family: var(--serif); font-size: 36px; line-height: 1.1; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 10px; }
+.contact-form-card h2 em { font-style: italic; color: var(--terracotta); }
+.contact-form-card .sub { font-size: 15px; color: var(--dusk); line-height: 1.7; margin-bottom: 32px; }
+.field { margin-bottom: 22px; }
+.field label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 10px; font-weight: 500; }
+.field input, .field select, .field textarea { width: 100%; padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--cream); color: var(--forest); font-size: 15px; transition: all 0.2s; font-family: var(--sans); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--terracotta); background: var(--parchment); }
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.field select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%232f4a3a' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 40px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-submit { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding-top: 10px; }
+.form-submit .note { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--muted); font-weight: 500; }
+
+.channels { display: flex; flex-direction: column; gap: 20px; }
+.channel { background: var(--parchment); border-radius: 14px; padding: 28px; display: flex; gap: 20px; align-items: center; transition: all 0.3s; }
+.channel:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -15px rgba(47, 74, 58, 0.2); }
+.channel.whatsapp { background: var(--forest); color: var(--cream); }
+.channel-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--sage); color: var(--forest-deep); display: grid; place-items: center; flex-shrink: 0; transition: all 0.3s; }
+.channel.whatsapp .channel-icon { background: var(--mustard); color: var(--forest-deep); }
+.channel:hover .channel-icon { transform: rotate(-8deg); }
+.channel-icon svg { width: 22px; height: 22px; }
+.channel-body { flex-grow: 1; }
+.channel-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; color: var(--forest); margin-bottom: 4px; }
+.channel.whatsapp .channel-body h3 { color: var(--cream); }
+.channel-body h3 em { font-style: italic; color: var(--terracotta); }
+.channel.whatsapp .channel-body h3 em { color: var(--mustard); }
+.channel-body p { font-size: 14px; color: var(--dusk); line-height: 1.5; }
+.channel.whatsapp .channel-body p { color: rgba(246,241,231,0.78); }
+.channel-value { font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; color: var(--forest); font-weight: 500; margin-top: 4px; }
+.channel.whatsapp .channel-value { color: var(--mustard); }
+.channel-arrow { width: 40px; height: 40px; border-radius: 50%; background: var(--cream); color: var(--forest); display: grid; place-items: center; flex-shrink: 0; transition: all 0.3s; }
+.channel:hover .channel-arrow { background: var(--terracotta); color: var(--cream); transform: rotate(-45deg); }
+.channel.whatsapp .channel-arrow { background: var(--mustard); color: var(--forest-deep); }
+.channel.whatsapp:hover .channel-arrow { background: var(--cream); }
+.channel-arrow svg { width: 14px; height: 14px; }
+
+.hours-box { background: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 26px; margin-top: 12px; }
+.hours-box h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; font-weight: 500; }
+.hours-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--dusk); }
+.hours-row:last-child { border-bottom: none; padding-bottom: 0; }
+.hours-row:first-child { padding-top: 0; }
+.hours-row strong { color: var(--forest); font-weight: 500; }
+
+.location-section { padding: 120px 0; background: var(--parchment); }
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.location-visual { aspect-ratio: 4/3; border-radius: 14px; overflow: hidden; background: var(--sage); position: relative; box-shadow: 0 30px 60px -20px rgba(47, 74, 58, 0.3); }
+.location-visual img { width: 100%; height: 100%; object-fit: cover; }
+.location-tag { position: absolute; top: 20px; left: 20px; background: rgba(30, 49, 39, 0.9); color: var(--cream); padding: 10px 16px; border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; backdrop-filter: blur(8px); font-weight: 500; z-index: 2; }
+.location-coord { position: absolute; bottom: 20px; right: 20px; background: var(--mustard); color: var(--forest-deep); padding: 10px 16px; border-radius: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; font-weight: 600; z-index: 2; }
+.location-text h2 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 52px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 18px; }
+.location-text h2 em { font-style: italic; color: var(--terracotta); }
+.location-text p { font-size: 17px; color: var(--dusk); line-height: 1.8; margin-bottom: 16px; }
+.location-text p strong { color: var(--forest); font-weight: 500; }
+
+@media (max-width: 1100px) {
+  .contact-grid, .location-grid { grid-template-columns: 1fr; gap: 50px; }
+  .contact-form-card { padding: 40px 30px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right"><a href="#">EN / हिं</a><a href="#">₹ INR</a><a href="/contact.html">Support</a></div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em>Peak</em></a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="container"><div class="breadcrumb"><a href="/index.html">Home</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Contact</span></div></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner" style="max-width: 900px;">
+      <div class="hero-label">4-hour reply · real humans only <span class="pulse-dot"></span></div>
+      <div class="hero-hand">hi. we'd love to hear from you —</div>
+      <h1 class="hero-h1">Four ways to reach us. <em>None</em> of them are chatbots.</h1>
+      <p class="hero-sub">WhatsApp is fastest. Email if it's long. The form below if you want us to get back with a trip idea. Or, if you're ever in the Himalayas, <strong>just come find us</strong> — we're almost always in Tirthan or somewhere in Sikkim. Directions below.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Form -->
+      <div class="contact-form-card reveal">
+        <h2>Drop us a <em>note</em>.</h2>
+        <p class="sub">We read every message — not just scan it. Tell us what's on your mind and we'll reply in 4 hours during business hours, otherwise by next morning.</p>
+
+        <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll reply within 4 hours.'); this.reset();">
+          <div class="field-row">
+            <div class="field"><label>Your name<span style="color: var(--terracotta);">*</span></label><input type="text" required placeholder="Priya Sharma"></div>
+            <div class="field"><label>Email<span style="color: var(--terracotta);">*</span></label><input type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="field"><label>WhatsApp (optional, but faster)</label><input type="tel" placeholder="+91 9xxxx xxxxx"></div>
+          <div class="field"><label>What's this about?</label><select>
+            <option>I want to plan a trip</option>
+            <option>Custom itinerary question</option>
+            <option>Group trip enquiry</option>
+            <option>Partnership / homestay owner</option>
+            <option>Press / media</option>
+            <option>Feedback on my trip</option>
+            <option>Something else</option>
+          </select></div>
+          <div class="field"><label>Your message<span style="color: var(--terracotta);">*</span></label><textarea required placeholder="Tell us everything — we'll read it properly."></textarea></div>
+          <div class="form-submit">
+            <button type="submit" class="btn-mustard">Send it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+            <span class="note">Usually replied in 2–4 hours</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Channels -->
+      <div class="reveal">
+        <div class="channels">
+
+          <a href="https://wa.me/919876543210" class="channel whatsapp">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="channel-body">
+              <h3>WhatsApp — <em>fastest</em></h3>
+              <p>The quickest way to reach a real person. Usually replied in 45 minutes.</p>
+              <div class="channel-value">+91 98765 43210</div>
+            </div>
+            <div class="channel-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </a>
+
+          <a href="mailto:hello@offbeatpeak.com" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="channel-body">
+              <h3>Email — <em>longer stuff</em></h3>
+              <p>For detailed trip requests, partnerships, or anything needing attachments.</p>
+              <div class="channel-value">hello@offbeatpeak.com</div>
+            </div>
+            <div class="channel-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </a>
+
+          <a href="/plan-my-trip.html" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="channel-body">
+              <h3>Custom trip <em>form</em></h3>
+              <p>If you already know you want a trip built — start here, skip the back-and-forth.</p>
+              <div class="channel-value">/plan-my-trip</div>
+            </div>
+            <div class="channel-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </a>
+
+          <a href="#" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div class="channel-body">
+              <h3>Instagram — <em>informal</em></h3>
+              <p>DMs open. We post field notes from wherever the team is. Fair warning: lots of cows.</p>
+              <div class="channel-value">@offbeatpeak</div>
+            </div>
+            <div class="channel-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </a>
+        </div>
+
+        <div class="hours-box">
+          <h4>When we're here</h4>
+          <div class="hours-row"><span>Monday – Friday</span><strong>10am – 7pm IST</strong></div>
+          <div class="hours-row"><span>Saturday</span><strong>11am – 4pm IST</strong></div>
+          <div class="hours-row"><span>Sunday</span><strong>Closed (but Arjun still replies)</strong></div>
+          <div class="hours-row"><span>Public holidays</span><strong>Partial — WhatsApp only</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location-section">
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-visual reveal">
+        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1000&q=80" alt="Tirthan Valley office location">
+        <span class="location-tag">Our base</span>
+        <span class="location-coord">31.59°N · 77.43°E</span>
+      </div>
+      <div class="location-text reveal">
+        <div class="sec-kicker">Where we're based</div>
+        <h2>A wooden house in <em>Tirthan</em> Valley.</h2>
+        <p>Our HQ — and we use the word loosely — is a two-story wooden house in Gushaini, Tirthan Valley. <strong>4 hours from Chandigarh</strong>, 30 minutes from the last cell tower. No dress code. Excellent chai.</p>
+        <p>If you're passing through, we genuinely love meeting travelers in person. Drop a WhatsApp first so we can put the kettle on — the local kind, not the electric one.</p>
+        <p><strong>Postal address</strong> (for legal things and surprise packages):<br>
+          Offbeat Peak Studio, Gushaini Village, Tirthan Valley<br>
+          Banjar Tehsil, Kullu — 175123, Himachal Pradesh, India</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <div class="final-cta-kicker">p.s. —</div>
+      <h2>We also reply to <em>good memes</em>.</h2>
+      <p>But if you've got an actual trip to plan, the form above is faster. We won't ghost you. We won't spam you. We'll just help you find somewhere worth going.</p>
+      <div class="final-btns">
+        <a href="/plan-my-trip.html" class="btn-big">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/faq.html" class="btn-outline">Check the FAQ first</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em style="color: var(--mustard);">Peak</em></a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/testimonials.html">Testimonials</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
