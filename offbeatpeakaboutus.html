@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Offbeat Peak | The story, the why, the people</title>
+<meta name="description" content="We started Offbeat Peak because every travel site had stopped going to the places. We're a 6-person studio based in the Himalayas, walking every trail before we sell it.">
+<link rel="canonical" href="https://offbeatpeak.com/about">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Commissioner:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="offbeat-peak.css">
+<style>
+.story-hero { padding: 70px 0 80px; position: relative; overflow: hidden; background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%); }
+.story-hero::before { content: ""; position: absolute; top: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(70px); animation: floatGentle 14s ease-in-out infinite; pointer-events: none; }
+.story-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+.story-hand { font-family: var(--hand); font-size: 28px; color: var(--terracotta); margin-bottom: 20px; display: inline-block; transform: rotate(-2deg); animation: wiggle 4s ease-in-out infinite; }
+.story-hero h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 104px); line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 24px; }
+.story-hero h1 em { font-style: italic; color: var(--terracotta); }
+.story-hero p { font-size: 18px; color: var(--dusk); line-height: 1.8; max-width: 560px; }
+.story-hero p strong { color: var(--forest); font-weight: 500; }
+.story-visual { position: relative; aspect-ratio: 4/5; }
+.story-img { position: absolute; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(47, 74, 58, 0.3); transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.story-img img { width: 100%; height: 100%; object-fit: cover; }
+.story-img-1 { top: 0; left: 0; width: 68%; height: 70%; transform: rotate(-3deg); z-index: 2; }
+.story-img-2 { bottom: 0; right: 0; width: 58%; height: 55%; transform: rotate(5deg); z-index: 1; }
+.story-visual:hover .story-img-1 { transform: rotate(-6deg) translate(-8px, -4px); }
+.story-visual:hover .story-img-2 { transform: rotate(7deg) translate(8px, 4px); }
+.story-note { position: absolute; top: 42%; left: -8%; background: var(--mustard); color: var(--forest-deep); padding: 12px 18px; font-family: var(--hand); font-size: 22px; line-height: 1.2; transform: rotate(-6deg); box-shadow: 0 10px 20px -8px rgba(47, 74, 58, 0.3); max-width: 170px; z-index: 3; }
+
+/* Story section */
+.story-section { padding: 120px 0; background: var(--cream); }
+.story-wrap { max-width: 780px; margin: 0 auto; }
+.story-wrap h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin: 50px 0 20px; }
+.story-wrap h2 em { font-style: italic; color: var(--terracotta); }
+.story-wrap h2:first-child { margin-top: 0; }
+.story-wrap p { font-size: 18px; color: var(--dusk); line-height: 1.85; margin-bottom: 20px; }
+.story-wrap p strong { color: var(--forest); font-weight: 500; }
+.story-wrap p em { color: var(--terracotta); font-family: var(--serif); font-style: italic; }
+.story-pullquote { margin: 50px -40px; padding: 30px 40px; border-left: 4px solid var(--terracotta); background: var(--parchment); border-radius: 0 12px 12px 0; font-family: var(--serif); font-size: 26px; line-height: 1.3; color: var(--forest); font-style: italic; font-weight: 400; }
+.story-pullquote em { color: var(--terracotta); }
+.story-signature { margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--line); }
+.story-signature p { font-family: var(--hand); font-size: 32px; color: var(--terracotta); margin-bottom: 8px; }
+.story-signature small { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+/* Values */
+.values-section { padding: 140px 0; background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+.values-section::before { content: ""; position: absolute; top: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.3; filter: blur(80px); animation: floatGentle 16s ease-in-out infinite; }
+.values-section .sec-kicker { color: var(--mustard); }
+.values-section .sec-kicker::before { background: var(--mustard); }
+.values-section .sec-title { color: var(--cream); }
+.values-section .sec-title em { color: var(--mustard); }
+.values-section .sec-sub { color: rgba(246, 241, 231, 0.72); }
+.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; position: relative; z-index: 2; }
+.value-card { background: rgba(246, 241, 231, 0.06); border: 1px solid rgba(246, 241, 231, 0.14); border-radius: 14px; padding: 40px; transition: all 0.3s; }
+.value-card:hover { background: rgba(246, 241, 231, 0.1); border-color: rgba(246, 241, 231, 0.22); transform: translateY(-6px); }
+.value-num { font-family: var(--hand); font-size: 48px; color: var(--mustard); line-height: 1; margin-bottom: 16px; opacity: 0.85; }
+.value-card h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 14px; }
+.value-card h3 em { font-style: italic; color: var(--mustard); }
+.value-card p { font-size: 15px; line-height: 1.75; opacity: 0.88; }
+.value-card p strong { color: var(--mustard); font-weight: 500; }
+
+/* Timeline */
+.timeline-section { padding: 140px 0; background: var(--cream); position: relative; overflow: hidden; }
+.timeline-section::before { content: ""; position: absolute; bottom: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.25; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; }
+.timeline-wrap { max-width: 780px; margin: 0 auto; position: relative; z-index: 2; }
+.timeline { position: relative; padding-left: 50px; }
+.timeline::before { content: ""; position: absolute; left: 14px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.time-item { position: relative; padding-bottom: 50px; }
+.time-item::before { content: ""; position: absolute; left: -43px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--terracotta); border: 4px solid var(--cream); box-shadow: 0 0 0 1px var(--line); }
+.time-item:last-child { padding-bottom: 0; }
+.time-year { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 8px; font-weight: 500; }
+.time-item h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; color: var(--forest); margin-bottom: 10px; }
+.time-item h3 em { font-style: italic; color: var(--terracotta); }
+.time-item p { font-size: 16px; color: var(--dusk); line-height: 1.75; }
+.time-item p strong { color: var(--forest); font-weight: 500; }
+
+.stats-strip { padding: 80px 0; background: var(--parchment); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+.stat-item h3 { font-family: var(--serif); font-size: 56px; line-height: 1; color: var(--terracotta); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 10px; }
+.stat-item p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+@media (max-width: 1100px) {
+  .story-hero-grid { grid-template-columns: 1fr; gap: 50px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .story-pullquote { margin-left: 0; margin-right: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right"><a href="#">EN / हिं</a><a href="#">₹ INR</a><a href="/contact.html">Support</a></div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em>Peak</em></a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html" class="active">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="container"><div class="breadcrumb"><a href="/index.html">Home</a><span>/</span><span style="color: var(--forest); font-weight: 500;">About</span></div></div>
+
+<section class="story-hero">
+  <div class="container">
+    <div class="story-hero-grid">
+      <div class="reveal">
+        <div class="story-hand">the short version —</div>
+        <h1>We're six people who got <em>tired</em> of bad travel.</h1>
+        <p>Based in the Himalayas, mostly <strong>lost somewhere else</strong>. We started Offbeat Peak because every travel site had stopped actually going to the places. We've walked every trail we list. Eaten at every kitchen. Slept at every homestay. That's the whole secret.</p>
+      </div>
+      <div class="story-visual reveal">
+        <div class="story-img story-img-1"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Founder on a Himalayan trek"></div>
+        <div class="story-img story-img-2"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80" alt="Homestay in Himachal"></div>
+        <div class="story-note">two years in. still losing sleep over it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><h3>612</h3><p>Travelers sent somewhere good</p></div>
+      <div class="stat-item"><h3>140+</h3><p>Places walked, slept in, eaten at</p></div>
+      <div class="stat-item"><h3>87</h3><p>Homestay families who know us</p></div>
+      <div class="stat-item"><h3>4.9★</h3><p>From 612 paid-up reviews</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-section">
+  <div class="container">
+    <div class="story-wrap reveal">
+      <h2>The <em>beginning</em>.</h2>
+      <p>In April 2023, Arjun and Priya came back from a nine-day "curated cultural journey" across Rajasthan. They'd paid ₹84,000 each. They'd seen four cities, three forts, two gimmicky cooking classes, and zero people they'd remember a year later. On the flight back they did what bitter people often do — <strong>complained for two hours</strong>.</p>
+      <p>By the landing, the complaint had turned into a list. By the following week, the list had turned into a spreadsheet. By the following month, we had 31 places across four Indian states that we'd actually <em>lived</em> in, or had friends living in, and a simple idea:</p>
+      <div class="story-pullquote">"What if a travel company only ever sold what it <em>knew</em>?"</div>
+      <p>We registered the domain that weekend. We didn't know what we were doing. We still don't, most days. But every place we've listed since then has been walked by at least one of us, and that one rule has kept the business honest.</p>
+
+      <h2>The <em>name</em>.</h2>
+      <p>Offbeat Peak is a contradiction on purpose. A "peak" is usually the most famous spot — the one everyone photographs, crowds on, posts about. <strong>"Offbeat" is the refusal</strong>. We wanted a name that promised both — something meaningful, but not something everyone has already been to. Like a peak that not every trekker knows the name of. Those are the best ones.</p>
+
+      <h2>What we <em>won't</em> do.</h2>
+      <p>We won't add a destination we haven't been to. We won't recommend a homestay we haven't slept at. We won't stuff itineraries with "must-sees" just to make them look full. We won't take commissions from hotel chains that corrupt our recommendations. We won't run the 50-person bus tours that pollute the very villages we love.</p>
+      <p>We will, however, take <strong>responsibility when something goes wrong</strong>. We'll rebook your stays if roads close. We'll call a doctor if you need one. We'll sit with you on WhatsApp at 11pm when your flight delayed. These aren't policies. They're what normal people do for each other.</p>
+
+      <h2>What we're <em>building</em> towards.</h2>
+      <p>Slow, steady, and a little stubborn. We don't want to be the biggest travel brand in India. We want to be <strong>the one your trusted friend recommends</strong>. The one you come back to three times over five years. The one whose team you've met and whose opinions you respect.</p>
+      <p>By 2028, we want to have launched 12 destinations properly (Andaman and Nagaland are next). We want every single one to be something we'd send our mothers to. That's the bar.</p>
+
+      <div class="story-signature">
+        <p>— Arjun &amp; the Offbeat Peak team</p>
+        <small>Written from a homestay in Tirthan Valley, April 2026</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="container">
+    <div class="sec-head centered reveal">
+      <div class="sec-kicker">Things we believe</div>
+      <h2 class="sec-title">Six rules we <em>don't</em> break.</h2>
+      <p class="sec-sub">These aren't mission statements. They're the arguments we've had with each other, distilled into principles. They protect the travelers and the places we care about.</p>
+    </div>
+
+    <div class="values-grid reveal">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <h3>Walk before we <em>sell</em></h3>
+        <p>No listing goes live until someone on the team has spent at least three days there. <strong>No exceptions, no shortcuts</strong>.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <h3>Hosts are <em>family</em></h3>
+        <p>Our homestay hosts are in our phones. They text at 11pm to ask about our mothers. They get paid fairly and on time. Always.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <h3>Say no to the <em>wrong</em> trip</h3>
+        <p>If your brief doesn't match what we do well, we'll tell you. And send you to someone who does it better. <strong>Fit over revenue</strong>.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">04</div>
+        <h3>Small over <em>big</em></h3>
+        <p>Max 12 travelers per group. Max 8 homestays per destination. Max 2 destinations launched per year. Scale ruins the thing.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">05</div>
+        <h3>Honest <em>pricing</em></h3>
+        <p>Our margins are posted on every quote. No hidden markup, no "surge" fees, no surprise charges. <strong>If it's in the quote, it's the price</strong>.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">06</div>
+        <h3>Care after the <em>sale</em></h3>
+        <p>WhatsApp support during every trip. Rebooking at zero cost if things go sideways. We've done it 43 times. Zero travelers stranded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div class="timeline-wrap reveal">
+      <div class="sec-head centered" style="margin-bottom: 60px;">
+        <div class="sec-kicker">How we got here</div>
+        <h2 class="sec-title">A <em>short</em> timeline.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="time-item">
+          <div class="time-year">April 2023</div>
+          <h3>A <em>bad</em> trip to Rajasthan</h3>
+          <p>Arjun and Priya return from a packaged tour and realize they hate how travel has become. The idea for Offbeat Peak is born on a delayed IndiGo flight.</p>
+        </div>
+        <div class="time-item">
+          <div class="time-year">July 2023</div>
+          <h3>The <em>first</em> homestay</h3>
+          <p>We meet Asha Ji in Tirthan Valley. She becomes our first homestay host. Her siddu recipe is now the official company comfort food.</p>
+        </div>
+        <div class="time-item">
+          <div class="time-year">Feb 2024</div>
+          <h3>Our first <em>100</em> travelers</h3>
+          <p>Hit 100 trips sold. Realize we haven't paid ourselves in 8 months. Celebrate by paying ourselves ₹12,000 each.</p>
+        </div>
+        <div class="time-item">
+          <div class="time-year">Aug 2024</div>
+          <h3>Team grows to <em>six</em></h3>
+          <p>Niharika joins as trip designer. Ravi handles operations. Priya W. leads content. Our WhatsApp groups multiply.</p>
+        </div>
+        <div class="time-item">
+          <div class="time-year">Mar 2025</div>
+          <h3>First group trip <em>booked out</em></h3>
+          <p>Darjeeling–Sikkim group trip sells its 12 spots in 48 hours. <strong>We cry</strong>. Then start planning the next one.</p>
+        </div>
+        <div class="time-item">
+          <div class="time-year">Apr 2026</div>
+          <h3>612 <em>travelers</em>. Still small. Still here.</h3>
+          <p>Three years in. Andaman launches in July. Nagaland in December. The plan is to stay small, stay weird, and stay honest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <div class="final-cta-kicker">alright, enough about us —</div>
+      <h2>Let's talk about <em>your</em> trip.</h2>
+      <p>You've read more than most people do about a travel company. You clearly care about the details. So do we. Let's plan something you'll remember longer than the photos.</p>
+      <div class="final-btns">
+        <a href="/plan-my-trip.html" class="btn-big">Build me a trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/our-team.html" class="btn-outline">Meet the team first</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em style="color: var(--mustard);">Peak</em></a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/testimonials.html">Testimonials</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
