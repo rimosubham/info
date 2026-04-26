@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canva.in Case Study | Paul's Link Empire</title>
+<meta name="description" content="How we built authority for canva.in, Canva's first country-specific TLD, from zero to DR 70 in 12 months: across 12+ Indian languages, with zero link exchanges.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Devanagari&family=Noto+Sans+Bengali&family=Noto+Sans+Tamil&family=Noto+Sans+Telugu&family=Noto+Sans+Gujarati&family=Noto+Sans+Gurmukhi&family=Noto+Sans+Kannada&family=Noto+Sans+Malayalam&family=Noto+Sans+Oriya&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6ee;
+    --bg-soft: #f3ecd9;
+    --card-bg: #ffffff;
+    --card-bg-hover: #fdfaf1;
+    --text: #1f2510;
+    --text-muted: #5d6450;
+    --text-dim: #98998a;
+    --mustard: #c9a227;
+    --mustard-dark: #a8821a;
+    --olive: #7a8b47;
+    --olive-dark: #5e6e35;
+    --red: #b04545;
+    --border: rgba(31, 37, 16, 0.1);
+    --border-strong: rgba(31, 37, 16, 0.2);
+    --shadow-sm: 0 2px 8px rgba(31, 37, 16, 0.04);
+    --shadow-md: 0 8px 24px rgba(31, 37, 16, 0.08);
+    --shadow-lg: 0 16px 48px rgba(31, 37, 16, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--mustard); color: white; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(250, 246, 238, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; }
+  .brand {
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .brand-name {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--mustard);
+    letter-spacing: 0.5px;
+  }
+  .brand-by {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--olive-dark); }
+  .nav-cta {
+    background: var(--olive);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    font-size: 14px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover {
+    background: var(--olive-dark);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .nav-links li:not(:last-child) { display: none; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 110px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201, 162, 39, 0.12) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(122, 139, 71, 0.1) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; text-align: center; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+  .featured-pill {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--mustard), var(--mustard-dark));
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .hero-badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--olive);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.2rem, 5.2vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 .script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--mustard);
+    font-size: 1.15em;
+    letter-spacing: 0;
+  }
+  h1 .olive-script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--olive);
+    font-size: 1.15em;
+    letter-spacing: 0;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    color: var(--text-muted);
+    max-width: 740px;
+    margin: 0 auto 44px;
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .stat-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    .stat-card { padding: 22px; }
+  }
+
+  /* ===== SECTION BASICS ===== */
+  section { padding: 60px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--mustard);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  h2 .script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--mustard);
+    font-size: 1.15em;
+  }
+  .section-intro {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 740px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+
+  /* ===== CLIENT SECTION ===== */
+  .client-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .client-logo {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 18px;
+  }
+  .client-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .client-info > p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.65;
+    font-size: 0.98rem;
+  }
+  .client-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--mustard-dark);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .before-stats { display: grid; gap: 10px; }
+  .before-stats-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .before-stat {
+    background: rgba(176, 69, 69, 0.04);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .before-stat-name { font-size: 13px; color: var(--text-muted); }
+  .before-stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .client-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; }
+  }
+
+  /* ===== CHALLENGES ===== */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .challenge-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .challenge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(176, 69, 69, 0.3);
+  }
+  .challenge-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(176, 69, 69, 0.1);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .challenge-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .challenge-card p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) { .challenges-grid { grid-template-columns: 1fr; } }
+
+  /* ===== STRATEGY (TABBED) ===== */
+  .strategy-section { background: var(--bg-soft); }
+  .strategy-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .tab-btn:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .tab-btn.active {
+    background: var(--mustard);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.25);
+  }
+  .tab-btn .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    opacity: 0.65;
+  }
+  .tab-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 36px;
+    min-height: 320px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .tab-panel h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .tab-panel > p {
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .tab-panel ul { list-style: none; }
+  .tab-panel ul li {
+    color: var(--text-muted);
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 11px;
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+  .tab-panel ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--mustard);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .tab-panel ul li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .panel-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .tab-content { padding: 26px 22px; }
+    .tab-btn { padding: 10px 14px; font-size: 12px; }
+  }
+
+  /* ===== QUALITY BAR ===== */
+  .quality-section {
+    background:
+      radial-gradient(ellipse at top right, rgba(201, 162, 39, 0.06) 0%, transparent 50%),
+      var(--bg);
+  }
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .quality-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(16px);
+    box-shadow: var(--shadow-sm);
+  }
+  .quality-item.visible { opacity: 1; transform: translateY(0); }
+  .quality-item:hover {
+    border-color: var(--olive);
+    background: var(--card-bg-hover);
+  }
+  .quality-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .quality-text {
+    font-size: 0.88rem;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) { .quality-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .quality-grid { grid-template-columns: 1fr; } }
+
+  .quality-callout {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.12), rgba(122, 139, 71, 0.08));
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+    color: var(--text);
+    line-height: 1.5;
+    font-size: 1.05rem;
+  }
+  .quality-callout strong {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--mustard-dark);
+  }
+
+  /* ===== METRICS BAR ===== */
+  .metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .metric-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .metric-label {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .metric-flow {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .metric-from {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+    text-decoration-color: rgba(176, 69, 69, 0.5);
+  }
+  .metric-arrow { color: var(--text-dim); font-size: 1rem; }
+  .metric-to {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .metric-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) { .metrics-bar { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .metrics-bar { grid-template-columns: 1fr; } }
+
+  /* ===== CHART ===== */
+  .chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .chart-sub { font-size: 13px; color: var(--text-muted); }
+  .chart-badge {
+    background: var(--olive);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 7px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .chart-svg-wrap { position: relative; width: 100%; overflow: hidden; }
+  .chart-svg { width: 100%; height: 260px; display: block; }
+  .chart-line {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    transition: stroke-dashoffset 2.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .chart-card.animated .chart-line { stroke-dashoffset: 0; }
+  .chart-area { opacity: 0; transition: opacity 1.2s 1s; }
+  .chart-card.animated .chart-area { opacity: 1; }
+  .chart-axis {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    fill: var(--text-dim);
+  }
+  .chart-grid { stroke: rgba(31, 37, 16, 0.06); stroke-width: 1; }
+  .chart-x-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+  .chart-x-labels span { flex-shrink: 0; }
+  .chart-end-marker { opacity: 0; transition: opacity 0.5s 2.4s; }
+  .chart-card.animated .chart-end-marker { opacity: 1; }
+
+  /* ===== AI BREAKDOWN ===== */
+  .ai-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .ai-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: all 0.3s;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .ai-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .ai-card-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    margin: 0 auto 12px;
+    font-size: 14px;
+  }
+  .ai-card-name {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .ai-card-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  @media (max-width: 600px) { .ai-breakdown { grid-template-columns: 1fr; } }
+
+  .ai-note {
+    background: rgba(201, 162, 39, 0.07);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 14px;
+    padding: 20px 24px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .ai-note strong { color: var(--text); }
+
+  /* ===== LANGUAGES ===== */
+  .languages-section { background: var(--bg-soft); }
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .lang-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 16px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .lang-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--mustard);
+  }
+  .lang-script {
+    font-size: 1.95rem;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+  }
+  .lang-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: var(--text);
+  }
+  .lang-meta {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 900px) { .lang-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .lang-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== RESULTS LIST ===== */
+  .result-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .result-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .result-item:hover {
+    border-color: var(--olive);
+    transform: translateX(4px);
+  }
+  .result-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: rgba(122, 139, 71, 0.1);
+  }
+  .result-text h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .result-text p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 768px) { .result-list { grid-template-columns: 1fr; } }
+
+  /* ===== TIMELINE ===== */
+  .timeline-section { background: var(--bg-soft); }
+  .timeline {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding-left: 36px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--mustard), var(--olive));
+  }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mustard);
+    border: 3px solid var(--bg-soft);
+    box-shadow: 0 0 0 2px var(--mustard);
+  }
+  .timeline-date {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .timeline-item p {
+    color: var(--text-muted);
+    line-height: 1.55;
+    font-size: 0.94rem;
+  }
+
+  /* ===== DOMAINS ===== */
+  .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 12px;
+  }
+  .domain-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .domain-card::after {
+    content: '↗';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .domain-card:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .domain-card:hover::after {
+    color: var(--mustard);
+    transform: translate(2px, -2px);
+  }
+  .domain-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .domain-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .domain-meta { font-size: 12px; color: var(--text-muted); }
+  .domain-flag {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 11px;
+    background: rgba(201, 162, 39, 0.15);
+    color: var(--mustard-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    text-align: center;
+    padding: 70px 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .quote-mark {
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
+    line-height: 0.6;
+    color: var(--mustard);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  .quote {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 22px;
+    color: var(--text);
+  }
+  .quote-attr { color: var(--text-muted); font-size: 0.92rem; }
+  .quote-attr strong { color: var(--text); }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background:
+      radial-gradient(ellipse at top, rgba(201, 162, 39, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(122, 139, 71, 0.1) 0%, transparent 50%),
+      var(--bg);
+  }
+  .cta-card {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+  .cta-card h2 { margin-bottom: 14px; }
+  .cta-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    font-size: 14px;
+  }
+  .btn-primary {
+    background: var(--mustard);
+    color: white;
+  }
+  .btn-primary:hover {
+    background: var(--mustard-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(201, 162, 39, 0.3);
+  }
+  .btn-secondary {
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--olive);
+  }
+
+  /* ===== OTHER WORK ===== */
+  .other-work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .other-work {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    box-shadow: var(--shadow-sm);
+  }
+  .other-work:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .other-work-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .other-work h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.18rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .other-work p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .other-work-arrow {
+    color: var(--olive-dark);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) { .other-work-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer .footer-brand {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--mustard);
+    margin-bottom: 4px;
+  }
+  footer a { color: var(--olive-dark); text-decoration: none; font-weight: 500; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-name">Paul's Link Empire</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#challenge">Challenge</a></li>
+      <li><a href="#strategy">Strategy</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="spocket-case-study.html">Spocket</a></li>
+      <li><a href="winninghunter-case-study.html">WinningHunter</a></li>
+      <li><a href="#contact" class="nav-cta">Work with me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="featured-pill">Featured</span>
+        <span class="dot"></span>
+        Canva.in Case Study · 12-month engagement
+      </div>
+      <h1>
+        Building <span class="script">canva.in</span> from zero authority to <span class="olive-script">DR 70</span> in 12 months.
+      </h1>
+      <p class="hero-sub">
+        In 2025, Canva's traffic from India was in the global top 3. So Canva did something they had never done before: launch a country-specific top-level domain. Building authority for canva.in meant working across 12+ Indian languages, navigating a strict "no link exchange" policy, and shifting trust from canva.com to a brand-new domain. Here's how we did it.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-emoji">📊</span>
+          <div class="stat-num" data-target="70">0</div>
+          <div class="stat-label">Domain Rating built in 12 months</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">🌐</span>
+          <div class="stat-num" data-target="500" data-suffix="+">0</div>
+          <div class="stat-label">Referring domains earned (from zero)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">📈</span>
+          <div class="stat-num" data-target="456" data-suffix="K">0</div>
+          <div class="stat-label">Monthly organic visitors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENT ============ -->
+<section id="client">
+  <div class="container reveal">
+    <span class="section-label">The client</span>
+    <h2>Canva.in: a country-first launch</h2>
+    <p class="section-intro">India's traffic to Canva had been climbing for years. By 2025, it was in the global top 3. The team made a bold decision: launch the brand's first-ever country-specific TLD, with a dedicated India experience. The off-page strategy needed to match the ambition.</p>
+
+    <div class="client-card">
+      <div>
+        <div class="client-logo">CV</div>
+        <h3>canva.in</h3>
+        <p>Canva's first country-specific top-level domain. A dedicated India experience for one of the world's largest design platforms. The challenge: build authority for a brand-new domain in a market where users defaulted to canva.com, while operating across 12+ regional languages.</p>
+        <div class="client-tags">
+          <span class="tag">Design SaaS</span>
+          <span class="tag">India market</span>
+          <span class="tag">Multilingual</span>
+          <span class="tag">Country TLD</span>
+          <span class="tag">Enterprise scale</span>
+        </div>
+      </div>
+      <div class="before-stats">
+        <div class="before-stats-label">Starting point, early 2025</div>
+        <div class="before-stat">
+          <span class="before-stat-name">Domain Rating</span>
+          <span class="before-stat-value">0</span>
+        </div>
+        <div class="before-stat">
+          <span class="before-stat-name">Referring domains</span>
+          <span class="before-stat-value">0</span>
+        </div>
+        <div class="before-stat">
+          <span class="before-stat-name">Existing authority</span>
+          <span class="before-stat-value">None</span>
+        </div>
+        <div class="before-stat">
+          <span class="before-stat-name">Default user behavior</span>
+          <span class="before-stat-value">Going to .com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section id="challenge">
+  <div class="container reveal">
+    <span class="section-label">The constraints</span>
+    <h2>Four constraints that made this the hardest brief I'd ever worked on</h2>
+    <p class="section-intro">Every other engagement gives you tools. This one took them away. Each constraint forced new tactics that didn't exist in my previous playbook.</p>
+
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>No link exchanges allowed</h3>
+        <p>My biggest tactic across every prior engagement was off the table. Canva had a strict policy: no reciprocal link arrangements, no ABC swaps, no quid pro quo. Every link had to be earned without offering anything in return.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>A brand-new domain</h3>
+        <p>canva.in launched with zero authority. While canva.com had a DR in the high 90s, the new TLD started from absolute scratch. Authority had to be built, not transferred, while users globally still defaulted to .com.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>12+ regional languages</h3>
+        <p>India isn't a single market. After English, Hindi is widely spoken, but the country runs on Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia, and others. Outreach had to span all of them.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Authority signals to Google</h3>
+        <p>For Google to treat canva.in as the authoritative India destination (and not a low-trust regional clone), the link profile had to look like a credible India-native brand from day one. No spam, no shortcuts, no offshore link farms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRATEGY ============ -->
+<section class="strategy-section" id="strategy">
+  <div class="container reveal">
+    <span class="section-label">The strategy</span>
+    <h2>Four playbooks I had to invent from scratch</h2>
+    <p class="section-intro">When you can't use exchanges and the domain has zero authority, every comfortable tactic disappears. Click each tab to see the new playbooks I had to develop.</p>
+
+    <div class="strategy-tabs">
+      <button class="tab-btn active" data-tab="0"><span class="num">01</span> Phone Outreach</button>
+      <button class="tab-btn" data-tab="1"><span class="num">02</span> Brand Mention Plays</button>
+      <button class="tab-btn" data-tab="2"><span class="num">03</span> Competitor Reverse-Engineering</button>
+      <button class="tab-btn" data-tab="3"><span class="num">04</span> Multilingual Regional Push</button>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-panel active" data-panel="0">
+        <span class="panel-tag">Unconventional</span>
+        <h3>Telephonic Outreach to Local Magazines</h3>
+        <p>Most link builders email. The Indian regional press doesn't always respond to email, especially in tier-2 and tier-3 cities. So I picked up the phone.</p>
+        <ul>
+          <li><strong>Direct calls to editorial desks:</strong> reached out to regional magazines and news sites by phone, in the local language where possible, to introduce canva.in and its India focus.</li>
+          <li><strong>Trust-building before pitch:</strong> first calls were never about a link. They were about "we're launching an India experience, we'd love your feedback." The link came later, naturally.</li>
+          <li><strong>Why it worked:</strong> regional editors get pitched 50 emails a day from spammers. A phone call from a real human stood out. Conversion rates were 5-10× email outreach.</li>
+          <li><strong>Slow but compounding:</strong> each successful call seeded a relationship. The same editors came back with follow-up coverage as canva.in grew.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="1">
+        <span class="panel-tag">No exchange = creative</span>
+        <h3>Brand Mention Plays Instead of Links</h3>
+        <p>Without link exchanges, every link had to be a one-way gift from the publisher. So I shifted the ask: not "link to us," but "mention us when relevant." Brand mentions on authority sites still drive trust, citations, and organic discovery, even without a hyperlink.</p>
+        <ul>
+          <li><strong>Direct outreach to authors/content writers:</strong> bypassed editorial inboxes and went to writers directly. "If you're writing about design tools, would you mention Canva?"</li>
+          <li><strong>Mention-first, link-second:</strong> a brand mention without a link still elevates the article's relevance to AI crawlers and Google's entity graph. A link upgrade often followed organically.</li>
+          <li><strong>Lower barrier, higher acceptance:</strong> writers who said no to "add a link" said yes to "mention us in this list of relevant tools." Conversion went up dramatically.</li>
+          <li><strong>Long-tail effect:</strong> mentions on authority sites like Forbes, BigCommerce, and DigitalOcean compound: AI tools start citing the article, our brand gets cited too.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="2">
+        <span class="panel-tag">Strategic</span>
+        <h3>Competitor Reverse-Engineering</h3>
+        <p>Canva has plenty of well-funded competitors with strong India presence: design tools, photo editors, AI image generators. I mined every one of their backlink profiles for the specifically India-relevant placements.</p>
+        <ul>
+          <li><strong>Backlink profile audits:</strong> systematically pulled every competitor's backlinks via Ahrefs, filtered for India-based or India-relevant publishers.</li>
+          <li><strong>Topical fit analysis:</strong> categorized each competitor placement by intent: design tutorials, tool comparisons, listicles, "best of" guides.</li>
+          <li><strong>Identical-fit pitching:</strong> for every page where a competitor was listed, evaluated whether canva.in could be added or substituted. If yes, pitched the writer with concrete reasoning.</li>
+          <li><strong>The result:</strong> caught up to and surpassed several competitors on India-specific backlinks within 9 months.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="3">
+        <span class="panel-tag">Geo-specific</span>
+        <h3>Multilingual Regional Push</h3>
+        <p>For canva.in to be seen as truly India-native, the link profile needed regional language coverage, not just English. This meant outreach in Hindi, Bengali, Marathi, Tamil, Telugu, and other major scripts.</p>
+        <ul>
+          <li><strong>Regional blog mapping:</strong> built a database of 500+ regional language blogs, magazines, and online publications across 10+ Indian languages.</li>
+          <li><strong>Native-language pitching:</strong> outreach in the publisher's own language wherever possible. Native-language pitches converted 3× English ones.</li>
+          <li><strong>Topical relevance focus:</strong> pitched regional design, education, and creator-focused publications. canva.in fit naturally into their content.</li>
+          <li><strong>Authority signal to Google:</strong> a multilingual backlink profile with native-language anchor text told Google: this is a legitimate India brand, not an offshore clone.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUALITY BAR ============ -->
+<section class="quality-section" id="quality">
+  <div class="container reveal">
+    <span class="section-label">The quality bar</span>
+    <h2>15+ metrics every link had to pass</h2>
+    <p class="section-intro">Canva's reputation is global. One spammy link could damage years of trust. So I built a 15+ point quality checklist that every potential placement had to clear before outreach.</p>
+
+    <div class="quality-grid">
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Link in first half of article</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Less than 5 external links on page</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Page traffic > 500/month</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Brand mention required, not just URL</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Topical relevance to design or creativity</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Site Domain Rating > 30</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Page indexed in Google</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">No suspicious anchor text patterns</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Page age &gt; 6 months (established URL)</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Site has organic traffic from target geo</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Author has verifiable writing history</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">No casino, PBN, or spam neighbors</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Natural anchor (not keyword-stuffed)</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Content fits naturally, not as obvious sponsorship</div></div>
+      <div class="quality-item"><div class="quality-check">✓</div><div class="quality-text">Editorial guidelines respected, no payment required</div></div>
+    </div>
+
+    <div class="quality-callout">
+      The motive was simple: <strong>one strong link should outrank 30 normal ones.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results">
+  <div class="container reveal">
+    <span class="section-label">The results</span>
+    <h2>What 12 months of high-bar outreach produced</h2>
+    <p class="section-intro">Built from zero. Earned without exchanges. Across 12+ Indian languages. No paid placements.</p>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-label">Domain Rating</div>
+        <div class="metric-flow">
+          <span class="metric-from">0</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">70</span>
+        </div>
+        <span class="metric-delta">↑ Built from zero</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Referring Domains</div>
+        <div class="metric-flow">
+          <span class="metric-from">0</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">500+</span>
+        </div>
+        <span class="metric-delta">↑ All earned</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Monthly Traffic</div>
+        <div class="metric-flow">
+          <span class="metric-to">456K</span>
+        </div>
+        <span class="metric-delta">↑ Organic only</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Link Exchanges</div>
+        <div class="metric-flow">
+          <span class="metric-to">0</span>
+        </div>
+        <span class="metric-delta">↑ As required</span>
+      </div>
+    </div>
+
+    <div class="chart-card" id="chart-backlinks">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Referring Domains Growth</div>
+          <div class="chart-sub">Jan 2025 → Apr 2026</div>
+        </div>
+        <div class="chart-badge">0 → 500+ · ↑ ∞</div>
+      </div>
+      <div class="chart-svg-wrap">
+        <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c9a227" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c9a227"/>
+              <stop offset="100%" stop-color="#7a8b47"/>
+            </linearGradient>
+          </defs>
+
+          <line class="chart-grid" x1="0" y1="40" x2="800" y2="40"/>
+          <line class="chart-grid" x1="0" y1="100" x2="800" y2="100"/>
+          <line class="chart-grid" x1="0" y1="160" x2="800" y2="160"/>
+          <line class="chart-grid" x1="0" y1="220" x2="800" y2="220"/>
+
+          <text x="790" y="44" class="chart-axis" text-anchor="end">600</text>
+          <text x="790" y="104" class="chart-axis" text-anchor="end">450</text>
+          <text x="790" y="164" class="chart-axis" text-anchor="end">300</text>
+          <text x="790" y="224" class="chart-axis" text-anchor="end">150</text>
+
+          <path class="chart-area" d="M 0 280 L 53 270 L 107 260 L 160 246 L 213 232 L 267 215 L 320 198 L 373 182 L 427 164 L 480 148 L 533 132 L 587 117 L 640 102 L 693 94 L 747 90 L 800 88 L 800 270 L 0 270 Z" fill="url(#areaGrad)"/>
+
+          <path class="chart-line" d="M 0 280 L 53 270 L 107 260 L 160 246 L 213 232 L 267 215 L 320 198 L 373 182 L 427 164 L 480 148 L 533 132 L 587 117 L 640 102 L 693 94 L 747 90 L 800 88" stroke="url(#lineGrad)"/>
+
+          <g class="chart-end-marker">
+            <circle cx="800" cy="88" r="6" fill="#7a8b47"/>
+            <circle cx="800" cy="88" r="11" fill="#7a8b47" opacity="0.3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-x-labels">
+        <span>Jan 2025</span>
+        <span>Apr 2025</span>
+        <span>Jul 2025</span>
+        <span>Oct 2025</span>
+        <span>Jan 2026</span>
+        <span>Apr 2026</span>
+      </div>
+    </div>
+
+    <div class="result-list">
+      <div class="result-item">
+        <div class="result-icon">🚀</div>
+        <div class="result-text">
+          <h4>DR 0 → 70 in 12 months</h4>
+          <p>From zero authority to a Domain Rating most established brands take years to reach.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🌐</div>
+        <div class="result-text">
+          <h4>500+ referring domains</h4>
+          <p>Every one earned. No exchanges, no paid placements. Each one cleared the 15+ metric quality bar.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🇮🇳</div>
+        <div class="result-text">
+          <h4>10+ Indian languages covered</h4>
+          <p>Native-language placements across Hindi, Bengali, Marathi, Tamil, Telugu, Gujarati, and more.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">📈</div>
+        <div class="result-text">
+          <h4>456K monthly organic visitors</h4>
+          <p>Authority shifted successfully from canva.com to canva.in for India search queries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI VISIBILITY ============ -->
+<section id="ai-visibility" style="background: var(--bg-soft);">
+  <div class="container reveal">
+    <span class="section-label">AI visibility</span>
+    <h2>Early signal across AI surfaces</h2>
+    <p class="section-intro">canva.in is a brand-new TLD, so AI tools are still discovering it. The early-stage citations show that the strategy is working: Google's AI Overview is leading, with Gemini and ChatGPT starting to follow.</p>
+
+    <div class="ai-breakdown">
+      <div class="ai-card">
+        <div class="ai-card-icon">AI</div>
+        <div class="ai-card-name">Google AI Overview</div>
+        <div class="ai-card-value" data-target="50">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">CG</div>
+        <div class="ai-card-name">ChatGPT</div>
+        <div class="ai-card-value" data-target="4">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">GM</div>
+        <div class="ai-card-name">Gemini</div>
+        <div class="ai-card-value" data-target="2">0</div>
+      </div>
+    </div>
+
+    <div class="ai-note">
+      <strong>What the AI Overview lead tells us:</strong> Google's AI surfaces are picking up canva.in as the India-authoritative source for design queries, exactly the outcome the country-TLD strategy was designed to produce. ChatGPT and Gemini will follow as the new domain accumulates more cross-citations and the wider web catches up. Early signal, strong direction.
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section class="languages-section">
+  <div class="container reveal">
+    <span class="section-label">Multilingual reach</span>
+    <h2>The 12+ Indian languages we built coverage for</h2>
+    <p class="section-intro">English alone wasn't enough for canva.in to be seen as authentically Indian. Each script below represents a regional outreach campaign: native-language pitches, native-language anchors, native-language placements.</p>
+
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Devanagari', sans-serif;">हिन्दी</div>
+        <div class="lang-name">Hindi</div>
+        <div class="lang-meta">~600M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Bengali', sans-serif;">বাংলা</div>
+        <div class="lang-name">Bengali</div>
+        <div class="lang-meta">~270M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Devanagari', sans-serif;">मराठी</div>
+        <div class="lang-name">Marathi</div>
+        <div class="lang-meta">~85M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Telugu', sans-serif;">తెలుగు</div>
+        <div class="lang-name">Telugu</div>
+        <div class="lang-meta">~95M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Tamil', sans-serif;">தமிழ்</div>
+        <div class="lang-name">Tamil</div>
+        <div class="lang-meta">~85M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Gujarati', sans-serif;">ગુજરાતી</div>
+        <div class="lang-name">Gujarati</div>
+        <div class="lang-meta">~60M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Kannada', sans-serif;">ಕನ್ನಡ</div>
+        <div class="lang-name">Kannada</div>
+        <div class="lang-meta">~45M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Malayalam', sans-serif;">മലയാളം</div>
+        <div class="lang-name">Malayalam</div>
+        <div class="lang-meta">~40M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Gurmukhi', sans-serif;">ਪੰਜਾਬੀ</div>
+        <div class="lang-name">Punjabi</div>
+        <div class="lang-meta">~35M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Noto Sans Oriya', sans-serif;">ଓଡ଼ିଆ</div>
+        <div class="lang-name">Odia</div>
+        <div class="lang-meta">~40M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Caveat', cursive; font-weight: 700;">English</div>
+        <div class="lang-name">English</div>
+        <div class="lang-meta">~130M speakers</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-script" style="font-family: 'Caveat', cursive; font-weight: 700;">+more</div>
+        <div class="lang-name">Plus regional dialects</div>
+        <div class="lang-meta">Across all of India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section">
+  <div class="container reveal">
+    <span class="section-label">The journey</span>
+    <h2>12 months, quarter by quarter</h2>
+    <p class="section-intro">From a zero-authority domain to one of India's most-cited design platforms.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Q1 2025 · Months 1-3</div>
+        <h4>Foundation &amp; phone-outreach pilot</h4>
+        <p>Onboarded with the Canva team. Built the 15+ metric quality checklist. Started phone outreach to regional Indian magazines, alongside the on-page team handing off technical SEO. First placements landed on tier-2 publications.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Q2 2025 · Months 4-6</div>
+        <h4>Brand mention plays scaled</h4>
+        <p>Pivoted heavily to brand-mention outreach since link exchanges were off the table. Direct relationships with content writers across 50+ publications established. Referring domains crossed 200.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Q3 2025 · Months 7-9</div>
+        <h4>Multilingual scale-out</h4>
+        <p>Regional language outreach in full swing across Hindi, Bengali, Tamil, Marathi, Telugu, Gujarati. First wave of placements on Indian authority sites: Hans India, Shiprocket, regional design blogs.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Q4 2025 · Months 10-12</div>
+        <h4>Compounding authority</h4>
+        <p>Competitor reverse-engineering producing 30+ placements/month. canva.in mentioned alongside global brands like DigitalOcean, BigCommerce, Hugging Face. DR climbed past 60.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Apr 2026 · Today</div>
+        <h4>Where we are now</h4>
+        <p>DR 70. 500+ referring domains. 456K monthly organic visitors. AI Overview citations leading among AI surfaces. canva.in is now Google's authoritative India destination for design queries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAINS ============ -->
+<section id="domains">
+  <div class="container reveal">
+    <span class="section-label">Featured placements</span>
+    <h2>A few of the placements we earned</h2>
+    <p class="section-intro">All earned organically. All cleared the 15+ metric quality bar. A mix of Indian regional press and global authority sites.</p>
+
+    <div class="domains-grid">
+      <a href="https://www.digitalocean.com/resources/articles/midjourney-alternatives" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">DO</div>
+        <div class="domain-name">DigitalOcean.com</div>
+        <div class="domain-meta">DR 92 · Midjourney alternatives</div>
+      </a>
+      <a href="https://www.bigcommerce.com/articles/ecommerce/health-beauty-ecommerce/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">BC</div>
+        <div class="domain-name">BigCommerce.com</div>
+        <div class="domain-meta">DR 91 · Health &amp; beauty ecommerce</div>
+      </a>
+      <a href="https://huggingface.co/blog/Franki0/video-content-or-written-content" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">HF</div>
+        <div class="domain-name">HuggingFace.co</div>
+        <div class="domain-meta">DR 89 · Video vs written content</div>
+      </a>
+      <a href="https://www.thehansindia.com/news/international/canva-website-builder-the-visual-approach-to-creating-stunning-websites-958060" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">HI</div>
+        <div class="domain-name">TheHansIndia.com<span class="domain-flag">IN</span></div>
+        <div class="domain-meta">DR 76 · Canva feature article</div>
+      </a>
+      <a href="https://www.shiprocket.in/blog/instagram-tools/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">SR</div>
+        <div class="domain-name">Shiprocket.in<span class="domain-flag">IN</span></div>
+        <div class="domain-meta">DR 79 · Instagram tools</div>
+      </a>
+      <a href="https://wheonx.com/how-to-write-resume-in-hindi-for-government-job-applications/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">WX</div>
+        <div class="domain-name">Wheonx.com<span class="domain-flag">हिन्दी</span></div>
+        <div class="domain-meta">DR 65 · Hindi resume guide</div>
+      </a>
+      <a href="https://www.sprintzeal.com/blog/top-digital-marketing-tools" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">SZ</div>
+        <div class="domain-name">Sprintzeal.com</div>
+        <div class="domain-meta">DR 68 · Digital marketing tools</div>
+      </a>
+      <a href="https://www.slazzer.com/blog/how-to-capture-high-quality-clothes-photos-for-e-commerce/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">SL</div>
+        <div class="domain-name">Slazzer.com</div>
+        <div class="domain-meta">DR 71 · E-commerce photography</div>
+      </a>
+      <a href="https://appsgeyser.io/blog/2023/03/03/best-apps-for-editing-photos-like-bloggers-and-influencers/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">AG</div>
+        <div class="domain-name">AppsGeyser.io</div>
+        <div class="domain-meta">DR 67 · Photo editing apps</div>
+      </a>
+      <a href="https://seoexpertscompanyindia.com/white-label-seo/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">SE</div>
+        <div class="domain-name">SEOExpertsCompanyIndia.com<span class="domain-flag">IN</span></div>
+        <div class="domain-meta">DR 58 · White label SEO guide</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section>
+  <div class="quote-section reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote">
+      The brief took away every comfortable tactic I had: no link exchanges, no offshore shortcuts, no recycled playbooks. So I had to invent new ones, in 12 languages. It made me a fundamentally better link builder.
+    </p>
+    <p class="quote-attr"><strong>Subham Paul</strong></p>
+  </div>
+</section>
+
+<!-- ============ OTHER WORK ============ -->
+<section style="padding: 40px 0;">
+  <div class="container reveal">
+    <div class="other-work-grid">
+      <a href="spocket-case-study.html" class="other-work">
+        <div class="other-work-label">Other case study</div>
+        <h4>Spocket: 5× traffic in 18 months</h4>
+        <p>1,600 backlinks and 23K AI citations for a leading dropshipping platform.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+      <a href="winninghunter-case-study.html" class="other-work">
+        <div class="other-work-label">Other case study</div>
+        <h4>WinningHunter: 2× DR in 4 months</h4>
+        <p>From spammy backlinks to a doubled Domain Rating and 259 AI citations.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-card reveal">
+    <span class="section-label">Work with me</span>
+    <h2>Want results like this for your brand?</h2>
+    <p>Tired of paying unnecessary money for links that age like milk in summer? Or already dropped a small fortune on link campaigns that ranked about as well as a brick in water? Paul's Link Empire delivers whitelabel-ready, organically earned placements without the agency markup. Built for SEO agencies, freelance consultants, and in-house teams who'd rather invest in their team than feed another vendor for life.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/subhamrimo25/let-s-talk-no-escape" target="_blank" rel="noopener" class="btn btn-primary">Book a call →</a>
+      <a href="mailto:subhamrimo25@gmail.com" class="btn btn-secondary">Email me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">Paul's Link Empire</div>
+    <p>© 2026 Subham Paul · Link Building Specialist</p>
+    <p style="margin-top:6px; font-size:12px;">Reach me at <a href="mailto:subhamrimo25@gmail.com">subhamrimo25@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const startTime = performance.now();
+    const isInteger = target % 1 === 0;
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      let display;
+      if (target >= 1000) display = Math.floor(current).toLocaleString();
+      else if (isInteger) display = Math.floor(current);
+      else display = current.toFixed(1);
+      el.textContent = prefix + display + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = prefix + (target >= 1000 ? Math.floor(target).toLocaleString() : target) + suffix;
+    }
+    requestAnimationFrame(update);
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-panel="${tab}"]`).classList.add('active');
+    });
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const qualityObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = entry.target.querySelectorAll('.quality-item');
+        items.forEach((item, i) => {
+          setTimeout(() => item.classList.add('visible'), i * 50);
+        });
+        qualityObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  const qualityGrid = document.querySelector('.quality-grid');
+  if (qualityGrid) qualityObserver.observe(qualityGrid);
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+
+  const aiObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ai-card-value').forEach(animateCounter);
+        aiObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const aiBreakdown = document.querySelector('.ai-breakdown');
+  if (aiBreakdown) aiObserver.observe(aiBreakdown);
+
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        chartObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.chart-card').forEach(c => chartObserver.observe(c));
+</script>
+</body>
+</html>
