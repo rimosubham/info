@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WinningHunter Case Study | Paul's Link Empire</title>
+<meta name="description" content="How we rebuilt WinningHunter's foundation from spammy backlinks and zero AI visibility to a doubled Domain Rating, 4× referring domains, and 259 AI citations in just 4 months.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6ee;
+    --bg-soft: #f3ecd9;
+    --card-bg: #ffffff;
+    --card-bg-hover: #fdfaf1;
+    --text: #1f2510;
+    --text-muted: #5d6450;
+    --text-dim: #98998a;
+    --mustard: #c9a227;
+    --mustard-dark: #a8821a;
+    --olive: #7a8b47;
+    --olive-dark: #5e6e35;
+    --red: #b04545;
+    --border: rgba(31, 37, 16, 0.1);
+    --border-strong: rgba(31, 37, 16, 0.2);
+    --shadow-sm: 0 2px 8px rgba(31, 37, 16, 0.04);
+    --shadow-md: 0 8px 24px rgba(31, 37, 16, 0.08);
+    --shadow-lg: 0 16px 48px rgba(31, 37, 16, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--mustard); color: white; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(250, 246, 238, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+  .brand-name {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--mustard);
+    letter-spacing: 0.5px;
+  }
+  .brand-by {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--olive-dark); }
+  .nav-cta {
+    background: var(--olive);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    font-size: 14px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--olive-dark); transform: translateY(-1px); }
+
+  @media (max-width: 900px) { .nav-links li:not(:last-child) { display: none; } }
+
+  /* ===== HERO ===== */
+  .hero { padding: 110px 0 70px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201, 162, 39, 0.12) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(122, 139, 71, 0.1) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; text-align: center; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-badge .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--olive);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.2rem, 5.2vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 .script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--mustard);
+    font-size: 1.15em;
+  }
+  h1 .olive-script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--olive);
+    font-size: 1.15em;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    color: var(--text-muted);
+    max-width: 740px;
+    margin: 0 auto 44px;
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .stat-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    .stat-card { padding: 22px; }
+  }
+
+  /* ===== SECTION ===== */
+  section { padding: 60px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--mustard);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .section-intro {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 740px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+
+  /* ===== CLIENT ===== */
+  .client-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .client-logo {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 18px;
+  }
+  .client-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .client-info > p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.65;
+    font-size: 0.98rem;
+  }
+  .client-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--mustard-dark);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .before-stats { display: grid; gap: 10px; }
+  .before-stats-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .before-stat {
+    background: rgba(176, 69, 69, 0.04);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .before-stat-name { font-size: 13px; color: var(--text-muted); }
+  .before-stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .client-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; }
+  }
+
+  /* ===== CHALLENGES ===== */
+  .challenges-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .challenge-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .challenge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(176, 69, 69, 0.3);
+  }
+  .challenge-num {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: rgba(176, 69, 69, 0.1);
+    color: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .challenge-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .challenge-card p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) { .challenges-grid { grid-template-columns: 1fr; } }
+
+  /* ===== STRATEGY ===== */
+  .strategy-section { background: var(--bg-soft); }
+  .strategy-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .tab-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .tab-btn.active {
+    background: var(--mustard);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.25);
+  }
+  .tab-btn .num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; opacity: 0.65; }
+  .tab-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 36px;
+    min-height: 320px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .tab-panel h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .tab-panel > p {
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .tab-panel ul { list-style: none; }
+  .tab-panel ul li {
+    color: var(--text-muted);
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 11px;
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+  .tab-panel ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--mustard);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .tab-panel ul li strong { color: var(--text); font-weight: 600; }
+  .panel-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .tab-content { padding: 26px 22px; }
+    .tab-btn { padding: 10px 14px; font-size: 12px; }
+  }
+
+  /* ===== METRICS ===== */
+  .metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .metric-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .metric-label {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .metric-flow {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .metric-from {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+    text-decoration-color: rgba(176, 69, 69, 0.5);
+  }
+  .metric-arrow { color: var(--text-dim); font-size: 1rem; }
+  .metric-to {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .metric-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) { .metrics-bar { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .metrics-bar { grid-template-columns: 1fr; } }
+
+  /* ===== CHART ===== */
+  .chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .chart-sub { font-size: 13px; color: var(--text-muted); }
+  .chart-badge {
+    background: var(--olive);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 7px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .chart-svg-wrap { position: relative; width: 100%; overflow: hidden; }
+  .chart-svg { width: 100%; height: 260px; display: block; }
+  .chart-line {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    transition: stroke-dashoffset 2.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .chart-card.animated .chart-line { stroke-dashoffset: 0; }
+  .chart-area { opacity: 0; transition: opacity 1.2s 1s; }
+  .chart-card.animated .chart-area { opacity: 1; }
+  .chart-axis { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--text-dim); }
+  .chart-grid { stroke: rgba(31, 37, 16, 0.06); stroke-width: 1; }
+  .chart-x-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+  .chart-x-labels span { flex-shrink: 0; }
+  .chart-end-marker { opacity: 0; transition: opacity 0.5s 2.4s; }
+  .chart-card.animated .chart-end-marker { opacity: 1; }
+
+  /* ===== AI BREAKDOWN ===== */
+  .ai-breakdown {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .ai-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 16px;
+    transition: all 0.3s;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .ai-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .ai-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    margin: 0 auto 10px;
+    font-size: 13px;
+  }
+  .ai-card-name { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+  .ai-card-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  @media (max-width: 900px) { .ai-breakdown { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .ai-breakdown { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== AI BAR CHART ===== */
+  .ai-bar-chart {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .ai-bar-chart h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .ai-bar-chart .sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .ai-bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 50px;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .ai-bar-row:last-child { margin-bottom: 0; }
+  .ai-bar-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .ai-bar-track {
+    height: 10px;
+    background: rgba(31, 37, 16, 0.05);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .ai-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+    border-radius: 100px;
+    width: 0;
+    transition: width 1.6s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+  .ai-bar-chart.animated .ai-bar-fill { width: var(--w); }
+  .ai-bar-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: right;
+    color: var(--text);
+  }
+
+  /* ===== RESULT LIST ===== */
+  .result-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .result-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .result-item:hover { border-color: var(--olive); transform: translateX(4px); }
+  .result-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    background: rgba(122, 139, 71, 0.1);
+  }
+  .result-text h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .result-text p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; }
+
+  @media (max-width: 768px) { .result-list { grid-template-columns: 1fr; } }
+
+  /* ===== TIMELINE ===== */
+  .timeline-section { background: var(--bg-soft); }
+  .timeline {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding-left: 36px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--mustard), var(--olive));
+  }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 5px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--mustard);
+    border: 3px solid var(--bg-soft);
+    box-shadow: 0 0 0 2px var(--mustard);
+  }
+  .timeline-date {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .timeline-item p { color: var(--text-muted); line-height: 1.55; font-size: 0.94rem; }
+
+  /* ===== DOMAINS ===== */
+  .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 12px;
+  }
+  .domain-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .domain-card::after {
+    content: '↗';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .domain-card:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .domain-card:hover::after {
+    color: var(--mustard);
+    transform: translate(2px, -2px);
+  }
+  .domain-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .domain-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .domain-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    text-align: center;
+    padding: 70px 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .quote-mark {
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
+    line-height: 0.6;
+    color: var(--mustard);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  .quote {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 22px;
+    color: var(--text);
+  }
+  .quote-attr { color: var(--text-muted); font-size: 0.92rem; }
+  .quote-attr strong { color: var(--text); }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background:
+      radial-gradient(ellipse at top, rgba(201, 162, 39, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(122, 139, 71, 0.1) 0%, transparent 50%),
+      var(--bg);
+  }
+  .cta-card { text-align: center; max-width: 760px; margin: 0 auto; padding: 60px 24px; }
+  .cta-card h2 { margin-bottom: 14px; }
+  .cta-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.6; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    font-size: 14px;
+  }
+  .btn-primary { background: var(--mustard); color: white; }
+  .btn-primary:hover {
+    background: var(--mustard-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(201, 162, 39, 0.3);
+  }
+  .btn-secondary { background: var(--card-bg); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { transform: translateY(-2px); border-color: var(--olive); }
+
+  /* ===== OTHER WORK ===== */
+  .other-work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .other-work {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    box-shadow: var(--shadow-sm);
+  }
+  .other-work:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .other-work-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .other-work h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.18rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .other-work p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .other-work-arrow { color: var(--olive-dark); font-weight: 600; font-size: 13px; }
+
+  @media (max-width: 768px) { .other-work-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer .footer-brand {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--mustard);
+    margin-bottom: 4px;
+  }
+  footer a { color: var(--olive-dark); text-decoration: none; font-weight: 500; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-name">Paul's Link Empire</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#challenge">Challenge</a></li>
+      <li><a href="#strategy">Strategy</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="canva-in-case-study.html">Canva.in</a></li>
+      <li><a href="spocket-case-study.html">Spocket</a></li>
+      <li><a href="#contact" class="nav-cta">Work with me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        WinningHunter Case Study · 4-month engagement
+      </div>
+      <h1>
+        From spammy backlinks to <span class="script">2× DR</span> and <span class="olive-script">259 AI citations</span> in 4 months.
+      </h1>
+      <p class="hero-sub">
+        WinningHunter is a winning product research and ad intelligence platform for dropshippers. When founder Roggie came to us in January 2026, his backlink profile was full of spam, AI visibility was zero, and he had no idea where to start. Here's how we rebuilt the foundation, fast.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-emoji">📊</span>
+          <div class="stat-num" data-target="2" data-suffix="×">0</div>
+          <div class="stat-label">Domain Rating doubled (20 → 41)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">🌐</span>
+          <div class="stat-num" data-target="4" data-suffix="×">0</div>
+          <div class="stat-label">Referring domains growth (175 → 675)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">🤖</span>
+          <div class="stat-num" data-target="259">0</div>
+          <div class="stat-label">AI citations earned (from zero)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENT ============ -->
+<section id="client">
+  <div class="container reveal">
+    <span class="section-label">The client</span>
+    <h2>Meet WinningHunter</h2>
+    <p class="section-intro">A winning product research and ad spy platform built for dropshippers and e-commerce operators. Strong product. Capable founder. No idea how to do SEO.</p>
+
+    <div class="client-card">
+      <div>
+        <div class="client-logo">WH</div>
+        <h3>winninghunter.com</h3>
+        <p>An ad intelligence and product research SaaS competing in the same space as Pipiads, Ecomhunt, and AdSpy. Founder Roggie was technically excellent but had zero marketing playbook. He knew SEO mattered. He didn't know where to begin.</p>
+        <div class="client-tags">
+          <span class="tag">E-commerce</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">Ad Intelligence</span>
+          <span class="tag">Product Research</span>
+        </div>
+      </div>
+      <div class="before-stats">
+        <div class="before-stats-label">When we started, January 2026</div>
+        <div class="before-stat"><span class="before-stat-name">Domain Rating</span><span class="before-stat-value">20</span></div>
+        <div class="before-stat"><span class="before-stat-name">Referring domains</span><span class="before-stat-value">175</span></div>
+        <div class="before-stat"><span class="before-stat-name">Monthly traffic</span><span class="before-stat-value">6K</span></div>
+        <div class="before-stat"><span class="before-stat-name">AI citations</span><span class="before-stat-value">0</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section id="challenge">
+  <div class="container reveal">
+    <span class="section-label">The problem</span>
+    <h2>Four problems standing between WinningHunter and growth</h2>
+    <p class="section-intro">A capable product in a hot niche, with no foundation underneath. Every layer of the SEO stack needed work, simultaneously.</p>
+
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Spammy, irrelevant backlinks</h3>
+        <p>The existing backlink profile was full of low-quality, off-topic links. Worse than no links: a profile that signaled "low-trust site" to Google and offered nothing for AI crawlers to cite.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>No topical authority</h3>
+        <p>The blog section was thin and unstructured. Search engines and LLMs had no signal that WinningHunter was a credible voice in product research or ad intelligence.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Invisible to AI</h3>
+        <p>Zero citations across ChatGPT, Perplexity, Gemini, Copilot, or Google's AI Overview. Competitors like Pipiads and Ecomhunt were getting cited daily. WinningHunter was being skipped entirely.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>No founder bandwidth</h3>
+        <p>Roggie is a builder, not a marketer. He didn't have weeks to learn keyword research, outreach playbooks, or PR. He needed someone to run the whole stack and report results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRATEGY ============ -->
+<section class="strategy-section" id="strategy">
+  <div class="container reveal">
+    <span class="section-label">The strategy</span>
+    <h2>Four campaigns. Run in parallel. Foundation-up.</h2>
+    <p class="section-intro">When the entire stack is broken, you can't optimize. You rebuild from the ground up, in the right order. Click each tab to see the playbook.</p>
+
+    <div class="strategy-tabs">
+      <button class="tab-btn active" data-tab="0"><span class="num">01</span> Topical Authority</button>
+      <button class="tab-btn" data-tab="1"><span class="num">02</span> AI Query Hunting</button>
+      <button class="tab-btn" data-tab="2"><span class="num">03</span> .edu PR Stack</button>
+      <button class="tab-btn" data-tab="3"><span class="num">04</span> Competitor Reverse-Engineering</button>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-panel active" data-panel="0">
+        <span class="panel-tag">Foundation</span>
+        <h3>Topical Authority Build-Out</h3>
+        <p>You can't earn AI citations or quality backlinks if your own site doesn't read as an authority. Step one was making WinningHunter the most useful resource in its niche.</p>
+        <ul>
+          <li><strong>Blog architecture overhaul:</strong> rebuilt the blog section with a clear topical hierarchy around product research, ad spy, and dropshipping winning products.</li>
+          <li><strong>Keyword research from scratch:</strong> mapped every commercial and informational query in the niche. Prioritized by intent and difficulty.</li>
+          <li><strong>Pillar + cluster model:</strong> deep pillar pages on core topics, with supporting cluster articles that interlinked correctly.</li>
+          <li><strong>Why this matters:</strong> AI tools cite sites that demonstrate clear topical depth. No depth, no citations.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="1">
+        <span class="panel-tag">AI focus</span>
+        <h3>Manual AI Query Hunting</h3>
+        <p>Most agencies "hope" for AI mentions. We targeted them directly, query by query, the same way we'd target a backlink.</p>
+        <ul>
+          <li><strong>Query mapping:</strong> identified the exact queries in our niche where AI tools surface results, and which placements get cited.</li>
+          <li><strong>Listicle prioritization:</strong> focused outreach on listicle articles, especially those ranking in the top 3 positions, which are disproportionately cited by AI.</li>
+          <li><strong>Featured platform alerts:</strong> used Featured to monitor real-time queries from journalists and writers in our niche, responding fast with quotable insights.</li>
+          <li><strong>Manual outreach to citation-worthy pages:</strong> if a page was getting AI-cited and didn't mention WinningHunter, we pitched the writer to add it.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="2">
+        <span class="panel-tag">PR leverage</span>
+        <h3>The .edu PR Stack</h3>
+        <p>A two-step play. Land an .edu placement first. Then leverage that .edu link as a credibility signal in PR pitches to industry publications.</p>
+        <ul>
+          <li><strong>Step 1, .edu guest posts:</strong> wrote useful, niche-relevant content for .edu blogs that accept contributor articles. Slow to land, but the credibility multiplier is enormous.</li>
+          <li><strong>Step 2, PR campaigns referencing .edu:</strong> when pitching journalists and bloggers, led with "as featured on [.edu institution]" to instantly elevate trust.</li>
+          <li><strong>Conversion lift:</strong> PR response rates roughly tripled once we had .edu credibility to reference.</li>
+          <li><strong>Compounding effect:</strong> each new tier of placement opened doors to the next, .edu opened mid-tier media, mid-tier media opened larger publications.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="3">
+        <span class="panel-tag">Reverse-engineering</span>
+        <h3>Competitor Reverse-Engineering &amp; Unlinked Mentions</h3>
+        <p>We didn't guess what would work. We looked at exactly what was working for competitors and intercepted it.</p>
+        <ul>
+          <li><strong>AI ranking analysis:</strong> reverse-engineered which queries Pipiads, Ecomhunt, and others were ranking on across AI tools. Targeted those exact pages.</li>
+          <li><strong>Placement interception:</strong> for every page citing a competitor, evaluated whether WinningHunter could be added as a comparable. If yes, pitched.</li>
+          <li><strong>Unlinked brand mentions:</strong> tracked where WinningHunter was mentioned but not linked, then asked the writer to add the link, easy wins, high relevance.</li>
+          <li><strong>Existing relationships leverage:</strong> tapped into our network of website admins from prior work to fast-track placements that would have taken months otherwise.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results">
+  <div class="container reveal">
+    <span class="section-label">The results</span>
+    <h2>What 4 months of foundation work produced</h2>
+    <p class="section-intro">No paid placements. No shortcuts. Just systematic execution across the four campaigns.</p>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-label">Domain Rating</div>
+        <div class="metric-flow">
+          <span class="metric-from">20</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">41</span>
+        </div>
+        <span class="metric-delta">↑ 105% (2×)</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Referring Domains</div>
+        <div class="metric-flow">
+          <span class="metric-from">175</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">675</span>
+        </div>
+        <span class="metric-delta">↑ 286% (4×)</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Backlinks</div>
+        <div class="metric-flow">
+          <span class="metric-to">10.3K</span>
+        </div>
+        <span class="metric-delta">↑ +6.1K in 4 mo</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">AI Citations</div>
+        <div class="metric-flow">
+          <span class="metric-from">0</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">259</span>
+        </div>
+        <span class="metric-delta">↑ From zero</span>
+      </div>
+    </div>
+
+    <div class="chart-card" id="chart-backlinks">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Referring Domains Growth</div>
+          <div class="chart-sub">Jan 2026 → Apr 2026</div>
+        </div>
+        <div class="chart-badge">175 → 675 · ↑ 4×</div>
+      </div>
+      <div class="chart-svg-wrap">
+        <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c9a227" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lineGrad1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c9a227"/>
+              <stop offset="100%" stop-color="#7a8b47"/>
+            </linearGradient>
+          </defs>
+
+          <line class="chart-grid" x1="0" y1="40" x2="800" y2="40"/>
+          <line class="chart-grid" x1="0" y1="100" x2="800" y2="100"/>
+          <line class="chart-grid" x1="0" y1="160" x2="800" y2="160"/>
+          <line class="chart-grid" x1="0" y1="220" x2="800" y2="220"/>
+
+          <text x="790" y="44" class="chart-axis" text-anchor="end">800</text>
+          <text x="790" y="104" class="chart-axis" text-anchor="end">600</text>
+          <text x="790" y="164" class="chart-axis" text-anchor="end">400</text>
+          <text x="790" y="224" class="chart-axis" text-anchor="end">200</text>
+
+          <path class="chart-area" d="M 0 227.5 L 67 220 L 133 208 L 200 193 L 267 175 L 333 160 L 400 145 L 467 128 L 533 110 L 600 95 L 667 85 L 733 80 L 800 77.5 L 800 270 L 0 270 Z" fill="url(#areaGrad1)"/>
+          <path class="chart-line" d="M 0 227.5 L 67 220 L 133 208 L 200 193 L 267 175 L 333 160 L 400 145 L 467 128 L 533 110 L 600 95 L 667 85 L 733 80 L 800 77.5" stroke="url(#lineGrad1)"/>
+
+          <g class="chart-end-marker">
+            <circle cx="800" cy="77.5" r="6" fill="#7a8b47"/>
+            <circle cx="800" cy="77.5" r="11" fill="#7a8b47" opacity="0.3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-x-labels">
+        <span>Jan 2026</span>
+        <span>Feb 2026</span>
+        <span>Mar 2026</span>
+        <span>Apr 2026</span>
+      </div>
+    </div>
+
+    <div class="result-list">
+      <div class="result-item">
+        <div class="result-icon">🚀</div>
+        <div class="result-text">
+          <h4>DR doubled in 4 months</h4>
+          <p>20 to 41. Few brands move that fast on Domain Rating without paid placements.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🌐</div>
+        <div class="result-text">
+          <h4>500 new referring domains</h4>
+          <p>From 175 to 675. Diversity, relevance, and authority all up.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🤖</div>
+        <div class="result-text">
+          <h4>From AI invisible to AI cited</h4>
+          <p>259 citations across ChatGPT, Perplexity, Gemini, Copilot, and AI Overview, from zero.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">💰</div>
+        <div class="result-text">
+          <h4>Zero spent on paid placements</h4>
+          <p>Every link, every citation, every PR mention earned organically. No agency middlemen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI VISIBILITY ============ -->
+<section id="ai-visibility" style="background: var(--bg-soft);">
+  <div class="container reveal">
+    <span class="section-label">AI visibility</span>
+    <h2>From zero to cited across every major AI surface</h2>
+    <p class="section-intro">In 4 months, WinningHunter went from invisible to picking up citations across the five biggest AI discovery platforms.</p>
+
+    <div class="ai-breakdown">
+      <div class="ai-card">
+        <div class="ai-card-icon">CG</div>
+        <div class="ai-card-name">ChatGPT</div>
+        <div class="ai-card-value" data-target="89">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">GM</div>
+        <div class="ai-card-name">Gemini</div>
+        <div class="ai-card-value" data-target="80">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">PX</div>
+        <div class="ai-card-name">Perplexity</div>
+        <div class="ai-card-value" data-target="41">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">CP</div>
+        <div class="ai-card-name">Copilot</div>
+        <div class="ai-card-value" data-target="41">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">AI</div>
+        <div class="ai-card-name">AI Overview</div>
+        <div class="ai-card-value" data-target="8">0</div>
+      </div>
+    </div>
+
+    <div class="ai-bar-chart" id="ai-bars">
+      <h3>Citations by platform</h3>
+      <p class="sub">Total: 259 citations across all AI surfaces</p>
+
+      <div class="ai-bar-row">
+        <div class="ai-bar-label">ChatGPT</div>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="--w: 100%;"></div></div>
+        <div class="ai-bar-value">89</div>
+      </div>
+      <div class="ai-bar-row">
+        <div class="ai-bar-label">Gemini</div>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="--w: 90%;"></div></div>
+        <div class="ai-bar-value">80</div>
+      </div>
+      <div class="ai-bar-row">
+        <div class="ai-bar-label">Perplexity</div>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="--w: 46%;"></div></div>
+        <div class="ai-bar-value">41</div>
+      </div>
+      <div class="ai-bar-row">
+        <div class="ai-bar-label">Copilot</div>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="--w: 46%;"></div></div>
+        <div class="ai-bar-value">41</div>
+      </div>
+      <div class="ai-bar-row">
+        <div class="ai-bar-label">AI Overview</div>
+        <div class="ai-bar-track"><div class="ai-bar-fill" style="--w: 9%;"></div></div>
+        <div class="ai-bar-value">8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section">
+  <div class="container reveal">
+    <span class="section-label">The journey</span>
+    <h2>Four months, week by week</h2>
+    <p class="section-intro">From a flat baseline to a foundation that's still compounding.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2026 · Month 0</div>
+        <h4>Onboarding &amp; audit</h4>
+        <p>Full audit of existing backlink profile. Identified spam, mapped salvageable links, planned the topical authority rebuild. Roggie greenlit the four-campaign plan within a week.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 2026 · Month 1</div>
+        <h4>Foundation laid</h4>
+        <p>Blog architecture rebuilt. Keyword research delivered. First 50 outreach emails sent. First .edu pitch in flight. Referring domains crossed 250.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2026 · Month 2</div>
+        <h4>Off-page momentum</h4>
+        <p>First .edu placement landed. PR stack started referencing it. Featured platform producing 5+ quote-worthy alerts per week. Referring domains crossed 450. First AI citations appeared.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Apr 2026 · Month 3</div>
+        <h4>Where we are today</h4>
+        <p>675 referring domains. DR 41. 259 AI citations across 5 platforms. 10.3K backlinks total. Strategy now compounding, with new placements arriving inbound.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAINS ============ -->
+<section id="domains">
+  <div class="container reveal">
+    <span class="section-label">Featured placements</span>
+    <h2>A few of the placements we earned</h2>
+    <p class="section-intro">Niche-relevant, high-intent, and earned organically.</p>
+
+    <div class="domains-grid">
+      <a href="https://www.carved.com/blogs/life-at-carved/reasons-to-carry-pocket-knife" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">CV</div>
+        <div class="domain-name">Carved.com</div>
+        <div class="domain-meta">Life at Carved blog</div>
+      </a>
+      <a href="https://adwave.com/resources/ad-analysis-examples" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">AW</div>
+        <div class="domain-name">AdWave.com</div>
+        <div class="domain-meta">Ad analysis examples</div>
+      </a>
+      <a href="https://aicofounder.co.uk/blog/framework-of-competitive-analysis" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">AC</div>
+        <div class="domain-name">AICofounder.co.uk</div>
+        <div class="domain-meta">Competitive analysis framework</div>
+      </a>
+      <a href="https://www.trendtrack.io/blog-post/pipiads-alternatives" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">TT</div>
+        <div class="domain-name">TrendTrack.io</div>
+        <div class="domain-meta">Pipiads alternatives listicle</div>
+      </a>
+      <a href="https://www.dropshiptool.io/blog/top-ecomhunt-alternatives-for-winning-product-research" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">DT</div>
+        <div class="domain-name">DropshipTool.io</div>
+        <div class="domain-meta">Ecomhunt alternatives</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section>
+  <div class="quote-section reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote">
+      Roggie is a builder, not a marketer. He didn't need someone to teach him SEO. He needed someone to run the entire stack while he focused on product. That's exactly what we did.
+    </p>
+    <p class="quote-attr"><strong>Subham Paul</strong></p>
+  </div>
+</section>
+
+<!-- ============ OTHER WORK ============ -->
+<section style="padding: 40px 0;">
+  <div class="container reveal">
+    <div class="other-work-grid">
+      <a href="canva-in-case-study.html" class="other-work">
+        <div class="other-work-label">Featured case study</div>
+        <h4>Canva.in: DR 0 → 70 in 12 months</h4>
+        <p>Building authority for Canva's first country-specific TLD across 12+ Indian languages, with zero link exchanges.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+      <a href="spocket-case-study.html" class="other-work">
+        <div class="other-work-label">Other case study</div>
+        <h4>Spocket: 5× traffic in 18 months</h4>
+        <p>1,600 backlinks and 23K AI citations for a leading dropshipping platform.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-card reveal">
+    <span class="section-label">Work with me</span>
+    <h2>Want results like this for your brand?</h2>
+    <p>Tired of paying unnecessary money for links that age like milk in summer? Or already dropped a small fortune on link campaigns that ranked about as well as a brick in water? Paul's Link Empire delivers whitelabel-ready, organically earned placements without the agency markup. Built for SEO agencies, freelance consultants, and in-house teams who'd rather invest in their team than feed another vendor for life.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/subhamrimo25/let-s-talk-no-escape" target="_blank" rel="noopener" class="btn btn-primary">Book a call →</a>
+      <a href="mailto:subhamrimo25@gmail.com" class="btn btn-secondary">Email me</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">Paul's Link Empire</div>
+    <p>© 2026 Subham Paul · Link Building Specialist</p>
+    <p style="margin-top:6px; font-size:12px;">Reach me at <a href="mailto:subhamrimo25@gmail.com">subhamrimo25@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const startTime = performance.now();
+    const isInteger = target % 1 === 0;
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      let display;
+      if (target >= 1000) display = Math.floor(current).toLocaleString();
+      else if (isInteger) display = Math.floor(current);
+      else display = current.toFixed(1);
+      el.textContent = prefix + display + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = prefix + (target >= 1000 ? Math.floor(target).toLocaleString() : target) + suffix;
+    }
+    requestAnimationFrame(update);
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-panel="${tab}"]`).classList.add('active');
+    });
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+
+  const aiObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ai-card-value').forEach(animateCounter);
+        aiObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const aiBreakdown = document.querySelector('.ai-breakdown');
+  if (aiBreakdown) aiObserver.observe(aiBreakdown);
+
+  const aiBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        aiBarObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const aiBars = document.getElementById('ai-bars');
+  if (aiBars) aiBarObserver.observe(aiBars);
+
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        chartObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.chart-card').forEach(c => chartObserver.observe(c));
+</script>
+</body>
+</html>
