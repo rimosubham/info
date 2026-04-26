@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spocket Case Study | Paul's Link Empire</title>
+<meta name="description" content="How we grew Spocket from 150K to 750K monthly visitors with 1,600+ quality backlinks, and from zero to 23K AI citations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf6ee;
+    --bg-soft: #f3ecd9;
+    --card-bg: #ffffff;
+    --card-bg-hover: #fdfaf1;
+    --text: #1f2510;
+    --text-muted: #5d6450;
+    --text-dim: #98998a;
+    --mustard: #c9a227;
+    --mustard-dark: #a8821a;
+    --olive: #7a8b47;
+    --olive-dark: #5e6e35;
+    --red: #b04545;
+    --border: rgba(31, 37, 16, 0.1);
+    --border-strong: rgba(31, 37, 16, 0.2);
+    --shadow-sm: 0 2px 8px rgba(31, 37, 16, 0.04);
+    --shadow-md: 0 8px 24px rgba(31, 37, 16, 0.08);
+    --shadow-lg: 0 16px 48px rgba(31, 37, 16, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--mustard); color: white; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(250, 246, 238, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+  .brand-name {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--mustard);
+    letter-spacing: 0.5px;
+  }
+  .brand-by {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--olive-dark); }
+  .nav-cta {
+    background: var(--olive);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    font-size: 14px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--olive-dark); transform: translateY(-1px); }
+
+  @media (max-width: 900px) { .nav-links li:not(:last-child) { display: none; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 110px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(201, 162, 39, 0.12) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(122, 139, 71, 0.1) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; text-align: center; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--olive);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.2rem, 5.2vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 .script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--mustard);
+    font-size: 1.15em;
+    letter-spacing: 0;
+  }
+  h1 .olive-script {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--olive);
+    font-size: 1.15em;
+    letter-spacing: 0;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.18rem);
+    color: var(--text-muted);
+    max-width: 740px;
+    margin: 0 auto 44px;
+    line-height: 1.65;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .stat-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    .stat-card { padding: 22px; }
+  }
+
+  /* ===== SECTION BASICS ===== */
+  section { padding: 60px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--mustard);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .section-intro {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 740px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+
+  /* ===== CLIENT ===== */
+  .client-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .client-logo {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 18px;
+  }
+  .client-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .client-info > p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.65;
+    font-size: 0.98rem;
+  }
+  .client-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--mustard-dark);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .before-stats { display: grid; gap: 10px; }
+  .before-stats-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .before-stat {
+    background: rgba(176, 69, 69, 0.04);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .before-stat-name { font-size: 13px; color: var(--text-muted); }
+  .before-stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .client-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 24px; }
+  }
+
+  /* ===== CHALLENGES ===== */
+  .challenges-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .challenge-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .challenge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(176, 69, 69, 0.3);
+  }
+  .challenge-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(176, 69, 69, 0.1);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .challenge-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .challenge-card p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) { .challenges-grid { grid-template-columns: 1fr; } }
+
+  /* ===== STRATEGY ===== */
+  .strategy-section { background: var(--bg-soft); }
+  .strategy-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .tab-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .tab-btn.active {
+    background: var(--mustard);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.25);
+  }
+  .tab-btn .num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; opacity: 0.65; }
+  .tab-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 36px;
+    min-height: 320px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tab-panel { display: none; animation: fadeIn 0.4s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .tab-panel h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .tab-panel > p {
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .tab-panel ul { list-style: none; }
+  .tab-panel ul li {
+    color: var(--text-muted);
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 11px;
+    line-height: 1.55;
+    font-size: 0.95rem;
+  }
+  .tab-panel ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--mustard);
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .tab-panel ul li strong { color: var(--text); font-weight: 600; }
+  .panel-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .tab-content { padding: 26px 22px; }
+    .tab-btn { padding: 10px 14px; font-size: 12px; }
+  }
+
+  /* ===== METRICS BAR ===== */
+  .metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .metric-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mustard), var(--olive));
+  }
+  .metric-label {
+    font-family: 'Caveat', cursive;
+    font-size: 16px;
+    color: var(--olive-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .metric-flow {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .metric-from {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+    text-decoration-color: rgba(176, 69, 69, 0.5);
+  }
+  .metric-arrow { color: var(--text-dim); font-size: 1rem; }
+  .metric-to {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .metric-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(122, 139, 71, 0.12);
+    color: var(--olive-dark);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) { .metrics-bar { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .metrics-bar { grid-template-columns: 1fr; } }
+
+  /* ===== CHART ===== */
+  .chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .chart-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .chart-sub { font-size: 13px; color: var(--text-muted); }
+  .chart-badge {
+    background: var(--olive);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 7px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .chart-svg-wrap { position: relative; width: 100%; overflow: hidden; }
+  .chart-svg { width: 100%; height: 260px; display: block; }
+  .chart-line {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    transition: stroke-dashoffset 2.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .chart-card.animated .chart-line { stroke-dashoffset: 0; }
+  .chart-area { opacity: 0; transition: opacity 1.2s 1s; }
+  .chart-card.animated .chart-area { opacity: 1; }
+  .chart-axis { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--text-dim); }
+  .chart-grid { stroke: rgba(31, 37, 16, 0.06); stroke-width: 1; }
+  .chart-x-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+  .chart-x-labels span { flex-shrink: 0; }
+  .chart-end-marker { opacity: 0; transition: opacity 0.5s 2.4s; }
+  .chart-card.animated .chart-end-marker { opacity: 1; }
+
+  /* ===== AI BREAKDOWN ===== */
+  .ai-breakdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .ai-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: all 0.3s;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .ai-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .ai-card-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    margin: 0 auto 12px;
+    font-size: 14px;
+  }
+  .ai-card-name { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+  .ai-card-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) { .ai-breakdown { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== RESULT LIST ===== */
+  .result-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .result-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .result-item:hover { border-color: var(--olive); transform: translateX(4px); }
+  .result-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    background: rgba(122, 139, 71, 0.1);
+  }
+  .result-text h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .result-text p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; }
+
+  @media (max-width: 768px) { .result-list { grid-template-columns: 1fr; } }
+
+  /* ===== TIMELINE ===== */
+  .timeline-section { background: var(--bg-soft); }
+  .timeline {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding-left: 36px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--mustard), var(--olive));
+  }
+  .timeline-item { position: relative; padding-bottom: 28px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mustard);
+    border: 3px solid var(--bg-soft);
+    box-shadow: 0 0 0 2px var(--mustard);
+  }
+  .timeline-date {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .timeline-item p { color: var(--text-muted); line-height: 1.55; font-size: 0.94rem; }
+
+  /* ===== DOMAINS ===== */
+  .domains-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .domain-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .domain-card::after {
+    content: '↗';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 18px;
+    color: var(--text-dim);
+    transition: transform 0.3s, color 0.3s;
+  }
+  .domain-card:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .domain-card:hover::after {
+    color: var(--mustard);
+    transform: translate(2px, -2px);
+  }
+  .domain-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--mustard), var(--olive));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .domain-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .domain-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    text-align: center;
+    padding: 70px 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .quote-mark {
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
+    line-height: 0.6;
+    color: var(--mustard);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  .quote {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 22px;
+    color: var(--text);
+  }
+  .quote-attr { color: var(--text-muted); font-size: 0.92rem; }
+  .quote-attr strong { color: var(--text); }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background:
+      radial-gradient(ellipse at top, rgba(201, 162, 39, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(122, 139, 71, 0.1) 0%, transparent 50%),
+      var(--bg);
+  }
+  .cta-card { text-align: center; max-width: 760px; margin: 0 auto; padding: 60px 24px; }
+  .cta-card h2 { margin-bottom: 14px; }
+  .cta-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 32px; line-height: 1.6; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    font-size: 14px;
+  }
+  .btn-primary { background: var(--mustard); color: white; }
+  .btn-primary:hover {
+    background: var(--mustard-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(201, 162, 39, 0.3);
+  }
+  .btn-secondary { background: var(--card-bg); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { transform: translateY(-2px); border-color: var(--olive); }
+
+  /* ===== OTHER WORK ===== */
+  .other-work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .other-work {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    box-shadow: var(--shadow-sm);
+  }
+  .other-work:hover {
+    border-color: var(--mustard);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .other-work-label {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--mustard-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .other-work h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.18rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .other-work p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .other-work-arrow { color: var(--olive-dark); font-weight: 600; font-size: 13px; }
+
+  @media (max-width: 768px) { .other-work-grid { grid-template-columns: 1fr; } }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  footer .footer-brand {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--mustard);
+    margin-bottom: 4px;
+  }
+  footer a { color: var(--olive-dark); text-decoration: none; font-weight: 500; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="container">
+    <a href="#top" class="brand">
+      <span class="brand-name">Paul's Link Empire</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#challenge">Challenge</a></li>
+      <li><a href="#strategy">Strategy</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="canva-in-case-study.html">Canva.in</a></li>
+      <li><a href="winninghunter-case-study.html">WinningHunter</a></li>
+      <li><a href="#contact" class="nav-cta">Work with me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Spocket Case Study · 18-month engagement
+      </div>
+      <h1>
+        How we 5×'d Spocket's traffic with <span class="script">1,600 backlinks</span> and <span class="olive-script">zero agency spend.</span>
+      </h1>
+      <p class="hero-sub">
+        Spocket is a leading dropshipping platform across the US, Canada, and Europe. Their on-page SEO was world-class. Their backlink profile was holding them back. Here's the story of how we fixed it: manually, organically, and without writing a single check to a vendor.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-emoji">🔗</span>
+          <div class="stat-num" data-target="1600" data-suffix="+">0</div>
+          <div class="stat-label">Quality backlinks earned in 18 months</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">📈</span>
+          <div class="stat-num" data-target="5" data-suffix="×">0</div>
+          <div class="stat-label">Organic traffic growth (150K → 750K/mo)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-emoji">💸</span>
+          <div class="stat-num" data-target="0" data-prefix="$">0</div>
+          <div class="stat-label">Spent on agencies or paid placements</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENT ============ -->
+<section id="client">
+  <div class="container reveal">
+    <span class="section-label">The client</span>
+    <h2>Meet Spocket</h2>
+    <p class="section-intro">A fast-growing dropshipping platform serving merchants across Europe, Canada, and the United States. Strong product. Strong on-page SEO. One critical gap.</p>
+
+    <div class="client-card">
+      <div>
+        <div class="client-logo">S</div>
+        <h3>Spocket.co</h3>
+        <p>A leading dropshipping platform connecting merchants with quality suppliers across US, EU, and Canada. Known for its professional interface and reliable supplier network.</p>
+        <div class="client-tags">
+          <span class="tag">E-commerce</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">Dropshipping</span>
+          <span class="tag">B2B</span>
+        </div>
+      </div>
+      <div class="before-stats">
+        <div class="before-stats-label">When we started, September 2024</div>
+        <div class="before-stat"><span class="before-stat-name">Referring domains</span><span class="before-stat-value">2.7K</span></div>
+        <div class="before-stat"><span class="before-stat-name">Domain Rating</span><span class="before-stat-value">67</span></div>
+        <div class="before-stat"><span class="before-stat-name">Authority Score</span><span class="before-stat-value">44</span></div>
+        <div class="before-stat"><span class="before-stat-name">Monthly traffic</span><span class="before-stat-value">150K</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section id="challenge">
+  <div class="container reveal">
+    <span class="section-label">The problem</span>
+    <h2>Four challenges holding Spocket back</h2>
+    <p class="section-intro">Despite a stellar brand and a polished product, the off-page SEO foundation was weak, and competitors like Zendrop, AutoDS, and Doba were pulling ahead.</p>
+
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3>Bleeding budget to vendors</h3>
+        <p>Spocket was paying agencies and freelancers 4 to 5× the cost of what equivalent placements should have run, for results that weren't moving the needle.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3>Low-quality backlink profile</h3>
+        <p>2.7K referring domains, DR 67, AS 44. Well below where a brand of Spocket's size and global user base should sit. The ratio of links to referring domains screamed "low diversity."</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3>Hyper-competitive niche</h3>
+        <p>Direct competitors like Zendrop, AutoDS, and Doba were sitting on stronger backlink profiles and dominating the SERPs. Catching up needed both speed and quality, simultaneously.</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">04</div>
+        <h3>Zero AI surface area</h3>
+        <p>Competitors were getting mentioned across AI tools. Spocket had next to no presence, even competitors with weaker backlink profiles were winning AI mentions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRATEGY ============ -->
+<section class="strategy-section" id="strategy">
+  <div class="container reveal">
+    <span class="section-label">The strategy</span>
+    <h2>Four campaigns. Run in parallel. No paid placements.</h2>
+    <p class="section-intro">Click each tab to see exactly how each campaign worked. Every approach was designed to be replicable, organic, and free.</p>
+
+    <div class="strategy-tabs">
+      <button class="tab-btn active" data-tab="0"><span class="num">01</span> Slack &amp; Email Outreach</button>
+      <button class="tab-btn" data-tab="1"><span class="num">02</span> Backlink Gap Analysis</button>
+      <button class="tab-btn" data-tab="2"><span class="num">03</span> Broken Link &amp; PR</button>
+      <button class="tab-btn" data-tab="3"><span class="num">04</span> Drafts Strategy</button>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-panel active" data-panel="0">
+        <span class="panel-tag">Main focus</span>
+        <h3>Slack &amp; Email Outreach</h3>
+        <p>The core engine. Direct, personal outreach to niche communities and site owners, building real relationships that converted into placements.</p>
+        <ul>
+          <li><strong>Niche Slack communities:</strong> joined 30+ e-commerce, marketing, and SaaS communities. Contributed first, pitched later.</li>
+          <li><strong>Reciprocal exchanges:</strong> ABC-style swaps where three sites exchanged links. Zero cost, real authority.</li>
+          <li><strong>Personalized email outreach:</strong> every email referenced something specific about the recipient's site or recent post.</li>
+          <li><strong>Long-term relationships:</strong> the same partners came back month after month with new opportunities.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="1">
+        <span class="panel-tag">Secondary focus</span>
+        <h3>Backlink Gap Analysis</h3>
+        <p>Used Ahrefs and similar tools to identify every site that linked to a competitor but not to Spocket, then prioritized the highest-authority, most-relevant gaps.</p>
+        <ul>
+          <li><strong>Competitor mining:</strong> analyzed Zendrop, AutoDS, Doba backlink profiles for missed opportunities.</li>
+          <li><strong>Authority filter:</strong> only chased sites above DR 50 with relevant traffic.</li>
+          <li><strong>Relevance over volume:</strong> a single placement on a high-fit site outperformed 10 generic links.</li>
+          <li><strong>Quick wins:</strong> "if they linked to a competitor for X reason, here's why we're a better fit" type pitches. Direct and specific.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="2">
+        <span class="panel-tag">Ongoing</span>
+        <h3>Broken Link &amp; PR Mentions</h3>
+        <p>Found broken or outdated links on high-profile pages where Spocket could serve as the perfect replacement, and earned PR-style brand mentions in the process.</p>
+        <ul>
+          <li><strong>Broken link recovery:</strong> identified dead links on authority pages, pitched Spocket as the replacement.</li>
+          <li><strong>Mention tracking:</strong> used <a href="https://mention.com" target="_blank" rel="noopener" style="color:var(--mustard-dark); text-decoration:underline;">Mention.com</a> to monitor competitor placements. Wherever they were mentioned without a link, we pitched Spocket as a comparable alternative.</li>
+          <li><strong>PR-style shout-outs:</strong> earned brand mentions in industry roundups, "best dropshipping tools" lists, and tutorial content.</li>
+          <li><strong>Continuous loop:</strong> new mentions surfaced weekly as competitors got covered.</li>
+        </ul>
+      </div>
+      <div class="tab-panel" data-panel="3">
+        <span class="panel-tag">Hidden gem</span>
+        <h3>The Drafts Strategy</h3>
+        <p>The tactic most link builders miss. Many authority sites don't accept link requests directly, but their writers post drafts in communities for review before publishing.</p>
+        <ul>
+          <li><strong>Community monitoring:</strong> tracked writer drafts across Slack, Reddit, and niche forums.</li>
+          <li><strong>Helpful suggestions:</strong> proposed Spocket as a relevant addition only where it genuinely fit the article.</li>
+          <li><strong>Pre-publish placement:</strong> got linked before the article ever went live. No editorial battle required.</li>
+          <li><strong>Compounding effect:</strong> writers remembered the helpful suggestion and brought Spocket up unprompted in future drafts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section id="results">
+  <div class="container reveal">
+    <span class="section-label">The results</span>
+    <h2>What 18 months of consistent, organic outreach produced</h2>
+    <p class="section-intro">Real numbers. Real growth. No paid placements involved.</p>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-label">Referring Domains</div>
+        <div class="metric-flow">
+          <span class="metric-from">2.7K</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">9,483</span>
+        </div>
+        <span class="metric-delta">↑ 251%</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Domain Rating</div>
+        <div class="metric-flow">
+          <span class="metric-from">67</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">79</span>
+        </div>
+        <span class="metric-delta">↑ 12 points</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Backlinks Earned</div>
+        <div class="metric-flow">
+          <span class="metric-to">1,600+</span>
+        </div>
+        <span class="metric-delta">↑ All organic</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Monthly Traffic</div>
+        <div class="metric-flow">
+          <span class="metric-from">150K</span>
+          <span class="metric-arrow">→</span>
+          <span class="metric-to">750K</span>
+        </div>
+        <span class="metric-delta">↑ 5×</span>
+      </div>
+    </div>
+
+    <div class="chart-card" id="chart-backlinks">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Backlinks Growth</div>
+          <div class="chart-sub">Referring domains: Sept 2024 → Apr 2026</div>
+        </div>
+        <div class="chart-badge">2.7K → 9,483 · ↑ 251%</div>
+      </div>
+      <div class="chart-svg-wrap">
+        <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c9a227" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lineGrad1" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#c9a227"/>
+              <stop offset="100%" stop-color="#7a8b47"/>
+            </linearGradient>
+          </defs>
+
+          <line class="chart-grid" x1="0" y1="50" x2="800" y2="50"/>
+          <line class="chart-grid" x1="0" y1="110" x2="800" y2="110"/>
+          <line class="chart-grid" x1="0" y1="170" x2="800" y2="170"/>
+          <line class="chart-grid" x1="0" y1="230" x2="800" y2="230"/>
+
+          <text x="790" y="54" class="chart-axis" text-anchor="end">12K</text>
+          <text x="790" y="114" class="chart-axis" text-anchor="end">9K</text>
+          <text x="790" y="174" class="chart-axis" text-anchor="end">6K</text>
+          <text x="790" y="234" class="chart-axis" text-anchor="end">3K</text>
+
+          <path class="chart-area" d="M 0 210 L 38 210 L 76 210 L 114 210 L 152 208 L 190 206 L 229 202 L 267 196 L 305 190 L 343 180 L 381 170 L 419 160 L 457 150 L 495 140 L 533 126 L 571 110 L 610 90 L 648 70 L 686 54 L 724 40 L 762 34 L 800 80 L 800 270 L 0 270 Z" fill="url(#areaGrad1)"/>
+          <path class="chart-line" d="M 0 210 L 38 210 L 76 210 L 114 210 L 152 208 L 190 206 L 229 202 L 267 196 L 305 190 L 343 180 L 381 170 L 419 160 L 457 150 L 495 140 L 533 126 L 571 110 L 610 90 L 648 70 L 686 54 L 724 40 L 762 34 L 800 80" stroke="url(#lineGrad1)"/>
+
+          <g class="chart-end-marker">
+            <circle cx="800" cy="80" r="6" fill="#7a8b47"/>
+            <circle cx="800" cy="80" r="11" fill="#7a8b47" opacity="0.3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-x-labels">
+        <span>Jul 2024</span>
+        <span>Oct 2024</span>
+        <span>Jan 2025</span>
+        <span>Apr 2025</span>
+        <span>Jul 2025</span>
+        <span>Oct 2025</span>
+        <span>Jan 2026</span>
+        <span>Apr 2026</span>
+      </div>
+    </div>
+
+    <div class="result-list">
+      <div class="result-item">
+        <div class="result-icon">🔗</div>
+        <div class="result-text">
+          <h4>1,600+ quality backlinks</h4>
+          <p>Across 7K+ new referring domains. Diversity, relevance, and authority all up.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🌐</div>
+        <div class="result-text">
+          <h4>2.7K → 9,483 referring domains</h4>
+          <p>3.5× growth in unique referring domains, the metric that matters most.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">🛡️</div>
+        <div class="result-text">
+          <h4>Survived 2 core updates</h4>
+          <p>Weathered two major Google core updates without a traffic dip. Quality links did the heavy lifting.</p>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-icon">💰</div>
+        <div class="result-text">
+          <h4>Zero paid placements</h4>
+          <p>Eliminated agency fees entirely. The same budget could now fund product, content, or hiring.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI VISIBILITY ============ -->
+<section id="ai-visibility" style="background: var(--bg-soft);">
+  <div class="container reveal">
+    <span class="section-label">AI visibility</span>
+    <h2>From zero to 23K AI citations in 10 months</h2>
+    <p class="section-intro">When the engagement started, Spocket had almost no presence in AI-powered discovery surfaces. Today, it's cited tens of thousands of times across ChatGPT, Perplexity, Google AI Overviews, and Gemini.</p>
+
+    <div class="ai-breakdown">
+      <div class="ai-card">
+        <div class="ai-card-icon">CG</div>
+        <div class="ai-card-name">ChatGPT</div>
+        <div class="ai-card-value" data-target="13400">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">PX</div>
+        <div class="ai-card-name">Perplexity</div>
+        <div class="ai-card-value" data-target="7500">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">GM</div>
+        <div class="ai-card-name">Gemini</div>
+        <div class="ai-card-value" data-target="1700">0</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">AI</div>
+        <div class="ai-card-name">AI Overview</div>
+        <div class="ai-card-value" data-target="431">0</div>
+      </div>
+    </div>
+
+    <div class="chart-card" id="chart-ai">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">AI Citations Growth</div>
+          <div class="chart-sub">Spocket.co citations across all AI tools: June 2025 → Apr 2026</div>
+        </div>
+        <div class="chart-badge">0 → 23K · ↑ ∞</div>
+      </div>
+      <div class="chart-svg-wrap">
+        <svg class="chart-svg" viewBox="0 0 800 280" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="areaGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7a8b47" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#7a8b47" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lineGrad2" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7a8b47"/>
+              <stop offset="100%" stop-color="#c9a227"/>
+            </linearGradient>
+          </defs>
+
+          <line class="chart-grid" x1="0" y1="50" x2="800" y2="50"/>
+          <line class="chart-grid" x1="0" y1="110" x2="800" y2="110"/>
+          <line class="chart-grid" x1="0" y1="170" x2="800" y2="170"/>
+          <line class="chart-grid" x1="0" y1="230" x2="800" y2="230"/>
+
+          <text x="790" y="54" class="chart-axis" text-anchor="end">18K</text>
+          <text x="790" y="114" class="chart-axis" text-anchor="end">13.5K</text>
+          <text x="790" y="174" class="chart-axis" text-anchor="end">9K</text>
+          <text x="790" y="234" class="chart-axis" text-anchor="end">4.5K</text>
+
+          <path class="chart-area" d="M 0 270 L 80 250 L 160 217 L 240 177 L 320 170 L 400 177 L 480 163 L 560 83 L 640 43 L 720 57 L 800 83 L 800 270 L 0 270 Z" fill="url(#areaGrad2)"/>
+          <path class="chart-line" d="M 0 270 L 80 250 L 160 217 L 240 177 L 320 170 L 400 177 L 480 163 L 560 83 L 640 43 L 720 57 L 800 83" stroke="url(#lineGrad2)"/>
+
+          <g class="chart-end-marker">
+            <circle cx="800" cy="83" r="6" fill="#c9a227"/>
+            <circle cx="800" cy="83" r="11" fill="#c9a227" opacity="0.3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-x-labels">
+        <span>Jun 2025</span>
+        <span>Aug 2025</span>
+        <span>Oct 2025</span>
+        <span>Dec 2025</span>
+        <span>Feb 2026</span>
+        <span>Apr 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section">
+  <div class="container reveal">
+    <span class="section-label">The journey</span>
+    <h2>18 months at a glance</h2>
+    <p class="section-intro">From flat traffic and bloated agency bills to a 5× growth curve.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Sept 2024 · Month 0</div>
+        <h4>Engagement begins</h4>
+        <p>Audit complete. Three campaigns kick off in parallel: outreach, gap analysis, broken-link recovery. Existing vendor contracts wound down.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Dec 2024 · Month 3</div>
+        <h4>First 250 placements</h4>
+        <p>Slack outreach producing 80+ links/month. First Cloudways and Wix placements landed. ABC swaps stabilizing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025 · Month 6</div>
+        <h4>Survives first core update</h4>
+        <p>Google core update lands. Spocket holds steady while three direct competitors lose 15-30% traffic. Validation that the link quality strategy works.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Aug 2025 · Month 11</div>
+        <h4>Drafts strategy compounds</h4>
+        <p>Writer relationships now producing inbound mentions without active outreach. Referring domains cross 6K. AI citations begin climbing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Nov 2025 · Month 14</div>
+        <h4>Survives second core update</h4>
+        <p>Another major Google update. Traffic continues climbing. Backlink profile now stronger than two of the three top competitors.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Apr 2026 · Month 18</div>
+        <h4>Where we are today</h4>
+        <p>1,600+ backlinks earned. 9,483 referring domains. DR 79. 23K AI citations. Traffic at 750K/month. Zero spent on agencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAINS ============ -->
+<section id="domains">
+  <div class="container reveal">
+    <span class="section-label">Featured placements</span>
+    <h2>A few of the domains we earned links from</h2>
+    <p class="section-intro">All organic. All free. All on sites with real traffic and real relevance.</p>
+
+    <div class="domains-grid">
+      <a href="https://www.salesforce.com/blog/side-hustle-ideas/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">SF</div>
+        <div class="domain-name">Salesforce.com</div>
+        <div class="domain-meta">DR 93 · Side hustle ideas</div>
+      </a>
+      <a href="https://www.bigcommerce.com/blog/dropshipping-companies/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">BC</div>
+        <div class="domain-name">BigCommerce.com</div>
+        <div class="domain-meta">DR 91 · Dropshipping companies</div>
+      </a>
+      <a href="https://www.forbes.com/councils/forbestechcouncil/2020/12/03/11-game-changing-reasons-to-monitor-your-website-traffic/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">FB</div>
+        <div class="domain-name">Forbes.com</div>
+        <div class="domain-meta">DR 94 · Tech Council article</div>
+      </a>
+      <a href="https://www.fedex.com/en-ph/small-business/streamline-operations/dropshipping-pros-and-cons.html" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">FX</div>
+        <div class="domain-name">FedEx.com</div>
+        <div class="domain-meta">DR 92 · Dropshipping pros and cons</div>
+      </a>
+      <a href="https://www.wix.com/blog/dropshipping-suppliers" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">WX</div>
+        <div class="domain-name">Wix.com</div>
+        <div class="domain-meta">DR 94 · Dropshipping suppliers</div>
+      </a>
+      <a href="https://www.xero.com/uk/guides/how-to-find-dropshipping-suppliers/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">XR</div>
+        <div class="domain-name">Xero.com</div>
+        <div class="domain-meta">DR 88 · Find dropshipping suppliers</div>
+      </a>
+      <a href="https://www.cloudways.com/blog/best-dropshipping-products/" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">CW</div>
+        <div class="domain-name">Cloudways.com</div>
+        <div class="domain-meta">DR 84 · Best dropshipping products</div>
+      </a>
+      <a href="https://www.logome.ai/blogs/famous-logos" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">LG</div>
+        <div class="domain-name">Logome.ai</div>
+        <div class="domain-meta">DR 62 · Famous logos guide</div>
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1fZhJ40zRSgMTBAbeefAnZNzNDy1Igoc82X02_T5w9BE/edit?usp=sharing" target="_blank" rel="noopener" class="domain-card">
+        <div class="domain-icon">+</div>
+        <div class="domain-name">And 1,500+ more</div>
+        <div class="domain-meta">View the full list →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section>
+  <div class="quote-section reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote">
+      I won't take full credit for that traffic jump. Spocket's top-notch on-page SEO played a huge part. But pairing it with strategic, organic off-page SEO is what made the difference.
+    </p>
+    <p class="quote-attr"><strong>Subham Paul</strong></p>
+  </div>
+</section>
+
+<!-- ============ OTHER WORK ============ -->
+<section style="padding: 40px 0;">
+  <div class="container reveal">
+    <div class="other-work-grid">
+      <a href="canva-in-case-study.html" class="other-work">
+        <div class="other-work-label">Featured case study</div>
+        <h4>Canva.in: DR 0 → 70 in 12 months</h4>
+        <p>Building authority for Canva's first country-specific TLD across 12+ Indian languages, with zero link exchanges.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+      <a href="winninghunter-case-study.html" class="other-work">
+        <div class="other-work-label">Other case study</div>
+        <h4>WinningHunter: 2× DR in 4 months</h4>
+        <p>From spammy backlinks to a doubled Domain Rating and 259 AI citations.</p>
+        <div class="other-work-arrow">View case study →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-card reveal">
+    <span class="section-label">Work with me</span>
+    <h2>Want results like this for your brand?</h2>
+    <p>Tired of paying unnecessary money for links that age like milk in summer? Or already dropped a small fortune on link campaigns that ranked about as well as a brick in water? Paul's Link Empire delivers whitelabel-ready, organically earned placements without the agency markup. Built for SEO agencies, freelance consultants, and in-house teams who'd rather invest in their team than feed another vendor for life.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/subhamrimo25/let-s-talk-no-escape" target="_blank" rel="noopener" class="btn btn-primary">Book a call →</a>
+      <a href="mailto:subhamrimo25@gmail.com" class="btn btn-secondary">Email me</a>
+      <a href="https://docs.google.com/spreadsheets/d/1fZhJ40zRSgMTBAbeefAnZNzNDy1Igoc82X02_T5w9BE/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-secondary">View full domain list</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">Paul's Link Empire</div>
+    <p>© 2026 Subham Paul · Link Building Specialist</p>
+    <p style="margin-top:6px; font-size:12px;">Reach me at <a href="mailto:subhamrimo25@gmail.com">subhamrimo25@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const startTime = performance.now();
+    const isInteger = target % 1 === 0;
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      let display;
+      if (target >= 1000) display = Math.floor(current).toLocaleString();
+      else if (isInteger) display = Math.floor(current);
+      else display = current.toFixed(1);
+      el.textContent = prefix + display + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = prefix + (target >= 1000 ? Math.floor(target).toLocaleString() : target) + suffix;
+    }
+    requestAnimationFrame(update);
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-panel="${tab}"]`).classList.add('active');
+    });
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+
+  const aiObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.ai-card-value').forEach(animateCounter);
+        aiObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  const aiBreakdown = document.querySelector('.ai-breakdown');
+  if (aiBreakdown) aiObserver.observe(aiBreakdown);
+
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        chartObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.chart-card').forEach(c => chartObserver.observe(c));
+</script>
+</body>
+</html>
