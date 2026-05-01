@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan My Trip — Offbeat Peak | Custom itineraries built in 48 hours</title>
+<meta name="description" content="Tell us your dream trip — we'll build it in 48 hours. Custom itineraries from ₹1,500 across India, Thailand, Vietnam. Real humans, real on-ground networks. No generic tours.">
+<meta name="keywords" content="custom travel itinerary India, personalized trip planning, offbeat travel planner, tailor-made trips Himachal Uttarakhand">
+<meta property="og:title" content="Plan My Trip — Offbeat Peak">
+<meta property="og:description" content="Custom itineraries built in 48 hours. From ₹1,500. Real humans. Real on-ground networks.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://offbeatpeak.com/plan-my-trip">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f6f1e7;
+  --cream-dark: #ece4d3;
+  --parchment: #f9f5ec;
+  --forest: #2f4a3a;
+  --forest-deep: #1e3127;
+  --moss: #5d7a52;
+  --moss-light: #8ca77f;
+  --sage: #b8c8a9;
+  --terracotta: #c8623f;
+  --terracotta-deep: #a34e30;
+  --mustard: #d9a441;
+  --sunset: #e4a373;
+  --sky: #9db8c4;
+  --sky-deep: #6a8ca0;
+  --dusk: #6d5c4b;
+  --ink-warm: #2a2620;
+  --muted: #7a6f5e;
+  --line: rgba(47, 74, 58, 0.15);
+
+  --serif: "DM Serif Display", serif;
+  --sans: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+  --hand: "Caveat", cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink-warm); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; font-weight: 400; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.03; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+
+/* ====== ANIMATIONS ====== */
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+@keyframes floatGentle { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, -20px); } }
+@keyframes floatGentle2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 18px); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ====== TOPBAR + NAV (shared) ====== */
+.topbar { background: var(--forest-deep); color: var(--cream); font-size: 12px; letter-spacing: 0.06em; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1320px; margin: 0 auto; }
+.topbar-left { display: flex; gap: 28px; }
+.topbar-left span { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+.topbar-right { display: flex; gap: 20px; opacity: 0.85; }
+.topbar a:hover { color: var(--mustard); }
+
+header.nav { position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 231, 0.93); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 22px 40px; max-width: 1320px; margin: 0 auto; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; color: var(--forest); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; background: var(--forest); color: var(--cream); border-radius: 50%; flex-shrink: 0; transition: transform 0.6s; }
+.logo:hover .logo-mark { transform: rotate(360deg); background: var(--terracotta); }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+nav a { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; position: relative; padding: 6px 0; transition: color 0.2s; color: var(--forest); }
+nav a::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--terracotta); transition: all 0.3s; transform: translateX(-50%); }
+nav a:hover, nav a.active { color: var(--terracotta); }
+nav a.active::after, nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); transition: all 0.2s; color: var(--forest); }
+.icon-btn:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.icon-btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--forest); color: var(--cream); padding: 12px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s; }
+.btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.breadcrumb { padding: 24px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.breadcrumb a { transition: color 0.2s; font-weight: 500; }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { margin: 0 10px; opacity: 0.5; }
+
+/* ====== HERO ====== */
+.page-hero {
+  position: relative; padding: 70px 0 100px; overflow: hidden;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
+}
+.page-hero::before { content: ""; position: absolute; top: 5%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(70px); pointer-events: none; animation: floatGentle 14s ease-in-out infinite; }
+.page-hero::after { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.28; filter: blur(80px); pointer-events: none; animation: floatGentle2 18s ease-in-out infinite; }
+
+.hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
+.hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; animation: fadeUp 0.8s 0.1s both; }
+.hero-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.hero-label .pulse-dot { width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; animation: pulse 2s infinite; margin-left: 4px; }
+.page-hero h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 100px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 24px; animation: fadeUp 1s 0.25s both; }
+.page-hero h1 em { font-style: italic; color: var(--terracotta); }
+.hero-hand { font-family: var(--hand); font-size: 28px; color: var(--terracotta); margin-bottom: 24px; transform: rotate(-2deg); display: inline-block; animation: wiggle 4s ease-in-out infinite; }
+.hero-sub { font-size: 18px; color: var(--dusk); line-height: 1.75; max-width: 560px; margin-bottom: 40px; animation: fadeUp 0.9s 0.55s both; }
+.hero-sub strong { color: var(--forest); font-weight: 500; }
+.hero-proof { display: flex; gap: 32px; padding: 28px 0 0; border-top: 1px solid var(--line); flex-wrap: wrap; animation: fadeUp 0.9s 0.8s both; }
+.proof-item { display: flex; flex-direction: column; }
+.proof-num { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--terracotta); line-height: 1; letter-spacing: -0.02em; }
+.proof-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 8px; font-weight: 500; }
+
+/* Hero card on right side */
+.hero-card {
+  background: var(--parchment); border-radius: 18px; padding: 36px; position: relative;
+  box-shadow: 0 30px 70px -25px rgba(47, 74, 58, 0.28);
+  animation: fadeUp 0.9s 0.7s both;
+}
+.hero-card::before { content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 120px; height: 24px; background: var(--mustard); opacity: 0.55; border-radius: 2px; }
+.hero-card-label { font-family: var(--hand); font-size: 22px; color: var(--terracotta); transform: rotate(-1deg); margin-bottom: 8px; }
+.hero-card h3 { font-family: var(--serif); font-size: 30px; line-height: 1.1; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 20px; }
+.hero-card h3 em { font-style: italic; color: var(--terracotta); }
+.hero-steps { display: flex; flex-direction: column; gap: 18px; margin-bottom: 26px; }
+.hero-step { display: flex; gap: 16px; align-items: flex-start; }
+.hero-step-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--forest); color: var(--mustard); font-family: var(--serif); font-size: 16px; display: grid; place-items: center; }
+.hero-step-text { font-size: 14px; line-height: 1.55; color: var(--dusk); }
+.hero-step-text strong { color: var(--forest); font-weight: 500; display: block; margin-bottom: 2px; font-size: 15px; }
+.hero-card-foot { padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.hero-card-price { font-family: var(--serif); font-size: 24px; color: var(--forest); }
+.hero-card-price small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 2px; font-weight: 500; }
+.hero-card-scroll { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+
+/* ====== URGENCY ====== */
+.urgency-bar { background: var(--forest); color: var(--cream); padding: 16px 0; overflow: hidden; }
+.urgency-inner { display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.urgency-item { display: flex; align-items: center; gap: 10px; }
+.urgency-item::before { content: "◆"; color: var(--mustard); }
+.urgency-item strong { color: var(--mustard); font-weight: 600; }
+.urgency-live { display: inline-flex; align-items: center; gap: 8px; color: var(--mustard); }
+.urgency-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); animation: pulse 1.5s infinite; }
+
+/* ====== PRICING TIERS ====== */
+.pricing { padding: 120px 0 80px; background: var(--cream); position: relative; }
+.sec-head { margin-bottom: 70px; text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+.sec-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px; display: flex; align-items: center; justify-content: center; gap: 14px; font-weight: 500; }
+.sec-kicker::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.sec-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); }
+.sec-title em { font-style: italic; color: var(--terracotta); }
+.sec-sub { margin-top: 20px; font-size: 17px; color: var(--dusk); line-height: 1.7; }
+
+.tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+.tier-card {
+  background: var(--parchment); border-radius: 16px; padding: 40px 34px; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex; flex-direction: column; position: relative;
+}
+.tier-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px -25px rgba(47, 74, 58, 0.25); }
+.tier-card.featured { background: var(--forest); color: var(--cream); box-shadow: 0 20px 50px -15px rgba(47, 74, 58, 0.4); }
+.tier-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--mustard); color: var(--forest-deep); padding: 7px 16px; border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+.tier-name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; font-weight: 500; }
+.tier-card.featured .tier-name { color: var(--mustard); }
+.tier-card h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 14px; }
+.tier-card.featured h3 { color: var(--cream); }
+.tier-card h3 em { font-style: italic; color: var(--terracotta); }
+.tier-card.featured h3 em { color: var(--mustard); }
+.tier-tagline { font-family: var(--hand); font-size: 20px; color: var(--terracotta); margin-bottom: 22px; line-height: 1.1; }
+.tier-card.featured .tier-tagline { color: var(--mustard); }
+.tier-price { font-family: var(--serif); font-size: 42px; color: var(--forest); font-weight: 400; line-height: 1; margin-bottom: 28px; display: flex; align-items: baseline; gap: 8px; }
+.tier-card.featured .tier-price { color: var(--cream); }
+.tier-price small { font-family: var(--sans); font-size: 14px; color: var(--muted); font-weight: 500; }
+.tier-card.featured .tier-price small { color: rgba(246, 241, 231, 0.65); }
+.tier-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; flex-grow: 1; }
+.tier-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.55; color: var(--dusk); }
+.tier-card.featured .tier-list li { color: rgba(246, 241, 231, 0.85); }
+.tier-list li::before { content: "✓"; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--sage); color: var(--forest-deep); display: grid; place-items: center; font-size: 11px; font-weight: 600; margin-top: 1px; }
+.tier-card.featured .tier-list li::before { background: var(--mustard); color: var(--forest-deep); }
+.tier-cta { background: var(--forest); color: var(--cream); padding: 14px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-align: center; transition: all 0.25s; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
+.tier-cta:hover { background: var(--terracotta); }
+.tier-card.featured .tier-cta { background: var(--mustard); color: var(--forest-deep); }
+.tier-card.featured .tier-cta:hover { background: var(--cream); }
+.tier-cta svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.tier-cta:hover svg { transform: translateX(3px); }
+
+/* ====== THE FORM ====== */
+.form-section { padding: 100px 0 140px; background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%); position: relative; overflow: hidden; }
+.form-section::before { content: ""; position: absolute; top: 15%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.3; filter: blur(80px); animation: floatGentle 16s ease-in-out infinite; }
+.form-section::after { content: ""; position: absolute; bottom: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.25; filter: blur(80px); animation: floatGentle2 20s ease-in-out infinite; }
+
+.form-wrap { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.form-header { text-align: center; margin-bottom: 60px; }
+.form-kicker { font-family: var(--hand); font-size: 28px; color: var(--terracotta); margin-bottom: 12px; transform: rotate(-2deg); display: inline-block; }
+.form-header h2 { font-family: var(--serif); font-size: clamp(38px, 5vw, 64px); line-height: 1.02; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 18px; }
+.form-header h2 em { font-style: italic; color: var(--terracotta); }
+.form-header p { font-size: 17px; color: var(--dusk); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+/* Step progress */
+.step-progress { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; }
+.step-dot { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; transition: color 0.3s; }
+.step-dot .step-n { width: 28px; height: 28px; border-radius: 50%; background: var(--cream-dark); color: var(--muted); display: grid; place-items: center; font-family: var(--serif); font-size: 14px; transition: all 0.3s; }
+.step-dot.active .step-n { background: var(--forest); color: var(--mustard); }
+.step-dot.active { color: var(--forest); }
+.step-dot.done .step-n { background: var(--mustard); color: var(--forest-deep); }
+.step-dot.done { color: var(--forest); }
+.step-line { width: 40px; height: 1px; background: var(--line); }
+
+.form-card {
+  background: var(--parchment); border-radius: 20px; padding: 50px 60px;
+  box-shadow: 0 40px 80px -40px rgba(47, 74, 58, 0.3);
+  position: relative;
+}
+.form-card::before { content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 140px; height: 28px; background: var(--mustard); opacity: 0.55; border-radius: 3px; }
+
+.form-step { display: none; }
+.form-step.active { display: block; animation: fadeUp 0.5s ease; }
+.form-step-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 12px; }
+.form-step-label::before { content: ""; width: 20px; height: 1px; background: var(--terracotta); }
+.form-step h3 { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 10px; }
+.form-step h3 em { font-style: italic; color: var(--terracotta); }
+.form-step-sub { font-size: 15px; color: var(--dusk); line-height: 1.7; margin-bottom: 32px; }
+
+.field { margin-bottom: 24px; }
+.field label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forest); margin-bottom: 10px; font-weight: 500; }
+.field label .req { color: var(--terracotta); margin-left: 3px; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field input[type="date"], .field input[type="number"], .field select, .field textarea {
+  width: 100%; padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--cream); color: var(--forest); font-size: 15px; transition: all 0.2s;
+  font-family: var(--sans);
+}
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--terracotta); background: var(--parchment); }
+.field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.field select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%232f4a3a' stroke-width='2'><path d='M1 1l5 5 5-5'/></svg>"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 40px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Pill selectors */
+.pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill-option {
+  position: relative; cursor: pointer;
+}
+.pill-option input { position: absolute; opacity: 0; pointer-events: none; }
+.pill-option span {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
+  border: 1px solid var(--line); border-radius: 100px; font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest);
+  background: var(--cream); transition: all 0.25s; font-weight: 500;
+}
+.pill-option:hover span { border-color: var(--terracotta); color: var(--terracotta); }
+.pill-option input:checked + span { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
+/* Card selectors (for destinations) */
+.card-group { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.card-option { position: relative; cursor: pointer; }
+.card-option input { position: absolute; opacity: 0; pointer-events: none; }
+.card-option .card-inner {
+  border: 1px solid var(--line); border-radius: 10px; padding: 16px 12px;
+  background: var(--cream); text-align: center; transition: all 0.25s;
+}
+.card-option:hover .card-inner { border-color: var(--terracotta); }
+.card-option input:checked + .card-inner { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.card-option .card-emoji { font-size: 22px; margin-bottom: 8px; display: block; }
+.card-option .card-name { font-family: var(--serif); font-size: 15px; font-weight: 400; letter-spacing: -0.005em; }
+.card-option input:checked + .card-inner .card-name { color: var(--mustard); }
+
+/* Budget slider */
+.budget-wrap { padding: 10px 0 20px; }
+.budget-display { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.budget-value { font-family: var(--serif); font-size: 30px; color: var(--forest); font-weight: 400; letter-spacing: -0.015em; }
+.budget-value em { color: var(--terracotta); font-style: italic; font-size: 18px; }
+.budget-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.budget-slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; background: var(--cream-dark); outline: none; }
+.budget-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--forest); cursor: pointer; border: 3px solid var(--mustard); transition: all 0.2s; }
+.budget-slider::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.budget-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--forest); cursor: pointer; border: 3px solid var(--mustard); }
+.budget-markers { display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+/* Form nav */
+.form-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 40px; margin-top: 20px; border-top: 1px solid var(--line); gap: 16px; flex-wrap: wrap; }
+.btn-back { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 16px 20px; transition: color 0.25s; font-weight: 500; }
+.btn-back:hover { color: var(--forest); }
+.btn-next { background: var(--forest); color: var(--cream); padding: 16px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
+.btn-next:hover { background: var(--terracotta); transform: translateY(-2px); }
+.btn-next svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-next:hover svg { transform: translateX(3px); }
+.btn-submit { background: var(--mustard); color: var(--forest-deep); padding: 18px 34px; border-radius: 100px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.25s; }
+.btn-submit:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(217, 164, 65, 0.4); }
+.btn-submit svg { width: 14px; height: 14px; }
+
+/* Success state */
+.form-success { display: none; text-align: center; padding: 30px 0; }
+.form-success.active { display: block; animation: fadeUp 0.6s ease; }
+.success-check { width: 80px; height: 80px; margin: 0 auto 24px; border-radius: 50%; background: var(--mustard); display: grid; place-items: center; animation: pulse 2s ease-in-out infinite; }
+.success-check svg { width: 36px; height: 36px; color: var(--forest-deep); }
+.form-success h3 { font-family: var(--serif); font-size: 42px; font-weight: 400; line-height: 1.05; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 18px; }
+.form-success h3 em { font-style: italic; color: var(--terracotta); }
+.form-success p { font-size: 16px; color: var(--dusk); line-height: 1.7; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* ====== TRUST / WHY ====== */
+.trust { padding: 120px 0; background: var(--cream); position: relative; }
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.trust-card { background: var(--parchment); border-radius: 14px; padding: 36px; transition: all 0.3s; }
+.trust-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -18px rgba(47, 74, 58, 0.2); }
+.trust-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--sage); color: var(--forest-deep); display: grid; place-items: center; margin-bottom: 22px; transition: all 0.3s; }
+.trust-card:hover .trust-icon { background: var(--mustard); transform: rotate(-8deg); }
+.trust-icon svg { width: 22px; height: 22px; }
+.trust-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; color: var(--forest); margin-bottom: 12px; }
+.trust-card h3 em { font-style: italic; color: var(--terracotta); }
+.trust-card p { font-size: 15px; color: var(--dusk); line-height: 1.7; }
+.trust-card p strong { color: var(--forest); font-weight: 500; }
+
+/* ====== SOCIAL PROOF ====== */
+.proof-section { padding: 140px 0; background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+.proof-section::before { content: ""; position: absolute; top: -15%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--moss-light) 0%, transparent 70%); opacity: 0.25; filter: blur(80px); pointer-events: none; animation: floatGentle 16s ease-in-out infinite; }
+.proof-section::after { content: ""; position: absolute; bottom: -15%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 70%); opacity: 0.25; filter: blur(80px); pointer-events: none; animation: floatGentle2 20s ease-in-out infinite; }
+.proof-inner { position: relative; z-index: 2; }
+.proof-section .sec-kicker { color: var(--mustard); }
+.proof-section .sec-kicker::before { background: var(--mustard); }
+.proof-section .sec-title { color: var(--cream); }
+.proof-section .sec-title em { color: var(--mustard); }
+.proof-section .sec-sub { color: rgba(246, 241, 231, 0.75); }
+.proof-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proof-card {
+  background: rgba(246, 241, 231, 0.06); border: 1px solid rgba(246, 241, 231, 0.14);
+  border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 18px;
+  transition: all 0.3s;
+}
+.proof-card:hover { background: rgba(246, 241, 231, 0.1); border-color: rgba(246, 241, 231, 0.22); transform: translateY(-4px); }
+.proof-rating { display: flex; gap: 3px; color: var(--mustard); }
+.proof-rating svg { width: 16px; height: 16px; fill: currentColor; }
+.proof-card p { font-size: 15px; line-height: 1.7; opacity: 0.92; }
+.proof-card p strong { color: var(--mustard); font-weight: 500; }
+.proof-person { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid rgba(246, 241, 231, 0.15); margin-top: auto; }
+.proof-avatar { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+.proof-person-info strong { display: block; font-family: var(--serif); font-size: 16px; font-weight: 400; }
+.proof-person-info small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; font-weight: 500; }
+.proof-trip { margin-left: auto; text-align: right; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); font-weight: 500; }
+
+/* ====== FAQ ====== */
+.faq-section { padding: 140px 0; background: var(--cream); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+.faq-side { position: sticky; top: 140px; }
+.faq-side h2 { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 20px; }
+.faq-side h2 em { font-style: italic; color: var(--terracotta); }
+.faq-side p { font-size: 16px; color: var(--dusk); line-height: 1.7; margin-bottom: 26px; }
+.faq-side a { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--forest); font-weight: 500; }
+.faq-side a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item { background: var(--parchment); border-radius: 10px; overflow: hidden; transition: background 0.3s; }
+.faq-item.open { background: var(--forest); color: var(--cream); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; cursor: pointer; gap: 20px; }
+.faq-q strong { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--forest); line-height: 1.3; transition: color 0.3s; }
+.faq-item.open .faq-q strong { color: var(--cream); }
+.faq-toggle { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: all 0.3s; color: var(--forest); }
+.faq-item.open .faq-toggle { background: var(--mustard); border-color: var(--mustard); color: var(--forest-deep); transform: rotate(45deg); }
+.faq-toggle svg { width: 12px; height: 12px; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s; padding: 0 26px; font-size: 15px; line-height: 1.75; color: var(--dusk); }
+.faq-item.open .faq-a { padding: 0 26px 24px; max-height: 500px; color: rgba(246, 241, 231, 0.85); }
+.faq-a p { margin-bottom: 10px; }
+.faq-a strong { color: var(--mustard); font-weight: 500; }
+
+/* ====== FOOTER ====== */
+footer { background: var(--forest-deep); color: rgba(246,241,231,0.7); padding: 80px 0 40px; border-top: 1px solid rgba(246,241,231,0.08); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo { color: var(--cream); }
+.footer-brand .logo-mark { background: var(--cream); color: var(--forest-deep); }
+.footer-brand p { margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); margin-bottom: 22px; font-weight: 500; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { font-size: 14px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--mustard); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(246,241,231,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(246,241,231,0.55); font-weight: 500; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(246,241,231,0.22); border-radius: 50%; display: grid; place-items: center; transition: all 0.25s; }
+.footer-social a:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: rotate(-10deg); }
+.footer-social svg { width: 14px; height: 14px; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 50px; }
+  .tier-grid, .trust-grid, .proof-cards { grid-template-columns: 1fr; }
+  .card-group { grid-template-columns: repeat(2, 1fr); }
+  .faq-grid { grid-template-columns: 1fr; gap: 50px; }
+  .faq-side { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .form-card { padding: 40px 30px; }
+  .field-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .container, .nav-inner, .topbar-inner { padding-left: 22px; padding-right: 22px; }
+  .topbar-left { gap: 12px; font-size: 11px; }
+  .topbar-left span:nth-child(3) { display: none; }
+  .topbar-right { display: none; }
+  nav ul { display: none; }
+  .page-hero { padding: 50px 0 70px; }
+  .hero-proof { gap: 20px; }
+  section { padding: 80px 0; }
+  .trust, .proof-section, .faq-section, .pricing, .form-section { padding: 70px 0; }
+  .step-progress { gap: 6px; }
+  .step-line { width: 20px; }
+  .step-dot .step-label { display: none; }
+  .form-card { padding: 30px 20px; }
+  .card-group { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+  .urgency-inner { gap: 14px; font-size: 10px; }
+  .urgency-item:nth-child(3) { display: none; }
+}
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">EN / हिं</a>
+      <a href="#">₹ INR</a>
+      <a href="/contact.html">Support</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+      Offbeat <em>Peak</em>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary" style="background: var(--terracotta);">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/index.html">Home</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Plan my trip</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label">Custom itineraries · built by humans <span class="pulse-dot"></span></div>
+        <div class="hero-hand">let's build something unforgettable —</div>
+        <h1>Tell us your dream. We'll build it in <em>48 hours</em>.</h1>
+        <p class="hero-sub">No templates. No generic itineraries. No "tour packages" pulled from a PDF somewhere. <strong>Fill the form below and a real human on our team reads every word.</strong> Then we build a trip shaped around your pace, your budget, and the reason you travel — not the reason someone else did.</p>
+
+        <div class="hero-proof">
+          <div class="proof-item">
+            <div class="proof-num">612</div>
+            <div class="proof-label">Trips designed</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">48h</div>
+            <div class="proof-label">Avg response time</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">4.9★</div>
+            <div class="proof-label">Happiness rating</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">₹1,500</div>
+            <div class="proof-label">Starting price</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">how this works —</div>
+        <h3>Four steps. One <em>unforgettable</em> trip.</h3>
+        <div class="hero-steps">
+          <div class="hero-step">
+            <div class="hero-step-num">1</div>
+            <div class="hero-step-text"><strong>Fill the form</strong>5 minutes. Be honest — the more detail, the better the trip.</div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-num">2</div>
+            <div class="hero-step-text"><strong>We read it carefully</strong>A real human on our team, not a chatbot or an auto-responder.</div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-num">3</div>
+            <div class="hero-step-text"><strong>48 hours later — your plan</strong>A full itinerary, photos, costs, with one free revision.</div>
+          </div>
+          <div class="hero-step">
+            <div class="hero-step-num">4</div>
+            <div class="hero-step-text"><strong>Book it, live it</strong>We handle all stays, transport, and guides if you want.</div>
+          </div>
+        </div>
+        <div class="hero-card-foot">
+          <div class="hero-card-price"><small>From</small>₹1,500</div>
+          <a href="#the-form" class="hero-card-scroll">Start below ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<div class="urgency-bar">
+  <div class="urgency-inner">
+    <span class="urgency-live">3 trips being designed right now</span>
+    <span class="urgency-item"><strong>Launch offer:</strong> 20% off ends May 31</span>
+    <span class="urgency-item">Solo women get <strong>free safety kit</strong></span>
+    <span class="urgency-item">Group 4+? <strong>5th guide free</strong></span>
+  </div>
+</div>
+
+<!-- PRICING TIERS -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Pick your level of handholding</div>
+      <h2 class="sec-title">Three ways to plan. Zero <em>pressure</em>.</h2>
+      <p class="sec-sub">Whether you want a PDF guide you'll execute yourself, or white-glove concierge from airport pickup to last sunset — pick what suits. You can always upgrade later.</p>
+    </div>
+
+    <div class="tier-grid reveal">
+
+      <div class="tier-card">
+        <div class="tier-name">Tier 01 · Self-Guide</div>
+        <h3><em>The Guide</em></h3>
+        <div class="tier-tagline">"I'll book it myself, just tell me where"</div>
+        <div class="tier-price">₹1,500<small>flat fee</small></div>
+        <ul class="tier-list">
+          <li>Custom 5–14 day itinerary PDF</li>
+          <li>Hidden-spot recommendations</li>
+          <li>One free revision round</li>
+          <li>WhatsApp support during trip</li>
+          <li>Maps, timings, estimated costs</li>
+          <li>Usually delivered in 48 hours</li>
+        </ul>
+        <a href="#the-form" class="tier-cta" data-tier="Self-Guide">Start with this plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-badge">Most Picked</div>
+        <div class="tier-name">Tier 02 · Full-Service</div>
+        <h3><em>The Full Plan</em></h3>
+        <div class="tier-tagline">"plan it, book it, hold my hand"</div>
+        <div class="tier-price">₹5,500<small>per traveler</small></div>
+        <ul class="tier-list">
+          <li>Everything in The Guide, plus —</li>
+          <li>We book every stay and transport</li>
+          <li>Local guide introductions</li>
+          <li>1:1 onboarding call (45 min)</li>
+          <li>Unlimited revisions before booking</li>
+          <li>24/7 WhatsApp during your trip</li>
+          <li>Travel insurance included</li>
+        </ul>
+        <a href="#the-form" class="tier-cta" data-tier="Full-Service">Start with full service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-name">Tier 03 · Concierge</div>
+        <h3><em>The Concierge</em></h3>
+        <div class="tier-tagline">"I want the Asha Ji treatment"</div>
+        <div class="tier-price">₹12,000<small>per traveler</small></div>
+        <ul class="tier-list">
+          <li>Everything in Full Plan, plus —</li>
+          <li>Dedicated trip coordinator</li>
+          <li>Private transfers start-to-finish</li>
+          <li>Curated luxury stays</li>
+          <li>Private experiences (festivals, chefs)</li>
+          <li>Airport pickup in Indian cities</li>
+          <li>Photographer available on request</li>
+        </ul>
+        <a href="#the-form" class="tier-cta" data-tier="Concierge">Start with concierge <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE FORM -->
+<section class="form-section" id="the-form">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-header reveal">
+        <div class="form-kicker">right, let's begin —</div>
+        <h2>Your trip, <em>shaped by you</em>.</h2>
+        <p>Five minutes. Four simple steps. Your trip designer reads every word.</p>
+      </div>
+
+      <div class="step-progress reveal" id="stepProgress">
+        <div class="step-dot active" data-step="1"><div class="step-n">1</div><span class="step-label">Basics</span></div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="2"><div class="step-n">2</div><span class="step-label">Destinations</span></div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="3"><div class="step-n">3</div><span class="step-label">Style</span></div>
+        <div class="step-line"></div>
+        <div class="step-dot" data-step="4"><div class="step-n">4</div><span class="step-label">Finish</span></div>
+      </div>
+
+      <div class="form-card reveal">
+
+        <!-- STEP 1: BASICS -->
+        <div class="form-step active" data-step="1">
+          <div class="form-step-label">Step 01 of 04</div>
+          <h3>First, the basic <em>stuff</em>.</h3>
+          <p class="form-step-sub">So we know who we're designing for and when. Don't overthink it.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Your name<span class="req">*</span></label>
+              <input type="text" id="name" placeholder="Priya Sharma" required>
+            </div>
+            <div class="field">
+              <label>Email<span class="req">*</span></label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>WhatsApp number<span class="req">*</span></label>
+              <input type="tel" id="phone" placeholder="+91 9xxxx xxxxx" required>
+            </div>
+            <div class="field">
+              <label>How did you find us?</label>
+              <select id="source">
+                <option>Instagram</option>
+                <option>Google search</option>
+                <option>A friend's recommendation</option>
+                <option>Pinterest</option>
+                <option>YouTube</option>
+                <option>Newsletter</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Travel dates — start</label>
+              <input type="date" id="dateStart">
+            </div>
+            <div class="field">
+              <label>Travel dates — end</label>
+              <input type="date" id="dateEnd">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>How many travelers?</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="radio" name="travelers" value="1" checked><span>Solo</span></label>
+              <label class="pill-option"><input type="radio" name="travelers" value="2"><span>2 people</span></label>
+              <label class="pill-option"><input type="radio" name="travelers" value="3-4"><span>3–4 people</span></label>
+              <label class="pill-option"><input type="radio" name="travelers" value="5-8"><span>5–8 people</span></label>
+              <label class="pill-option"><input type="radio" name="travelers" value="group"><span>Larger group</span></label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <div></div>
+            <button type="button" class="btn-next" data-next="2">Next — destinations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+
+        <!-- STEP 2: DESTINATIONS -->
+        <div class="form-step" data-step="2">
+          <div class="form-step-label">Step 02 of 04</div>
+          <h3>Where have you been <em>dreaming</em> of?</h3>
+          <p class="form-step-sub">Pick as many as feel right. "I have no idea" is also a valid answer — we love those.</p>
+
+          <div class="field">
+            <label>Destinations that excite you</label>
+            <div class="card-group">
+              <label class="card-option"><input type="checkbox" value="Darjeeling"><div class="card-inner"><span class="card-emoji">🍵</span><div class="card-name">Darjeeling</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Sikkim"><div class="card-inner"><span class="card-emoji">🏔</span><div class="card-name">Sikkim</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Himachal"><div class="card-inner"><span class="card-emoji">🌲</span><div class="card-name">Himachal</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Uttarakhand"><div class="card-inner"><span class="card-emoji">⛰</span><div class="card-name">Uttarakhand</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Andaman"><div class="card-inner"><span class="card-emoji">🏝</span><div class="card-name">Andaman</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Nagaland"><div class="card-inner"><span class="card-emoji">🪶</span><div class="card-name">Nagaland</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Thailand"><div class="card-inner"><span class="card-emoji">🛕</span><div class="card-name">Thailand</div></div></label>
+              <label class="card-option"><input type="checkbox" value="Vietnam"><div class="card-inner"><span class="card-emoji">🍜</span><div class="card-name">Vietnam</div></div></label>
+            </div>
+            <p style="margin-top: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500;">Or leave blank if you want us to suggest</p>
+          </div>
+
+          <div class="field">
+            <label>Experience type(s) you're drawn to</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="checkbox" value="Homestays"><span>Village homestays</span></label>
+              <label class="pill-option"><input type="checkbox" value="Cuisine"><span>Cuisine trails</span></label>
+              <label class="pill-option"><input type="checkbox" value="Festivals"><span>Festivals &amp; rituals</span></label>
+              <label class="pill-option"><input type="checkbox" value="Treks"><span>Treks &amp; trails</span></label>
+              <label class="pill-option"><input type="checkbox" value="Slow"><span>Slow travel</span></label>
+              <label class="pill-option"><input type="checkbox" value="Adventure"><span>Adventure sports</span></label>
+              <label class="pill-option"><input type="checkbox" value="Luxury"><span>Luxury escapes</span></label>
+              <label class="pill-option"><input type="checkbox" value="Workation"><span>Workation</span></label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn-back" data-back="1">← Back</button>
+            <button type="button" class="btn-next" data-next="3">Next — your style <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+
+        <!-- STEP 3: STYLE -->
+        <div class="form-step" data-step="3">
+          <div class="form-step-label">Step 03 of 04</div>
+          <h3>What <em>kind</em> of traveler are you?</h3>
+          <p class="form-step-sub">No judgment here. Be honest. A good trip matches a person, not an Instagram ideal.</p>
+
+          <div class="field">
+            <label>Your travel style</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="radio" name="pace" checked><span>Slow &amp; reflective</span></label>
+              <label class="pill-option"><input type="radio" name="pace"><span>Balanced</span></label>
+              <label class="pill-option"><input type="radio" name="pace"><span>Action-packed</span></label>
+              <label class="pill-option"><input type="radio" name="pace"><span>Depends on the day</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Comfort level</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="radio" name="comfort"><span>Basic &amp; authentic — homestays, shared rides</span></label>
+              <label class="pill-option"><input type="radio" name="comfort" checked><span>Comfortable — private rooms, clean bathrooms</span></label>
+              <label class="pill-option"><input type="radio" name="comfort"><span>Premium — boutique stays, private transport</span></label>
+              <label class="pill-option"><input type="radio" name="comfort"><span>Luxury — the Asha Ji treatment</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Budget per person (excluding flights)</label>
+            <div class="budget-wrap">
+              <div class="budget-display">
+                <div class="budget-value" id="budgetValue">₹<span id="budgetAmt">45,000</span><em> / person</em></div>
+                <div class="budget-label" id="budgetLabel">Comfortable</div>
+              </div>
+              <input type="range" min="10000" max="200000" step="5000" value="45000" class="budget-slider" id="budgetSlider">
+              <div class="budget-markers">
+                <span>₹10k</span>
+                <span>₹50k</span>
+                <span>₹1L</span>
+                <span>₹2L+</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Any dealbreakers? (optional)</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="checkbox"><span>No crowded spots</span></label>
+              <label class="pill-option"><input type="checkbox"><span>Vegetarian only</span></label>
+              <label class="pill-option"><input type="checkbox"><span>No high altitude</span></label>
+              <label class="pill-option"><input type="checkbox"><span>Wifi is a must</span></label>
+              <label class="pill-option"><input type="checkbox"><span>Female-run stays only</span></label>
+              <label class="pill-option"><input type="checkbox"><span>Accessible travel</span></label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn-back" data-back="2">← Back</button>
+            <button type="button" class="btn-next" data-next="4">Next — the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+
+        <!-- STEP 4: FINISH -->
+        <div class="form-step" data-step="4">
+          <div class="form-step-label">Step 04 of 04</div>
+          <h3>The <em>why</em>.</h3>
+          <p class="form-step-sub">This is the part we read most carefully. Tell us what's in your head. Ramble, be specific, be weird — it all helps.</p>
+
+          <div class="field">
+            <label>Tell us about your dream trip</label>
+            <textarea id="dream" placeholder="e.g. 'I've been working nonstop for two years and need somewhere quiet. Want to sleep, read, eat home-cooked food, meet one or two locals, maybe a short trek. No crowds please. No photography pressure. My partner wants some adventure sports though, so a day or two of that would work.'"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Which plan are you interested in?</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="radio" name="tier" value="Self-Guide"><span>Self-Guide · ₹1,500</span></label>
+              <label class="pill-option"><input type="radio" name="tier" value="Full-Service" checked><span>Full Plan · ₹5,500</span></label>
+              <label class="pill-option"><input type="radio" name="tier" value="Concierge"><span>Concierge · ₹12,000</span></label>
+              <label class="pill-option"><input type="radio" name="tier" value="Not-sure"><span>Not sure yet</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>How soon do you want to hear back?</label>
+            <div class="pill-group">
+              <label class="pill-option"><input type="radio" name="urgency" checked><span>The usual 48 hours is fine</span></label>
+              <label class="pill-option"><input type="radio" name="urgency"><span>I'm in a hurry — within 24 hours</span></label>
+              <label class="pill-option"><input type="radio" name="urgency"><span>No rush — whenever works</span></label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button type="button" class="btn-back" data-back="3">← Back</button>
+            <button type="button" class="btn-submit" id="submitBtn">Send it — let's build this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+          </div>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h3>Got it. We're on <em>it</em>.</h3>
+          <p>Your dream trip is now in our inbox. We'll send a thoughtful reply within 48 hours — sometimes with questions, always with a starting plan. Check your email (including spam, please).</p>
+          <p style="font-family: var(--hand); font-size: 24px; color: var(--terracotta);">— Arjun &amp; the trip design team</p>
+          <div style="margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a href="/stories.html" class="btn-next" style="background: var(--forest);">Read our journal while you wait</a>
+            <a href="/index.html" class="btn-back">Back to home</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Why travelers keep coming back</div>
+      <h2 class="sec-title">Four things we do — <em>religiously</em>.</h2>
+    </div>
+
+    <div class="trust-grid reveal">
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Real <em>humans</em>, every time</h3>
+        <p>Every form is read by a person on our trip design team — not a chatbot, not an auto-reply, not an intern. <strong>The same person stays with you from form to final itinerary.</strong></p>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>On-ground <em>networks</em>, not APIs</h3>
+        <p>Our homestay hosts, trek guides, and local contacts are <strong>people we know personally</strong> — some for a decade. We don't book from aggregators. That's why your trip actually works.</p>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>48 hours. <em>Seriously</em>.</h3>
+        <p>Most itineraries go out within 48 hours of your form. <strong>Our longest ever was 72 hours, during monsoon chaos.</strong> If we'll take longer, we tell you within 6 hours of submission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="sec-head reveal">
+        <div class="sec-kicker">Travelers' notes — unedited</div>
+        <h2 class="sec-title">612 custom trips. <em>Zero</em> canned responses.</h2>
+        <p class="sec-sub">Here's what it actually feels like when a real person designs your trip, not an algorithm.</p>
+      </div>
+
+      <div class="proof-cards reveal">
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"I filled the form at 11pm. By 9am the next day Arjun had sent back a WhatsApp with <strong>four alternate routes</strong>, two of which I didn't know existed. The actual trip was better than the plan. Which is saying something."</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Ananya Sharma</strong><small>Mumbai</small></div>
+            <div class="proof-trip">10 days<br>Himachal</div>
+          </div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"They asked better questions than I would've thought to answer. <strong>I didn't realise my 'dream trip' was actually a 14-day slow workation, not a 7-day tick-list.</strong> The form itself was therapy."</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Meera Iyer</strong><small>Pune</small></div>
+            <div class="proof-trip">21 days<br>Workation</div>
+          </div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"I asked for 'solo woman, safe, no crowds, good food'. What I got was <strong>verified female-run homestays in 4 towns, 3 local guardians' WhatsApp numbers, and the Uttarakhand itinerary of my life.</strong>"</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Priya Reddy</strong><small>Bangalore</small></div>
+            <div class="proof-trip">6 days<br>Solo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-side reveal">
+        <div class="sec-kicker">Before you fill the form</div>
+        <h2>Questions we <em>answered</em> at 11pm.</h2>
+        <p>Every question below came from a real traveler over WhatsApp, usually at inconvenient hours. We've collected the ones that matter most for custom trip planning.</p>
+        <a href="/faq.html">See full FAQ <span>→</span></a>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <div class="faq-q">
+            <strong>What if I don't know where I want to go?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Excellent. Those are the trips we love most.</p>
+            <p>Just fill the form with <strong>what kind of experience you're after</strong> — quiet, slow, adventurous, solo, whatever — and we'll come back with 2–3 destination options we think will fit. Then you pick.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Is the ₹1,500 fee refundable if I don't book?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>You pay the ₹1,500 <strong>after</strong> you see our initial plan and approve it. If the plan doesn't resonate, we'll revise once for free or you can walk away — no fee charged.</p>
+            <p>Once you pay, the ₹1,500 is <strong>fully credited against any upgrade</strong> (Full Plan or Concierge).</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>How many revisions do I get?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p><strong>Self-Guide:</strong> 1 free revision.<br><strong>Full Plan:</strong> Unlimited until you approve.<br><strong>Concierge:</strong> Unlimited, plus a 1:1 call anytime.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Can I book flights through you?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>We don't book flights — you'll always get better rates direct. But we'll <strong>recommend the best airports, routes, and timings</strong> in your itinerary, and tell you which dates will save you money.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>What if something goes wrong during my trip?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>We're on WhatsApp during your entire trip. Roads close, weather turns — we've rebooked travelers <strong>43 times in the last 18 months</strong> at zero extra cost. Zero travelers stranded.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Can my group of 6 split across different stays?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Yes. We do this often for big groups — <strong>one family in a heritage stay, friends in a homestay nearby</strong>. We plan the splits and the daytime overlaps. Works well for multi-generational trips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+          Offbeat <em style="color: var(--mustard);">Peak</em>
+        </a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/plan-my-trip.html#pricing">Pricing</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/testimonials.html">Reviews</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- SEO: Service + FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Custom travel itinerary planning",
+  "provider": {"@type": "TravelAgency", "name": "Offbeat Peak"},
+  "areaServed": ["India", "Thailand", "Vietnam"],
+  "offers": [
+    {"@type": "Offer", "name": "Self-Guide Plan", "price": "1500", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Full Plan", "price": "5500", "priceCurrency": "INR"},
+    {"@type": "Offer", "name": "Concierge Plan", "price": "12000", "priceCurrency": "INR"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What if I don't know where I want to go?", "acceptedAnswer": {"@type": "Answer", "text": "Just share what kind of experience you're after. We'll come back with 2-3 destination options and you pick."}},
+    {"@type": "Question", "name": "Is the ₹1,500 fee refundable?", "acceptedAnswer": {"@type": "Answer", "text": "You pay after seeing our initial plan. If it doesn't resonate, we revise once free or you walk away — no fee charged."}},
+    {"@type": "Question", "name": "How many revisions do I get?", "acceptedAnswer": {"@type": "Answer", "text": "Self-Guide: 1 free revision. Full Plan: unlimited until you approve. Concierge: unlimited plus a 1:1 call."}}
+  ]
+}
+</script>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* Multi-step form */
+  const steps = document.querySelectorAll('.form-step');
+  const dots = document.querySelectorAll('.step-dot');
+
+  function goToStep(n) {
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i + 1 === n);
+      d.classList.toggle('done', i + 1 < n);
+    });
+    window.scrollTo({ top: document.getElementById('the-form').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('.btn-next').forEach(b => {
+    b.addEventListener('click', () => goToStep(parseInt(b.dataset.next)));
+  });
+  document.querySelectorAll('.btn-back').forEach(b => {
+    b.addEventListener('click', () => goToStep(parseInt(b.dataset.back)));
+  });
+
+  /* Budget slider */
+  const slider = document.getElementById('budgetSlider');
+  const amt = document.getElementById('budgetAmt');
+  const label = document.getElementById('budgetLabel');
+  const budgetLabels = [
+    [10000, 25000, 'Basic &amp; authentic'],
+    [25000, 55000, 'Comfortable'],
+    [55000, 100000, 'Premium'],
+    [100000, 200001, 'Luxury']
+  ];
+  slider.addEventListener('input', () => {
+    const val = parseInt(slider.value);
+    amt.textContent = val.toLocaleString('en-IN');
+    for (const [lo, hi, lbl] of budgetLabels) {
+      if (val >= lo && val < hi) { label.innerHTML = lbl; break; }
+    }
+  });
+
+  /* Submit */
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('formSuccess').classList.add('active');
+    window.scrollTo({ top: document.getElementById('the-form').offsetTop - 100, behavior: 'smooth' });
+  });
+
+  /* Tier pre-select from pricing cards */
+  document.querySelectorAll('[data-tier]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const tier = btn.dataset.tier;
+      const radio = document.querySelector(`input[name="tier"][value="${tier}"]`);
+      if (radio) radio.checked = true;
+    });
+  });
+</script>
+
+</body>
+</html>
