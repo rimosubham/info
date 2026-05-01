@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subham Paul — Founder &amp; Author | Offbeat Peak</title>
+<meta name="description" content="Founder &amp; lead author at Offbeat Peak. A traveler across India, Thailand, Vietnam, Indonesia, Malaysia and Dubai — writing about the places guidebooks skip.">
+<meta name="keywords" content="Subham Paul, Offbeat Peak founder, travel author India, hidden destinations writer">
+<meta property="og:title" content="Subham Paul — Founder &amp; Author at Offbeat Peak">
+<meta property="og:description" content="Six countries. 40+ hidden places. A decade of slow travel — distilled into one travel studio and a journal.">
+<meta property="og:type" content="profile">
+<link rel="canonical" href="https://offbeatpeak.com/author">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f6f1e7; --cream-dark: #ece4d3; --parchment: #f9f5ec;
+  --forest: #2f4a3a; --forest-deep: #1e3127; --moss: #5d7a52; --moss-light: #8ca77f; --sage: #b8c8a9;
+  --terracotta: #c8623f; --terracotta-deep: #a34e30; --mustard: #d9a441; --sunset: #e4a373;
+  --sky: #9db8c4; --sky-deep: #6a8ca0; --dusk: #6d5c4b; --ink-warm: #2a2620; --muted: #7a6f5e;
+  --line: rgba(47, 74, 58, 0.15);
+  --serif: "DM Serif Display", serif; --sans: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace; --hand: "Caveat", cursive;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink-warm); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; font-weight: 400; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.03; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+@keyframes floatGentle { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, -20px); } }
+@keyframes floatGentle2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 18px); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Topbar + Nav */
+.topbar { background: var(--forest-deep); color: var(--cream); font-size: 12px; letter-spacing: 0.06em; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1320px; margin: 0 auto; }
+.topbar-left { display: flex; gap: 28px; }
+.topbar-left span { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+.topbar-right { display: flex; gap: 20px; opacity: 0.85; }
+.topbar a:hover { color: var(--mustard); }
+header.nav { position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 231, 0.93); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 22px 40px; max-width: 1320px; margin: 0 auto; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; color: var(--forest); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; background: var(--forest); color: var(--cream); border-radius: 50%; flex-shrink: 0; transition: transform 0.6s; }
+.logo:hover .logo-mark { transform: rotate(360deg); background: var(--terracotta); }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+nav a { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; position: relative; padding: 6px 0; transition: color 0.2s; color: var(--forest); }
+nav a::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--terracotta); transition: all 0.3s; transform: translateX(-50%); }
+nav a:hover, nav a.active { color: var(--terracotta); }
+nav a.active::after, nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); transition: all 0.2s; color: var(--forest); }
+.icon-btn:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.icon-btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--forest); color: var(--cream); padding: 12px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s; }
+.btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.breadcrumb { padding: 24px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { margin: 0 10px; opacity: 0.5; }
+
+/* Author hero */
+.author-hero { padding: 70px 0 100px; position: relative; overflow: hidden; background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%); }
+.author-hero::before { content: ""; position: absolute; top: 5%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(70px); animation: floatGentle 14s ease-in-out infinite; pointer-events: none; }
+.author-hero::after { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.28; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; pointer-events: none; }
+.author-hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 70px; align-items: center; position: relative; z-index: 2; }
+.author-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; animation: fadeUp 0.8s 0.1s both; }
+.author-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.author-label .pulse-dot { width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; animation: pulse 2s infinite; margin-left: 4px; }
+.author-hand { font-family: var(--hand); font-size: 30px; color: var(--terracotta); margin-bottom: 18px; transform: rotate(-2deg); display: inline-block; animation: wiggle 4s ease-in-out infinite; }
+.author-hero h1 { font-family: var(--serif); font-size: clamp(56px, 9vw, 120px); line-height: 0.95; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 24px; animation: fadeUp 1s 0.25s both; }
+.author-hero h1 em { font-style: italic; color: var(--terracotta); }
+.author-tagline { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 28px); line-height: 1.4; color: var(--dusk); font-style: italic; margin-bottom: 34px; max-width: 560px; animation: fadeUp 0.9s 0.55s both; }
+.author-roles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; animation: fadeUp 0.9s 0.7s both; }
+.role-pill { display: inline-flex; align-items: center; padding: 8px 16px; border: 1px solid var(--line); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); font-weight: 500; background: var(--parchment); }
+.role-pill.primary { background: var(--forest); color: var(--mustard); border-color: var(--forest); }
+.author-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.9s 0.85s both; }
+.btn-big { background: var(--forest); color: var(--cream); padding: 16px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+.btn-big:hover { background: var(--terracotta); transform: translateY(-2px); }
+.btn-big svg { width: 13px; height: 13px; transition: transform 0.3s; }
+.btn-big:hover svg { transform: translateX(3px); }
+.btn-outline { padding: 16px 28px; border-radius: 100px; border: 1px solid var(--forest); color: var(--forest); font-size: 14px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+.btn-outline:hover { background: var(--forest); color: var(--cream); }
+
+.author-portrait { position: relative; aspect-ratio: 4/5; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 80px -25px rgba(47, 74, 58, 0.4); animation: fadeUp 1s 0.4s both; }
+.author-portrait svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.author-tape-tl { position: absolute; top: 18px; left: 18px; background: var(--mustard); color: var(--forest-deep); font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 12px; border-radius: 3px; transform: rotate(-3deg); font-weight: 600; z-index: 2; }
+.author-signature { position: absolute; bottom: 22px; left: 22px; right: 22px; font-family: var(--hand); font-size: 36px; color: var(--cream); transform: rotate(-3deg); text-shadow: 0 2px 12px rgba(30,49,39,0.5); z-index: 2; }
+
+/* Stats strip */
+.stats-strip { padding: 60px 0; background: var(--forest); color: var(--cream); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.stat-item { text-align: center; padding: 0 20px; border-left: 1px solid rgba(246,241,231,0.15); }
+.stat-item:first-child { border-left: none; }
+.stat-item h3 { font-family: var(--serif); font-size: 56px; line-height: 1; color: var(--mustard); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; }
+.stat-item p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,241,231,0.75); font-weight: 500; }
+
+/* Bio editorial */
+.bio-section { padding: 130px 0; background: var(--cream); }
+.bio-wrap { max-width: 760px; margin: 0 auto; }
+.bio-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.bio-kicker::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.bio-wrap h2 { font-family: var(--serif); font-size: clamp(36px, 4.8vw, 56px); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 30px; }
+.bio-wrap h2 em { font-style: italic; color: var(--terracotta); }
+.bio-wrap h3 { font-family: var(--serif); font-size: 26px; line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; color: var(--forest); margin: 40px 0 14px; }
+.bio-wrap h3 em { font-style: italic; color: var(--terracotta); }
+.bio-wrap p { font-size: 18px; color: var(--dusk); line-height: 1.85; margin-bottom: 18px; }
+.bio-wrap p strong { color: var(--forest); font-weight: 500; }
+.bio-wrap p em { color: var(--terracotta); font-family: var(--serif); font-style: italic; }
+.bio-pullquote { margin: 50px -30px; padding: 28px 36px; border-left: 4px solid var(--terracotta); background: var(--parchment); border-radius: 0 12px 12px 0; font-family: var(--serif); font-size: 26px; line-height: 1.35; color: var(--forest); font-style: italic; font-weight: 400; }
+.bio-pullquote em { color: var(--terracotta); }
+
+/* Countries strip */
+.countries-section { padding: 100px 0; background: var(--parchment); position: relative; overflow: hidden; }
+.countries-section::before { content: ""; position: absolute; top: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.3; filter: blur(80px); animation: floatGentle 16s ease-in-out infinite; }
+.countries-head { text-align: center; max-width: 720px; margin: 0 auto 50px; position: relative; z-index: 2; }
+.countries-head h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 14px; }
+.countries-head h2 em { font-style: italic; color: var(--terracotta); }
+.countries-head p { font-size: 16px; color: var(--dusk); line-height: 1.7; }
+.countries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.country-card { background: var(--cream); border-radius: 14px; padding: 30px; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.country-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(47, 74, 58, 0.22); }
+.country-flag { font-size: 38px; margin-bottom: 14px; line-height: 1; }
+.country-card h4 { font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.1; color: var(--forest); margin-bottom: 8px; letter-spacing: -0.01em; }
+.country-card h4 em { font-style: italic; color: var(--terracotta); }
+.country-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; font-weight: 500; }
+.country-card p { font-size: 14px; color: var(--dusk); line-height: 1.65; }
+.country-card p strong { color: var(--forest); font-weight: 500; }
+
+/* Articles section */
+.articles-section { padding: 130px 0; background: var(--cream); position: relative; overflow: hidden; }
+.articles-section::before { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.25; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; }
+.articles-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 60px; gap: 40px; flex-wrap: wrap; position: relative; z-index: 2; }
+.articles-head-left { max-width: 600px; }
+.articles-head .sec-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.articles-head .sec-kicker::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.articles-head h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 60px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); }
+.articles-head h2 em { font-style: italic; color: var(--terracotta); }
+.articles-head .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); padding-bottom: 4px; font-weight: 500; }
+
+.article-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; position: relative; z-index: 2; }
+.article-card { background: var(--parchment); border-radius: 14px; overflow: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+.article-card:hover { transform: translateY(-8px); box-shadow: 0 35px 70px -25px rgba(47, 74, 58, 0.25); }
+.article-card.featured { grid-row: span 2; }
+.article-img { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.article-card.featured .article-img { aspect-ratio: 16/11; }
+.article-img svg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); display: block; }
+.article-card:hover .article-img svg { transform: scale(1.06); }
+.article-tag { position: absolute; top: 16px; left: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 11px; border-radius: 100px; background: rgba(246,241,231,0.95); color: var(--forest); font-weight: 500; backdrop-filter: blur(8px); z-index: 2; }
+.article-tag.featured { background: var(--terracotta); color: var(--cream); }
+.article-body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex-grow: 1; }
+.article-card.featured .article-body { padding: 34px 36px 36px; }
+.article-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; font-weight: 500; }
+.article-meta strong { color: var(--terracotta); font-weight: 500; }
+.article-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; color: var(--forest); margin-bottom: 10px; }
+.article-card.featured .article-body h3 { font-size: 32px; line-height: 1.1; }
+.article-body h3 em { font-style: italic; color: var(--terracotta); }
+.article-body p { font-size: 14px; color: var(--dusk); line-height: 1.7; margin-bottom: 18px; }
+.article-card.featured .article-body p { font-size: 16px; line-height: 1.75; margin-bottom: 22px; }
+.article-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); display: inline-flex; align-items: center; gap: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--forest); transition: all 0.25s; align-self: flex-start; margin-top: auto; font-weight: 500; }
+.article-link:hover { color: var(--terracotta); border-color: var(--terracotta); gap: 14px; }
+
+.see-more-row { display: flex; justify-content: center; margin-top: 60px; }
+.see-more-link { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; background: var(--forest); color: var(--cream); border-radius: 100px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: all 0.3s; }
+.see-more-link:hover { background: var(--terracotta); transform: translateY(-2px); }
+.see-more-link svg { width: 13px; height: 13px; transition: transform 0.3s; }
+.see-more-link:hover svg { transform: translateX(3px); }
+
+/* Connect / final CTA */
+.connect-section { padding: 130px 0; background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+.connect-section::before { content: ""; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.3; filter: blur(80px); animation: floatGentle 16s ease-in-out infinite; }
+.connect-section::after { content: ""; position: absolute; bottom: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sky-deep) 0%, transparent 60%); opacity: 0.3; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; }
+.connect-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; text-align: center; }
+.connect-kicker { font-family: var(--hand); font-size: 32px; color: var(--mustard); margin-bottom: 16px; transform: rotate(-2deg); display: inline-block; animation: wiggle 4s ease-in-out infinite; }
+.connect-inner h2 { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 70px); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 22px; }
+.connect-inner h2 em { font-style: italic; color: var(--mustard); }
+.connect-inner p { font-size: 18px; line-height: 1.75; opacity: 0.85; margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.connect-inner p strong { color: var(--mustard); font-weight: 500; }
+.social-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+.social-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; background: rgba(246,241,231,0.08); border: 1px solid rgba(246,241,231,0.18); border-radius: 100px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); font-weight: 500; transition: all 0.3s; }
+.social-link:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: translateY(-2px); }
+.social-link svg { width: 14px; height: 14px; }
+.btn-mustard { background: var(--mustard); color: var(--forest-deep); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-mustard:hover { background: var(--cream); transform: translateY(-3px); }
+.btn-mustard svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-mustard:hover svg { transform: translateX(3px); }
+.btn-ghost { background: transparent; color: var(--cream); padding: 18px 32px; border-radius: 100px; border: 1px solid rgba(246,241,231,0.35); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-ghost:hover { background: rgba(246,241,231,0.08); border-color: var(--cream); }
+
+/* Footer */
+footer { background: var(--forest-deep); color: rgba(246,241,231,0.7); padding: 80px 0 40px; border-top: 1px solid rgba(246,241,231,0.08); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo { color: var(--cream); }
+.footer-brand .logo-mark { background: var(--cream); color: var(--forest-deep); }
+.footer-brand p { margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); margin-bottom: 22px; font-weight: 500; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { font-size: 14px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--mustard); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(246,241,231,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(246,241,231,0.55); font-weight: 500; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(246,241,231,0.22); border-radius: 50%; display: grid; place-items: center; transition: all 0.25s; }
+.footer-social a:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: rotate(-10deg); }
+.footer-social svg { width: 14px; height: 14px; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  .author-hero-grid { grid-template-columns: 1fr; gap: 50px; }
+  .author-portrait { max-width: 380px; margin: 0 auto; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .stat-item { border-left: none; border-top: 1px solid rgba(246,241,231,0.15); padding-top: 30px; }
+  .stat-item:nth-child(1), .stat-item:nth-child(2) { border-top: none; padding-top: 0; }
+  .countries-grid { grid-template-columns: 1fr 1fr; }
+  .article-grid { grid-template-columns: 1fr 1fr; }
+  .article-card.featured { grid-column: span 2; grid-row: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 760px) {
+  .container, .nav-inner, .topbar-inner { padding-left: 22px; padding-right: 22px; }
+  .topbar-left { gap: 12px; font-size: 11px; }
+  .topbar-left span:nth-child(3) { display: none; }
+  .topbar-right { display: none; }
+  nav ul { display: none; }
+  .author-hero, .bio-section, .countries-section, .articles-section, .connect-section { padding: 70px 0; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item { border-top: 1px solid rgba(246,241,231,0.15); padding-top: 24px; }
+  .stat-item:first-child { border-top: none; padding-top: 0; }
+  .countries-grid, .article-grid { grid-template-columns: 1fr; }
+  .article-card.featured { grid-column: span 1; }
+  .bio-pullquote { margin-left: 0; margin-right: 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right"><a href="#">EN / हिं</a><a href="#">₹ INR</a><a href="/contact.html">Support</a></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+      Offbeat <em>Peak</em>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/index.html">Home</a><span>/</span><a href="/about.html">About</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Subham Paul</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="author-hero">
+  <div class="container">
+    <div class="author-hero-grid">
+      <div>
+        <div class="author-label">Founder · Lead author <span class="pulse-dot"></span></div>
+        <div class="author-hand">the one who started this whole thing —</div>
+        <h1>Subham <em>Paul</em></h1>
+        <p class="author-tagline">"A traveler who built a travel company because no one was building the one he wanted to use."</p>
+        <div class="author-roles">
+          <span class="role-pill primary">Founder, Offbeat Peak</span>
+          <span class="role-pill">Travel writer</span>
+          <span class="role-pill">Trip designer</span>
+          <span class="role-pill">Slow-travel obsessive</span>
+        </div>
+        <div class="author-actions">
+          <a href="#articles" class="btn-big">Read his articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#connect" class="btn-outline">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="author-portrait">
+        <span class="author-tape-tl">est. 2023</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="ahbg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e4a373"/><stop offset="60%" stop-color="#c8623f"/><stop offset="100%" stop-color="#a34e30"/></linearGradient>
+            <linearGradient id="ahp" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#2f4a3a"/><stop offset="100%" stop-color="#1e3127"/></linearGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#ahbg)"/>
+          <circle cx="80" cy="80" r="40" fill="#f6f1e7" opacity="0.85"/>
+          <circle cx="200" cy="200" r="95" fill="#f6f1e7" opacity="0.95"/>
+          <path d="M50,500 L50,380 Q50,280 200,280 Q350,280 350,380 L350,500 Z" fill="url(#ahp)"/>
+          <circle cx="170" cy="190" r="7" fill="#2f4a3a"/>
+          <circle cx="230" cy="190" r="7" fill="#2f4a3a"/>
+          <path d="M175,235 Q200,255 225,235" fill="none" stroke="#2f4a3a" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M150,140 Q200,100 250,140" fill="none" stroke="#1e3127" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+        <div class="author-signature">— Subham</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><h3>6</h3><p>Countries travelled</p></div>
+      <div class="stat-item"><h3>40+</h3><p>Hidden places visited</p></div>
+      <div class="stat-item"><h3>10y</h3><p>Years of off-route travel</p></div>
+      <div class="stat-item"><h3>32</h3><p>Articles written so far</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO EDITORIAL -->
+<section class="bio-section">
+  <div class="container">
+    <div class="bio-wrap reveal">
+      <div class="bio-kicker">A founder profile · in his own arc</div>
+      <h2>The traveler who became a <em>founder</em>.</h2>
+      <p>Subham Paul is the founder, lead author, and chief route-finder at Offbeat Peak — the travel studio behind some of the more deliberate, less-photographed itineraries coming out of India today. <strong>His philosophy is straightforward: a good trip is not a checklist. It is a place that changes the person who visits it.</strong></p>
+      <p>For nearly a decade before founding Offbeat Peak, Paul travelled — often quietly, often without a return ticket. Across <em>India, Thailand, Vietnam, Indonesia, Malaysia, and Dubai</em>, he developed a habit of arriving in famous cities only to leave them quickly, drawn instead to the villages, valleys, and back-alleys that the algorithm had not yet found. That instinct — toward the unmarked and the unmarketed — would, in time, become the entire business he built.</p>
+
+      <h3>The <em>route</em> that became a company</h3>
+      <p>"I was tired of selling my own time to companies whose travel I'd never want to do," Paul says. "And I was tired of being a customer of travel companies that hadn't actually been to the places they were selling." The contradiction nagged at him for years. In April 2023, after a packaged tour through Rajasthan he describes as <em>"engineered for Instagram, not for memory,"</em> he returned to Delhi, called his co-founder Priya Kapoor, and within a week the spreadsheet that would become Offbeat Peak was open on three laptops.</p>
+      <p>The company's first listing was a homestay in Tirthan Valley belonging to a woman named Asha Ji, whose siddu Paul had eaten three years earlier on a trek and never forgotten. <strong>"The whole company is, in some sense, an attempt to repay her hospitality,"</strong> he likes to say. The studio now works with 87 such homestay families across India and Southeast Asia — most of them found, vetted, or befriended by Paul himself.</p>
+
+      <div class="bio-pullquote">"A good trip is not a checklist. It is a place that <em>changes</em> the person who visits it."</div>
+
+      <h3>What he <em>writes</em> about</h3>
+      <p>Beyond the company, Paul writes a journal column on Offbeat Peak's Stories section — a kind of slow, periodic dispatch from wherever he happens to be. The pieces are often short, occasionally long, and rarely on the obvious places. A typical recent entry: <em>"Why I've stopped photographing temples"</em>, or <em>"The Kuala Lumpur night market that doesn't appear on Google."</em></p>
+      <p>His writing has been informed by, and is sometimes cited by, peers in the Indian independent-travel space. <strong>He prefers reportage over recommendation</strong>, and the journal page has, perhaps unintentionally, become its own slow audience — picking up readers who don't even travel with Offbeat Peak but enjoy the dispatches anyway.</p>
+
+      <h3>What he's <em>working</em> on</h3>
+      <p>In April 2026, Paul is splitting time between the studio's Tirthan base and Havelock Island, where the team is finalising Offbeat Peak's Andaman launch (Q3 2026). A Nagaland chapter follows in December, timed to the Hornbill Festival. Beyond that, he is reportedly researching Bhutan and Sri Lanka for 2027, though both are still on the maybe-list.</p>
+      <p>Asked what success looks like, Paul tends to demur. "I don't want Offbeat Peak to be the biggest travel brand in India," he said in a recent interview. <strong>"I want it to be the one your trusted friend recommends. The one you come back to three times over five years. We'll be small. That's the whole point."</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTRIES -->
+<section class="countries-section">
+  <div class="container">
+    <div class="countries-head reveal">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; font-weight: 500;">— Six countries · forty hidden places —</div>
+      <h2>The <em>map</em>, so far.</h2>
+      <p>Where the founder has spent enough time to write about it. Each card lists the kinds of places he's drawn to — and the ones that ended up in the company's pages.</p>
+    </div>
+    <div class="countries-grid reveal">
+      <div class="country-card">
+        <div class="country-flag">🇮🇳</div>
+        <h4><em>India</em></h4>
+        <div class="country-meta">Home base · 18 states</div>
+        <p>From Tirthan to the Andaman, Sikkim to Spiti. <strong>Nine years</strong> of slow travel through the country he calls home.</p>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇹🇭</div>
+        <h4><em>Thailand</em></h4>
+        <div class="country-meta">Beyond Bangkok</div>
+        <p>Pai, Chiang Dao, Chiang Mai. Spent <strong>three months</strong> living in a wooden house near a Wat, learning to be unproductive.</p>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇻🇳</div>
+        <h4><em>Vietnam</em></h4>
+        <div class="country-meta">North + central</div>
+        <p>The Ha Giang loop, Sapa rice terraces, Hoi An lanterns. <strong>Two trips</strong> — second one he never wanted to leave.</p>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇮🇩</div>
+        <h4><em>Indonesia</em></h4>
+        <div class="country-meta">Bali + Java</div>
+        <p>Skipped Kuta entirely. <strong>Ubud's coffee farms, Yogyakarta's Borobudur sunrises</strong>, and the volcanoes of East Java.</p>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇲🇾</div>
+        <h4><em>Malaysia</em></h4>
+        <div class="country-meta">KL + Penang + Borneo</div>
+        <p>The KL hawker stalls only locals know. <strong>Penang's heritage trails</strong>. Sabah's longhouses on the Sarawak side of Borneo.</p>
+      </div>
+      <div class="country-card">
+        <div class="country-flag">🇦🇪</div>
+        <h4><em>Dubai</em></h4>
+        <div class="country-meta">UAE · the unexpected city</div>
+        <p>Came for the obvious, stayed for <strong>Al Fahidi's old town</strong>, the Hatta hills, and a homestay in Ras Al Khaimah no one talks about.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles-section" id="articles">
+  <div class="container">
+    <div class="articles-head reveal">
+      <div class="articles-head-left">
+        <div class="sec-kicker">From the journal</div>
+        <h2>Articles by <em>Subham</em>.</h2>
+      </div>
+      <div class="meta">32 articles · updated weekly</div>
+    </div>
+
+    <div class="article-grid reveal">
+
+      <!-- FEATURED -->
+      <article class="article-card featured">
+        <div class="article-img">
+          <span class="article-tag featured">Featured</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#9db8c4"/><stop offset="100%" stop-color="#6a8ca0"/></linearGradient><linearGradient id="a1m" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1e3127"/><stop offset="100%" stop-color="#2f4a3a"/></linearGradient></defs><rect width="800" height="550" fill="url(#a1)"/><circle cx="640" cy="120" r="55" fill="#f6f1e7" opacity="0.92"/><path d="M0,420 L130,260 L260,330 L400,200 L560,300 L720,230 L800,290 L800,550 L0,550 Z" fill="url(#a1m)"/><path d="M0,490 L200,360 L380,420 L580,340 L800,400 L800,550 L0,550 Z" fill="#5d7a52" opacity="0.7"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Travel Philosophy</strong> · 12 min read · April 2026</div>
+          <h3>Why I've stopped photographing <em>temples</em>.</h3>
+          <p>Six countries, hundreds of religious sites, and a slowly-built realisation: the act of pulling out a camera in a sacred space changes the space. A long, sometimes uncomfortable essay on what it means to actually be present, and why the founder of a travel company that sells experiences has stopped photographing his own.</p>
+          <a href="/stories.html" class="article-link">Read the full essay <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="article-card">
+        <div class="article-img">
+          <span class="article-tag">Field notes</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e4a373"/><stop offset="100%" stop-color="#c8623f"/></linearGradient></defs><rect width="800" height="500" fill="url(#a2)"/><circle cx="600" cy="100" r="45" fill="#f6f1e7" opacity="0.9"/><path d="M0,360 L140,240 L280,310 L450,200 L620,290 L800,250 L800,500 L0,500 Z" fill="#1e3127" opacity="0.92"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Malaysia</strong> · 8 min read · March 2026</div>
+          <h3>The KL night market that doesn't appear on <em>Google</em>.</h3>
+          <p>A Wednesday-only market in a Kuala Lumpur suburb most travelers never visit. How to find it, who runs it, and why it is the most honest meal he ate in 2026.</p>
+          <a href="/stories.html" class="article-link">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="article-card">
+        <div class="article-img">
+          <span class="article-tag">Indonesia</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#b8c8a9"/><stop offset="100%" stop-color="#5d7a52"/></linearGradient></defs><rect width="800" height="500" fill="url(#a3)"/><path d="M0,300 L160,170 L320,240 L490,150 L640,210 L800,180 L800,500 L0,500 Z" fill="#2f4a3a" opacity="0.9"/><circle cx="160" cy="100" r="40" fill="#f6f1e7" opacity="0.85"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Indonesia</strong> · 6 min read · February 2026</div>
+          <h3>Yogyakarta at <em>4am</em>: the Borobudur monks no one writes about.</h3>
+          <p>A pre-dawn walk to the world's largest Buddhist monument. Skip the sunrise crowd. Find the morning prayer instead.</p>
+          <a href="/stories.html" class="article-link">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="article-card">
+        <div class="article-img">
+          <span class="article-tag">India</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a4" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#d9a441"/><stop offset="100%" stop-color="#a34e30"/></linearGradient></defs><rect width="800" height="500" fill="url(#a4)"/><path d="M0,400 L130,250 L290,330 L450,210 L600,300 L800,260 L800,500 L0,500 Z" fill="#1e3127"/><circle cx="650" cy="120" r="50" fill="#f6f1e7" opacity="0.95"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Himachal</strong> · 10 min read · January 2026</div>
+          <h3>How <em>Tirthan Valley</em> ruins you for everywhere else.</h3>
+          <p>A founder's ode to the homestay that started a company. With apologies to every other valley in India.</p>
+          <a href="/stories.html" class="article-link">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="article-card">
+        <div class="article-img">
+          <span class="article-tag">Vietnam</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a5" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#8ca77f"/><stop offset="100%" stop-color="#2f4a3a"/></linearGradient></defs><rect width="800" height="500" fill="url(#a5)"/><path d="M0,360 L150,220 L300,290 L460,180 L620,260 L800,210 L800,500 L0,500 Z" fill="#1e3127" opacity="0.9"/><circle cx="600" cy="110" r="42" fill="#f6f1e7" opacity="0.9"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Vietnam</strong> · 7 min read · December 2025</div>
+          <h3>Mai-thi taught me <em>phở</em>. I'm still working on it.</h3>
+          <p>The Hmong homestay in Sapa where the founder learned a recipe he still hasn't perfected — and probably never will.</p>
+          <a href="/stories.html" class="article-link">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="article-card">
+        <div class="article-img">
+          <span class="article-tag">Dubai</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a6" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e4a373"/><stop offset="100%" stop-color="#6d5c4b"/></linearGradient></defs><rect width="800" height="500" fill="url(#a6)"/><circle cx="160" cy="100" r="48" fill="#f6f1e7" opacity="0.9"/><path d="M0,380 L100,300 L220,350 L360,280 L500,330 L660,260 L800,310 L800,500 L0,500 Z" fill="#2f4a3a" opacity="0.9"/></svg>
+        </div>
+        <div class="article-body">
+          <div class="article-meta"><strong>Dubai · UAE</strong> · 9 min read · November 2025</div>
+          <h3>Skip the malls. <em>Find</em> Al Fahidi instead.</h3>
+          <p>An old-town walk in the city everyone thinks they've already understood. Maybe they haven't.</p>
+          <a href="/stories.html" class="article-link">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="see-more-row">
+      <a href="/stories.html" class="see-more-link">See all 32 articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section class="connect-section" id="connect">
+  <div class="container">
+    <div class="connect-inner reveal">
+      <div class="connect-kicker">if you'd like to say hi —</div>
+      <h2>Get in touch with <em>Subham</em>.</h2>
+      <p>For press, collaborations, podcast interviews, or just a conversation about a place — Subham reads every message himself. <strong>Replies usually arrive within 24 hours</strong>, sometimes from a homestay verandah.</p>
+      <div class="social-row">
+        <a href="https://instagram.com/subhampaul" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+        <a href="https://twitter.com/subhampaul" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1A4.13 4.13 0 0 0 11.7 9c-3.4-.2-6.5-1.8-8.5-4.3-.4.6-.6 1.3-.6 2.1 0 1.4.7 2.7 1.8 3.4-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8a8.4 8.4 0 0 1-5.2 1.8L2 18.5a11.85 11.85 0 0 0 6.4 1.9c7.7 0 11.9-6.4 11.9-11.9V8c.8-.6 1.5-1.3 2.1-2.2z"/></svg>Twitter / X</a>
+        <a href="https://linkedin.com/in/subhampaul" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>LinkedIn</a>
+        <a href="mailto:subham@offbeatpeak.com" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Subham</a>
+      </div>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="/plan-my-trip.html" class="btn-mustard">Plan a trip with us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/about.html" class="btn-ghost">More about Offbeat Peak</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em style="color: var(--mustard);">Peak</em></a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/testimonials.html">Testimonials</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/author.html">Author profile</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- SEO: Person + Article schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Subham Paul",
+  "jobTitle": "Founder & Lead Author",
+  "worksFor": {"@type": "Organization", "name": "Offbeat Peak"},
+  "url": "https://offbeatpeak.com/author",
+  "sameAs": [
+    "https://instagram.com/subhampaul",
+    "https://twitter.com/subhampaul",
+    "https://linkedin.com/in/subhampaul"
+  ],
+  "description": "Founder of Offbeat Peak. Travel writer covering hidden destinations across India, Thailand, Vietnam, Indonesia, Malaysia, and Dubai."
+}
+</script>
+
+<script>
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
