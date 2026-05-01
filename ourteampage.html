@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team — Offbeat Peak | The six people behind every trip</title>
+<meta name="description" content="Meet the team. Six people who've walked every trail, slept in every homestay, and made every mistake so you don't have to.">
+<link rel="canonical" href="https://offbeatpeak.com/our-team">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== OFFBEAT PEAK — SHARED CSS ===== */
+:root {
+  --cream: #f6f1e7; --cream-dark: #ece4d3; --parchment: #f9f5ec;
+  --forest: #2f4a3a; --forest-deep: #1e3127; --moss: #5d7a52; --moss-light: #8ca77f; --sage: #b8c8a9;
+  --terracotta: #c8623f; --terracotta-deep: #a34e30; --mustard: #d9a441; --sunset: #e4a373;
+  --sky: #9db8c4; --sky-deep: #6a8ca0; --dusk: #6d5c4b; --ink-warm: #2a2620; --muted: #7a6f5e;
+  --line: rgba(47, 74, 58, 0.15);
+  --serif: "DM Serif Display", serif; --sans: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace; --hand: "Caveat", cursive;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink-warm); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; font-weight: 400; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.03; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+@keyframes floatGentle { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, -20px); } }
+@keyframes floatGentle2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 18px); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.topbar { background: var(--forest-deep); color: var(--cream); font-size: 12px; letter-spacing: 0.06em; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1320px; margin: 0 auto; }
+.topbar-left { display: flex; gap: 28px; }
+.topbar-left span { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+.topbar-right { display: flex; gap: 20px; opacity: 0.85; }
+.topbar a:hover { color: var(--mustard); }
+
+header.nav { position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 231, 0.93); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 22px 40px; max-width: 1320px; margin: 0 auto; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; color: var(--forest); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; background: var(--forest); color: var(--cream); border-radius: 50%; flex-shrink: 0; transition: transform 0.6s; }
+.logo:hover .logo-mark { transform: rotate(360deg); background: var(--terracotta); }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+nav a { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; position: relative; padding: 6px 0; transition: color 0.2s; color: var(--forest); }
+nav a::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--terracotta); transition: all 0.3s; transform: translateX(-50%); }
+nav a:hover, nav a.active { color: var(--terracotta); }
+nav a.active::after, nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); transition: all 0.2s; color: var(--forest); }
+.icon-btn:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.icon-btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--forest); color: var(--cream); padding: 12px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s; }
+.btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.breadcrumb { padding: 24px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { margin: 0 10px; opacity: 0.5; }
+
+.page-hero { position: relative; padding: 70px 0 100px; overflow: hidden; background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%); }
+.page-hero::before { content: ""; position: absolute; top: 5%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(70px); animation: floatGentle 14s ease-in-out infinite; pointer-events: none; }
+.page-hero::after { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.28; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; }
+.hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; animation: fadeUp 0.8s 0.1s both; }
+.hero-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.hero-label .pulse-dot { width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; animation: pulse 2s infinite; margin-left: 4px; }
+.hero-hand { font-family: var(--hand); font-size: 28px; color: var(--terracotta); margin-bottom: 20px; display: inline-block; transform: rotate(-2deg); animation: wiggle 4s ease-in-out infinite; }
+.hero-h1 { font-family: var(--serif); font-size: clamp(50px, 8vw, 108px); line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 24px; animation: fadeUp 1s 0.25s both; }
+.hero-h1 em { font-style: italic; color: var(--terracotta); }
+.hero-sub { font-size: 18px; color: var(--dusk); line-height: 1.75; max-width: 640px; margin-bottom: 36px; animation: fadeUp 0.9s 0.55s both; }
+.hero-sub strong { color: var(--forest); font-weight: 500; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.9s 0.75s both; }
+
+.btn-big { background: var(--forest); color: var(--cream); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-big:hover { background: var(--terracotta); transform: translateY(-2px); }
+.btn-big svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-big:hover svg { transform: translateX(3px); }
+.btn-outline { padding: 18px 32px; border-radius: 100px; border: 1px solid var(--forest); color: var(--forest); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-outline:hover { background: var(--forest); color: var(--cream); }
+.btn-mustard { background: var(--mustard); color: var(--forest-deep); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-mustard:hover { background: var(--cream); transform: translateY(-3px); }
+.btn-mustard svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-mustard:hover svg { transform: translateX(3px); }
+.btn-ghost { background: transparent; color: var(--cream); padding: 18px 32px; border-radius: 100px; border: 1px solid rgba(246,241,231,0.35); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-ghost:hover { background: rgba(246,241,231,0.08); border-color: var(--cream); }
+
+.urgency-bar { background: var(--forest); color: var(--cream); padding: 16px 0; overflow: hidden; }
+.urgency-inner { display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.urgency-item { display: flex; align-items: center; gap: 10px; }
+.urgency-item::before { content: "◆"; color: var(--mustard); }
+.urgency-item strong { color: var(--mustard); font-weight: 600; }
+.urgency-live { display: inline-flex; align-items: center; gap: 8px; color: var(--mustard); }
+.urgency-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); animation: pulse 1.5s infinite; }
+
+section { padding: 120px 0; }
+.sec-head { margin-bottom: 70px; }
+.sec-head.centered { text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+.sec-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.sec-kicker::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.sec-head.centered .sec-kicker { justify-content: center; }
+.sec-title { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); max-width: 880px; }
+.sec-head.centered .sec-title { margin-left: auto; margin-right: auto; }
+.sec-title em { font-style: italic; color: var(--terracotta); }
+.sec-sub { margin-top: 22px; font-size: 17px; color: var(--dusk); line-height: 1.7; max-width: 620px; }
+.sec-head.centered .sec-sub { margin-left: auto; margin-right: auto; }
+
+.faq-section { padding: 140px 0; background: var(--cream); }
+.faq-section.alt { background: var(--parchment); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+.faq-side { position: sticky; top: 140px; }
+.faq-side h2 { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 20px; }
+.faq-side h2 em { font-style: italic; color: var(--terracotta); }
+.faq-side p { font-size: 16px; color: var(--dusk); line-height: 1.7; margin-bottom: 28px; }
+.faq-side a { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--forest); font-weight: 500; }
+.faq-side a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item { background: var(--parchment); border-radius: 10px; overflow: hidden; transition: background 0.3s; }
+.faq-section.alt .faq-item { background: var(--cream); }
+.faq-item.open { background: var(--forest); color: var(--cream); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; cursor: pointer; gap: 20px; }
+.faq-q strong { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--forest); line-height: 1.3; transition: color 0.3s; }
+.faq-item.open .faq-q strong { color: var(--cream); }
+.faq-toggle { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: all 0.3s; color: var(--forest); }
+.faq-item.open .faq-toggle { background: var(--mustard); border-color: var(--mustard); color: var(--forest-deep); transform: rotate(45deg); }
+.faq-toggle svg { width: 12px; height: 12px; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s; padding: 0 26px; font-size: 15px; line-height: 1.75; color: var(--dusk); }
+.faq-item.open .faq-a { padding: 0 26px 24px; max-height: 600px; color: rgba(246, 241, 231, 0.85); }
+.faq-a p { margin-bottom: 10px; }
+.faq-a strong { color: var(--mustard); font-weight: 500; }
+
+.final-cta { padding: 140px 0; background: var(--cream); position: relative; overflow: hidden; }
+.final-cta::before { content: ""; position: absolute; top: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(80px); animation: floatGentle 15s ease-in-out infinite; }
+.final-cta::after { content: ""; position: absolute; bottom: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.3; filter: blur(80px); animation: floatGentle2 17s ease-in-out infinite; }
+.final-cta-inner { position: relative; z-index: 2; text-align: center; max-width: 820px; margin: 0 auto; }
+.final-cta-kicker { font-family: var(--hand); font-size: 32px; color: var(--terracotta); margin-bottom: 18px; animation: wiggle 4s ease-in-out infinite; display: inline-block; }
+.final-cta-inner h2 { font-family: var(--serif); font-size: clamp(44px, 6.5vw, 88px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 28px; }
+.final-cta-inner h2 em { font-style: italic; color: var(--terracotta); }
+.final-cta-inner p { font-size: 18px; color: var(--dusk); line-height: 1.7; margin-bottom: 40px; max-width: 620px; margin-left: auto; margin-right: auto; }
+.final-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+footer { background: var(--forest-deep); color: rgba(246,241,231,0.7); padding: 80px 0 40px; border-top: 1px solid rgba(246,241,231,0.08); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo { color: var(--cream); }
+.footer-brand .logo-mark { background: var(--cream); color: var(--forest-deep); }
+.footer-brand p { margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); margin-bottom: 22px; font-weight: 500; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { font-size: 14px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--mustard); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(246,241,231,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(246,241,231,0.55); font-weight: 500; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(246,241,231,0.22); border-radius: 50%; display: grid; place-items: center; transition: all 0.25s; }
+.footer-social a:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: rotate(-10deg); }
+.footer-social svg { width: 14px; height: 14px; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 50px; }
+  .faq-side { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 760px) {
+  .container, .nav-inner, .topbar-inner { padding-left: 22px; padding-right: 22px; }
+  .topbar-left { gap: 12px; font-size: 11px; }
+  .topbar-left span:nth-child(3) { display: none; }
+  .topbar-right { display: none; }
+  nav ul { display: none; }
+  section { padding: 70px 0; }
+  .page-hero { padding: 50px 0 70px; }
+  .faq-section, .final-cta { padding: 80px 0; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+  .urgency-inner { gap: 14px; font-size: 10px; }
+  .urgency-item:nth-child(3) { display: none; }
+}
+
+</style>
+<style>
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.team-card { background: var(--parchment); border-radius: 16px; overflow: hidden; transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); display: grid; grid-template-columns: 1fr 1.1fr; }
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 40px 70px -25px rgba(47, 74, 58, 0.28); }
+.team-photo { position: relative; overflow: hidden; aspect-ratio: 4/5; }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.team-card:hover .team-photo img { transform: scale(1.06); }
+.team-tape { position: absolute; top: 16px; left: 16px; background: var(--mustard); color: var(--forest-deep); font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; transform: rotate(-3deg); font-weight: 600; }
+.team-body { padding: 32px; display: flex; flex-direction: column; }
+.team-role { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; font-weight: 500; }
+.team-body h3 { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1.05; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 6px; }
+.team-body h3 em { font-style: italic; color: var(--terracotta); }
+.team-hand { font-family: var(--hand); font-size: 20px; color: var(--terracotta); margin-bottom: 18px; line-height: 1; }
+.team-bio { font-size: 14px; color: var(--dusk); line-height: 1.75; margin-bottom: 20px; }
+.team-bio strong { color: var(--forest); font-weight: 500; }
+.team-specs { padding-top: 18px; border-top: 1px solid var(--line); margin-top: auto; }
+.team-specs-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
+.team-specs-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.team-spec { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--line); border-radius: 100px; color: var(--forest); font-weight: 500; background: var(--cream); }
+.team-quirk { margin-top: 16px; padding: 12px 14px; background: var(--cream); border-left: 3px solid var(--mustard); border-radius: 0 8px 8px 0; font-size: 13px; line-height: 1.6; color: var(--dusk); }
+.team-quirk strong { color: var(--terracotta); font-weight: 500; }
+
+.join-section { padding: 140px 0; background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+.join-section::before { content: ""; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.3; filter: blur(80px); animation: floatGentle 16s ease-in-out infinite; }
+.join-inner { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; text-align: center; }
+.join-kicker { font-family: var(--hand); font-size: 28px; color: var(--mustard); margin-bottom: 14px; transform: rotate(-2deg); display: inline-block; }
+.join-inner h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 66px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 20px; }
+.join-inner h2 em { font-style: italic; color: var(--mustard); }
+.join-inner p { font-size: 17px; line-height: 1.7; opacity: 0.82; margin-bottom: 30px; max-width: 580px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 1100px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .team-card { grid-template-columns: 1fr; }
+  .team-photo { aspect-ratio: 16/10; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right"><a href="#">EN / हिं</a><a href="#">₹ INR</a><a href="/contact.html">Support</a></div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em>Peak</em></a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="container"><div class="breadcrumb"><a href="/index.html">Home</a><span>/</span><a href="/about.html">About</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Our team</span></div></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-label">Six humans · 140+ places walked <span class="pulse-dot"></span></div>
+      <div class="hero-hand">the people behind the emails —</div>
+      <h1 class="hero-h1">We're six people. You'll <em>probably</em> meet at least three of us.</h1>
+      <p class="hero-sub">No call centers. No interns. No AI-generated anything. When you WhatsApp us, one of the six humans below is going to reply. Here's who they are, what they're obsessively good at, and the weird thing each of them is known for.</p>
+      <div class="hero-actions">
+        <a href="/contact.html" class="btn-big">Say hi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/about.html" class="btn-outline">Our story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--parchment);">
+  <div class="container">
+    <div class="sec-head centered reveal">
+      <div class="sec-kicker">The whole team · no hidden founders</div>
+      <h2 class="sec-title">Offbeat Peak, <em>all</em> of it.</h2>
+      <p class="sec-sub">This is everyone. No "department of" or "head of" pretending to be bigger. Six people, four time zones depending on where we're traveling, one WhatsApp group that never stops pinging.</p>
+    </div>
+
+    <div class="team-grid reveal">
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Arjun Mehta, co-founder">
+          <span class="team-tape">founder · 1 of 2</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Co-founder · Lead trip designer</div>
+          <h3>Arjun <em>Mehta</em></h3>
+          <div class="team-hand">the one on whatsapp at 11pm</div>
+          <p class="team-bio">Ex-IIT, ex-consultant, ex-corporate hater. Quit his job in 2023 after the Rajasthan trip. Now designs custom itineraries, reads every single form submission, and will probably be your main point of contact. <strong>Has been to 31 of our 140+ destinations personally.</strong></p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">Himachal</span>
+              <span class="team-spec">Uttarakhand</span>
+              <span class="team-spec">Custom trips</span>
+              <span class="team-spec">Solo travel</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> Will call you back within 4 hours, always. Also carries a cloth handkerchief. Very proud of both.</div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Priya Kapoor, co-founder">
+          <span class="team-tape">founder · 2 of 2</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Co-founder · Operations &amp; on-ground</div>
+          <h3>Priya <em>Kapoor</em></h3>
+          <div class="team-hand">if something breaks, she fixes it</div>
+          <p class="team-bio">Ex-hotel industry, recovering perfectionist. Runs every operation — payments, bookings, logistics, the homestay network. <strong>When roads close or stays fall through</strong>, she's the one who rebooks in 4 hours flat. 43 times and counting.</p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">North Bengal</span>
+              <span class="team-spec">Sikkim</span>
+              <span class="team-spec">Group trips</span>
+              <span class="team-spec">Homestay partnerships</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> A spreadsheet that tracks every homestay's rain-roof inspection. And being at Tirthan right now.</div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Niharika Rao, trip designer">
+          <span class="team-tape">trip designer</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Trip designer · Solo women specialist</div>
+          <h3>Niharika <em>Rao</em></h3>
+          <div class="team-hand">builds trips so good they make you cry</div>
+          <p class="team-bio">Joined in Aug 2024 after writing us an unsolicited 2000-word email about what was wrong with our Uttarakhand page. We hired her on the spot. Now designs solo women trips and the slow-travel itineraries. <strong>Every "Dear Priya, you were right about Niharika" email goes to her.</strong></p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">Solo women</span>
+              <span class="team-spec">Slow travel</span>
+              <span class="team-spec">Uttarakhand</span>
+              <span class="team-spec">Meghalaya</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> Carrying exactly one pen on every trip and losing it by day two. Keeps buying more.</div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Ravi Bhatt, field ops">
+          <span class="team-tape">field ops</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Field ops lead · The scout</div>
+          <h3>Ravi <em>Bhatt</em></h3>
+          <div class="team-hand">currently in the andaman islands</div>
+          <p class="team-bio">Born in Darjeeling, raised in Gangtok, fluent in four Himalayan dialects and absolute Hindi. Our field ops lead — the one who scouts new destinations before we list them. <strong>Right now he's in Havelock building our Andaman launch for Q3 2026.</strong></p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">Scouting</span>
+              <span class="team-spec">Northeast India</span>
+              <span class="team-spec">Andaman (soon)</span>
+              <span class="team-spec">Logistics</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> Takes a photo of every bridge he crosses. Has 3,200+ bridge photos. Will show you if asked.</div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Priya Walia, content lead">
+          <span class="team-tape">content lead</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Content lead · Stories &amp; journal</div>
+          <h3>Priya <em>Walia</em></h3>
+          <div class="team-hand">the other priya. we call her pw.</div>
+          <p class="team-bio">Former travel journalist, current ghost writer for the whole team. Runs the Stories page, writes every destination page's opening paragraph, and turns our team's voice notes into words people actually want to read. <strong>Flying to Nagaland in October for Hornbill.</strong></p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">Stories</span>
+              <span class="team-spec">Destination writing</span>
+              <span class="team-spec">Cultural trips</span>
+              <span class="team-spec">Vietnam</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> Writes exclusively in green ink. Yes, even the business emails.</div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="team-photo">
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%201000%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m1%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231e3127%22%20stop-opacity%3D%220.85%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%232f4a3a%22%20stop-opacity%3D%220.95%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22m2%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%235d7a52%22%20stop-opacity%3D%220.7%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%238ca77f%22%20stop-opacity%3D%220.9%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Ccircle%20cx%3D%22624%22%20cy%3D%22220%22%20r%3D%2256%22%20fill%3D%22%23f6f1e7%22%20opacity%3D%220.85%22%2F%3E%3Cpath%20d%3D%22M0%2C700%20L144%2C420%20L256%2C550%20L400%2C320%20L560%2C500%20L680%2C380%20L800%2C550%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m1%29%22%2F%3E%3Cpath%20d%3D%22M0%2C820%20L200%2C600%20L360%2C720%20L520%2C580%20L680%2C700%20L800%2C650%20L800%2C1000%20L0%2C1000%20Z%22%20fill%3D%22url%28%23m2%29%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%22930%22%20text-anchor%3D%22middle%22%20fill%3D%22%23f6f1e7%22%20font-family%3D%22serif%22%20font-size%3D%2232%22%20font-style%3D%22italic%22%20opacity%3D%220.7%22%3E%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Karan Sethi, tech + maps">
+          <span class="team-tape">tech &amp; maps</span>
+        </div>
+        <div class="team-body">
+          <div class="team-role">Tech &amp; maps · The wifi tester</div>
+          <h3>Karan <em>Sethi</em></h3>
+          <div class="team-hand">the wifi is actually his fault</div>
+          <p class="team-bio">Part-time backend dev, full-time nomad. Built the tools, maintains the site, and <strong>personally speed-tests every wifi café we list</strong>. If a spot falls below 40 Mbps, it gets delisted. Quarterly.</p>
+          <div class="team-specs">
+            <div class="team-specs-label">Specialties</div>
+            <div class="team-specs-list">
+              <span class="team-spec">Tech</span>
+              <span class="team-spec">Workation</span>
+              <span class="team-spec">Thailand</span>
+              <span class="team-spec">Vietnam</span>
+            </div>
+          </div>
+          <div class="team-quirk"><strong>Known for:</strong> Speedtest.net screenshots timestamped at 7am in 47 locations. His camera roll is 90% wifi routers.</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="join-section">
+  <div class="container">
+    <div class="join-inner reveal">
+      <div class="join-kicker">plus — occasionally —</div>
+      <h2>Sixty-plus <em>local</em> partners we'd call family.</h2>
+      <p>Homestay hosts, trek guides, local drivers, cooks, monks who let us in for prayer. They're not employees, but they're the reason this works. Asha Ji. Dorje. Ramesh-da. Mai-thi. If you travel with us, you'll meet at least three of them — they're half the experience.</p>
+      <div class="final-btns">
+        <a href="/destinations.html" class="btn-mustard">See the places we love <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/contact.html" class="btn-ghost">Say hi to the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <div class="final-cta-kicker">so, shall we —</div>
+      <h2>Pick one of us. Send us a <em>note</em>.</h2>
+      <p>Every form gets read by a real human. Usually within 4 hours. Sometimes at 11pm on a Sunday because Arjun doesn't sleep. You've been warned.</p>
+      <div class="final-btns">
+        <a href="/plan-my-trip.html" class="btn-big">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/contact.html" class="btn-outline">Just want to chat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em style="color: var(--mustard);">Peak</em></a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/testimonials.html">Testimonials</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
