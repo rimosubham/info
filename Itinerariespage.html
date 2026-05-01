@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itineraries — Offbeat Peak | Ready-made trips across India, Thailand &amp; Vietnam</title>
+<meta name="description" content="Six hand-built itineraries across Darjeeling, Sikkim, Himachal, Uttarakhand, Vietnam and Thailand. From ₹599. Real routes, tested stays, local guides. Or build a custom one in 48 hours.">
+<link rel="canonical" href="https://offbeatpeak.com/itineraries">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f6f1e7; --cream-dark: #ece4d3; --parchment: #f9f5ec;
+  --forest: #2f4a3a; --forest-deep: #1e3127; --moss: #5d7a52; --moss-light: #8ca77f; --sage: #b8c8a9;
+  --terracotta: #c8623f; --terracotta-deep: #a34e30; --mustard: #d9a441; --sunset: #e4a373;
+  --sky: #9db8c4; --sky-deep: #6a8ca0; --dusk: #6d5c4b; --ink-warm: #2a2620; --muted: #7a6f5e;
+  --line: rgba(47, 74, 58, 0.15);
+  --serif: "DM Serif Display", serif; --sans: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace; --hand: "Caveat", cursive;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink-warm); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; font-weight: 400; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.03; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+@keyframes floatGentle { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(15px, -20px); } }
+@keyframes floatGentle2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 18px); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.topbar { background: var(--forest-deep); color: var(--cream); font-size: 12px; letter-spacing: 0.06em; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1320px; margin: 0 auto; }
+.topbar-left { display: flex; gap: 28px; }
+.topbar-left span { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+.topbar-right { display: flex; gap: 20px; opacity: 0.85; }
+.topbar a:hover { color: var(--mustard); }
+
+header.nav { position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 231, 0.93); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 22px 40px; max-width: 1320px; margin: 0 auto; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; color: var(--forest); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; background: var(--forest); color: var(--cream); border-radius: 50%; flex-shrink: 0; transition: transform 0.6s; }
+.logo:hover .logo-mark { transform: rotate(360deg); background: var(--terracotta); }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+nav a { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; position: relative; padding: 6px 0; transition: color 0.2s; color: var(--forest); }
+nav a::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--terracotta); transition: all 0.3s; transform: translateX(-50%); }
+nav a:hover, nav a.active { color: var(--terracotta); }
+nav a.active::after, nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); transition: all 0.2s; color: var(--forest); }
+.icon-btn:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.icon-btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--forest); color: var(--cream); padding: 12px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s; }
+.btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.breadcrumb { padding: 24px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { margin: 0 10px; opacity: 0.5; }
+
+.page-hero { position: relative; padding: 70px 0 100px; overflow: hidden; background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%); }
+.page-hero::before { content: ""; position: absolute; top: 5%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(70px); animation: floatGentle 14s ease-in-out infinite; }
+.page-hero::after { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.28; filter: blur(80px); animation: floatGentle2 18s ease-in-out infinite; }
+.hero-inner { position: relative; z-index: 2; max-width: 900px; }
+.hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; animation: fadeUp 0.8s 0.1s both; }
+.hero-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.hero-label .pulse-dot { width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; animation: pulse 2s infinite; margin-left: 4px; }
+.page-hero h1 { font-family: var(--serif); font-size: clamp(50px, 8vw, 108px); line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 24px; animation: fadeUp 1s 0.25s both; }
+.page-hero h1 em { font-style: italic; color: var(--terracotta); }
+.hero-hand { font-family: var(--hand); font-size: 28px; color: var(--terracotta); margin-bottom: 20px; display: inline-block; transform: rotate(-2deg); animation: wiggle 4s ease-in-out infinite; }
+.hero-sub { font-size: 18px; color: var(--dusk); line-height: 1.75; max-width: 640px; margin-bottom: 36px; animation: fadeUp 0.9s 0.55s both; }
+.hero-sub strong { color: var(--forest); font-weight: 500; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.9s 0.75s both; }
+.btn-big { background: var(--forest); color: var(--cream); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-big:hover { background: var(--terracotta); transform: translateY(-2px); }
+.btn-big svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-big:hover svg { transform: translateX(3px); }
+.btn-outline { padding: 18px 32px; border-radius: 100px; border: 1px solid var(--forest); color: var(--forest); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-outline:hover { background: var(--forest); color: var(--cream); }
+
+.urgency-bar { background: var(--forest); color: var(--cream); padding: 16px 0; overflow: hidden; }
+.urgency-inner { display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.urgency-item { display: flex; align-items: center; gap: 10px; }
+.urgency-item::before { content: "◆"; color: var(--mustard); }
+.urgency-item strong { color: var(--mustard); font-weight: 600; }
+.urgency-live { display: inline-flex; align-items: center; gap: 8px; color: var(--mustard); }
+.urgency-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); animation: pulse 1.5s infinite; }
+
+/* Filter */
+.filter-nav { padding: 28px 0; border-bottom: 1px solid var(--line); position: sticky; top: 80px; z-index: 50; backdrop-filter: blur(10px); background: rgba(246, 241, 231, 0.94); }
+.filter-inner { display: flex; align-items: center; gap: 16px; max-width: 1320px; margin: 0 auto; padding: 0 40px; overflow-x: auto; scrollbar-width: none; }
+.filter-inner::-webkit-scrollbar { display: none; }
+.filter-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+.filter-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
+.filter-pill { flex-shrink: 0; padding: 10px 18px; border: 1px solid var(--line); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest); transition: all 0.25s; font-weight: 500; background: var(--parchment); cursor: pointer; }
+.filter-pill:hover, .filter-pill.active { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
+section { padding: 120px 0; }
+.sec-head { margin-bottom: 70px; }
+.sec-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.sec-kicker::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.sec-title { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); max-width: 880px; }
+.sec-title em { font-style: italic; color: var(--terracotta); }
+.sec-sub { margin-top: 22px; font-size: 17px; color: var(--dusk); line-height: 1.7; max-width: 620px; }
+
+/* Itinerary cards */
+.itin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.itin-card { background: var(--parchment); border-radius: 16px; overflow: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; box-shadow: 0 4px 20px -8px rgba(47, 74, 58, 0.12); }
+.itin-card:hover { transform: translateY(-10px); box-shadow: 0 40px 70px -25px rgba(47, 74, 58, 0.28); }
+.itin-img { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--sage); }
+.itin-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.itin-card:hover .itin-img img { transform: scale(1.08); }
+.itin-badges-tl { position: absolute; top: 18px; left: 18px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 2; }
+.itin-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border-radius: 100px; font-weight: 500; backdrop-filter: blur(8px); }
+.itin-badge.bestseller { background: var(--terracotta); color: var(--cream); }
+.itin-badge.new { background: var(--moss); color: var(--cream); }
+.itin-badge.solo { background: var(--sky-deep); color: var(--cream); }
+.itin-badge.deal { background: var(--mustard); color: var(--forest-deep); }
+.itin-badge.slow { background: rgba(246, 241, 231, 0.95); color: var(--forest); }
+.itin-duration { position: absolute; top: 18px; right: 18px; background: rgba(30, 49, 39, 0.85); color: var(--cream); font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; padding: 7px 14px; border-radius: 100px; backdrop-filter: blur(8px); font-weight: 500; z-index: 2; }
+.itin-body { padding: 34px; display: flex; flex-direction: column; flex-grow: 1; }
+.itin-region { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+.itin-region::before { content: ""; width: 20px; height: 1px; background: var(--terracotta); }
+.itin-body h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; line-height: 1.1; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 10px; }
+.itin-body h3 em { color: var(--terracotta); font-style: italic; }
+.itin-hand { font-family: var(--hand); font-size: 20px; color: var(--terracotta); margin-bottom: 18px; line-height: 1; }
+.itin-desc { font-size: 15px; color: var(--dusk); line-height: 1.7; margin-bottom: 22px; }
+.itin-desc strong { color: var(--forest); font-weight: 500; }
+.itin-days { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.itin-day { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--dusk); }
+.itin-day-num { flex-shrink: 0; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--muted); padding-top: 2px; min-width: 46px; font-weight: 500; }
+.itin-day-text strong { color: var(--forest); font-weight: 500; display: block; margin-bottom: 1px; font-size: 15px; }
+.itin-meta { display: flex; flex-wrap: wrap; gap: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; font-weight: 500; }
+.itin-meta span { display: flex; align-items: center; gap: 6px; }
+.itin-meta strong { color: var(--forest); font-weight: 500; }
+.itin-fomo { background: var(--mustard); color: var(--forest-deep); padding: 12px 16px; border-radius: 8px; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; }
+.itin-fomo-dot { width: 10px; height: 10px; background: var(--terracotta); border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+.itin-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 22px; border-top: 1px solid var(--line); margin-top: auto; }
+.itin-price { display: flex; flex-direction: column; }
+.itin-price small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; font-weight: 500; }
+.itin-price strong { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--forest); }
+.itin-price strong span { font-size: 14px; color: var(--muted); font-weight: 400; }
+.itin-price del { color: var(--muted); font-size: 14px; margin-right: 6px; font-weight: 400; }
+.itin-actions { display: flex; gap: 10px; }
+.itin-cta { background: var(--forest); color: var(--cream); padding: 13px 22px; border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+.itin-cta:hover { background: var(--terracotta); }
+.itin-cta svg { width: 12px; height: 12px; transition: transform 0.3s; }
+.itin-cta:hover svg { transform: translateX(3px); }
+
+/* Custom CTA banner */
+.custom-cta { padding: 120px 0; background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+.custom-cta::before { content: ""; position: absolute; top: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.3; animation: floatGentle 14s ease-in-out infinite; }
+.custom-cta::after { content: ""; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sky-deep) 0%, transparent 60%); opacity: 0.25; animation: floatGentle2 18s ease-in-out infinite; }
+.custom-inner { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; text-align: center; }
+.custom-kicker { font-family: var(--hand); font-size: 30px; color: var(--mustard); margin-bottom: 16px; transform: rotate(-2deg); display: inline-block; }
+.custom-inner h2 { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 24px; }
+.custom-inner h2 em { font-style: italic; color: var(--mustard); }
+.custom-inner p { font-size: 18px; line-height: 1.7; opacity: 0.82; max-width: 620px; margin: 0 auto 36px; }
+.custom-inner p strong { color: var(--mustard); font-weight: 500; }
+.custom-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-mustard { background: var(--mustard); color: var(--forest-deep); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-mustard:hover { background: var(--cream); transform: translateY(-3px); }
+.btn-mustard svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-mustard:hover svg { transform: translateX(3px); }
+.btn-ghost { background: transparent; color: var(--cream); padding: 18px 32px; border-radius: 100px; border: 1px solid rgba(246,241,231,0.35); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-ghost:hover { background: rgba(246,241,231,0.08); border-color: var(--cream); }
+
+/* FAQ */
+.faq-section { padding: 140px 0; background: var(--cream); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+.faq-side { position: sticky; top: 140px; }
+.faq-side h2 { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 20px; }
+.faq-side h2 em { font-style: italic; color: var(--terracotta); }
+.faq-side p { font-size: 16px; color: var(--dusk); line-height: 1.7; margin-bottom: 28px; }
+.faq-side a { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--forest); font-weight: 500; }
+.faq-side a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item { background: var(--parchment); border-radius: 10px; overflow: hidden; transition: background 0.3s; }
+.faq-item.open { background: var(--forest); color: var(--cream); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 26px; cursor: pointer; gap: 20px; }
+.faq-q strong { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--forest); line-height: 1.3; transition: color 0.3s; }
+.faq-item.open .faq-q strong { color: var(--cream); }
+.faq-toggle { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: all 0.3s; color: var(--forest); }
+.faq-item.open .faq-toggle { background: var(--mustard); border-color: var(--mustard); color: var(--forest-deep); transform: rotate(45deg); }
+.faq-toggle svg { width: 12px; height: 12px; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s; padding: 0 26px; font-size: 15px; line-height: 1.75; color: var(--dusk); }
+.faq-item.open .faq-a { padding: 0 26px 24px; max-height: 500px; color: rgba(246, 241, 231, 0.85); }
+.faq-a strong { color: var(--mustard); font-weight: 500; }
+
+footer { background: var(--forest-deep); color: rgba(246,241,231,0.7); padding: 80px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo { color: var(--cream); }
+.footer-brand .logo-mark { background: var(--cream); color: var(--forest-deep); }
+.footer-brand p { margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); margin-bottom: 22px; font-weight: 500; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { font-size: 14px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--mustard); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(246,241,231,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(246,241,231,0.55); font-weight: 500; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(246,241,231,0.22); border-radius: 50%; display: grid; place-items: center; transition: all 0.25s; }
+.footer-social a:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: rotate(-10deg); }
+.footer-social svg { width: 14px; height: 14px; }
+
+@media (max-width: 1100px) {
+  .itin-grid, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+  .faq-side { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 760px) {
+  .container, .nav-inner, .topbar-inner, .filter-inner { padding-left: 22px; padding-right: 22px; }
+  .topbar-left { gap: 12px; font-size: 11px; }
+  .topbar-left span:nth-child(3) { display: none; }
+  .topbar-right { display: none; }
+  nav ul { display: none; }
+  section { padding: 70px 0; }
+  .page-hero { padding: 50px 0 70px; }
+  .filter-nav { top: 72px; padding: 18px 0; }
+  .itin-body { padding: 26px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+  .urgency-inner { gap: 14px; font-size: 10px; }
+  .urgency-item:nth-child(3) { display: none; }
+}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">EN / हिं</a>
+      <a href="#">₹ INR</a>
+      <a href="/contact.html">Support</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+      Offbeat <em>Peak</em>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html">Experiences</a></li>
+        <li><a href="/itineraries.html" class="active">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="container"><div class="breadcrumb"><a href="/index.html">Home</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Itineraries</span></div></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-label">6 ready-made trips · start from ₹599 <span class="pulse-dot"></span></div>
+      <div class="hero-hand">our greatest hits, so to speak —</div>
+      <h1>Trips you can <em>book</em> in the time it takes to make chai.</h1>
+      <p class="hero-sub">Six itineraries we've run more than 40 times each — tested routes, vetted stays, local guides we text on weekends. <strong>Download the guide, or let us book everything for you.</strong> Either way, you're walking a path someone already made mistakes on, so you don't have to.</p>
+      <div class="hero-actions">
+        <a href="#trips" class="btn-big">See all 6 itineraries <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/plan-my-trip.html" class="btn-outline">Or build a custom one</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="urgency-bar">
+  <div class="urgency-inner">
+    <span class="urgency-live">14 itineraries downloaded today</span>
+    <span class="urgency-item"><strong>20% off</strong> all itineraries till May 31</span>
+    <span class="urgency-item">Group 4+? <strong>5th guide free</strong></span>
+    <span class="urgency-item">Monsoon trips: <strong>31 spots left</strong></span>
+  </div>
+</div>
+
+<div class="filter-nav">
+  <div class="filter-inner">
+    <span class="filter-label">Filter</span>
+    <div class="filter-pills">
+      <a href="#all" class="filter-pill active">All 6</a>
+      <a href="#darjeeling-sikkim" class="filter-pill">North Bengal + Sikkim</a>
+      <a href="#himachal" class="filter-pill">Himachal</a>
+      <a href="#uttarakhand" class="filter-pill">Uttarakhand</a>
+      <a href="#vietnam" class="filter-pill">Vietnam</a>
+      <a href="#thailand" class="filter-pill">Thailand</a>
+      <a href="#northeast" class="filter-pill">Northeast</a>
+    </div>
+  </div>
+</div>
+
+<section id="trips">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">The full list</div>
+      <h2 class="sec-title">Six hand-built trips. <em>Zero</em> generic templates.</h2>
+      <p class="sec-sub">Every itinerary below lists the day-by-day route so you can see exactly what you're getting. Download the PDF, or upgrade to the Full Plan and we'll book every stay and transport.</p>
+    </div>
+
+    <div class="itin-grid reveal">
+
+      <!-- 1 -->
+      <article class="itin-card" id="darjeeling-sikkim">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1544461772-722f499fa2e1?w=1000&q=80" alt="Darjeeling tea trail and Sikkim monasteries">
+          <div class="itin-badges-tl"><span class="itin-badge bestseller">Bestseller</span><span class="itin-badge deal">20% off</span></div>
+          <div class="itin-duration">7 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">North Bengal · Sikkim</div>
+          <h3>Darjeeling tea trail &amp; the <em>monasteries</em> of Sikkim</h3>
+          <div class="itin-hand">the trip that started it all</div>
+          <p class="itin-desc">Heritage tea-garden stays, the Sandakphu sunrise, Rumtek's 6am prayers, and two villages no one talks about. <strong>For travelers who want depth over distance.</strong> Our most-booked itinerary since 2024.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–2</div><div class="itin-day-text"><strong>Darjeeling arrival</strong>Happy Valley tea estate, Glenary's breakfast</div></div>
+            <div class="itin-day"><div class="itin-day-num">D3</div><div class="itin-day-text"><strong>Sandakphu sunrise</strong>Earliest light on five of the world's 14 eight-thousanders</div></div>
+            <div class="itin-day"><div class="itin-day-num">D4–5</div><div class="itin-day-text"><strong>Gangtok &amp; Rumtek</strong>Monastery mornings, hidden cafés</div></div>
+            <div class="itin-day"><div class="itin-day-num">D6–7</div><div class="itin-day-text"><strong>Pelling</strong>Kanchenjunga at dawn, quiet return</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>7 days</strong></span><span>◆ <strong>4 homestays</strong></span><span>★ <strong>4.96 (187)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>First Flush (Apr–May) — <strong>3 rooms left</strong> in our flagship Darjeeling homestay.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong><del>₹999</del>₹799<span> · full plan ₹42k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="itin-card" id="himachal">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1000&q=80" alt="Hidden Himachal loop">
+          <div class="itin-badges-tl"><span class="itin-badge new">New</span></div>
+          <div class="itin-duration">10 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">Himachal Pradesh</div>
+          <h3>Hidden Himachal loop: <em>Jibhi, Tirthan, Tabo</em></h3>
+          <div class="itin-hand">please skip manali.</div>
+          <p class="itin-desc">Skip Manali's Mall Road. Three river valleys, one mountain pass, zero crowds. <strong>Includes wifi-verified cafés for remote workers</strong> and a homestay that'll spoil every other stay for you.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–3</div><div class="itin-day-text"><strong>Jibhi &amp; Banjar</strong>Wooden homes, waterfalls, pinewood cafés</div></div>
+            <div class="itin-day"><div class="itin-day-num">D4–5</div><div class="itin-day-text"><strong>Tirthan Valley</strong>No signal zone — trout and time</div></div>
+            <div class="itin-day"><div class="itin-day-num">D6–8</div><div class="itin-day-text"><strong>Spiti via Kaza</strong>Desert moon landscape, 1,000-year-old Tabo monastery</div></div>
+            <div class="itin-day"><div class="itin-day-num">D9–10</div><div class="itin-day-text"><strong>Kalpa return</strong>Apple orchards, quiet descent</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>10 days</strong></span><span>◆ <strong>6 homestays</strong></span><span>★ <strong>4.94 (92)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>Spiti season is <strong>May–Oct only</strong>. October's last window: 6 spots.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong>₹599<span> · full plan ₹58k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="itin-card" id="uttarakhand">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1000&q=80" alt="Uttarakhand solo women trip">
+          <div class="itin-badges-tl"><span class="itin-badge solo">Solo women</span></div>
+          <div class="itin-duration">6 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">Uttarakhand</div>
+          <h3>Chopta, Tungnath &amp; the safe <em>solo</em> routes</h3>
+          <div class="itin-hand">built with women. for women.</div>
+          <p class="itin-desc">Hand-picked female-run homestays, verified local guardians, transparent transport. <strong>186 solo women travelers. Zero incidents.</strong> Built with 43 women over 18 months.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–2</div><div class="itin-day-text"><strong>Rishikesh to Chopta</strong>Scenic drive, first homestay night</div></div>
+            <div class="itin-day"><div class="itin-day-num">D3</div><div class="itin-day-text"><strong>Tungnath trek</strong>World's highest Shiva temple (3,680m)</div></div>
+            <div class="itin-day"><div class="itin-day-num">D4–5</div><div class="itin-day-text"><strong>Auli meadows</strong>Nanda Devi views, snow in winter</div></div>
+            <div class="itin-day"><div class="itin-day-num">D6</div><div class="itin-day-text"><strong>Quiet return</strong>via Joshimath and the gentle Ganges plains</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>6 days</strong></span><span>◆ <strong>All female-run</strong></span><span>★ <strong>4.98 (76)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>Solo women <strong>safety kit free</strong> with this itinerary. Limited till May 31.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong>₹699<span> · full plan ₹38k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="itin-card" id="vietnam">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1000&q=80" alt="Ha Giang loop Vietnam">
+          <div class="itin-badges-tl"><span class="itin-badge deal">20% off</span></div>
+          <div class="itin-duration">12 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">Vietnam · North</div>
+          <h3>Ha Giang loop &amp; the <em>Vietnam</em> we miss</h3>
+          <div class="itin-hand">motorbikes, rice terraces, real pho</div>
+          <p class="itin-desc">Rice terrace motorbike loops, home-cooked pho, and a Hmong homestay where our host's grandmother still weaves. <strong>Most tours skip this.</strong> That's exactly the point.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–2</div><div class="itin-day-text"><strong>Hanoi arrival</strong>Old Quarter, night market</div></div>
+            <div class="itin-day"><div class="itin-day-num">D3–7</div><div class="itin-day-text"><strong>Ha Giang 4-day loop</strong>Motorbike circuit, Hmong villages, highest pass</div></div>
+            <div class="itin-day"><div class="itin-day-num">D8–10</div><div class="itin-day-text"><strong>Sapa homestay</strong>Rice terraces, textile weaving</div></div>
+            <div class="itin-day"><div class="itin-day-num">D11–12</div><div class="itin-day-text"><strong>Hoi An finale</strong>Lantern-lit, river-quiet</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>12 days</strong></span><span>◆ <strong>Motorbike incl.</strong></span><span>★ <strong>4.97 (58)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>Sep–Nov is peak Ha Giang. <strong>Only 4 group slots left</strong> for October.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong><del>₹1,199</del>₹959<span> · full plan ₹89k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="itin-card" id="thailand">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1000&q=80" alt="Pai and Chiang Dao Thailand slow travel">
+          <div class="itin-badges-tl"><span class="itin-badge slow">Slow travel</span></div>
+          <div class="itin-duration">14 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">Thailand · Beyond Bangkok</div>
+          <h3>Pai, Chiang Dao &amp; the <em>Thailand</em> you haven't seen</h3>
+          <div class="itin-hand">wifi verified. monks included.</div>
+          <p class="itin-desc">Temple breakfasts with actual monks, jungle homestays, and three mountain cafés with wifi faster than your office. <strong>Built specifically for remote workers</strong> who want a real sabbatical, not a Bangkok weekend.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–3</div><div class="itin-day-text"><strong>Chiang Mai base</strong>Ease in, slow cafés, Sunday night market</div></div>
+            <div class="itin-day"><div class="itin-day-num">D4–8</div><div class="itin-day-text"><strong>Pai</strong>Mountain workation, hot springs, no pressure</div></div>
+            <div class="itin-day"><div class="itin-day-num">D9–12</div><div class="itin-day-text"><strong>Chiang Dao caves</strong>Remote temples, monk breakfasts</div></div>
+            <div class="itin-day"><div class="itin-day-num">D13–14</div><div class="itin-day-text"><strong>Back to Chiang Mai</strong>Wind down, last coffees, fly home</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>14 days</strong></span><span>◆ <strong>47 wifi spots tested</strong></span><span>★ <strong>4.93 (81)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>Nov–Feb peak season. <strong>9 spots left</strong> across our Chiang Dao homestays.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong>₹1,099<span> · full plan ₹98k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="itin-card" id="northeast">
+        <div class="itin-img">
+          <img src="https://images.unsplash.com/photo-1626198226928-617a2daf779d?w=1000&q=80" alt="Sikkim and Meghalaya northeast trip">
+          <div class="itin-badges-tl"><span class="itin-badge new">New</span></div>
+          <div class="itin-duration">9 days</div>
+        </div>
+        <div class="itin-body">
+          <div class="itin-region">Sikkim · Meghalaya</div>
+          <h3>Northeast quiet: <em>monasteries</em>, rain forests, root bridges</h3>
+          <div class="itin-hand">for sundays with fog.</div>
+          <p class="itin-desc">Rumtek, Gangtok, then onward to Cherrapunji's living root bridges. <strong>Two states, one thousand years of history</strong>, and enough rain to remind you what slowing down feels like.</p>
+          <div class="itin-days">
+            <div class="itin-day"><div class="itin-day-num">D1–3</div><div class="itin-day-text"><strong>Gangtok &amp; Rumtek</strong>Monastery mornings, hidden cafés</div></div>
+            <div class="itin-day"><div class="itin-day-num">D4–5</div><div class="itin-day-text"><strong>Pelling</strong>Kanchenjunga at dawn</div></div>
+            <div class="itin-day"><div class="itin-day-num">D6–9</div><div class="itin-day-text"><strong>Shillong to Cherrapunji</strong>Root bridges, Mawlynnong, rain &amp; tea</div></div>
+          </div>
+          <div class="itin-meta"><span>⏱ <strong>9 days</strong></span><span>◆ <strong>2 states</strong></span><span>★ <strong>4.91 (34)</strong></span></div>
+          <div class="itin-fomo"><div class="itin-fomo-dot"></div><div>Monsoon is when the Northeast <strong>actually opens up</strong>. Jul–Sep has the best light.</div></div>
+          <div class="itin-foot">
+            <div class="itin-price"><small>Guide from</small><strong>₹899<span> · full plan ₹64k</span></strong></div>
+            <div class="itin-actions"><a href="#" class="itin-cta">Get the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="custom-cta">
+  <div class="container">
+    <div class="custom-inner">
+      <div class="custom-kicker">can't find your trip? —</div>
+      <h2>Tell us your <em>dream</em>. We'll build it in 48 hours.</h2>
+      <p>None of these six feel quite right? That's fine. Custom itineraries from <strong>₹1,500</strong>. Real humans. Real on-ground networks. Real bookings. Your trip, shaped by you — not a template.</p>
+      <div class="custom-btns">
+        <a href="/plan-my-trip.html" class="btn-mustard">Build my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/group-trips.html" class="btn-ghost">Or join a group trip</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-side reveal">
+        <div class="sec-kicker">Fair questions</div>
+        <h2>Itinerary <em>questions</em>.</h2>
+        <p>The six most-asked questions before someone clicks "download". If yours isn't here, our full FAQ has 20+ more.</p>
+        <a href="/faq.html">Full FAQ <span>→</span></a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open"><div class="faq-q"><strong>What's the difference between "Guide" and "Full Plan"?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p><strong>Guide (from ₹599)</strong> is the PDF itinerary — you book your own stays and transport. Full route, timings, maps, hidden spots.</p><p><strong>Full Plan (from ₹38k)</strong> is everything booked for you — stays, transport, local guide intros, WhatsApp support during your trip.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><strong>Can I customize a ready-made itinerary?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Absolutely. Upgrade to Full Plan and we adjust the itinerary to your dates, pace, and budget. Or download the Guide and treat it as a starting map.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><strong>Are prices per person or for the full trip?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>The <strong>Guide</strong> is a flat fee — one PDF, share with your group. The <strong>Full Plan</strong> price is per person (stays, transport, guide fees, insurance included).</p></div></div>
+        <div class="faq-item"><div class="faq-q"><strong>What if weather or roads close during my trip?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Welcome to the Himalayas. Every itinerary has backup routes built in. Full Plan travelers get <strong>rebooking at zero cost</strong> — we've done it 43 times, zero travelers stranded.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><strong>Do you book flights?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>No. You'll get better rates direct. But we recommend airports, best routes, and dates that'll save you money.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><strong>Is the 20% launch offer real?</strong><div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div></div><div class="faq-a"><p>Yes. Auto-applied till <strong>May 31, 2026</strong>. After that, back to full price. Not a fake deadline.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>Offbeat <em style="color: var(--mustard);">Peak</em></a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/group-trips.html">Group trips</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="/testimonials.html">Testimonials</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="/our-team.html">Our team</a></li><li><a href="/stories.html">Stories</a></li><li><a href="/legal.html">Legal</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div><a href="/legal.html">Privacy · Terms · Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.faq-item').forEach(item => { item.querySelector('.faq-q').addEventListener('click', () => { const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open')); if (!isOpen) item.classList.add('open'); }); });
+</script>
+
+</body>
+</html>
