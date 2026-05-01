@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiences — Offbeat Peak | Village homestays, cuisine trails, festivals, treks, slow travel &amp; more</title>
+<meta name="description" content="Not things to see — things to live. Village homestays, local cuisine trails, festivals, treks, slow travel, adventure sports and luxury escapes across Himachal, Uttarakhand, Sikkim, Vietnam, Thailand &amp; Dubai. Curated by travelers who've actually been there.">
+<meta name="keywords" content="village homestays India, local cuisine trails, Himalayan treks, slow travel, offbeat experiences, authentic travel, festival travel India, solo women travel, workation India, adventure sports Himachal">
+<meta property="og:title" content="Experiences — Offbeat Peak">
+<meta property="og:description" content="Not things to see. Things to live. 8 curated experience categories across India, Vietnam, Thailand &amp; Dubai.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://offbeatpeak.com/experiences">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f6f1e7;
+  --cream-dark: #ece4d3;
+  --parchment: #f9f5ec;
+  --forest: #2f4a3a;
+  --forest-deep: #1e3127;
+  --moss: #5d7a52;
+  --moss-light: #8ca77f;
+  --sage: #b8c8a9;
+  --terracotta: #c8623f;
+  --terracotta-deep: #a34e30;
+  --clay: #d89370;
+  --mustard: #d9a441;
+  --sunset: #e4a373;
+  --sky: #9db8c4;
+  --sky-deep: #6a8ca0;
+  --dusk: #6d5c4b;
+  --ink-warm: #2a2620;
+  --muted: #7a6f5e;
+  --line: rgba(47, 74, 58, 0.15);
+
+  --serif: "DM Serif Display", "Times New Roman", serif;
+  --sans: "Outfit", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+  --hand: "Caveat", cursive;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink-warm); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; font-weight: 400; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000; opacity: 0.03; mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+
+/* ===== TOPBAR + NAV ===== */
+.topbar { background: var(--forest-deep); color: var(--cream); font-size: 12px; letter-spacing: 0.06em; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 40px; max-width: 1320px; margin: 0 auto; }
+.topbar-left { display: flex; gap: 28px; }
+.topbar-left span { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+.topbar-right { display: flex; gap: 20px; opacity: 0.85; }
+.topbar a:hover { color: var(--mustard); }
+
+header.nav { position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 231, 0.93); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; padding: 22px 40px; max-width: 1320px; margin: 0 auto; gap: 40px; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 400; font-size: 24px; letter-spacing: -0.01em; color: var(--forest); }
+.logo-mark { width: 36px; height: 36px; display: grid; place-items: center; background: var(--forest); color: var(--cream); border-radius: 50%; flex-shrink: 0; transition: transform 0.6s; }
+.logo:hover .logo-mark { transform: rotate(360deg); background: var(--terracotta); }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo em { font-style: italic; color: var(--terracotta); font-weight: 400; }
+nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+nav a { font-size: 14px; font-weight: 500; letter-spacing: 0.01em; position: relative; padding: 6px 0; transition: color 0.2s; color: var(--forest); }
+nav a::after { content: ""; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--terracotta); transition: all 0.3s; transform: translateX(-50%); }
+nav a:hover, nav a.active { color: var(--terracotta); }
+nav a.active::after, nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); transition: all 0.2s; color: var(--forest); }
+.icon-btn:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.icon-btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--forest); color: var(--cream); padding: 12px 22px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s; }
+.btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb { padding: 24px 0 0; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.breadcrumb a { transition: color 0.2s; font-weight: 500; }
+.breadcrumb a:hover { color: var(--terracotta); }
+.breadcrumb span { margin: 0 10px; opacity: 0.5; }
+
+/* ===== HERO ===== */
+.page-hero {
+  position: relative; padding: 80px 0 100px; overflow: hidden;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
+}
+.page-hero::before { content: ""; position: absolute; top: 15%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(60px); pointer-events: none; }
+.page-hero::after { content: ""; position: absolute; bottom: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.25; filter: blur(70px); pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center; }
+
+.hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.hero-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.hero-label .pulse-dot { width: 8px; height: 8px; background: var(--terracotta); border-radius: 50%; animation: pulse 2s infinite; margin-left: 4px; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.5; } }
+
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(48px, 6.5vw, 92px); line-height: 1; font-weight: 400;
+  letter-spacing: -0.015em; color: var(--forest); margin-bottom: 28px;
+}
+.page-hero h1 em { font-style: italic; color: var(--terracotta); position: relative; display: inline-block; }
+.page-hero h1 em::after { content: ""; position: absolute; bottom: 2px; left: 0; right: 0; height: 3px; background: var(--terracotta); opacity: 0.35; }
+
+.hero-sub { font-size: 18px; color: var(--dusk); line-height: 1.7; max-width: 580px; margin-bottom: 36px; }
+.hero-sub strong { color: var(--forest); font-weight: 500; }
+
+.hero-meta { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--line); }
+.hero-meta-item { display: flex; flex-direction: column; }
+.hero-meta-num { font-family: var(--serif); font-size: 38px; font-weight: 400; color: var(--terracotta); line-height: 1; letter-spacing: -0.02em; }
+.hero-meta-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 6px; font-weight: 500; }
+
+.hero-image-stack { position: relative; aspect-ratio: 4/5; }
+.hero-img {
+  position: absolute; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(47, 74, 58, 0.35);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.hero-img-1 { top: 0; left: 10%; width: 70%; height: 70%; transform: rotate(-3deg); z-index: 1; }
+.hero-img-2 { bottom: 0; right: 0; width: 60%; height: 55%; transform: rotate(4deg); z-index: 2; }
+.hero-image-stack:hover .hero-img-1 { transform: rotate(-5deg) translate(-10px, -5px); }
+.hero-image-stack:hover .hero-img-2 { transform: rotate(6deg) translate(10px, 5px); }
+
+.hero-sticky-note {
+  position: absolute; top: 44%; left: -10%; z-index: 3;
+  background: var(--mustard); color: var(--forest-deep); padding: 12px 18px;
+  font-family: var(--hand); font-size: 22px; line-height: 1.2;
+  transform: rotate(-6deg);
+  box-shadow: 0 10px 20px -8px rgba(47, 74, 58, 0.3);
+  max-width: 180px;
+}
+.hero-sticky-note::before {
+  content: ""; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 12px; background: rgba(200, 98, 63, 0.5); border-radius: 2px;
+}
+
+/* ===== URGENCY BAR ===== */
+.urgency-bar {
+  background: var(--forest); color: var(--cream); padding: 16px 0;
+  position: relative; overflow: hidden;
+}
+.urgency-inner { display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.urgency-item { display: flex; align-items: center; gap: 10px; }
+.urgency-item::before { content: "◆"; color: var(--mustard); }
+.urgency-item strong { color: var(--mustard); font-weight: 600; }
+.urgency-live { display: inline-flex; align-items: center; gap: 8px; color: var(--mustard); }
+.urgency-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); animation: pulse 1.5s infinite; }
+
+/* ===== CATEGORY NAV (sticky filter) ===== */
+.cat-nav {
+  background: var(--cream); padding: 30px 0; border-bottom: 1px solid var(--line);
+  position: sticky; top: 80px; z-index: 50;
+  backdrop-filter: blur(10px); background: rgba(246, 241, 231, 0.94);
+}
+.cat-nav-inner {
+  display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth;
+  max-width: 1320px; margin: 0 auto; padding: 0 40px;
+  scrollbar-width: none;
+}
+.cat-nav-inner::-webkit-scrollbar { display: none; }
+.cat-pill {
+  flex-shrink: 0; padding: 10px 18px; border: 1px solid var(--line); border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--forest); transition: all 0.25s; font-weight: 500; background: var(--parchment);
+}
+.cat-pill:hover, .cat-pill.active { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
+/* ===== INTRO / WHY US ===== */
+.intro-section {
+  padding: 120px 0; background: var(--cream); position: relative;
+}
+.intro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.intro-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; font-weight: 500; }
+.intro-label::before { content: ""; width: 30px; height: 1px; background: var(--terracotta); }
+.intro-headline { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 58px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); }
+.intro-headline em { font-style: italic; color: var(--terracotta); }
+.intro-body { display: flex; flex-direction: column; gap: 22px; font-size: 17px; color: var(--dusk); line-height: 1.8; }
+.intro-body strong { color: var(--forest); font-weight: 500; }
+.intro-body em { color: var(--terracotta); font-family: var(--serif); font-style: italic; font-size: 1.05em; }
+
+.compare-box {
+  margin-top: 36px; background: var(--parchment); border-radius: 12px; padding: 28px; border-left: 4px solid var(--terracotta);
+}
+.compare-row { display: grid; grid-template-columns: auto 1fr 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.compare-row:last-child { border-bottom: none; padding-bottom: 0; }
+.compare-row:first-child { padding-top: 0; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.compare-label { font-weight: 500; color: var(--forest); align-self: center; }
+.compare-col-other { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--muted); }
+.compare-col-ours { color: var(--forest); font-weight: 500; position: relative; padding-left: 22px; }
+.compare-col-ours::before { content: "✓"; position: absolute; left: 0; color: var(--terracotta); font-weight: 600; }
+
+/* ===== FEATURED EXPERIENCE (hero card) ===== */
+.featured-section { padding: 40px 0 120px; background: var(--cream); }
+.featured-card {
+  background: var(--forest); color: var(--cream); border-radius: 16px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1.1fr; min-height: 520px; position: relative;
+}
+.featured-card::before { content: ""; position: absolute; top: -40%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.3; pointer-events: none; z-index: 0; }
+.featured-text { padding: 60px; display: flex; flex-direction: column; justify-content: space-between; position: relative; z-index: 1; }
+.featured-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--mustard); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.featured-tag::before { content: ""; width: 24px; height: 1px; background: var(--mustard); }
+.featured-text h2 { font-family: var(--serif); font-size: clamp(36px, 4vw, 52px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 20px; }
+.featured-text h2 em { font-style: italic; color: var(--mustard); }
+.featured-text p { font-size: 17px; opacity: 0.85; line-height: 1.7; margin-bottom: 32px; }
+.featured-proof {
+  display: flex; gap: 28px; padding: 20px 0; border-top: 1px solid rgba(246, 241, 231, 0.2); border-bottom: 1px solid rgba(246, 241, 231, 0.2); margin-bottom: 32px;
+}
+.featured-proof-item { display: flex; flex-direction: column; }
+.featured-proof-num { font-family: var(--serif); font-size: 30px; color: var(--mustard); line-height: 1; letter-spacing: -0.02em; }
+.featured-proof-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-top: 6px; font-weight: 500; }
+.featured-cta { display: flex; gap: 14px; align-items: center; }
+.btn-mustard { background: var(--mustard); color: var(--forest-deep); padding: 16px 28px; border-radius: 100px; font-size: 14px; font-weight: 600; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
+.btn-mustard:hover { background: var(--cream); transform: translateY(-2px); }
+.btn-mustard svg { width: 14px; height: 14px; transition: transform 0.25s; }
+.btn-mustard:hover svg { transform: translateX(3px); }
+.featured-cta .btn-secondary { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mustard); padding: 16px 0; border-bottom: 1px solid var(--mustard); font-weight: 500; }
+.featured-img { position: relative; overflow: hidden; }
+.featured-img img { width: 100%; height: 100%; object-fit: cover; }
+.featured-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(47,74,58,0.4) 0%, transparent 30%); }
+
+/* ===== EXPERIENCES GRID (main) ===== */
+.experiences-main { padding: 100px 0 60px; background: var(--cream); }
+.exp-section-head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 40px; margin-bottom: 70px; }
+.exp-section-head h2 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 60px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); max-width: 760px; }
+.exp-section-head h2 em { font-style: italic; color: var(--terracotta); }
+
+.exp-card-wrap { display: flex; flex-direction: column; gap: 120px; }
+.exp-card {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+  scroll-margin-top: 140px;
+}
+.exp-card:nth-child(even) .exp-visual { order: 2; }
+.exp-card:nth-child(even) .exp-content { order: 1; }
+
+.exp-visual { position: relative; aspect-ratio: 4/5; max-height: 620px; }
+.exp-visual-img { position: absolute; inset: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(47, 74, 58, 0.3); }
+.exp-visual-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.exp-card:hover .exp-visual-img img { transform: scale(1.05); }
+
+.exp-polaroid {
+  position: absolute; width: 36%; padding: 10px 10px 50px; background: var(--parchment);
+  box-shadow: 0 16px 30px -10px rgba(47, 74, 58, 0.3);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.exp-polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.exp-polaroid-caption {
+  position: absolute; bottom: 12px; left: 0; right: 0; text-align: center;
+  font-family: var(--hand); font-size: 18px; color: var(--terracotta);
+}
+.exp-polaroid-1 { bottom: -20px; left: -30px; transform: rotate(-6deg); z-index: 3; }
+.exp-polaroid-2 { top: -20px; right: -30px; transform: rotate(5deg); z-index: 3; }
+.exp-card:hover .exp-polaroid-1 { transform: rotate(-9deg) translateY(-6px); }
+.exp-card:hover .exp-polaroid-2 { transform: rotate(8deg) translateY(-6px); }
+
+.exp-tape {
+  position: absolute; top: -14px; left: 30px; width: 70px; height: 22px;
+  background: rgba(217, 164, 65, 0.5); transform: rotate(-4deg); border-radius: 2px;
+  z-index: 4;
+}
+
+.exp-content { padding: 20px 0; }
+.exp-number { font-family: var(--hand); font-size: 72px; line-height: 0.8; color: var(--terracotta); opacity: 0.25; position: absolute; margin-top: -60px; margin-left: -10px; }
+.exp-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; font-weight: 500; position: relative; z-index: 2; }
+.exp-tag::before { content: ""; width: 24px; height: 1px; background: var(--terracotta); }
+.exp-tag-live { background: var(--moss); color: var(--cream); padding: 3px 8px; border-radius: 4px; font-size: 10px; letter-spacing: 0.1em; }
+.exp-title { font-family: var(--serif); font-size: clamp(34px, 4vw, 52px); line-height: 1.02; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 12px; position: relative; z-index: 2; }
+.exp-title em { font-style: italic; color: var(--terracotta); }
+.exp-kicker { font-family: var(--hand); font-size: 24px; color: var(--terracotta); margin-bottom: 20px; }
+.exp-description { font-size: 16px; color: var(--dusk); line-height: 1.75; margin-bottom: 26px; }
+.exp-description strong { color: var(--forest); font-weight: 500; }
+
+.exp-bullets { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.exp-bullet { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; color: var(--dusk); }
+.exp-bullet-icon { flex-shrink: 0; width: 22px; height: 22px; background: var(--sage); color: var(--forest-deep); border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 600; margin-top: 2px; }
+.exp-bullet strong { color: var(--forest); font-weight: 500; }
+
+.exp-meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.exp-meta-row > div { display: flex; align-items: center; gap: 8px; }
+.exp-meta-row strong { color: var(--forest); font-weight: 500; }
+
+.exp-fomo {
+  background: var(--mustard); color: var(--forest-deep); padding: 14px 18px;
+  border-radius: 8px; margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 500;
+}
+.exp-fomo-dot { width: 10px; height: 10px; background: var(--terracotta); border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+
+.exp-cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.exp-cta-main { background: var(--forest); color: var(--cream); padding: 16px 26px; border-radius: 100px; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.exp-cta-main:hover { background: var(--terracotta); transform: translateY(-2px); }
+.exp-cta-main svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.exp-cta-main:hover svg { transform: translateX(3px); }
+.exp-cta-sec { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); padding: 16px 0; border-bottom: 1px solid var(--forest); font-weight: 500; transition: all 0.25s; }
+.exp-cta-sec:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+/* ===== RIBBON ===== */
+.ribbon { background: var(--terracotta); color: var(--cream); padding: 14px 0; overflow: hidden; position: relative; }
+.ribbon-track { display: flex; gap: 40px; white-space: nowrap; animation: scroll 30s linear infinite; font-family: var(--mono); font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+.ribbon-track span { display: inline-flex; align-items: center; gap: 40px; }
+.ribbon-sparkle { color: var(--mustard); font-size: 16px; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===== SOCIAL PROOF / TESTIMONIAL ===== */
+.social-proof {
+  background: var(--forest); color: var(--cream); padding: 140px 0;
+  position: relative; overflow: hidden;
+}
+.social-proof::before { content: ""; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--moss-light) 0%, transparent 60%); opacity: 0.25; pointer-events: none; }
+.social-proof::after { content: ""; position: absolute; bottom: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--terracotta) 0%, transparent 60%); opacity: 0.25; pointer-events: none; }
+.proof-inner { position: relative; z-index: 2; }
+.proof-head { text-align: center; max-width: 700px; margin: 0 auto 70px; }
+.proof-head .intro-label { justify-content: center; color: var(--mustard); }
+.proof-head .intro-label::before { background: var(--mustard); }
+.proof-head h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 60px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 20px; }
+.proof-head h2 em { font-style: italic; color: var(--mustard); }
+.proof-head p { opacity: 0.75; font-size: 17px; line-height: 1.7; }
+
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.proof-card {
+  background: rgba(246, 241, 231, 0.06); border: 1px solid rgba(246, 241, 231, 0.12);
+  padding: 30px; border-radius: 12px; transition: all 0.3s;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.proof-card:hover { background: rgba(246, 241, 231, 0.1); border-color: rgba(246, 241, 231, 0.2); transform: translateY(-4px); }
+.proof-rating { display: flex; gap: 3px; color: var(--mustard); }
+.proof-rating svg { width: 16px; height: 16px; fill: currentColor; }
+.proof-card p { font-size: 15px; line-height: 1.75; opacity: 0.92; }
+.proof-card p strong { color: var(--mustard); font-weight: 500; }
+.proof-person { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid rgba(246, 241, 231, 0.15); margin-top: auto; }
+.proof-avatar { width: 40px; height: 40px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+.proof-person-info strong { display: block; font-family: var(--serif); font-size: 16px; font-weight: 400; }
+.proof-person-info small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; font-weight: 500; }
+.proof-trip { margin-left: auto; text-align: right; }
+.proof-trip small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); font-weight: 500; }
+
+/* ===== COMBINE / STACK EXPERIENCES ===== */
+.combine { padding: 140px 0; background: var(--cream); }
+.combine-head { text-align: center; max-width: 700px; margin: 0 auto 70px; }
+.combine-head .intro-label { justify-content: center; }
+.combine-head h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 60px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 20px; }
+.combine-head h2 em { font-style: italic; color: var(--terracotta); }
+.combine-head p { color: var(--dusk); font-size: 17px; line-height: 1.7; }
+
+.combine-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.combo-card {
+  background: var(--parchment); border-radius: 14px; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); cursor: pointer;
+  display: flex; flex-direction: column;
+}
+.combo-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px -20px rgba(47, 74, 58, 0.25); }
+.combo-img { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--sage); }
+.combo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.combo-card:hover .combo-img img { transform: scale(1.08); }
+.combo-stack-tags { position: absolute; top: 18px; left: 18px; display: flex; flex-wrap: wrap; gap: 6px; z-index: 2; }
+.combo-stack-tag { background: rgba(246, 241, 231, 0.95); backdrop-filter: blur(6px); color: var(--forest); font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; font-weight: 500; }
+.combo-badge { position: absolute; top: 18px; right: 18px; background: var(--mustard); color: var(--forest-deep); font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border-radius: 100px; font-weight: 600; z-index: 2; }
+.combo-body { padding: 26px; flex-grow: 1; display: flex; flex-direction: column; }
+.combo-body h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; color: var(--forest); margin-bottom: 10px; }
+.combo-body h3 em { color: var(--terracotta); font-style: italic; }
+.combo-body p { font-size: 14px; color: var(--dusk); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+.combo-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; border-top: 1px solid var(--line); }
+.combo-price { font-family: var(--serif); font-size: 20px; color: var(--forest); font-weight: 400; }
+.combo-price small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 500; display: block; margin-bottom: 2px; }
+.combo-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--forest); font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+.combo-link::after { content: "→"; transition: transform 0.3s; }
+.combo-card:hover .combo-link::after { transform: translateX(4px); }
+
+/* ===== FAQ ===== */
+.faq-section { padding: 140px 0; background: var(--parchment); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+.faq-side { position: sticky; top: 140px; }
+.faq-side h2 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; font-weight: 400; letter-spacing: -0.015em; color: var(--forest); margin-bottom: 24px; }
+.faq-side h2 em { font-style: italic; color: var(--terracotta); }
+.faq-side p { font-size: 16px; color: var(--dusk); line-height: 1.7; margin-bottom: 28px; }
+.faq-side a { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--forest); font-weight: 500; }
+.faq-side a:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item { background: var(--cream); border-radius: 10px; overflow: hidden; transition: background 0.3s; }
+.faq-item.open { background: var(--forest); color: var(--cream); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 24px 28px; cursor: pointer; gap: 20px; }
+.faq-q strong { font-family: var(--serif); font-size: 19px; font-weight: 400; color: var(--forest); line-height: 1.3; transition: color 0.3s; }
+.faq-item.open .faq-q strong { color: var(--cream); }
+.faq-toggle { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: all 0.3s; color: var(--forest); }
+.faq-item.open .faq-toggle { background: var(--mustard); border-color: var(--mustard); color: var(--forest-deep); transform: rotate(45deg); }
+.faq-toggle svg { width: 12px; height: 12px; }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s;
+  padding: 0 28px; font-size: 15px; line-height: 1.75; color: var(--dusk);
+}
+.faq-item.open .faq-a { padding: 0 28px 26px; max-height: 500px; color: rgba(246, 241, 231, 0.85); }
+.faq-a p { margin-bottom: 10px; }
+.faq-a strong { color: var(--mustard); font-weight: 500; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  padding: 140px 0; background: var(--cream); position: relative; overflow: hidden;
+}
+.final-cta::before { content: ""; position: absolute; top: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.4; filter: blur(80px); }
+.final-cta::after { content: ""; position: absolute; bottom: -30%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, var(--sunset) 0%, transparent 70%); opacity: 0.3; filter: blur(80px); }
+.final-cta-inner { position: relative; z-index: 2; text-align: center; max-width: 820px; margin: 0 auto; }
+.final-cta-inner h2 { font-family: var(--serif); font-size: clamp(44px, 6vw, 82px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; color: var(--forest); margin-bottom: 28px; }
+.final-cta-inner h2 em { font-style: italic; color: var(--terracotta); }
+.final-cta-inner .kicker { font-family: var(--hand); font-size: 30px; color: var(--terracotta); margin-bottom: 20px; }
+.final-cta-inner p { font-size: 18px; color: var(--dusk); line-height: 1.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-forest { background: var(--forest); color: var(--cream); padding: 18px 32px; border-radius: 100px; font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-forest:hover { background: var(--terracotta); transform: translateY(-3px); }
+.btn-forest svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn-forest:hover svg { transform: translateX(3px); }
+.btn-outline { padding: 18px 32px; border-radius: 100px; border: 1px solid var(--forest); color: var(--forest); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; }
+.btn-outline:hover { background: var(--forest); color: var(--cream); }
+
+/* ===== FOOTER (same as homepage) ===== */
+footer { background: var(--forest-deep); color: rgba(246,241,231,0.7); padding: 80px 0 40px; border-top: 1px solid rgba(246,241,231,0.08); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo { color: var(--cream); }
+.footer-brand .logo-mark { background: var(--cream); color: var(--forest-deep); }
+.footer-brand p { margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard); margin-bottom: 22px; font-weight: 500; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col a { font-size: 14px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--mustard); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(246,241,231,0.08); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(246,241,231,0.55); font-weight: 500; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(246,241,231,0.22); border-radius: 50%; display: grid; place-items: center; transition: all 0.25s; }
+.footer-social a:hover { background: var(--mustard); color: var(--forest-deep); border-color: var(--mustard); transform: rotate(-10deg); }
+.footer-social svg { width: 14px; height: 14px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+  .intro-grid, .faq-grid { grid-template-columns: 1fr; gap: 50px; }
+  .faq-side { position: static; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-img { min-height: 320px; }
+  .exp-card { grid-template-columns: 1fr; gap: 40px; }
+  .exp-card:nth-child(even) .exp-visual { order: 0; }
+  .exp-card:nth-child(even) .exp-content { order: 0; }
+  .proof-grid, .combine-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 760px) {
+  .container, .nav-inner, .topbar-inner, .cat-nav-inner { padding-left: 22px; padding-right: 22px; }
+  .topbar-left { gap: 12px; font-size: 11px; }
+  .topbar-left span:nth-child(3) { display: none; }
+  .topbar-right { display: none; }
+  nav ul { display: none; }
+  .cat-nav { top: 72px; padding: 20px 0; }
+  .page-hero { padding: 50px 0 70px; }
+  .hero-sticky-note { left: 5%; top: auto; bottom: 20%; }
+  .urgency-inner { gap: 16px; font-size: 10px; }
+  .urgency-item:nth-child(3) { display: none; }
+  .intro-section, .featured-section, .experiences-main, .combine, .social-proof, .faq-section, .final-cta { padding: 70px 0; }
+  .exp-card-wrap { gap: 80px; }
+  .exp-polaroid { display: none; }
+  .featured-text { padding: 40px 28px; }
+  .featured-proof { flex-wrap: wrap; gap: 16px; }
+  .proof-grid, .combine-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+  .exp-section-head { grid-template-columns: 1fr; }
+  .exp-meta-row { gap: 12px; }
+  .compare-box { padding: 20px 18px; }
+  .compare-row { grid-template-columns: 1fr; gap: 6px; padding: 12px 0; }
+  .compare-row:first-child { display: none; }
+  .compare-col-other::before { content: "Other sites: "; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 2px; text-decoration: none; }
+  .compare-col-ours::before { left: 0; top: 0; }
+}
+
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Based in the Himalayas. Mostly lost elsewhere.</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Sat, 10am–7pm IST</span>
+      <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@offbeatpeak.com</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">EN / हिं</a>
+      <a href="#">₹ INR</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+      Offbeat <em>Peak</em>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="/destinations.html">Destinations</a></li>
+        <li><a href="/experiences.html" class="active">Experiences</a></li>
+        <li><a href="/itineraries.html">Itineraries</a></li>
+        <li><a href="/adventure.html">Adventure</a></li>
+        <li><a href="/stories.html">Stories</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <a href="/plan-my-trip.html" class="btn-primary">Plan my trip <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/index.html">Home</a><span>/</span><span style="color: var(--forest); font-weight: 500;">Experiences</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label">Experiences · 8 categories <span class="pulse-dot"></span></div>
+        <h1>Not things to <em>see</em>. Things to <em>live</em>.</h1>
+        <p class="hero-sub">Eight ways to stop being a tourist and start being a traveler. From a grandmother's kitchen in Parvati Valley to a monk's breakfast in Pai — every experience here is <strong>real, bookable, and led by the person who actually lives it.</strong> No scripts. No performances. No tour buses.</p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">8</div>
+            <div class="hero-meta-label">Experience categories</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">140+</div>
+            <div class="hero-meta-label">Verified local hosts</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">600+</div>
+            <div class="hero-meta-label">Travelers in 2026</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">4.9<span style="color: var(--mustard); font-size: 28px;">★</span></div>
+            <div class="hero-meta-label">From 612 reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-stack">
+        <div class="hero-img hero-img-1"><img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=800&q=80" alt="A century-old tea estate in Darjeeling"></div>
+        <div class="hero-img hero-img-2"><img src="https://images.unsplash.com/photo-1580289143186-032a357ca3f1?w=800&q=80" alt="River camp in Parvati Valley, Himachal"></div>
+        <div class="hero-sticky-note">
+          led by the people<br>who live here, not<br>the people who<br>read about it.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="urgency-inner">
+    <span class="urgency-live">18 travelers planning right now</span>
+    <span class="urgency-item"><strong>Monsoon 2026:</strong> 23 spots left across 4 regions</span>
+    <span class="urgency-item">Early-bird <strong>20% off</strong> ends May 31</span>
+    <span class="urgency-item"><strong>New:</strong> Solo women kit included free</span>
+  </div>
+</div>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#homestays" class="cat-pill">01 · Homestays</a>
+    <a href="#cuisine" class="cat-pill">02 · Cuisine trails</a>
+    <a href="#festivals" class="cat-pill">03 · Festivals</a>
+    <a href="#treks" class="cat-pill">04 · Treks &amp; trails</a>
+    <a href="#slow" class="cat-pill">05 · Slow travel</a>
+    <a href="#adventure" class="cat-pill">06 · Adventure sports</a>
+    <a href="#luxury" class="cat-pill">07 · Luxury escapes</a>
+    <a href="#workation" class="cat-pill">08 · Workation</a>
+  </div>
+</div>
+
+<!-- INTRO / WHY US (comparison table) -->
+<section class="intro-section">
+  <div class="container">
+    <div class="intro-grid reveal">
+      <div>
+        <div class="intro-label">Why travelers stay for seconds</div>
+        <h2 class="intro-headline">Other sites sell <em>tours</em>. We share the <em>moments</em> that change how you travel forever.</h2>
+      </div>
+      <div class="intro-body">
+        <p>A "travel experience" on most websites is a <em>scripted performance</em> — a staged cultural show, a curated photo spot, a guide who's given the same lecture 2,000 times. It's travel as theater, with you as the audience.</p>
+        <p>Our experiences are the opposite. They're quiet, imperfect, and uncurated. A homestay host who forgets a detail and then insists on showing you her grandmother's recipe notebook. A trek guide who grew up on that trail, not one trained for it. A monastery breakfast where the monks are <strong>actually</strong> doing their morning prayers, not waiting for your camera.</p>
+        <p>This is travel as it was before Instagram. And once you've done it, the other kind feels embarrassingly hollow.</p>
+
+        <div class="compare-box">
+          <div class="compare-row">
+            <div></div>
+            <div>Most travel sites</div>
+            <div>Offbeat Peak</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label">Your host</div>
+            <div class="compare-col-other">Hotel staff in uniform</div>
+            <div class="compare-col-ours">The family that owns the house</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label">Group size</div>
+            <div class="compare-col-other">25–60 people, rushed</div>
+            <div class="compare-col-ours">1–8 people, unhurried</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label">The itinerary</div>
+            <div class="compare-col-other">Same for everyone</div>
+            <div class="compare-col-ours">Shaped around your pace</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-label">After you return</div>
+            <div class="compare-col-other">A generic review email</div>
+            <div class="compare-col-ours">A WhatsApp from your host</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EXPERIENCE -->
+<section class="featured-section">
+  <div class="container">
+    <div class="featured-card reveal">
+      <div class="featured-text">
+        <div>
+          <div class="featured-tag">This month's featured experience</div>
+          <h2>Three days inside a Himachali farmhouse where <em>nothing</em> happens. And yet — everything does.</h2>
+          <p>You wake up to cows. You learn siddu with Asha Ji. You walk to the river after lunch. In the evening her grandson plays a flute he carved himself. No wifi. No schedule. You return home changed and can't quite explain why.</p>
+        </div>
+        <div>
+          <div class="featured-proof">
+            <div class="featured-proof-item">
+              <div class="featured-proof-num">247</div>
+              <div class="featured-proof-label">Travelers hosted</div>
+            </div>
+            <div class="featured-proof-item">
+              <div class="featured-proof-num">4.97★</div>
+              <div class="featured-proof-label">Average rating</div>
+            </div>
+            <div class="featured-proof-item">
+              <div class="featured-proof-num">6</div>
+              <div class="featured-proof-label">Spots left · Sept</div>
+            </div>
+          </div>
+          <div class="featured-cta">
+            <a href="#" class="btn-mustard">Read the full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="btn-secondary">Or just book it →</a>
+          </div>
+        </div>
+      </div>
+      <div class="featured-img">
+        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=900&q=80" alt="A traditional Himachali farmhouse in Tirthan Valley">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= EXPERIENCES MAIN GRID ========= -->
+<section class="experiences-main">
+  <div class="container">
+    <div class="exp-section-head reveal">
+      <h2>Eight ways to travel that'll ruin the ordinary kind <em>forever</em>.</h2>
+    </div>
+
+    <div class="exp-card-wrap">
+
+      <!-- 01 HOMESTAYS -->
+      <article class="exp-card reveal" id="homestays">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1580289143186-032a357ca3f1?w=900&q=80" alt="A village homestay in Parvati Valley, Himachal Pradesh">
+          </div>
+          <div class="exp-polaroid exp-polaroid-1">
+            <div class="exp-tape"></div>
+            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=300&q=80" alt="Morning chai at a homestay">
+            <div class="exp-polaroid-caption">chai with Asha Ji</div>
+          </div>
+          <div class="exp-polaroid exp-polaroid-2">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=300&q=80" alt="Mountain view from homestay">
+            <div class="exp-polaroid-caption">5am, Manali</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">01</div>
+            <div class="exp-tag">
+              Village homestays
+              <span class="exp-tag-live">16 stays live</span>
+            </div>
+            <h3 class="exp-title">Sleep where the <em>stories</em> live.</h3>
+            <div class="exp-kicker">not a hotel. a home.</div>
+          </div>
+          <p class="exp-description">Hotels rent you a room. Homestays give you a family. You'll share dinner with people who've lived in that valley for four generations, hear the stories their grandparents told, learn to make the dal that's been in the family for a century. <strong>The room isn't the experience. The people are.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Vetted in person.</strong> Every host is someone we've actually eaten with, not a listing we scraped off Booking.com.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Transparent pricing.</strong> ₹1,200–₹2,800 a night including all meals. No resort fees, no sneaky add-ons, no commission games.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>They remember you.</strong> 68% of our homestay travelers keep in touch with their host after the trip. This is our favorite metric.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg><strong>4 regions</strong></div>
+            <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-5 7 5v11"/></svg><strong>16 verified stays</strong></div>
+            <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>From 2 nights</div>
+            <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg><strong>4.94★ · 186 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Tirthan stays are <strong>booked till Aug 24</strong>. Next availability: Sept 2. Only 3 rooms.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/homestays.html" class="exp-cta-main">Browse all 16 homestays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="/plan-my-trip.html" class="exp-cta-sec">Or build a custom trip</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 CUISINE -->
+      <article class="exp-card reveal" id="cuisine">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=900&q=80" alt="Local cuisine trails and traditional Himalayan food">
+          </div>
+          <div class="exp-polaroid exp-polaroid-1">
+            <div class="exp-tape" style="background: rgba(157, 184, 196, 0.6);"></div>
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=300&q=80" alt="Thukpa in Darjeeling">
+            <div class="exp-polaroid-caption" style="color: var(--moss);">thukpa, 2pm</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">02</div>
+            <div class="exp-tag">
+              Local cuisine trails
+              <span class="exp-tag-live">28 recipes live</span>
+            </div>
+            <h3 class="exp-title">Eat like you <em>belong</em> there.</h3>
+            <div class="exp-kicker">restaurants are for tourists.</div>
+          </div>
+          <p class="exp-description">Every region hides its best food from visitors. Thukpa at 5am in a Darjeeling bakery that doesn't have a name. Siddu from a Parvati kitchen that's been steaming since 1962. Bhang ki chutney passed down by five generations in Garhwal. <strong>You don't need a restaurant. You need an introduction.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Cook what they cook.</strong> Not a commercial "cooking class" — a grandmother's kitchen, her own notebook, her own stove.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>6 culinary regions.</strong> North Bengal, Himachal, Uttarakhand, Sikkim, plus Vietnam and Thailand's interior.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Take the recipes home.</strong> We'll send you a photo of the original handwritten recipe. You'll mess it up the first time. That's fine.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>3 hours – 2 days</strong></div>
+            <div>◆ From <strong>₹1,500</strong> per person</div>
+            <div>👥 Max 4 people · always</div>
+            <div>★ <strong>4.98 · 94 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Darjeeling monsoon cuisine trail — <strong>only 12 spots left</strong> between July and September.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/cuisine.html" class="exp-cta-main">Explore all cuisine trails <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="exp-cta-sec">Download the recipe book →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 FESTIVALS -->
+      <article class="exp-card reveal" id="festivals">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1626198226928-617a2daf779d?w=900&q=80" alt="Traditional festivals and rituals in North East India">
+          </div>
+          <div class="exp-polaroid exp-polaroid-2">
+            <div class="exp-tape"></div>
+            <img src="https://images.unsplash.com/photo-1626714847193-ea0f9c03de73?w=300&q=80" alt="Losar festival preparations">
+            <div class="exp-polaroid-caption">Losar, Feb 2026</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">03</div>
+            <div class="exp-tag">Festivals &amp; rituals</div>
+            <h3 class="exp-title">Be <em>there</em> when it matters.</h3>
+            <div class="exp-kicker">dates that don't show up in ads.</div>
+          </div>
+          <p class="exp-description">Tourism boards advertise Holi and Diwali. We plan around Losar in Sikkim, Nanda Devi Jat in Uttarakhand, Kullu Dussehra in Himachal, and the village pujas that only the villagers know about. <strong>A festival you've read about is a fact. A festival you've lived is a memory.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>12 festivals, mapped to the calendar.</strong> We'll tell you 6 months ahead of time so you can actually plan.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Welcomed, not gawked at.</strong> You'll arrive with a local family, wear what they wear, eat what they eat.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>No performances.</strong> These aren't tourist shows. They're village life. Please don't bring a selfie stick.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>2–5 days</strong></div>
+            <div>◆ From <strong>₹3,500</strong> per person</div>
+            <div>📅 Book <strong>3+ months</strong> ahead</div>
+            <div>★ <strong>5.0 · 42 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Losar 2027 already has <strong>31 travelers on the waitlist</strong>. Only 8 spots open up each year.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/festivals.html" class="exp-cta-main">See the festival calendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="exp-cta-sec">Get festival alerts →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 TREKS -->
+      <article class="exp-card reveal" id="treks">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=80" alt="Himalayan treks and hidden trails across Sikkim and Uttarakhand">
+          </div>
+          <div class="exp-polaroid exp-polaroid-1">
+            <div class="exp-tape" style="background: rgba(157, 184, 196, 0.6);"></div>
+            <img src="https://images.unsplash.com/photo-1626198226928-617a2daf779d?w=300&q=80" alt="Sandakphu sunrise">
+            <div class="exp-polaroid-caption" style="color: var(--moss);">Sandakphu, 5:12am</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">04</div>
+            <div class="exp-tag">
+              Treks &amp; trails
+              <span class="exp-tag-live">22 trails mapped</span>
+            </div>
+            <h3 class="exp-title">Walk where the <em>trails</em> begin to forget you.</h3>
+            <div class="exp-kicker">the mountain doesn't care about your step count.</div>
+          </div>
+          <p class="exp-description">Everyone treks Sandakphu, Kheerganga, Triund. Fine. But there are seventeen other trails we'd rather you knew — the ones where your boots leave the first prints of the season, where the only traffic jam is a shepherd and 80 sheep. <strong>Guides who grew up on these trails, not instructors who trained for them.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>22 trails — 17 of them uncrowded.</strong> And we intentionally don't share the GPS files for 5 of them. Sorry not sorry.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Sandakphu, Har Ki Dun, Roopkund, Kheerganga</strong> — plus Brahmatal, Valley of Flowers, and the really quiet ones.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Real safety, not checkbox safety.</strong> Certified guides, acclimatisation days built in, evacuation insurance included.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>1–8 days</strong></div>
+            <div>◆ From <strong>₹2,800</strong> per person</div>
+            <div>⛰ Easy to expedition</div>
+            <div>★ <strong>4.95 · 210 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Monsoon-window treks (Jul–Sep) close next Sunday. <strong>Only 31 spots remain.</strong></div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/treks.html" class="exp-cta-main">Browse all 22 trails <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="exp-cta-sec">Difficulty quiz →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 SLOW TRAVEL -->
+      <article class="exp-card reveal" id="slow">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=900&q=80" alt="Slow travel across Vietnam rice terraces and villages">
+          </div>
+          <div class="exp-polaroid exp-polaroid-2">
+            <div class="exp-tape"></div>
+            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=300&q=80" alt="Slow morning in a tea estate">
+            <div class="exp-polaroid-caption">day 14, still here</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">05</div>
+            <div class="exp-tag">Slow travel</div>
+            <h3 class="exp-title">Stay longer. <em>Notice</em> more.</h3>
+            <div class="exp-kicker">7 cities in 10 days is a nervous breakdown.</div>
+          </div>
+          <p class="exp-description">Modern travel is a checklist with a passport. Slow travel is the opposite — one village, two weeks, and you start to understand how the light falls at 4pm. How the baker arrives at 6:10 like clockwork. Whose dog is whose. <strong>You can't photograph knowing a place. You can only live it.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>7–21 day trips.</strong> One or two places. Enough space to get bored — which is where noticing starts.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Built-in nothing days.</strong> Every slow itinerary has 30% unscheduled time. You'll fill it better than we could.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Monthly prices available.</strong> Many of our slow-travel homestays offer 28-day rates starting at ₹18,000 including meals.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>7–21+ days</strong></div>
+            <div>◆ From <strong>₹1,200</strong>/night</div>
+            <div>✎ Custom-built</div>
+            <div>★ <strong>4.97 · 68 reviews</strong></div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/slow-travel.html" class="exp-cta-main">See slow trip guides <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="/plan-my-trip.html" class="exp-cta-sec">Plan a 14-day trip →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 ADVENTURE -->
+      <article class="exp-card reveal" id="adventure">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=900&q=80" alt="Adventure sports in the Himalayas - rafting, paragliding, trekking">
+          </div>
+          <div class="exp-polaroid exp-polaroid-1">
+            <div class="exp-tape" style="background: rgba(157, 184, 196, 0.6);"></div>
+            <img src="https://images.unsplash.com/photo-1543158266-0066955047b4?w=300&q=80" alt="Bir Billing paragliding">
+            <div class="exp-polaroid-caption" style="color: var(--moss);">2,400m above Bir</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">06</div>
+            <div class="exp-tag">Adventure sports</div>
+            <h3 class="exp-title">When walking <em>isn't</em> enough.</h3>
+            <div class="exp-kicker">six sports. verified operators. real insurance.</div>
+          </div>
+          <p class="exp-description">Rafting, paragliding, bungee, skiing, Himalayan cycling, and high-altitude treks — booked with the operators we've personally used, not the ones that pay Google the most. Your first jump is terrifying. Your second is courage. <strong>The story will outlive your next seventeen selfies combined.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>We've done every one of these ourselves.</strong> If we wouldn't send our little sister, we don't list it.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Insurance built in.</strong> Not an "optional add-on" that you forget to click. It's included. Always.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Small batches.</strong> Paragliding capped at 6 per day. River rafting at 8. No cattle-truck adventure.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>10 min – 14 days</strong></div>
+            <div>◆ From <strong>₹1,200</strong></div>
+            <div>⚠ Level 1–4</div>
+            <div>★ <strong>4.92 · 133 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Manali–Leh cycling 2026 is <strong>sold out</strong>. Waitlist for 2027: 14 names. Book early.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/adventure.html" class="exp-cta-main">See all 6 sports <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="exp-cta-sec">Beginner-friendly only →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 LUXURY -->
+      <article class="exp-card reveal" id="luxury">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1544461772-722f499fa2e1?w=900&q=80" alt="Luxury heritage estates and boutique stays in North Bengal">
+          </div>
+          <div class="exp-polaroid exp-polaroid-2">
+            <div class="exp-tape"></div>
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=300&q=80" alt="Heritage estate dinner">
+            <div class="exp-polaroid-caption">heritage estate</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">07</div>
+            <div class="exp-tag">Luxury escapes</div>
+            <h3 class="exp-title">Luxury that actually means <em>something</em>.</h3>
+            <div class="exp-kicker">not five-star. one-of-one.</div>
+          </div>
+          <p class="exp-description">Big chains sell you a suite. We book heritage tea estate bungalows where the Raj once drank gin, private Himalayan cottages with your own chef, boutique desert camps in the UAE that actually feel like the desert. <strong>This isn't luxury for Instagram. It's luxury for actually being there.</strong></p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>12 curated properties.</strong> Each one hand-inspected. None belongs to a hotel chain.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Private chef, private transfers, private everything.</strong> Without the corporate stiffness.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>The access you can't buy online.</strong> Tea plantation walks, monastery private viewings, after-hours museum visits.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>3–10 nights</strong></div>
+            <div>◆ From <strong>₹18,000</strong>/night</div>
+            <div>🔑 Invitation list</div>
+            <div>★ <strong>4.99 · 38 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Peak season (Oct–Feb) has a <strong>6-week waitlist</strong>. Book for March–May for faster confirmation.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/luxury.html" class="exp-cta-main">Browse curated stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="/plan-my-trip.html" class="exp-cta-sec">Concierge planning →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 WORKATION -->
+      <article class="exp-card reveal" id="workation">
+        <div class="exp-visual">
+          <div class="exp-visual-img">
+            <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=900&q=80" alt="Workation stays with verified wifi in Himachal and Uttarakhand villages">
+          </div>
+          <div class="exp-polaroid exp-polaroid-1">
+            <div class="exp-tape" style="background: rgba(157, 184, 196, 0.6);"></div>
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=300&q=80" alt="Mountain café with wifi">
+            <div class="exp-polaroid-caption" style="color: var(--moss);">120 Mbps, yes really</div>
+          </div>
+        </div>
+        <div class="exp-content">
+          <div style="position: relative;">
+            <div class="exp-number">08</div>
+            <div class="exp-tag">
+              Workation
+              <span class="exp-tag-live">Toolkit included</span>
+            </div>
+            <h3 class="exp-title">A desk. A mountain. <em>Real</em> wifi.</h3>
+            <div class="exp-kicker">we speed-test every café. quarterly.</div>
+          </div>
+          <p class="exp-description">Every "workation" property promises "high-speed wifi." About 40% of them lie. We've been there. We got annoyed. So we built a directory of <strong>actually tested</strong> cafés and homestays — with timestamped screenshots, uptime logs, and backup locations within 2km. Because you shouldn't have to choose between a Zoom call and a view.</p>
+
+          <ul class="exp-bullets">
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>47 wifi-verified spots</strong> across Himachal, Uttarakhand, North Bengal and Sikkim. Re-tested every 90 days.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Power backup confirmed.</strong> Not every village has it. We mark the ones that do.</span>
+            </li>
+            <li class="exp-bullet">
+              <span class="exp-bullet-icon">✓</span>
+              <span><strong>Monthly stays from ₹22,000</strong> — that's cheaper than your coworking membership. And the view is free.</span>
+            </li>
+          </ul>
+
+          <div class="exp-meta-row">
+            <div>⏱ <strong>2–12 weeks</strong></div>
+            <div>📡 <strong>47 tested spots</strong></div>
+            <div>⚡ Backup power verified</div>
+            <div>★ <strong>4.91 · 51 reviews</strong></div>
+          </div>
+
+          <div class="exp-fomo">
+            <div class="exp-fomo-dot"></div>
+            <div>Monsoon workation in Kalimpong — <strong>3 rooms left</strong> in July. Next opening: September.</div>
+          </div>
+
+          <div class="exp-cta-row">
+            <a href="/experiences/workation.html" class="exp-cta-main">Browse workation stays <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#" class="exp-cta-sec">Open wifi directory →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-track">
+    <span>
+      <span class="ribbon-sparkle">✦</span> 20% off all experiences till May 31
+      <span class="ribbon-sparkle">✦</span> Solo women get a free safety kit
+      <span class="ribbon-sparkle">✦</span> Group of 4+? Fifth traveler free
+      <span class="ribbon-sparkle">✦</span> Early bird: Monsoon Meghalaya · ₹2,000 off
+      <span class="ribbon-sparkle">✦</span>
+    </span>
+    <span>
+      <span class="ribbon-sparkle">✦</span> 20% off all experiences till May 31
+      <span class="ribbon-sparkle">✦</span> Solo women get a free safety kit
+      <span class="ribbon-sparkle">✦</span> Group of 4+? Fifth traveler free
+      <span class="ribbon-sparkle">✦</span> Early bird: Monsoon Meghalaya · ₹2,000 off
+      <span class="ribbon-sparkle">✦</span>
+    </span>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-head reveal">
+        <div class="intro-label">Words from real travelers</div>
+        <h2>612 travelers said <em>yes</em>. Here's what they said afterwards.</h2>
+        <p>Every review below is from a real paying traveler. Verified bookings, verified emails, real photos we can share if asked. We don't buy reviews. We don't ghostwrite them.</p>
+      </div>
+
+      <div class="proof-grid reveal">
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"<strong>The homestay in Tirthan was booked by Asha Ji herself.</strong> She taught me to make siddu. Three months later I still send her photos of my cooking. This isn't travel. It's collecting people."</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Rohan Gupta</strong><small>Delhi · Sept 2025</small></div>
+            <div class="proof-trip"><small>5 days<br>Tirthan</small></div>
+          </div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"I've workationed in four countries. <strong>The wifi they promised in Kalimpong actually worked.</strong> Fibre, 120 Mbps, never dropped during a 3-hour Zoom. I'm never going back to co-working cafés."</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Meera Iyer</strong><small>Pune · March 2026</small></div>
+            <div class="proof-trip"><small>21 days<br>Workation</small></div>
+          </div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-rating">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.4 1.1-5.4 5.2 1.3 7.3L12 18.8 5.7 22.2l1.3-7.3L1.6 9.7 9 8.6z"/></svg>
+          </div>
+          <p>"I did <strong>Losar in Sikkim through Offbeat Peak and then Dussehra in Kullu</strong> six months later. Neither felt like tourism. I felt like a friend who was invited. That's a gift no other agency gave me."</p>
+          <div class="proof-person">
+            <div class="proof-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80');"></div>
+            <div class="proof-person-info"><strong>Ananya Sharma</strong><small>Mumbai · Feb &amp; Oct 2025</small></div>
+            <div class="proof-trip"><small>Festival<br>twice</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMBINE / STACK EXPERIENCES -->
+<section class="combine">
+  <div class="container">
+    <div class="combine-head reveal">
+      <div class="intro-label">Better together</div>
+      <h2>One experience is <em>good</em>. Stack three and it becomes a <em>trip</em>.</h2>
+      <p>Most travelers mix and match. A homestay paired with a cuisine trail. A trek that ends at a festival. A workation that bolts on a weekend of paragliding. Here are the three stacks our travelers book most.</p>
+    </div>
+
+    <div class="combine-grid reveal">
+      <div class="combo-card">
+        <div class="combo-img">
+          <img src="https://images.unsplash.com/photo-1544461772-722f499fa2e1?w=700&q=80" alt="North Bengal cultural trip combining homestays, cuisine and treks">
+          <div class="combo-stack-tags">
+            <span class="combo-stack-tag">Homestays</span>
+            <span class="combo-stack-tag">Cuisine</span>
+            <span class="combo-stack-tag">Treks</span>
+          </div>
+          <div class="combo-badge">Most booked</div>
+        </div>
+        <div class="combo-body">
+          <h3>The <em>full</em> North Bengal stack</h3>
+          <p>Heritage homestay, tea-trail cuisine, Sandakphu trek. The single trip that covers everything people go to Darjeeling for — and the five things they miss.</p>
+          <div class="combo-foot">
+            <div class="combo-price"><small>7 days · from</small>₹799 <span style="font-size: 13px; color: var(--muted);">/ guide</span></div>
+            <a href="#" class="combo-link">See itinerary</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-img">
+          <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=700&q=80" alt="Solo women trip stacking homestays, slow travel and safety toolkit">
+          <div class="combo-stack-tags">
+            <span class="combo-stack-tag">Homestays</span>
+            <span class="combo-stack-tag">Slow travel</span>
+            <span class="combo-stack-tag">Safety</span>
+          </div>
+          <div class="combo-badge" style="background: var(--moss); color: var(--cream);">For solo women</div>
+        </div>
+        <div class="combo-body">
+          <h3>Uttarakhand, <em>unrushed</em> and safe</h3>
+          <p>Female-run homestays in Chopta and Munsiyari, slow-travel pacing, and our local guardian network. Built with 43 women travelers.</p>
+          <div class="combo-foot">
+            <div class="combo-price"><small>6 days · from</small>₹699 <span style="font-size: 13px; color: var(--muted);">/ guide</span></div>
+            <a href="#" class="combo-link">See itinerary</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="combo-img">
+          <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=700&q=80" alt="Workation trip combining slow travel and adventure sports">
+          <div class="combo-stack-tags">
+            <span class="combo-stack-tag">Workation</span>
+            <span class="combo-stack-tag">Adventure</span>
+            <span class="combo-stack-tag">Slow</span>
+          </div>
+          <div class="combo-badge" style="background: var(--sky-deep);">Workation +</div>
+        </div>
+        <div class="combo-body">
+          <h3>Weekday coding. <em>Weekend</em> paragliding.</h3>
+          <p>Three weeks in Bir-Billing. Verified 120Mbps wifi on weekdays, paragliding on Saturday, homestay dinners nightly. Remote workers' favourite.</p>
+          <div class="combo-foot">
+            <div class="combo-price"><small>21 days · from</small>₹1,499 <span style="font-size: 13px; color: var(--muted);">/ guide</span></div>
+            <a href="#" class="combo-link">See itinerary</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;" class="reveal">
+      <a href="/plan-my-trip.html" class="btn-forest">Or tell us your dream stack — we'll build it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-side reveal">
+        <div class="intro-label">Honest answers</div>
+        <h2>Questions <em>before</em> the questions.</h2>
+        <p>We've answered hundreds of these on WhatsApp at 11pm. Here are the ones that matter. If yours isn't here, the reply button on our chat is two taps away.</p>
+        <a href="/contact.html">Ask us anything <span>→</span></a>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <div class="faq-q">
+            <strong>How do I know the homestays and guides are actually authentic?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Short answer: we've personally stayed at every homestay and done every trail before we listed it. No exceptions.</p>
+            <p>Long answer: <strong>each host is in our WhatsApp groups</strong>, we re-visit the properties every 9–12 months, and 68% of our travelers stay in touch with their host after the trip. If a host doesn't live up to what we wrote, we don't just refund — we delist.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Can I combine multiple experiences into one trip?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Yes — and most travelers do. Check the "<strong>better together</strong>" stacks above for our top three combinations, or use our custom itinerary service (from ₹1,500) and we'll build a trip that layers whichever experiences you want.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>What if I cancel? What's the refund policy?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Full refund up to 30 days before. 70% between 30–15 days. 30% between 15–7 days. Under 7 days — we hold your booking as credit for up to 12 months. We're small and we won't penalise you unfairly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Are experiences suitable for solo women travelers?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Several of them are built specifically for solo women — the Uttarakhand stack, for example, uses only female-run homestays and includes our local guardian network (a verified contact in every town you visit).</p>
+            <p>We've hosted <strong>186 solo women travelers in the last 18 months</strong>. Zero incidents. We take this seriously.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>How early should I book?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p><strong>Festivals and adventure sports:</strong> 3–6 months ahead (Losar and Manali–Leh cycling sell out 9 months in advance).</p>
+            <p><strong>Homestays and workation stays:</strong> 4–8 weeks ahead, longer in peak season (Oct–Feb, Apr–Jun).</p>
+            <p><strong>Custom itineraries:</strong> Minimum 2 weeks notice, though we've turned one around in 5 days for an emergency honeymoon once.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <strong>Do I get to talk to a real person before booking?</strong>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="faq-a">
+            <p>Yes. <strong>Every booking includes a free 20-minute WhatsApp or voice call</strong> where we walk you through the plan, answer questions, and recommend changes based on your travel style. No pushy sales scripts — our average call length is about 12 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <div class="kicker">so, one last question —</div>
+      <h2>When was the last time a trip <em>changed</em> you?</h2>
+      <p>If you have to think about it, you're overdue. Pick any one experience above, tell us what you're dreaming of, and we'll build the rest around you. 48 hours. Real humans. No generic tours.</p>
+      <div class="final-cta-btns">
+        <a href="/plan-my-trip.html" class="btn-forest">Plan my trip — 48 hour reply <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/itineraries.html" class="btn-outline">Or see ready-made trips</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-8 4 5 3-4 6 7z"/><circle cx="17" cy="7" r="1.5"/></svg></span>
+          Offbeat <em style="color: var(--mustard);">Peak</em>
+        </a>
+        <p>A small independent travel studio finding the places guidebooks forget. Built in the Himalayas. Sent from the road.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="/destinations.html">Destinations</a></li><li><a href="/experiences.html">Experiences</a></li><li><a href="/itineraries.html">Itineraries</a></li><li><a href="/adventure.html">Adventure</a></li></ul></div>
+      <div class="footer-col"><h4>Plan</h4><ul><li><a href="/plan-my-trip.html">Custom trip</a></li><li><a href="#">Group trips</a></li><li><a href="#">Solo women</a></li><li><a href="/experiences.html#workation">Workation</a></li></ul></div>
+      <div class="footer-col"><h4>Studio</h4><ul><li><a href="/about.html">About us</a></li><li><a href="#">Traveler tools</a></li><li><a href="/contact.html">Contact</a></li><li><a href="#">Press</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Offbeat Peak · All rights reserved</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.5c0-2.5 2-4.5 4.5-4.5S17 9 17 11.5 15 16 12.5 16L10 20"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+      <div>Privacy · Terms · Cookies</div>
+    </div>
+  </div>
+</footer>
+
+<!-- FAQ Schema for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know the homestays and guides are actually authentic?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We've personally stayed at every homestay and done every trail before listing it. Each host is in our WhatsApp groups, we re-visit properties every 9–12 months, and 68% of travelers stay in touch with their host after the trip."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I combine multiple experiences into one trip?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Check our curated stacks or use our custom itinerary service from ₹1,500 and we'll build a trip layering whichever experiences you want."}
+    },
+    {
+      "@type": "Question",
+      "name": "What if I cancel? What's the refund policy?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Full refund up to 30 days before, 70% between 30-15 days, 30% between 15-7 days. Under 7 days we hold your booking as credit for up to 12 months."}
+    },
+    {
+      "@type": "Question",
+      "name": "Are experiences suitable for solo women travelers?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Many experiences are built specifically for solo women travelers, using female-run homestays and including our local guardian network with verified contacts in every town."}
+    }
+  ]
+}
+</script>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Category nav — highlight active section
+  const catPills = document.querySelectorAll('.cat-pill');
+  const sections = Array.from(document.querySelectorAll('.exp-card[id]'));
+  function updateActive() {
+    const scroll = window.scrollY + 200;
+    let current = sections[0]?.id || '';
+    sections.forEach(s => {
+      if (s.offsetTop <= scroll) current = s.id;
+    });
+    catPills.forEach(p => {
+      p.classList.toggle('active', p.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActive);
+  updateActive();
+</script>
+
+</body>
+</html>
