@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Link Building Services | Links Are Spam</title>
+  <meta name="description" content="White-hat link building done by humans, not bots. Real placements on real sites — guest posts, niche edits, digital PR backlinks, HARO links. Zero PBNs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== TOKENS ========== */
+    :root {
+      --purple: #320b35;
+      --purple-deep: #1f0721;
+      --purple-soft: #4b1a4f;
+      --cream: #f0e9c7;
+      --cream-dim: #e8dfb6;
+      --cream-bright: #f7f1d6;
+      --ink: #1a0a1d;
+      --line: rgba(50, 11, 53, 0.18);
+      --line-strong: rgba(50, 11, 53, 0.5);
+      --warning: #d4733a;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --max: 1280px;
+      --pad: clamp(20px, 5vw, 64px);
+      --section-y: clamp(80px, 12vw, 140px);
+      --radius: 4px;
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: var(--sans); font-size: 17px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+    .serif { font-family: var(--serif); }
+
+    /* DOODLES */
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect {
+      fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline {
+      stroke: var(--cream);
+    }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    @keyframes drawIn { to { stroke-dashoffset: 0; } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+    .draw-on path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: drawIn 2s var(--ease) forwards; animation-delay: 0.6s; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-ghost { background: transparent; color: var(--purple); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--purple); background: rgba(50,11,53,0.04); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+
+    /* BREADCRUMB */
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-list a:hover { opacity: 1; color: var(--purple-soft); }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(60px, 10vw, 120px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 20%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07) 0%, transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 132px); line-height: 0.95; letter-spacing: -0.03em; color: var(--purple); margin: 0 0 28px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; font-weight: 400; }
+    .hero h1 .strike { position: relative; }
+    .hero h1 .strike::after { content: ''; position: absolute; top: 55%; left: -2%; width: 104%; height: 5px; background: var(--warning); transform: rotate(-2deg); }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3.4vw, 36px); color: var(--purple-soft); line-height: 1.25; margin: 0 0 32px; max-width: 760px; }
+    .hero-body { font-size: 18px; line-height: 1.6; max-width: 620px; margin: 0 0 44px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-floating { position: absolute; top: 22%; right: 8%; width: 110px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* SECTION HEADERS */
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 80px; }
+    @media (max-width: 860px) { .section-header { grid-template-columns: 1fr; gap: 24px; } }
+    .section-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.02em; color: var(--purple); margin: 0; font-variation-settings: "opsz" 144; }
+    .section-sub { font-size: 17px; line-height: 1.6; color: var(--ink); max-width: 460px; margin: 0; }
+
+    /* PLAIN ENGLISH (intro) */
+    .plain { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+    .plain-doodle { position: absolute; top: 8%; right: 5%; width: 100px; opacity: 0.4; }
+    @media (max-width: 960px) { .plain-doodle { display: none; } }
+    .plain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    @media (max-width: 860px) { .plain-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .plain h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--purple); margin: 0 0 24px; }
+    .plain p { font-size: 17.5px; line-height: 1.7; margin: 0 0 16px; }
+    .plain-callout { background: var(--cream-bright); border: 1px solid var(--line); border-radius: 8px; padding: 32px; }
+    .plain-callout-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.75; margin-bottom: 16px; }
+    .plain-callout h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; color: var(--purple); margin: 0 0 12px; line-height: 1.2; }
+    .plain-callout p { font-size: 15.5px; line-height: 1.6; margin: 0; opacity: 0.85; }
+
+    /* TYPES OF LINKS — six tiles */
+    .types { padding: var(--section-y) 0; position: relative; }
+    .types-doodle { position: absolute; left: 4%; top: 12%; width: 90px; opacity: 0.4; }
+    @media (max-width: 960px) { .types-doodle { display: none; } }
+    .types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+    @media (max-width: 860px) { .types-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .types-grid { grid-template-columns: 1fr; } }
+    .type-tile { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background 0.4s var(--ease); position: relative; }
+    .type-tile:hover { background: var(--cream-bright); }
+    .types-grid > .type-tile:nth-child(3n) { border-right: none; }
+    .types-grid > .type-tile:nth-last-child(-n+3) { border-bottom: none; }
+    @media (max-width: 860px) {
+      .types-grid > .type-tile { border-right: 1px solid var(--line); }
+      .types-grid > .type-tile:nth-child(3n) { border-right: 1px solid var(--line); }
+      .types-grid > .type-tile:nth-child(2n) { border-right: none; }
+    }
+    @media (max-width: 560px) {
+      .types-grid > .type-tile { border-right: none; }
+    }
+    .type-icon { width: 36px; height: 36px; margin-bottom: 24px; }
+    .type-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--purple-soft); opacity: 0.65; margin-bottom: 12px; text-transform: uppercase; }
+    .type-title { font-family: var(--serif); font-weight: 500; font-size: 24px; color: var(--purple); margin: 0 0 10px; line-height: 1.15; }
+    .type-body { font-size: 15px; line-height: 1.55; opacity: 0.82; margin: 0; }
+
+    /* WHAT WE DON'T DO — wordplay heaven */
+    .dont { padding: var(--section-y) 0; background: var(--purple); color: var(--cream); position: relative; overflow: hidden; }
+    .dont::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(240,233,199,0.06), transparent 30%), radial-gradient(circle at 80% 70%, rgba(240,233,199,0.05), transparent 35%); pointer-events: none; }
+    .dont-floating { position: absolute; top: 10%; right: 6%; width: 100px; }
+    @media (max-width: 960px) { .dont-floating { display: none; } }
+    .dont .section-h2 { color: var(--cream); }
+    .dont .section-sub { color: var(--cream); opacity: 0.85; }
+    .dont .eyebrow { color: var(--cream); opacity: 0.6; }
+    .dont-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); margin-top: 60px; }
+    @media (max-width: 720px) { .dont-list { grid-template-columns: 1fr; } }
+    .dont-item { padding: 36px 32px; border-right: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); position: relative; }
+    .dont-list > .dont-item:nth-child(2n) { border-right: none; }
+    .dont-list > .dont-item:nth-last-child(-n+2) { border-bottom: none; }
+    @media (max-width: 720px) {
+      .dont-item { border-right: none; }
+      .dont-list > .dont-item:nth-last-child(-n+1) { border-bottom: none; }
+    }
+    .dont-x { position: absolute; top: 36px; right: 32px; width: 28px; height: 28px; color: var(--warning); opacity: 0.85; }
+    .dont-name { font-family: var(--serif); font-weight: 500; font-size: 28px; color: var(--cream); margin: 0 0 10px; padding-right: 50px; line-height: 1.2; letter-spacing: -0.005em; }
+    .dont-aka { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--cream); opacity: 0.55; margin: 0 0 18px; }
+    .dont-body { font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.78; margin: 0; max-width: 460px; }
+    .dont-tagline { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3vw, 32px); color: var(--cream); margin: 60px 0 0; max-width: 720px; line-height: 1.4; }
+
+    /* QUALITY BAR — checklist */
+    .quality { padding: var(--section-y) 0; position: relative; }
+    .quality-doodle { position: absolute; right: 5%; bottom: 14%; width: 110px; opacity: 0.4; }
+    @media (max-width: 960px) { .quality-doodle { display: none; } }
+    .quality-intro { max-width: 720px; font-size: 17.5px; line-height: 1.7; margin: 0 0 60px; }
+    .checklist { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; }
+    @media (max-width: 860px) { .checklist { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .checklist { grid-template-columns: 1fr; } }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px; background: var(--cream-bright); border: 1px solid var(--line); border-radius: 6px; transition: all 0.3s var(--ease); }
+    .check-item:hover { border-color: var(--purple); transform: translateX(2px); }
+    .check-mark { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; }
+    .check-mark path { fill: none; stroke: var(--purple); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .check-text { font-size: 14.5px; line-height: 1.4; }
+    .quality-quote { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3vw, 32px); color: var(--purple); max-width: 760px; margin: 0; padding: 32px 0 0; border-top: 1px solid var(--line-strong); line-height: 1.4; }
+    .quality-quote strong { font-style: normal; font-weight: 600; color: var(--purple); }
+
+    /* PROCESS */
+    .process { padding: var(--section-y) 0; background: var(--cream-bright); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .process-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+    @media (max-width: 860px) { .process-flow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .process-flow { grid-template-columns: 1fr; } }
+    .flow-step { position: relative; padding-top: 32px; border-top: 1px solid var(--line-strong); }
+    .flow-num { font-family: var(--serif); font-style: italic; font-size: 48px; color: var(--purple); line-height: 1; margin-bottom: 16px; }
+    .flow-title { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); margin: 0 0 12px; line-height: 1.2; }
+    .flow-body { font-size: 14.5px; line-height: 1.6; opacity: 0.85; margin: 0; }
+    .flow-arrow { position: absolute; right: -22px; top: 56px; width: 18px; height: 12px; opacity: 0.5; }
+    .flow-arrow path, .flow-arrow polyline { fill: none; stroke: var(--purple-soft); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 860px) { .flow-arrow { display: none; } }
+
+    /* CASES TEASE */
+    .cases { padding: var(--section-y) 0; position: relative; }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    @media (max-width: 960px) { .cases-grid { grid-template-columns: 1fr; } }
+    .case-card { background: var(--cream-bright); border: 1px solid var(--line); border-radius: 8px; padding: 32px; transition: all 0.4s var(--ease); display: flex; flex-direction: column; }
+    .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(50,11,53,0.18); border-color: var(--purple); }
+    .case-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); padding: 6px 12px; background: rgba(50,11,53,0.06); border-radius: 100px; align-self: flex-start; margin-bottom: 20px; }
+    .case-name { font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--purple); margin: 0 0 6px; line-height: 1.05; }
+    .case-stat { font-family: var(--serif); font-weight: 300; font-size: 64px; line-height: 0.9; color: var(--purple); letter-spacing: -0.03em; margin: 24px 0 12px; font-variation-settings: "opsz" 144; }
+    .case-stat .unit { font-size: 0.5em; font-style: italic; color: var(--purple-soft); }
+    .case-cap { font-size: 14px; line-height: 1.5; opacity: 0.78; margin: 0 0 24px; }
+    .case-link { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; align-self: flex-start; margin-top: auto; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .case-link:hover { gap: 14px; }
+
+    /* OTHER SERVICES */
+    .other { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .other-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    @media (max-width: 720px) { .other-grid { grid-template-columns: 1fr; } }
+    .other-card { padding: 40px 36px; border: 1px solid var(--line-strong); border-radius: 8px; transition: all 0.4s var(--ease); background: var(--cream-bright); }
+    .other-card:hover { background: var(--purple); transform: translateY(-3px); }
+    .other-card:hover .other-num, .other-card:hover .other-title, .other-card:hover .other-body, .other-card:hover .other-cta { color: var(--cream); }
+    .other-card:hover .other-cta { border-color: var(--cream); }
+    .other-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--purple-soft); opacity: 0.75; margin-bottom: 16px; transition: color 0.3s var(--ease); text-transform: uppercase; }
+    .other-title { font-family: var(--serif); font-weight: 500; font-size: 32px; color: var(--purple); margin: 0 0 16px; line-height: 1.1; transition: color 0.3s var(--ease); letter-spacing: -0.01em; }
+    .other-body { font-size: 15.5px; line-height: 1.6; opacity: 0.82; margin: 0 0 24px; transition: color 0.3s var(--ease); }
+    .other-cta { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; transition: color 0.3s var(--ease); }
+
+    /* FAQ */
+    .faq { padding: var(--section-y) 0; }
+    .faq-list { margin-top: 60px; border-top: 1px solid var(--line-strong); max-width: 920px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; text-align: left; padding: 28px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; cursor: pointer; }
+    .faq-q:hover { opacity: 0.7; }
+    .faq-q-text { font-family: var(--serif); font-weight: 500; font-size: clamp(18px, 2vw, 24px); color: var(--purple); line-height: 1.3; }
+    .faq-toggle { font-family: var(--serif); font-size: 28px; color: var(--purple); flex-shrink: 0; transition: transform 0.4s var(--ease); line-height: 1; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease), padding 0.4s var(--ease); }
+    .faq-item.open .faq-a { max-height: 500px; padding: 0 0 32px; }
+    .faq-a-text { font-size: 15.5px; line-height: 1.7; opacity: 0.85; max-width: 760px; margin: 0; }
+
+    /* FINAL CTA */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6.5vw, 88px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final-sub { font-size: 18px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; }
+
+    /* FOOTER */
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; transition: opacity 0.2s var(--ease); }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wrap crumb">
+    <div class="crumb-list">
+      <a href="/">Home</a>
+      <span class="crumb-sep">/</span>
+      <a href="/services">Services</a>
+      <span class="crumb-sep">/</span>
+      <span>Link Building</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <!-- Floating chain doodle -->
+    <svg class="hero-floating doodle floating" viewBox="0 0 110 110" aria-hidden="true">
+      <ellipse cx="40" cy="40" rx="22" ry="14" transform="rotate(-30 40 40)"/>
+      <ellipse cx="70" cy="70" rx="22" ry="14" transform="rotate(-30 70 70)"/>
+      <line x1="55" y1="55" x2="55" y2="55" stroke-width="3"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Service · No. 01 · Link Building
+      </div>
+      <h1>We don't <span class="strike">sell</span><br /><em>earn</em> links.</h1>
+      <p class="hero-subhead">No PBNs. No farms. No "1,000 links for $20." Just real placements on real sites — pitched, written, and earned by humans.</p>
+      <p class="hero-body">Link building is the work of getting other websites to point at yours. Done right, it's how Google decides who to trust. Done wrong, it's how you end up disavowing 8,000 backlinks at 2am. We do it right.</p>
+      <div class="hero-ctas">
+        <a href="/contact?intent=audit" class="btn btn-primary btn-arrow">Get a free link audit</a>
+        <a href="#types" class="btn btn-ghost">See the types we build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAIN ENGLISH -->
+  <section class="plain">
+    <svg class="plain-doodle doodle floating-2" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M20 30 Q 40 50, 60 30 T 95 50"/>
+      <circle cx="20" cy="30" r="3" fill="#320b35" stroke="none"/>
+      <circle cx="60" cy="30" r="3" fill="#320b35" stroke="none"/>
+      <circle cx="95" cy="50" r="3" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="plain-grid">
+        <div>
+          <span class="eyebrow" style="display: block; margin-bottom: 24px;">— What this actually is</span>
+          <h2>If Google was a school, links are the gold stars.</h2>
+          <p>The more credible classmates that vouch for you, the more the teacher trusts your work. Backlinks are exactly that: every reputable website that links to yours is one more vote saying "this is the real deal."</p>
+          <p>Most of the internet runs on this mechanic. Your competitors are working it every day. The question isn't whether you need link building. The question is whether the links you're getting are helping or quietly hurting you.</p>
+        </div>
+        <div class="plain-callout">
+          <div class="plain-callout-eyebrow">— A simple test</div>
+          <h3>"Would I email this site if I didn't need a link?"</h3>
+          <p>If the answer is no, the link probably isn't worth having. Most spam links fail this test instantly. Every link we build passes it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPES OF LINKS -->
+  <section class="types" id="types">
+    <svg class="types-doodle doodle floating" viewBox="0 0 90 90" aria-hidden="true">
+      <g transform="translate(45 45)">
+        <line x1="0" y1="-32" x2="0" y2="32"/>
+        <line x1="-32" y1="0" x2="32" y2="0"/>
+        <line x1="-22" y1="-22" x2="22" y2="22"/>
+        <line x1="22" y1="-22" x2="-22" y2="22"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Six kinds of links<br />we actually build.</h2>
+        <p class="section-sub">No two links are the same. We mix six different placement types based on your goals, competitors, and how Google currently sees you.</p>
+      </div>
+
+      <div class="types-grid">
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <rect x="6" y="8" width="24" height="20" rx="2"/>
+            <line x1="10" y1="14" x2="26" y2="14"/>
+            <line x1="10" y1="18" x2="22" y2="18"/>
+            <line x1="10" y1="22" x2="26" y2="22"/>
+          </svg>
+          <div class="type-num">— No. 01</div>
+          <h3 class="type-title">Guest Posts</h3>
+          <p class="type-body">We write a real article, pitch it to a real publication, and earn a contextual link inside it. No "guest post networks" — only places your competitors actually want to be in.</p>
+        </div>
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M6 14 a4 4 0 0 1 4 -4 h6 v3 h-6 a1 1 0 0 0 0 2 h6 v3 h-6 a4 4 0 0 1 -4 -4z"/>
+            <path d="M16 10 h6 a4 4 0 0 1 0 8 h-6 v-3 h6 a1 1 0 0 0 0 -2 h-6 z" transform="translate(4 4)"/>
+          </svg>
+          <div class="type-num">— No. 02</div>
+          <h3 class="type-title">Niche Edits</h3>
+          <p class="type-body">We find existing high-traffic articles where a link to your site genuinely improves the content, and we earn the edit. Faster than guest posts. Often better.</p>
+        </div>
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="18" r="12"/>
+            <path d="M18 12 a3 3 0 0 1 3 3 c0 2 -3 2 -3 4 M18 22 v1"/>
+          </svg>
+          <div class="type-num">— No. 03</div>
+          <h3 class="type-title">HARO &amp; Expert Quotes</h3>
+          <p class="type-body">Journalists ask questions. We pitch your founder or expert team as the answer. Result: a citation, a link, and trust signals from publications like Forbes, Inc., and Mint.</p>
+        </div>
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <line x1="6" y1="10" x2="30" y2="10"/>
+            <line x1="6" y1="18" x2="30" y2="18"/>
+            <line x1="6" y1="26" x2="30" y2="26"/>
+            <circle cx="11" cy="10" r="2" fill="#320b35"/>
+            <circle cx="11" cy="18" r="2" fill="#320b35"/>
+            <circle cx="11" cy="26" r="2" fill="#320b35"/>
+          </svg>
+          <div class="type-num">— No. 04</div>
+          <h3 class="type-title">Resource Page Links</h3>
+          <p class="type-body">Curated lists of "best tools" or "useful links" rank well and stay forever. We get you onto the relevant ones — by being relevant, not by paying.</p>
+        </div>
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <rect x="8" y="6" width="20" height="22" rx="1"/>
+            <line x1="12" y1="12" x2="24" y2="12"/>
+            <line x1="12" y1="16" x2="24" y2="16"/>
+            <line x1="12" y1="20" x2="20" y2="20"/>
+            <circle cx="26" cy="26" r="4" fill="#320b35" stroke="none"/>
+          </svg>
+          <div class="type-num">— No. 05</div>
+          <h3 class="type-title">Digital PR Backlinks</h3>
+          <p class="type-body">Press placements that double as links. A data study or founder commentary lands in Forbes — the link is a side effect, the authority is the prize.</p>
+        </div>
+        <div class="type-tile">
+          <svg class="type-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M8 18 L18 8 L28 18 L18 28 Z"/>
+            <line x1="13" y1="13" x2="23" y2="23" stroke="#d4733a"/>
+          </svg>
+          <div class="type-num">— No. 06</div>
+          <h3 class="type-title">Broken Link Building</h3>
+          <p class="type-body">We find dead links on relevant pages, offer your live URL as the replacement. The publisher fixes their site, you earn a link. Everyone wins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DON'T DO -->
+  <section class="dont">
+    <svg class="dont-floating doodle cream spinning" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="44" stroke="#f0e9c7" opacity="0.5"/>
+      <line x1="50" y1="6" x2="50" y2="94" stroke="#d4733a" stroke-width="2.5"/>
+      <line x1="6" y1="50" x2="94" y2="50" stroke="#d4733a" stroke-width="2.5"/>
+    </svg>
+
+    <div class="wrap">
+      <span class="eyebrow" style="display: block; margin-bottom: 24px;">— The rejection list</span>
+      <div class="section-header" style="margin-bottom: 0;">
+        <h2 class="section-h2">What we<br /><em>refuse</em> to do.</h2>
+        <p class="section-sub">Half of link building is knowing when to walk away. These four tactics still make agencies money. We won't touch any of them.</p>
+      </div>
+
+      <div class="dont-list">
+        <div class="dont-item">
+          <svg class="dont-x" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="6" y1="6" x2="22" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="22" y1="6" x2="6" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="dont-name">PBNs</h3>
+          <p class="dont-aka">Private Blog Networks. Otherwise known as "fake blog farms with extra steps."</p>
+          <p class="dont-body">A PBN is a network of sites built only to link to clients. Google has been killing them since 2014. We don't own any. We don't rent any. We don't link to any.</p>
+        </div>
+        <div class="dont-item">
+          <svg class="dont-x" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="6" y1="6" x2="22" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="22" y1="6" x2="6" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="dont-name">Link Farms &amp; Wheels</h3>
+          <p class="dont-aka">Sites that link to anyone with a pulse. And $20.</p>
+          <p class="dont-body">Reciprocal link wheels, ABC swaps, mass directory submissions. They pump up your numbers for two months, then Google catches up and your rankings vaporise.</p>
+        </div>
+        <div class="dont-item">
+          <svg class="dont-x" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="6" y1="6" x2="22" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="22" y1="6" x2="6" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="dont-name">Paid Editorial Placements</h3>
+          <p class="dont-aka">"Sponsored content" without the sponsored disclosure.</p>
+          <p class="dont-body">Buying a link disguised as an article violates Google's guidelines. The fact that half the agency industry does it doesn't make it okay. It just means half the industry is a few algorithm updates from collapse.</p>
+        </div>
+        <div class="dont-item">
+          <svg class="dont-x" viewBox="0 0 28 28" aria-hidden="true">
+            <line x1="6" y1="6" x2="22" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="22" y1="6" x2="6" y2="22" stroke="#d4733a" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="dont-name">Comment &amp; Forum Spam</h3>
+          <p class="dont-aka">"Great post! Visit my-site.com" — at scale.</p>
+          <p class="dont-body">Auto-posted comments, spammy forum signatures, profile-link farming. Google ignored these in 2010. We've never been tempted to start now.</p>
+        </div>
+      </div>
+
+      <p class="dont-tagline">"If we wouldn't tell our clients about it, we don't do it. If we wouldn't put it on our case study page, we don't do it."</p>
+    </div>
+  </section>
+
+  <!-- QUALITY BAR -->
+  <section class="quality">
+    <svg class="quality-doodle doodle floating-2" viewBox="0 0 110 80" aria-hidden="true">
+      <path d="M5 70 Q 30 30, 60 50 T 95 30"/>
+      <polyline points="86,28 95,30 95,40"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">15 boxes<br />every link must tick.</h2>
+        <p class="section-sub">Same checklist we used to build canva.in to DR 70 in 12 months. Every potential placement passes through it before we pitch — and most don't make it.</p>
+      </div>
+
+      <p class="quality-intro">A link from a high-DR site means nothing if it's a paid network with no real traffic. A link from a smaller site means everything if it's run by someone your customers actually trust. The 15 checks below are how we tell the two apart.</p>
+
+      <div class="checklist">
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Link in the first half of the article</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Fewer than 5 outbound links on page</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Page traffic over 500/month</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Brand mention required, not just URL</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Topical relevance to your industry</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Site Domain Rating above 30</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Page indexed in Google</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">No suspicious anchor patterns</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Page age over 6 months</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Organic traffic from your target geo</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Author has verifiable history</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">No casino, PBN, or spam neighbours</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Natural anchor (not keyword-stuffed)</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Content fits naturally, no obvious sponsorship</span></div>
+        <div class="check-item"><svg class="check-mark" viewBox="0 0 18 18"><path d="M3 9 L7 13 L15 5"/></svg><span class="check-text">Editorial respected, no payment required</span></div>
+      </div>
+
+      <p class="quality-quote"><strong>One strong link should outrank thirty normal ones.</strong> That's the bar. We'd rather earn you 20 links a quarter that pass this list than 200 that don't.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Four steps<br />from kickoff to placement.</h2>
+        <p class="section-sub">No mystery. No "trust the agency." You see what we're pitching, who we're pitching it to, and what came back.</p>
+      </div>
+
+      <div class="process-flow">
+        <div class="flow-step">
+          <div class="flow-num">i.</div>
+          <h3 class="flow-title">Audit &amp; Gap Analysis</h3>
+          <p class="flow-body">Pull your existing backlinks, your competitors', and the keyword gaps. We surface where you're bleeding and where they're winning.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">ii.</div>
+          <h3 class="flow-title">Targeting &amp; Outreach</h3>
+          <p class="flow-body">Build a target list of publications that pass the 15-point bar. Pitch each one with a real, useful angle — not a templated email.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iii.</div>
+          <h3 class="flow-title">Content &amp; Relationship</h3>
+          <p class="flow-body">When the publication says yes, we write the article, suggest the edit, or supply the quote. The link is contextual, the placement is editorial.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iv.</div>
+          <h3 class="flow-title">Report &amp; Monitor</h3>
+          <p class="flow-body">Monthly report with every placement, the URL, the DR, the traffic, the anchor. We monitor for link drops and chase them down.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="cases">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">What this looks like<br />when it works.</h2>
+        <p class="section-sub">Three engagements. Three industries. Zero PBNs across all of them.</p>
+      </div>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <span class="case-tag">Design SaaS · India</span>
+          <h3 class="case-name">Canva.in</h3>
+          <div class="case-stat">DR&nbsp;0<span class="unit">→</span>70</div>
+          <p class="case-cap">500+ referring domains and 456K monthly visitors built from absolute zero, across 12+ Indian languages, with no link exchanges.</p>
+          <a href="https://rimosubham.github.io/info/canva-in-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-tag">Dropshipping SaaS · Global</span>
+          <h3 class="case-name">Spocket</h3>
+          <div class="case-stat">5<span class="unit">×</span></div>
+          <p class="case-cap">Organic traffic in 18 months. 1,600 backlinks earned. 23,000 AI citations as a side effect — half their discovery now comes from LLMs.</p>
+          <a href="https://rimosubham.github.io/info/spocket-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-tag">E-com Tools · Global</span>
+          <h3 class="case-name">WinningHunter</h3>
+          <div class="case-stat">2<span class="unit">×</span></div>
+          <p class="case-cap">Doubled DR in 4 months by cleaning toxic backlinks and earning real ones. 259 AI citations as the link profile recovered.</p>
+          <a href="https://rimosubham.github.io/info/winninghunter-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="other">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Pairs well with.</h2>
+        <p class="section-sub">Link building is the foundation. Stack these on top to compound the authority.</p>
+      </div>
+      <div class="other-grid">
+        <a href="/services/ai-llm-placement" class="other-card">
+          <div class="other-num">— Service No. 02</div>
+          <h3 class="other-title">AI &amp; LLM Placement</h3>
+          <p class="other-body">Get cited inside ChatGPT, Gemini, Claude, and Perplexity. Backlinks alone won't put you there in 2026 — this will.</p>
+          <span class="other-cta">Get cited by AI →</span>
+        </a>
+        <a href="/services/digital-pr" class="other-card">
+          <div class="other-num">— Service No. 03</div>
+          <h3 class="other-title">Digital PR</h3>
+          <p class="other-body">Press in the publications your customers actually read. The links are a side effect; the authority is the point.</p>
+          <span class="other-cta">See our PR work →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Link-building<br />questions, answered.</h2>
+        <p class="section-sub">The ones we hear most. Honestly.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">How many links will I get per month?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Anywhere from 4 to 25, depending on your industry, target DR, and the type of links. We don't promise volume — we promise quality. A campaign delivering 6 high-DR contextual links a month will out-rank one delivering 50 directory links every time.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">Do I get to approve every placement?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes. Before we pitch any publication on your behalf, you get the target list. Before we publish any guest post, you see the article. Nothing goes live without your sign-off.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">What happens if a link drops?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">We monitor every placement we earn. If a link drops in the first 6 months, we either chase the publisher to restore it or replace it with a comparable one at no cost. Our retention rate sits above 92%.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">Can you work with my industry's compliance requirements?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes. We've worked with regulated SaaS, fintech, health, and legal — where every external piece of content needs review. Our process accommodates legal sign-offs and brand guidelines without losing speed.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">What's the minimum engagement?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Three months. Link building under that timeframe doesn't produce meaningful data — it's like quitting a gym after 3 sessions. Most engagements run 6 to 12 months and renew.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="faq-q-text">Do you offer this white-label?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes — link building is the most-requested service from our agency partners. We deliver under your brand, sign NDAs, and contractually agree not to approach your clients. <a href="/white-label" style="color: var(--purple); border-bottom: 1px solid var(--purple);">See the white-label page</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap final-inner">
+      <h2>Want links that<br />don't age like milk?</h2>
+      <p class="final-sub">A free 20-minute audit of your existing backlink profile. We'll show you what's helping, what's quietly hurting, and what your competitors are getting that you're not.</p>
+      <a href="/contact" class="btn btn-cream btn-arrow">Book your free audit</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul>
+          <li><a href="/services/link-building">Link Building</a></li>
+          <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+          <li><a href="/services/digital-pr">Digital PR</a></li>
+          <li><a href="/white-label">White Label</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/free-tools">Free Tools</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/refund">Refund</a></li>
+          <li><a href="/anti-spam">Anti-Spam</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.type-tile, .dont-item, .check-item, .flow-step, .case-card, .other-card, .faq-item').forEach(el => {
+      el.classList.add('reveal'); io.observe(el);
+    });
+  </script>
+</body>
+</html>
