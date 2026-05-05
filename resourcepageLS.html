@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources | Links Are Spam</title>
+  <meta name="description" content="Free SEO, link building, AI placement, and digital PR resources — blog, tools, guides, and glossary. Everything we'd tell a junior in their first week. No email gate, no fluff." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #320b35; --purple-deep: #1f0721; --purple-soft: #4b1a4f;
+      --cream: #f0e9c7; --cream-dim: #e8dfb6; --cream-bright: #f7f1d6;
+      --ink: #1a0a1d; --line: rgba(50,11,53,0.18); --line-strong: rgba(50,11,53,0.5);
+      --warning: #d4733a;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace;
+      --max: 1280px; --pad: clamp(20px, 5vw, 64px); --section-y: clamp(80px, 12vw, 140px);
+      --radius: 4px; --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    input { font: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+
+    /* DOODLES */
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect { fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-ghost { background: transparent; color: var(--purple); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--purple); background: rgba(50,11,53,0.04); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+
+    /* BREADCRUMB */
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(40px, 7vw, 80px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 15%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07), transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 10vw, 144px); line-height: 0.95; letter-spacing: -0.035em; color: var(--purple); margin: 0 0 28px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3vw, 32px); color: var(--purple-soft); line-height: 1.3; margin: 0 0 32px; max-width: 780px; }
+    .hero-body { font-size: 17.5px; line-height: 1.65; max-width: 660px; margin: 0; }
+    .hero-floating { position: absolute; top: 18%; right: 8%; width: 130px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* FOUR PILLARS */
+    .pillars { padding: clamp(40px, 6vw, 80px) 0 var(--section-y); position: relative; }
+    .pillars-doodle { position: absolute; left: 4%; top: 8%; width: 90px; opacity: 0.4; }
+    @media (max-width: 1000px) { .pillars-doodle { display: none; } }
+
+    .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 860px) { .pillar-grid { grid-template-columns: 1fr; } }
+    .pillar { padding: 48px 44px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--cream-bright); transition: all 0.4s var(--ease); position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 360px; }
+    .pillar:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 24px 48px -20px rgba(50,11,53,0.2); }
+    .pillar-bg-doodle { position: absolute; top: -20px; right: -20px; width: 140px; height: 140px; opacity: 0.08; transition: opacity 0.4s var(--ease); }
+    .pillar:hover .pillar-bg-doodle { opacity: 0.18; }
+    .pillar-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.7; margin-bottom: 24px; }
+    .pillar-title { font-family: var(--serif); font-weight: 500; font-size: clamp(36px, 4.5vw, 56px); color: var(--purple); margin: 0 0 16px; line-height: 1.05; letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
+    .pillar-aka { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--purple-soft); margin: 0 0 20px; opacity: 0.85; }
+    .pillar-body { font-size: 15.5px; line-height: 1.65; opacity: 0.85; margin: 0 0 28px; max-width: 460px; }
+    .pillar-meta { display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); margin-bottom: 24px; flex-wrap: wrap; }
+    .pillar-meta-stat { display: flex; flex-direction: column; gap: 2px; }
+    .pillar-meta-num { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); line-height: 1; }
+    .pillar-meta-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.75; }
+    .pillar-cta { margin-top: auto; font-size: 14px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 4px; align-self: flex-start; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .pillar-cta:hover { gap: 14px; }
+
+    /* FEATURED — LATEST FROM BLOG */
+    .blog-feature { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+    .blog-doodle { position: absolute; right: 4%; top: 10%; width: 110px; opacity: 0.4; }
+    @media (max-width: 1000px) { .blog-doodle { display: none; } }
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+    @media (max-width: 860px) { .section-header { grid-template-columns: 1fr; gap: 24px; } }
+    .section-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.02em; color: var(--purple); margin: 0; font-variation-settings: "opsz" 144; }
+    .section-h2 em { font-style: italic; }
+    .section-sub { font-size: 17px; line-height: 1.6; color: var(--ink); max-width: 460px; margin: 0; }
+    .section-link { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; align-self: end; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .section-link:hover { gap: 14px; }
+
+    .blog-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+    @media (max-width: 1000px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } }
+    .blog-card { background: var(--cream-bright); border: 1px solid var(--line); border-radius: 8px; padding: 36px 32px; transition: all 0.4s var(--ease); display: flex; flex-direction: column; }
+    .blog-card.featured { grid-row: span 2; padding: 48px 44px; }
+    @media (max-width: 1000px) { .blog-card.featured { grid-row: auto; grid-column: span 2; } }
+    @media (max-width: 640px) { .blog-card.featured { grid-column: auto; } }
+    .blog-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -20px rgba(50,11,53,0.15); border-color: var(--purple); }
+    .blog-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .blog-cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); padding: 4px 10px; background: rgba(50,11,53,0.08); border-radius: 100px; }
+    .blog-date { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--purple-soft); opacity: 0.7; }
+    .blog-title { font-family: var(--serif); font-weight: 500; color: var(--purple); margin: 0 0 12px; line-height: 1.2; letter-spacing: -0.01em; }
+    .blog-card .blog-title { font-size: 22px; }
+    .blog-card.featured .blog-title { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin-bottom: 16px; }
+    .blog-excerpt { font-size: 15px; line-height: 1.6; opacity: 0.82; margin: 0 0 24px; }
+    .blog-card.featured .blog-excerpt { font-size: 16.5px; }
+    .blog-author { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+    .blog-author-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--purple-soft)); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 12px; color: var(--cream); font-weight: 500; flex-shrink: 0; }
+    .blog-author-name { font-size: 13px; font-weight: 500; color: var(--purple); }
+    .blog-author-time { font-size: 12px; color: var(--purple-soft); opacity: 0.6; margin-left: auto; }
+
+    /* FEATURED — FREE TOOLS */
+    .tools-feature { padding: var(--section-y) 0; position: relative; }
+    .tools-doodle { position: absolute; left: 5%; top: 14%; width: 90px; opacity: 0.4; }
+    @media (max-width: 1000px) { .tools-doodle { display: none; } }
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; }
+    @media (max-width: 860px) { .tools-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .tools-grid { grid-template-columns: 1fr; } }
+    .tool { padding: 36px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--cream-bright); transition: all 0.3s var(--ease); position: relative; cursor: pointer; }
+    .tool:hover { background: var(--cream); }
+    .tools-grid > .tool:nth-child(3n) { border-right: none; }
+    .tools-grid > .tool:nth-last-child(-n+3) { border-bottom: none; }
+    @media (max-width: 860px) {
+      .tools-grid > .tool:nth-child(3n) { border-right: 1px solid var(--line); }
+      .tools-grid > .tool:nth-child(2n) { border-right: none; }
+      .tools-grid > .tool:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+      .tools-grid > .tool:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    @media (max-width: 540px) {
+      .tools-grid > .tool { border-right: none; border-bottom: 1px solid var(--line) !important; }
+      .tools-grid > .tool:last-child { border-bottom: none !important; }
+    }
+    .tool-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; gap: 12px; }
+    .tool-icon { width: 36px; height: 36px; flex-shrink: 0; }
+    .tool-status { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 8px; border-radius: 100px; flex-shrink: 0; }
+    .tool-status.live { background: rgba(74,128,83,0.15); color: #3d6b46; }
+    .tool-status.beta { background: rgba(212,115,58,0.15); color: var(--warning); }
+    .tool-status.soon { background: rgba(50,11,53,0.08); color: var(--purple-soft); opacity: 0.8; }
+    .tool-title { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); margin: 0 0 8px; line-height: 1.2; letter-spacing: -0.005em; }
+    .tool-aka { font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--purple-soft); opacity: 0.85; margin: 0 0 14px; line-height: 1.4; }
+    .tool-body { font-size: 14.5px; line-height: 1.55; opacity: 0.82; margin: 0 0 20px; }
+    .tool-cta { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .tool-cta:hover { gap: 14px; }
+    .tool[data-status="soon"] { opacity: 0.7; }
+    .tool[data-status="soon"] .tool-cta { opacity: 0.5; pointer-events: none; }
+
+    /* FEATURED — GUIDES */
+    .guides-feature { padding: var(--section-y) 0; background: var(--purple); color: var(--cream); position: relative; overflow: hidden; }
+    .guides-feature::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(240,233,199,0.06), transparent 30%), radial-gradient(circle at 80% 70%, rgba(240,233,199,0.05), transparent 35%); pointer-events: none; }
+    .guides-feature .section-h2 { color: var(--cream); }
+    .guides-feature .section-sub { color: var(--cream); opacity: 0.85; }
+    .guides-feature .section-link { color: var(--cream); border-color: var(--cream); }
+    .guides-floating { position: absolute; top: 8%; right: 6%; width: 110px; }
+    @media (max-width: 1000px) { .guides-floating { display: none; } }
+    .guides-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    @media (max-width: 1000px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .guides-grid { grid-template-columns: 1fr; } }
+    .guide-card { background: rgba(240,233,199,0.05); border: 1px solid rgba(240,233,199,0.18); border-radius: 8px; padding: 32px; transition: all 0.4s var(--ease); display: flex; flex-direction: column; cursor: pointer; }
+    .guide-card:hover { background: rgba(240,233,199,0.1); transform: translateY(-3px); }
+    .guide-cover { aspect-ratio: 3/4; background: var(--cream); border-radius: 4px; display: flex; flex-direction: column; padding: 18px; margin-bottom: 20px; position: relative; box-shadow: 4px 4px 0 rgba(0,0,0,0.15); transform: rotate(-1deg); transition: transform 0.4s var(--ease); }
+    .guide-card:nth-child(2n) .guide-cover { transform: rotate(1deg); }
+    .guide-card:hover .guide-cover { transform: rotate(0); }
+    .guide-cover-num { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.7; margin-bottom: 8px; }
+    .guide-cover-title { font-family: var(--serif); font-weight: 500; font-size: 18px; color: var(--purple); line-height: 1.15; letter-spacing: -0.005em; margin: 0; flex-grow: 1; }
+    .guide-cover-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--line); margin-top: auto; }
+    .guide-cover-pages { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); }
+    .guide-cover-mark { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--purple); }
+    .guide-meta { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .guide-cat { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); padding: 4px 10px; border: 1px solid rgba(240,233,199,0.25); border-radius: 100px; opacity: 0.85; }
+    .guide-title { font-family: var(--serif); font-weight: 500; font-size: 20px; color: var(--cream); margin: 0 0 10px; line-height: 1.2; letter-spacing: -0.005em; }
+    .guide-body { font-size: 13.5px; line-height: 1.55; color: var(--cream); opacity: 0.78; margin: 0 0 20px; }
+    .guide-cta { font-size: 12px; font-weight: 500; color: var(--cream); border-bottom: 1px solid var(--cream); padding-bottom: 3px; align-self: flex-start; margin-top: auto; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .guide-cta:hover { gap: 14px; }
+
+    /* GLOSSARY PROMO */
+    .gloss-promo { padding: var(--section-y) 0; position: relative; }
+    .gloss-doodle { position: absolute; left: 5%; bottom: 18%; width: 100px; opacity: 0.4; }
+    @media (max-width: 1000px) { .gloss-doodle { display: none; } }
+    .gloss-card { background: var(--cream-bright); border: 1px solid var(--line-strong); border-radius: 12px; padding: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
+    @media (max-width: 860px) { .gloss-card { grid-template-columns: 1fr; gap: 32px; } }
+    .gloss-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 16px; }
+    .gloss-h { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--purple); margin: 0 0 20px; }
+    .gloss-h em { font-style: italic; }
+    .gloss-p { font-size: 17px; line-height: 1.65; opacity: 0.85; margin: 0 0 28px; max-width: 540px; }
+    .gloss-sample { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; max-width: 560px; }
+    .gloss-pill { font-family: var(--serif); font-size: 16px; color: var(--purple); padding: 8px 18px; border: 1px solid var(--line-strong); border-radius: 100px; background: var(--cream); transition: all 0.3s var(--ease); cursor: pointer; }
+    .gloss-pill:hover { background: var(--purple); color: var(--cream); border-color: var(--purple); }
+    .gloss-pill.italic { font-style: italic; }
+    .gloss-stat { text-align: center; padding: 32px 24px; min-width: 200px; }
+    @media (max-width: 860px) { .gloss-stat { padding: 0; } }
+    .gloss-stat-big { font-family: var(--serif); font-weight: 300; font-size: clamp(80px, 10vw, 144px); line-height: 0.9; color: var(--purple); letter-spacing: -0.04em; margin-bottom: 8px; font-variation-settings: "opsz" 144; }
+    .gloss-stat-lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.8; }
+
+    /* NEWSLETTER */
+    .newsletter { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+    .news-doodle-1 { position: absolute; top: 12%; left: 6%; width: 80px; opacity: 0.5; }
+    .news-doodle-2 { position: absolute; bottom: 14%; right: 7%; width: 100px; opacity: 0.5; }
+    @media (max-width: 1000px) { .news-doodle-1, .news-doodle-2 { display: none; } }
+    .news-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .news-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); opacity: 0.7; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .news-eyebrow .pulse { width: 6px; height: 6px; background: var(--warning); border-radius: 50%; animation: pulse 1.6s ease-in-out infinite; }
+    .news-h { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.02em; color: var(--purple); margin: 0 0 20px; font-variation-settings: "opsz" 144; }
+    .news-h em { font-style: italic; }
+    .news-p { font-size: 17px; line-height: 1.6; opacity: 0.85; margin: 0 0 36px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .news-form { display: flex; gap: 8px; max-width: 480px; margin: 0 auto 16px; flex-wrap: wrap; }
+    .news-input { flex: 1; min-width: 220px; padding: 16px 20px; border: 1px solid var(--line-strong); border-radius: 100px; background: var(--cream-bright); font-size: 15px; color: var(--ink); font-family: var(--sans); transition: all 0.3s var(--ease); }
+    .news-input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(50,11,53,0.08); }
+    .news-input::placeholder { color: var(--purple-soft); opacity: 0.55; font-style: italic; font-family: var(--serif); }
+    .news-button { padding: 16px 28px; border-radius: 100px; background: var(--purple); color: var(--cream); font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s var(--ease); border: none; }
+    .news-button:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .news-fineprint { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--purple-soft); opacity: 0.75; }
+
+    /* FINAL */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-doodle { position: absolute; top: 14%; left: 8%; width: 70px; opacity: 0.5; }
+    .final-doodle-2 { position: absolute; bottom: 16%; right: 8%; width: 90px; opacity: 0.5; }
+    @media (max-width: 960px) { .final-doodle, .final-doodle-2 { display: none; } }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final h2 em { font-style: italic; }
+    .final-sub { font-size: 17.5px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources" class="active">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wrap crumb">
+    <div class="crumb-list">
+      <a href="/">Home</a><span class="crumb-sep">/</span>
+      <span>Resources</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <!-- Floating doodle: open library / shelf -->
+    <svg class="hero-floating doodle floating" viewBox="0 0 130 130" aria-hidden="true">
+      <rect x="20" y="25" width="14" height="80"/>
+      <rect x="40" y="35" width="12" height="70"/>
+      <rect x="58" y="20" width="16" height="85"/>
+      <rect x="80" y="45" width="14" height="60"/>
+      <rect x="100" y="30" width="10" height="75"/>
+      <line x1="15" y1="105" x2="115" y2="105"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Resources · Free · No email gate (mostly)
+      </div>
+      <h1>Everything we<br />know, <em>written down.</em></h1>
+      <p class="hero-subhead">A blog, a pile of free tools, deep guides, and the spam glossary. The cheat sheet we wish someone gave us.</p>
+      <p class="hero-body">We don't do "lead-gen content." We just publish what we'd tell a junior in their first week — and we put a search bar over the top of it. Take what's useful. Send the rest to a friend. Hire us if it clicks.</p>
+    </div>
+  </section>
+
+  <!-- FOUR PILLARS -->
+  <section class="pillars">
+
+    <svg class="pillars-doodle doodle floating-2" viewBox="0 0 90 90" aria-hidden="true">
+      <path d="M10 70 Q 30 40, 50 60 T 80 30"/>
+      <polyline points="72,28 80,30 80,40"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="pillar-grid">
+
+        <!-- Blog -->
+        <a href="/blog" class="pillar">
+          <svg class="pillar-bg-doodle doodle" viewBox="0 0 140 140" aria-hidden="true">
+            <rect x="20" y="20" width="100" height="100" rx="4"/>
+            <line x1="35" y1="40" x2="105" y2="40"/>
+            <line x1="35" y1="55" x2="105" y2="55"/>
+            <line x1="35" y1="70" x2="90" y2="70"/>
+            <line x1="35" y1="85" x2="105" y2="85"/>
+            <line x1="35" y1="100" x2="80" y2="100"/>
+          </svg>
+          <div class="pillar-num">— Resource No. 01</div>
+          <h2 class="pillar-title">The Blog</h2>
+          <p class="pillar-aka">"Where we publish what we learned this week."</p>
+          <p class="pillar-body">Tactical lessons, campaign teardowns, and honest opinions on what's working in SEO, link building, AI placement, and digital PR. Shipped weekly.</p>
+          <div class="pillar-meta">
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">86</div>
+              <div class="pillar-meta-lbl">Posts published</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">Weekly</div>
+              <div class="pillar-meta-lbl">New cadence</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">12 min</div>
+              <div class="pillar-meta-lbl">Avg. read time</div>
+            </div>
+          </div>
+          <span class="pillar-cta">Browse the blog →</span>
+        </a>
+
+        <!-- Free Tools -->
+        <a href="/free-tools" class="pillar">
+          <svg class="pillar-bg-doodle doodle" viewBox="0 0 140 140" aria-hidden="true">
+            <circle cx="70" cy="70" r="50"/>
+            <path d="M70 30 v80 M30 70 h80"/>
+            <circle cx="70" cy="70" r="20"/>
+          </svg>
+          <div class="pillar-num">— Resource No. 02</div>
+          <h2 class="pillar-title">Free Tools</h2>
+          <p class="pillar-aka">"Calculators, audits, and checkers — no signup."</p>
+          <p class="pillar-body">Five quick utilities for the most common questions: backlink toxicity, AI mention tracking, DR/DA, anchor text profiles, and a free link-gap audit we run by hand.</p>
+          <div class="pillar-meta">
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">5</div>
+              <div class="pillar-meta-lbl">Tools live</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">2,400+</div>
+              <div class="pillar-meta-lbl">Audits run</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">$0</div>
+              <div class="pillar-meta-lbl">Per use</div>
+            </div>
+          </div>
+          <span class="pillar-cta">Run a free check →</span>
+        </a>
+
+        <!-- Guides -->
+        <a href="/guides" class="pillar">
+          <svg class="pillar-bg-doodle doodle" viewBox="0 0 140 140" aria-hidden="true">
+            <rect x="30" y="20" width="60" height="100" rx="2"/>
+            <rect x="50" y="30" width="60" height="100" rx="2"/>
+            <line x1="60" y1="50" x2="100" y2="50"/>
+            <line x1="60" y1="65" x2="100" y2="65"/>
+            <line x1="60" y1="80" x2="92" y2="80"/>
+          </svg>
+          <div class="pillar-num">— Resource No. 03</div>
+          <h2 class="pillar-title">Guides</h2>
+          <p class="pillar-aka">"Long-form playbooks, free PDFs."</p>
+          <p class="pillar-body">Deep, structured walk-throughs on each of our services. The kind of content other agencies put behind a paywall. We put them behind a download button.</p>
+          <div class="pillar-meta">
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">5</div>
+              <div class="pillar-meta-lbl">Guides published</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">128</div>
+              <div class="pillar-meta-lbl">Total pages</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">PDF</div>
+              <div class="pillar-meta-lbl">Free download</div>
+            </div>
+          </div>
+          <span class="pillar-cta">Read the guides →</span>
+        </a>
+
+        <!-- Glossary -->
+        <a href="/glossary" class="pillar">
+          <svg class="pillar-bg-doodle doodle" viewBox="0 0 140 140" aria-hidden="true">
+            <text x="20" y="50" font-family="Fraunces, serif" font-style="italic" font-size="32" fill="#320b35" stroke="none">Aa</text>
+            <text x="55" y="80" font-family="Fraunces, serif" font-style="italic" font-size="32" fill="#320b35" stroke="none">Bb</text>
+            <text x="20" y="115" font-family="Fraunces, serif" font-style="italic" font-size="32" fill="#320b35" stroke="none">Cc</text>
+          </svg>
+          <div class="pillar-num">— Resource No. 04</div>
+          <h2 class="pillar-title">The Spam Glossary</h2>
+          <p class="pillar-aka">"50+ industry words, defined honestly."</p>
+          <p class="pillar-body">Every word an SEO might throw at you. Defined in plain English with the wordplay and AKA lines we couldn't help adding. Search, filter by category, jump by letter.</p>
+          <div class="pillar-meta">
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">50+</div>
+              <div class="pillar-meta-lbl">Terms defined</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">5</div>
+              <div class="pillar-meta-lbl">Categories</div>
+            </div>
+            <div class="pillar-meta-stat">
+              <div class="pillar-meta-num">A–W</div>
+              <div class="pillar-meta-lbl">Letter range</div>
+            </div>
+          </div>
+          <span class="pillar-cta">Browse the glossary →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST FROM BLOG -->
+  <section class="blog-feature">
+
+    <svg class="blog-doodle doodle floating" viewBox="0 0 110 90" aria-hidden="true">
+      <path d="M10 70 Q 30 40, 50 50 T 95 30"/>
+      <polyline points="86,28 95,30 95,40"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Latest from<br /><em>the blog.</em></h2>
+        <p class="section-sub">What we shipped this week. New posts every Tuesday, sometimes Thursday, never Friday afternoon.</p>
+        <a href="/blog" class="section-link">All posts →</a>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Featured / large -->
+        <article class="blog-card featured">
+          <div class="blog-meta">
+            <span class="blog-cat">AI / LLM</span>
+            <span class="blog-date">May 4, 2026</span>
+          </div>
+          <h3 class="blog-title">How we got Spocket cited by ChatGPT 23,000 times — without paying a single AI tool.</h3>
+          <p class="blog-excerpt">A teardown of the 18-month engagement that turned an unknown dropshipping platform into the most-cited brand in its category across all four major LLMs. The process, the placements, the numbers.</p>
+          <div class="blog-author">
+            <div class="blog-author-avatar">SP</div>
+            <span class="blog-author-name">Subham Paul</span>
+            <span class="blog-author-time">14 min read</span>
+          </div>
+        </article>
+
+        <!-- Standard -->
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Link Building</span>
+            <span class="blog-date">Apr 28, 2026</span>
+          </div>
+          <h3 class="blog-title">Are guest posts spam in 2026? The honest answer.</h3>
+          <p class="blog-excerpt">It depends on three things — and an industry full of people pretending it doesn't.</p>
+          <div class="blog-author">
+            <div class="blog-author-avatar">SP</div>
+            <span class="blog-author-name">Subham Paul</span>
+            <span class="blog-author-time">8 min</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">SEO</span>
+            <span class="blog-date">Apr 21, 2026</span>
+          </div>
+          <h3 class="blog-title">Why AI Overviews are eating your organic traffic (and what actually replaces it).</h3>
+          <p class="blog-excerpt">58% of US searches now end without a click. Here's where the missing buyers actually went.</p>
+          <div class="blog-author">
+            <div class="blog-author-avatar">SP</div>
+            <span class="blog-author-name">Subham Paul</span>
+            <span class="blog-author-time">11 min</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Digital PR</span>
+            <span class="blog-date">Apr 14, 2026</span>
+          </div>
+          <h3 class="blog-title">The 6-week data study that landed Forbes, Mint, and TechCrunch.</h3>
+          <p class="blog-excerpt">Step by step, with the real email pitches, the rejections, and what finally got opened.</p>
+          <div class="blog-author">
+            <div class="blog-author-avatar">SP</div>
+            <span class="blog-author-name">Subham Paul</span>
+            <span class="blog-author-time">10 min</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Link Building</span>
+            <span class="blog-date">Apr 7, 2026</span>
+          </div>
+          <h3 class="blog-title">The 15-point quality bar every backlink should pass.</h3>
+          <p class="blog-excerpt">Same checklist we used to build canva.in to DR 70 — explained, with examples that pass and fail.</p>
+          <div class="blog-author">
+            <div class="blog-author-avatar">SP</div>
+            <span class="blog-author-name">Subham Paul</span>
+            <span class="blog-author-time">9 min</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE TOOLS -->
+  <section class="tools-feature">
+
+    <svg class="tools-doodle doodle floating-2" viewBox="0 0 90 90" aria-hidden="true">
+      <circle cx="45" cy="45" r="38"/>
+      <line x1="45" y1="20" x2="45" y2="70"/>
+      <line x1="20" y1="45" x2="70" y2="45"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Five free<br /><em>tools.</em></h2>
+        <p class="section-sub">Quick utilities for the audits and checks our prospects ask about most. No signup wall. Some require an email for delivery, but only because we run them by hand.</p>
+        <a href="/free-tools" class="section-link">All tools →</a>
+      </div>
+
+      <div class="tools-grid">
+
+        <a href="/free-tools/backlink-toxicity-checker" class="tool" data-status="live">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <path d="M18 6 L30 12 L30 24 L18 30 L6 24 L6 12 Z"/>
+              <line x1="14" y1="14" x2="22" y2="22" stroke="#d4733a"/>
+              <line x1="22" y1="14" x2="14" y2="22" stroke="#d4733a"/>
+            </svg>
+            <span class="tool-status live">● Live</span>
+          </div>
+          <h3 class="tool-title">Backlink Toxicity Checker</h3>
+          <p class="tool-aka">"Paste your domain. Find your sketchy ex-links."</p>
+          <p class="tool-body">We scan your full backlink profile and flag every link from a spam neighbour, link farm, or quietly-toxic referring domain. Free and instant.</p>
+          <span class="tool-cta">Run a check →</span>
+        </a>
+
+        <a href="/free-tools/ai-mention-checker" class="tool" data-status="live">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <circle cx="18" cy="18" r="12"/>
+              <path d="M14 18 a3 3 0 0 1 3 -3 h3 v2 h-3 a1 1 0 0 0 0 2 h3 v2 h-3 a3 3 0 0 1 -3 -3z" fill="#320b35" stroke="none"/>
+            </svg>
+            <span class="tool-status live">● Live</span>
+          </div>
+          <h3 class="tool-title">AI Mention Checker</h3>
+          <p class="tool-aka">"Does ChatGPT know your brand exists?"</p>
+          <p class="tool-body">Test whether your business is cited inside ChatGPT, Gemini, Claude, and Perplexity for the prompts your buyers actually ask. We'll show you the exact answers.</p>
+          <span class="tool-cta">Check my visibility →</span>
+        </a>
+
+        <a href="/free-tools/dr-da-checker" class="tool" data-status="live">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <path d="M6 30 L14 22 L20 26 L30 12"/>
+              <polyline points="24,12 30,12 30,18"/>
+            </svg>
+            <span class="tool-status live">● Live</span>
+          </div>
+          <h3 class="tool-title">DR / DA Checker</h3>
+          <p class="tool-aka">"The two numbers everyone obsesses over."</p>
+          <p class="tool-body">Quick lookup for any URL's Ahrefs DR and Moz DA. Compare yours against a competitor's in one shared view.</p>
+          <span class="tool-cta">Check a domain →</span>
+        </a>
+
+        <a href="/free-tools/anchor-analyzer" class="tool" data-status="beta">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <line x1="18" y1="6" x2="18" y2="30"/>
+              <path d="M10 14 a8 8 0 0 1 16 0"/>
+              <circle cx="18" cy="6" r="3"/>
+            </svg>
+            <span class="tool-status beta">● Beta</span>
+          </div>
+          <h3 class="tool-title">Anchor Text Analyzer</h3>
+          <p class="tool-aka">"Spot the over-optimised patterns Google flags."</p>
+          <p class="tool-body">Visualise your anchor text distribution. Spots the keyword-stuffing patterns that get good sites penalised, and shows what natural looks like.</p>
+          <span class="tool-cta">Run analysis →</span>
+        </a>
+
+        <a href="/free-tools/link-gap-audit" class="tool" data-status="live">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <rect x="6" y="10" width="24" height="20" rx="2"/>
+              <line x1="12" y1="16" x2="24" y2="16"/>
+              <line x1="12" y1="20" x2="20" y2="20"/>
+              <line x1="12" y1="24" x2="24" y2="24"/>
+            </svg>
+            <span class="tool-status live">● Live</span>
+          </div>
+          <h3 class="tool-title">Free Link Gap Audit</h3>
+          <p class="tool-aka">"What your competitors have that you don't."</p>
+          <p class="tool-body">Form-based — we run this manually within 48 hours. We compare your backlink profile against three competitors and show every gap worth chasing.</p>
+          <span class="tool-cta">Request your audit →</span>
+        </a>
+
+        <span class="tool" data-status="soon">
+          <div class="tool-head">
+            <svg class="tool-icon doodle" viewBox="0 0 36 36" aria-hidden="true">
+              <circle cx="18" cy="18" r="12"/>
+              <line x1="18" y1="12" x2="18" y2="18"/>
+              <line x1="18" y1="18" x2="22" y2="22"/>
+            </svg>
+            <span class="tool-status soon">○ Soon</span>
+          </div>
+          <h3 class="tool-title">GEO Readiness Score</h3>
+          <p class="tool-aka">"How AI-friendly is your website?"</p>
+          <p class="tool-body">A scorecard for your schema, entity profile, and structured data — graded against what LLMs actually reward. Launching Q3 2026.</p>
+          <span class="tool-cta">Get notified →</span>
+        </span>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <section class="guides-feature">
+
+    <svg class="guides-floating doodle cream spinning" viewBox="0 0 110 110" aria-hidden="true">
+      <circle cx="55" cy="55" r="48"/>
+      <g transform="translate(55 55)">
+        <line x1="0" y1="-36" x2="0" y2="36"/>
+        <line x1="-36" y1="0" x2="36" y2="0"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Five free<br /><em>guides.</em></h2>
+        <p class="section-sub">Long-form playbooks. Other agencies sell these. We download-button them. Designed to be read with a coffee — or skimmed during a coach call.</p>
+        <a href="/guides" class="section-link">All guides →</a>
+      </div>
+
+      <div class="guides-grid">
+
+        <a href="/guides/link-building-101" class="guide-card">
+          <div class="guide-cover">
+            <div class="guide-cover-num">— Guide 01</div>
+            <h4 class="guide-cover-title">Link Building 101 for Founders Who've Never Done SEO.</h4>
+            <div class="guide-cover-foot">
+              <span class="guide-cover-pages">28 pages</span>
+              <span class="guide-cover-mark">PDF</span>
+            </div>
+          </div>
+          <div class="guide-meta"><span class="guide-cat">Link Building</span></div>
+          <h3 class="guide-title">Link Building 101</h3>
+          <p class="guide-body">If you've never built a single backlink, start here. The whole craft, in plain English.</p>
+          <span class="guide-cta">Download free →</span>
+        </a>
+
+        <a href="/guides/cited-by-chatgpt" class="guide-card">
+          <div class="guide-cover">
+            <div class="guide-cover-num">— Guide 02</div>
+            <h4 class="guide-cover-title">How to Get Your Brand Cited Inside ChatGPT.</h4>
+            <div class="guide-cover-foot">
+              <span class="guide-cover-pages">36 pages</span>
+              <span class="guide-cover-mark">PDF</span>
+            </div>
+          </div>
+          <div class="guide-meta"><span class="guide-cat">AI / LLM</span></div>
+          <h3 class="guide-title">Cited by ChatGPT</h3>
+          <p class="guide-body">The full GEO playbook — entity strengthening, citation engineering, structured data, the lot.</p>
+          <span class="guide-cta">Download free →</span>
+        </a>
+
+        <a href="/guides/white-label-playbook" class="guide-card">
+          <div class="guide-cover">
+            <div class="guide-cover-num">— Guide 03</div>
+            <h4 class="guide-cover-title">The White-Label Agency Playbook.</h4>
+            <div class="guide-cover-foot">
+              <span class="guide-cover-pages">22 pages</span>
+              <span class="guide-cover-mark">PDF</span>
+            </div>
+          </div>
+          <div class="guide-meta"><span class="guide-cat">For Agencies</span></div>
+          <h3 class="guide-title">White-Label Playbook</h3>
+          <p class="guide-body">How to add link building, AI placement, and digital PR to your agency without hiring a 20-person team.</p>
+          <span class="guide-cta">Download free →</span>
+        </a>
+
+        <a href="/guides/digital-pr-saas" class="guide-card">
+          <div class="guide-cover">
+            <div class="guide-cover-num">— Guide 04</div>
+            <h4 class="guide-cover-title">Digital PR for SaaS.</h4>
+            <div class="guide-cover-foot">
+              <span class="guide-cover-pages">30 pages</span>
+              <span class="guide-cover-mark">PDF</span>
+            </div>
+          </div>
+          <div class="guide-meta"><span class="guide-cat">Digital PR</span></div>
+          <h3 class="guide-title">Digital PR for SaaS</h3>
+          <p class="guide-body">Six campaign types that actually land press for B2B and B2C SaaS — with real example pitches.</p>
+          <span class="guide-cta">Download free →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOSSARY PROMO -->
+  <section class="gloss-promo">
+
+    <svg class="gloss-doodle doodle floating-2" viewBox="0 0 100 100" aria-hidden="true">
+      <text x="20" y="40" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#320b35" stroke="none">A</text>
+      <text x="50" y="60" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#320b35" stroke="none">B</text>
+      <text x="20" y="85" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#320b35" stroke="none">C</text>
+    </svg>
+
+    <div class="wrap">
+      <div class="gloss-card">
+        <div>
+          <div class="gloss-eyebrow">— Resource No. 04 · The Spam Glossary</div>
+          <h2 class="gloss-h">Speak <em>SEO</em> by lunchtime.</h2>
+          <p class="gloss-p">50+ terms — link building, SEO, AI/LLM, digital PR, and "the bad stuff" — defined in plain English with the wordplay we couldn't resist. Search, filter, and never get bamboozled by a vendor pitch again.</p>
+          <div class="gloss-sample">
+            <a href="/glossary#P" class="gloss-pill">PBN</a>
+            <a href="/glossary#W" class="gloss-pill italic">White-Hat SEO</a>
+            <a href="/glossary#G" class="gloss-pill">GEO</a>
+            <a href="/glossary#L" class="gloss-pill italic">Link Juice</a>
+            <a href="/glossary#A" class="gloss-pill">AI Overview</a>
+            <a href="/glossary#H" class="gloss-pill italic">Hallucination</a>
+            <a href="/glossary#T" class="gloss-pill">Toxic Link</a>
+            <a href="/glossary#S" class="gloss-pill italic">Schema</a>
+          </div>
+          <a href="/glossary" class="btn btn-ghost btn-arrow">Browse the full glossary</a>
+        </div>
+        <div class="gloss-stat">
+          <div class="gloss-stat-big">50<span style="font-size: 0.5em; font-style: italic; color: var(--purple-soft);">+</span></div>
+          <div class="gloss-stat-lbl">Terms defined</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+
+    <svg class="news-doodle-1 doodle floating" viewBox="0 0 80 80" aria-hidden="true">
+      <rect x="10" y="20" width="60" height="40" rx="2"/>
+      <path d="M10 24 L40 44 L70 24"/>
+    </svg>
+    <svg class="news-doodle-2 doodle floating-2" viewBox="0 0 100 100" aria-hidden="true">
+      <g transform="translate(50 50)">
+        <line x1="0" y1="-32" x2="0" y2="32"/>
+        <line x1="-32" y1="0" x2="32" y2="0"/>
+        <line x1="-22" y1="-22" x2="22" y2="22"/>
+        <line x1="22" y1="-22" x2="-22" y2="22"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <div class="news-inner">
+        <div class="news-eyebrow">
+          <span class="pulse"></span>
+          One Tuesday email · Zero spam (the irony)
+        </div>
+        <h2 class="news-h">The <em>opposite</em><br />of a marketing newsletter.</h2>
+        <p class="news-p">One email a month. Real lessons from the work — what's ranking, what's getting cited by AI, what's quietly losing traffic. No "5 SEO hacks." No re-purposed LinkedIn posts. We'd be embarrassed.</p>
+        <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Got it ✓';">
+          <input type="email" class="news-input" placeholder="your@work-email.com" required aria-label="Email address" />
+          <button type="submit" class="news-button">Subscribe</button>
+        </form>
+        <p class="news-fineprint">Unsubscribe in one click. We won't take it personally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+
+    <svg class="final-doodle doodle cream" viewBox="0 0 70 70" aria-hidden="true">
+      <g transform="translate(35 35)">
+        <line x1="0" y1="-25" x2="0" y2="25"/>
+        <line x1="-25" y1="0" x2="25" y2="0"/>
+        <line x1="-18" y1="-18" x2="18" y2="18"/>
+        <line x1="18" y1="-18" x2="-18" y2="18"/>
+      </g>
+    </svg>
+    <svg class="final-doodle-2 doodle cream floating" viewBox="0 0 90 90" aria-hidden="true">
+      <circle cx="45" cy="45" r="30"/>
+      <path d="M30 45 Q 45 30, 60 45 Q 45 60, 30 45z"/>
+    </svg>
+
+    <div class="wrap final-inner">
+      <h2>Read enough.<br />Want it <em>done?</em></h2>
+      <p class="final-sub">A free 20-minute audit of your link profile, AI visibility, or PR footprint — whichever's bleeding the worst. We tell you what's broken, what's working, and whether we're the right team to fix it.</p>
+      <a href="/contact" class="btn btn-cream btn-arrow">Book your free audit</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul>
+          <li><a href="/services/link-building">Link Building</a></li>
+          <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+          <li><a href="/services/digital-pr">Digital PR</a></li>
+          <li><a href="/white-label">White Label</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/free-tools">Free Tools</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/refund">Refund</a></li>
+          <li><a href="/anti-spam">Anti-Spam</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.pillar, .blog-card, .tool, .guide-card').forEach(el => {
+      el.classList.add('reveal'); io.observe(el);
+    });
+  </script>
+</body>
+</html>
