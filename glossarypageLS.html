@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Spam Glossary | Links Are Spam</title>
+  <meta name="description" content="Plain-English definitions of every SEO, link building, AI placement, and digital PR term you'll ever hear. Written so a beginner can follow along — and a sceptic can roll their eyes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #320b35; --purple-deep: #1f0721; --purple-soft: #4b1a4f;
+      --cream: #f0e9c7; --cream-dim: #e8dfb6; --cream-bright: #f7f1d6;
+      --ink: #1a0a1d; --line: rgba(50,11,53,0.18); --line-strong: rgba(50,11,53,0.5);
+      --warning: #d4733a;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace;
+      --max: 1280px; --pad: clamp(20px, 5vw, 64px); --section-y: clamp(80px, 12vw, 140px);
+      --radius: 4px; --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    input { font: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+
+    /* DOODLES */
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect { fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    @keyframes drawIn { to { stroke-dashoffset: 0; } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 60; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+
+    /* BREADCRUMB */
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(48px, 8vw, 80px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 20%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07), transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 10vw, 156px); line-height: 0.92; letter-spacing: -0.035em; color: var(--purple); margin: 0 0 24px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3vw, 32px); color: var(--purple-soft); line-height: 1.3; margin: 0 0 28px; max-width: 780px; }
+    .hero-body { font-size: 17.5px; line-height: 1.65; max-width: 660px; margin: 0; }
+    .hero-floating { position: absolute; top: 18%; right: 8%; width: 130px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* SEARCH + FILTERS BAR — sticky under nav */
+    .toolbar { position: sticky; top: 73px; z-index: 50; background: var(--cream); padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .toolbar-inner { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    @media (max-width: 860px) { .toolbar-inner { grid-template-columns: 1fr; } }
+    .search-wrap { position: relative; max-width: 480px; }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; opacity: 0.5; pointer-events: none; }
+    .search-icon path, .search-icon circle { fill: none; stroke: var(--purple); stroke-width: 1.8; stroke-linecap: round; }
+    .search-input { width: 100%; padding: 14px 18px 14px 42px; border: 1px solid var(--line-strong); border-radius: 100px; background: var(--cream-bright); font-size: 15px; color: var(--ink); transition: all 0.3s var(--ease); font-family: var(--sans); }
+    .search-input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(50,11,53,0.08); }
+    .search-input::placeholder { color: var(--purple-soft); opacity: 0.6; font-style: italic; font-family: var(--serif); }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-chip { padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); background: transparent; cursor: pointer; transition: all 0.2s var(--ease); }
+    .filter-chip:hover { background: var(--cream-bright); }
+    .filter-chip.active { background: var(--purple); color: var(--cream); border-color: var(--purple); }
+
+    /* ALPHABET NAV */
+    .alpha { padding: 32px 0 24px; border-bottom: 1px solid var(--line); background: var(--cream); }
+    .alpha-list { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+    .alpha-link { font-family: var(--serif); font-weight: 500; font-size: 16px; color: var(--purple); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s var(--ease); border: 1px solid transparent; }
+    .alpha-link:hover { background: var(--cream-bright); border-color: var(--line); }
+    .alpha-link.disabled { opacity: 0.25; pointer-events: none; }
+    .alpha-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); margin-right: 16px; opacity: 0.7; }
+
+    /* GLOSSARY BODY */
+    .body { padding: clamp(40px, 6vw, 72px) 0 var(--section-y); position: relative; }
+    .body-doodle-1 { position: absolute; top: 4%; left: 3%; width: 90px; opacity: 0.35; }
+    .body-doodle-2 { position: absolute; top: 30%; right: 3%; width: 100px; opacity: 0.3; }
+    .body-doodle-3 { position: absolute; top: 60%; left: 2%; width: 80px; opacity: 0.32; }
+    .body-doodle-4 { position: absolute; bottom: 12%; right: 4%; width: 110px; opacity: 0.3; }
+    @media (max-width: 1100px) { .body-doodle-1, .body-doodle-2, .body-doodle-3, .body-doodle-4 { display: none; } }
+
+    .letter-group { margin-bottom: 56px; scroll-margin-top: 220px; }
+    .letter-head { display: flex; align-items: baseline; gap: 24px; padding-bottom: 24px; border-bottom: 2px solid var(--purple); margin-bottom: 36px; }
+    .letter-big { font-family: var(--serif); font-weight: 300; font-size: clamp(80px, 12vw, 144px); line-height: 0.85; color: var(--purple); letter-spacing: -0.04em; font-variation-settings: "opsz" 144; }
+    .letter-count { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.7; }
+
+    /* TERM ENTRY */
+    .term { display: grid; grid-template-columns: 280px 1fr; gap: 60px; padding: 28px 0; border-bottom: 1px solid var(--line); transition: all 0.3s var(--ease); }
+    @media (max-width: 860px) { .term { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; } }
+    .term:hover { background: rgba(50,11,53,0.025); padding-left: 12px; padding-right: 12px; border-radius: 4px; }
+    .term-left { display: flex; flex-direction: column; gap: 10px; }
+    .term-name { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 3vw, 36px); color: var(--purple); line-height: 1; letter-spacing: -0.01em; margin: 0; }
+    .term-cat-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .term-cat { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: rgba(50,11,53,0.08); color: var(--purple); display: inline-block; }
+    .term-cat.spam { background: rgba(212,115,58,0.15); color: var(--warning); }
+    .term-cat.ai { background: rgba(50,11,53,0.85); color: var(--cream); }
+    .term-right { display: flex; flex-direction: column; }
+    .term-aka { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; color: var(--purple-soft); line-height: 1.4; margin: 0 0 14px; opacity: 0.9; }
+    .term-aka::before { content: 'AKA — '; opacity: 0.5; font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; vertical-align: middle; padding-right: 4px; }
+    .term-def { font-size: 16px; line-height: 1.65; margin: 0 0 18px; }
+    .term-why { padding: 14px 18px; background: var(--cream-bright); border-left: 2px solid var(--purple); border-radius: 0 4px 4px 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+    .term-why::before { content: 'Why it matters — '; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); opacity: 0.7; padding-right: 4px; }
+
+    /* HIDDEN STATE */
+    .term.hide, .letter-group.hide { display: none; }
+
+    /* EMPTY STATE */
+    .empty { display: none; text-align: center; padding: 80px 24px; }
+    .empty.show { display: block; }
+    .empty-mark { width: 72px; height: 72px; margin: 0 auto 24px; opacity: 0.5; }
+    .empty-h { font-family: var(--serif); font-weight: 500; font-size: 28px; color: var(--purple); margin: 0 0 12px; }
+    .empty-p { font-size: 15.5px; opacity: 0.75; max-width: 440px; margin: 0 auto; line-height: 1.6; }
+
+    /* CTA */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-doodle { position: absolute; top: 14%; left: 8%; width: 70px; opacity: 0.5; }
+    .final-doodle-2 { position: absolute; bottom: 16%; right: 8%; width: 90px; opacity: 0.5; }
+    @media (max-width: 960px) { .final-doodle, .final-doodle-2 { display: none; } }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final h2 em { font-style: italic; }
+    .final-sub { font-size: 17.5px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources" class="active">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wrap crumb">
+    <div class="crumb-list">
+      <a href="/">Home</a><span class="crumb-sep">/</span>
+      <a href="/resources">Resources</a><span class="crumb-sep">/</span>
+      <span>Glossary</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <!-- Floating "open book" doodle -->
+    <svg class="hero-floating doodle floating" viewBox="0 0 130 130" aria-hidden="true">
+      <path d="M20 30 Q 65 20, 65 30 Q 65 20, 110 30 L 110 100 Q 65 90, 65 100 Q 65 90, 20 100 Z"/>
+      <line x1="65" y1="30" x2="65" y2="100"/>
+      <line x1="35" y1="50" x2="55" y2="48"/>
+      <line x1="35" y1="60" x2="55" y2="58"/>
+      <line x1="35" y1="70" x2="50" y2="68"/>
+      <line x1="75" y1="48" x2="95" y2="50"/>
+      <line x1="75" y1="58" x2="95" y2="60"/>
+      <line x1="75" y1="68" x2="90" y2="70"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Glossary · 50+ terms · Plain English
+      </div>
+      <h1>The Spam<br /><em>Glossary</em>.</h1>
+      <p class="hero-subhead">Every word you'll hear an SEO say. Defined so a beginner can follow along — and a sceptic can still roll their eyes.</p>
+      <p class="hero-body">If you've been quoted prices for "PBN packages" or asked whether your "DR is high enough for GEO," and you walked away suspicious — this page is for you. We translated the jargon. We left the wordplay in.</p>
+    </div>
+  </section>
+
+  <!-- TOOLBAR — search + filters -->
+  <div class="toolbar">
+    <div class="wrap toolbar-inner">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="7" cy="7" r="5"/>
+          <path d="M11 11 L14 14"/>
+        </svg>
+        <input type="text" id="search" class="search-input" placeholder="Search 50+ terms — try 'PBN' or 'AI Overview'..." aria-label="Search the glossary" />
+      </div>
+      <div class="filters" role="tablist">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="link-building">Link Building</button>
+        <button class="filter-chip" data-filter="seo">SEO</button>
+        <button class="filter-chip" data-filter="ai">AI / LLM</button>
+        <button class="filter-chip" data-filter="pr">Digital PR</button>
+        <button class="filter-chip" data-filter="spam">The Bad Stuff</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALPHABET NAV -->
+  <div class="alpha">
+    <div class="wrap">
+      <div class="alpha-list">
+        <span class="alpha-label">Jump to —</span>
+        <a class="alpha-link" href="#A">A</a>
+        <a class="alpha-link" href="#B">B</a>
+        <a class="alpha-link" href="#C">C</a>
+        <a class="alpha-link" href="#D">D</a>
+        <a class="alpha-link" href="#E">E</a>
+        <a class="alpha-link disabled">F</a>
+        <a class="alpha-link" href="#G">G</a>
+        <a class="alpha-link" href="#H">H</a>
+        <a class="alpha-link" href="#I">I</a>
+        <a class="alpha-link disabled">J</a>
+        <a class="alpha-link" href="#K">K</a>
+        <a class="alpha-link" href="#L">L</a>
+        <a class="alpha-link" href="#M">M</a>
+        <a class="alpha-link" href="#N">N</a>
+        <a class="alpha-link" href="#O">O</a>
+        <a class="alpha-link" href="#P">P</a>
+        <a class="alpha-link disabled">Q</a>
+        <a class="alpha-link" href="#R">R</a>
+        <a class="alpha-link" href="#S">S</a>
+        <a class="alpha-link" href="#T">T</a>
+        <a class="alpha-link" href="#U">U</a>
+        <a class="alpha-link disabled">V</a>
+        <a class="alpha-link" href="#W">W</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSSARY BODY -->
+  <section class="body">
+
+    <!-- Doodles in the margins -->
+    <svg class="body-doodle-1 doodle floating" viewBox="0 0 90 90" aria-hidden="true">
+      <g transform="translate(45 45)">
+        <line x1="0" y1="-32" x2="0" y2="32"/>
+        <line x1="-32" y1="0" x2="32" y2="0"/>
+        <line x1="-22" y1="-22" x2="22" y2="22"/>
+        <line x1="22" y1="-22" x2="-22" y2="22"/>
+      </g>
+    </svg>
+    <svg class="body-doodle-2 doodle floating-2" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M20 50 Q 50 20, 80 50 Q 50 80, 20 50z"/>
+      <circle cx="50" cy="50" r="6" fill="#320b35" stroke="none" opacity="0.5"/>
+    </svg>
+    <svg class="body-doodle-3 doodle floating" viewBox="0 0 80 80" aria-hidden="true">
+      <path d="M10 40 Q 25 10, 40 40 T 70 40"/>
+      <polyline points="62,34 70,40 64,46"/>
+    </svg>
+    <svg class="body-doodle-4 doodle floating-2" viewBox="0 0 110 110" aria-hidden="true">
+      <path d="M55 10 L65 45 L100 55 L65 65 L55 100 L45 65 L10 55 L45 45 Z"/>
+    </svg>
+
+    <div class="wrap">
+
+      <!-- A -->
+      <div class="letter-group" id="A">
+        <div class="letter-head"><div class="letter-big">A</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Algorithm</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The rulebook Google rewrites every Tuesday.</p>
+          <p class="term-def">The set of rules Google uses to decide which pages show up first when someone searches. Updated 500+ times a year, sometimes silently.</p>
+          <p class="term-why">Every algorithm change can move you from page one to page five overnight. The only update-proof strategy is real authority — which is what we build.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Anchor Text</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The blue clickable words. Yes, those.</p>
+          <p class="term-def">The visible text inside a hyperlink. Clicking <em>"best dropshipping tools"</em> instead of <em>"click here"</em> — the words you actually clicked are anchor text.</p>
+          <p class="term-why">Anchor text tells Google what the linked page is about. Get it wrong (or stuff it with keywords) and you trigger a spam flag fast.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">AEO</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">GEO's awkward older cousin.</p>
+          <p class="term-def"><em>Answer Engine Optimisation.</em> An older term for what we now mostly call GEO — the work of getting your brand cited inside AI answer boxes.</p>
+          <p class="term-why">If a vendor is still selling "AEO services" instead of GEO, ask them when they last updated their pitch deck.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">AI Overview</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The answer that lets users skip your website entirely.</p>
+          <p class="term-def">Google's AI-generated answer at the top of search results. Writes itself before you ever scroll to a blue link.</p>
+          <p class="term-why">58% of US Google searches now end with the AI Overview — meaning the user never visits a website. Being cited inside one is the new "ranking number one."</p>
+        </div></article>
+      </div>
+
+      <!-- B -->
+      <div class="letter-group" id="B">
+        <div class="letter-head"><div class="letter-big">B</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Backlink</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The vote of confidence that powers most of search.</p>
+          <p class="term-def">A link from one website to another. If site B links to site A, then site A has earned a backlink from site B.</p>
+          <p class="term-why">Without backlinks, Google has very little reason to rank you. With bad ones, it has lots of reasons to penalise you. Quality over quantity, always.</p>
+        </div></article>
+
+        <article class="term" data-cat="spam"><div class="term-left">
+          <h3 class="term-name">Black Hat SEO</h3>
+          <div class="term-cat-row"><span class="term-cat spam">The Bad Stuff</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Speed-running a Google penalty.</p>
+          <p class="term-def">Tactics that violate Google's guidelines to rank faster — PBNs, cloaking, hidden text, paid editorial links disguised as real ones. Works for a while. Always ends in tears.</p>
+          <p class="term-why">If your previous agency got you ranking quickly and then disappeared, there's a 70% chance they used black-hat tactics. The penalty arrives 4–8 months later.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Broken Link Building</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Helping editors fix their site, then pocketing a link.</p>
+          <p class="term-def">Finding dead links on relevant pages, then offering your live URL as the replacement. The publisher fixes their broken link, you earn a backlink. Everyone wins.</p>
+          <p class="term-why">One of the few outreach tactics that genuinely helps the recipient instead of asking them for a favour. Editors love it. Conversion rates are unusually high.</p>
+        </div></article>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Bylined Article</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A ghostwritten article with the boss's name on top.</p>
+          <p class="term-def">An article published under your founder's byline (often ghostwritten by us, then approved), in a publication that isn't yours.</p>
+          <p class="term-why">One well-placed bylined op-ed in <em>Mint</em> or <em>TechCrunch</em> generates more authority than fifty guest posts on small blogs.</p>
+        </div></article>
+      </div>
+
+      <!-- C -->
+      <div class="letter-group" id="C">
+        <div class="letter-head"><div class="letter-big">C</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Canonical Tag</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">"Hey Google, this is the original."</p>
+          <p class="term-def">A snippet of code that tells Google "this is the master version of this page." Prevents duplicate-content confusion when the same content exists at multiple URLs.</p>
+          <p class="term-why">Get this wrong and you can accidentally tell Google to ignore your most important pages. We always check it in audits.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Citation</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A mention. Sometimes with a link, sometimes without. Always valuable.</p>
+          <p class="term-def">Any mention of your brand or content in someone else's text — sometimes hyperlinked, often not. AI tools weight citations heavily, even unlinked ones.</p>
+          <p class="term-why">The new currency of the SEO world. Even mentions without links train AI models on who you are, what you do, and which buyers should hear about you.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Crawl</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">When Google's bots come round and read everything.</p>
+          <p class="term-def">The process by which Google's bots discover and read pages on your site. If they can't crawl, they can't index. If they can't index, you don't exist.</p>
+          <p class="term-why">A site invisible to crawlers is invisible to Google. Half of "I'm not ranking" problems are crawl problems.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Crawler</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The world's most prolific reader.</p>
+          <p class="term-def">Also called a bot or spider. Automated software that visits webpages on Google's behalf to read what's on them. Googlebot is the most famous one.</p>
+          <p class="term-why">In 2026, you also need to think about GPTBot, ClaudeBot, and PerplexityBot — the AI crawlers that decide whether your content is worth citing.</p>
+        </div></article>
+      </div>
+
+      <!-- D -->
+      <div class="letter-group" id="D">
+        <div class="letter-head"><div class="letter-big">D</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Disavow</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Telling Google "please ignore this dodgy ex-link of mine."</p>
+          <p class="term-def">A formal request to Google asking it to ignore specific toxic backlinks pointing at your site. The SEO equivalent of cutting off a bad friend.</p>
+          <p class="term-why">Sometimes your only defence against negative SEO attacks or a previous agency's leftover damage. We disavow on every audit that needs it.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Dofollow</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A normal link. The good stuff.</p>
+          <p class="term-def">A regular hyperlink that passes ranking authority ("link juice") from one page to another. The default behaviour of most links.</p>
+          <p class="term-why">Dofollow links are what build domain authority. If you're earning lots of links and none are dofollow, something is off about your placements.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Domain Rating (DR)</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Ahrefs' 0–100 popularity contest.</p>
+          <p class="term-def">A score from 0 to 100 measuring the strength of a website's backlink profile, calculated by Ahrefs. Higher is better.</p>
+          <p class="term-why">A common shorthand for "how authoritative is this site?" — but easy to game with bulk links. Don't optimise for DR alone, or you'll mistake puffery for progress.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Domain Authority (DA)</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">DR's twin from a different family.</p>
+          <p class="term-def">Moz's version of Domain Rating. Same idea, slightly different scoring. 0 to 100, higher is better.</p>
+          <p class="term-why">Either DR or DA is fine as a shorthand. Just pick one and stay consistent — don't switch back and forth to make a number look better.</p>
+        </div></article>
+      </div>
+
+      <!-- E -->
+      <div class="letter-group" id="E">
+        <div class="letter-head"><div class="letter-big">E</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">E-E-A-T</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Google's quality framework, with too many letters.</p>
+          <p class="term-def"><em>Experience, Expertise, Authoritativeness, Trustworthiness.</em> The four qualities Google asks human raters to score sites on.</p>
+          <p class="term-why">Real bylines, real authors, real credentials matter more in 2026 than in any year prior. AI assistants weight E-E-A-T even harder than search does.</p>
+        </div></article>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Earned Media</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Press you didn't pay for. (The good kind.)</p>
+          <p class="term-def">Coverage, mentions, and quotes you didn't pay for. The opposite of "paid media." Editorial articles, organic mentions, journalist-initiated quotes.</p>
+          <p class="term-why">Earned media compounds. Paid media stops the moment your invoice does.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Editorial Link</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A link a real editor decided to give you.</p>
+          <p class="term-def">A link inserted by an actual editor or writer because they thought it added value to their article. The gold standard of links.</p>
+          <p class="term-why">Every link we build aims to be editorial. Anything else falls somewhere on the spectrum from suspicious to spam.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Entity</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A "thing" that Google has officially decided exists.</p>
+          <p class="term-def">In SEO, an entity is a thing — a person, business, place, concept — that Google has acknowledged in its knowledge graph as an actual identifiable object.</p>
+          <p class="term-why">AI tools cite entities, not URLs. A strong entity profile (Wikipedia, Wikidata, schema, consistent name across the web) is now part of every AI-placement strategy.</p>
+        </div></article>
+      </div>
+
+      <!-- G -->
+      <div class="letter-group" id="G">
+        <div class="letter-head"><div class="letter-big">G</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">GEO</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">SEO's heir apparent.</p>
+          <p class="term-def"><em>Generative Engine Optimisation.</em> The practice of optimising a brand's online footprint to be cited by generative AI tools (ChatGPT, Gemini, Claude, Perplexity).</p>
+          <p class="term-why">This is what we mean when we say "AI placement." Different tactics from traditional SEO, same end goal: be in the answer.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Google Algorithm</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The shape-shifting boss everyone is trying to please.</p>
+          <p class="term-def">The constantly-evolving formula Google uses to rank results. Has thousands of signals. Updated hundreds of times a year. No human at Google fully understands it.</p>
+          <p class="term-why">Building rankings on tactics that game the algorithm is renting your traffic. Building rankings on real authority is owning it.</p>
+        </div></article>
+
+        <article class="term" data-cat="spam"><div class="term-left">
+          <h3 class="term-name">Google Penalty</h3>
+          <div class="term-cat-row"><span class="term-cat spam">The Bad Stuff</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The day your traffic falls off a cliff.</p>
+          <p class="term-def">When Google manually demotes your site (manual action) or your traffic crashes after an algorithm update detects historical wrongdoing.</p>
+          <p class="term-why">Penalties are usually retrospective punishment for tactics that <em>were</em> working. Never let an agency talk you into anything you wouldn't put on a billboard.</p>
+        </div></article>
+
+        <article class="term" data-cat="spam"><div class="term-left">
+          <h3 class="term-name">Grey Hat SEO</h3>
+          <div class="term-cat-row"><span class="term-cat spam">The Bad Stuff</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Black hat with plausible deniability.</p>
+          <p class="term-def">Tactics that aren't strictly black hat but aren't whitelisted either. The "we'll get away with it" zone. Things like aggressive niche edits, light-touch PBNs, slightly-paid placements.</p>
+          <p class="term-why">Grey hat works until it doesn't. Then it doesn't, fast.</p>
+        </div></article>
+      </div>
+
+      <!-- H -->
+      <div class="letter-group" id="H">
+        <div class="letter-head"><div class="letter-big">H</div><div class="letter-count">— 2 entries</div></div>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Hallucination</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">When the AI makes things up with full confidence.</p>
+          <p class="term-def">When an LLM produces information that's plausibly written but completely false. ChatGPT inventing a product feature you don't have. Gemini citing a study that doesn't exist.</p>
+          <p class="term-why">Even great AI tools hallucinate. Strong entity signals plus cited sources reduce the chance an AI hallucinates <em>about your brand specifically</em>.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">HARO</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Where journalists shop for expert quotes.</p>
+          <p class="term-def"><em>Help A Reporter Out.</em> A platform connecting journalists looking for expert quotes with experts looking for press. Technically rebranded to "Connectively" but everyone still calls it HARO.</p>
+          <p class="term-why">A consistent HARO programme is one of the few link-building tactics that's both white-hat and scalable. We run one for most clients.</p>
+        </div></article>
+      </div>
+
+      <!-- I -->
+      <div class="letter-group" id="I">
+        <div class="letter-head"><div class="letter-big">I</div><div class="letter-count">— 2 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Index</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Google's enormous filing cabinet.</p>
+          <p class="term-def">Google's database of every page it knows about. To rank, you must be in the index. To be in the index, you must be crawlable.</p>
+          <p class="term-why">A page that isn't indexed cannot rank. If you've published something and it's not appearing in search, the first question is always: "is it indexed?"</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Internal Link</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A link to your own house, from your own house.</p>
+          <p class="term-def">A link from one page on your site to another page on your site. Free, fully under your control, and surprisingly powerful.</p>
+          <p class="term-why">Internal links spread authority across your site, help Google understand your structure, and are entirely under your control. Vastly underused by most brands.</p>
+        </div></article>
+      </div>
+
+      <!-- K -->
+      <div class="letter-group" id="K">
+        <div class="letter-head"><div class="letter-big">K</div><div class="letter-count">— 2 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Keyword</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The thing someone types into the search box.</p>
+          <p class="term-def">A word or phrase someone types into a search engine. Usually 1–6 words. The atom of traditional SEO.</p>
+          <p class="term-why">Still the foundation of traditional SEO. Increasingly secondary in AI placement, where intent matters more than exact-match phrasing.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Knowledge Graph</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Google's giant database of "things, not strings."</p>
+          <p class="term-def">Google's database of entities — people, places, businesses, concepts — and how they relate to each other. Powers the right-hand "Knowledge Panel" and most AI Overviews.</p>
+          <p class="term-why">When Google "knows who you are" (a Knowledge Panel exists for your brand), every other SEO and AI signal works harder.</p>
+        </div></article>
+      </div>
+
+      <!-- L -->
+      <div class="letter-group" id="L">
+        <div class="letter-head"><div class="letter-big">L</div><div class="letter-count">— 6 entries</div></div>
+
+        <article class="term" data-cat="spam"><div class="term-left">
+          <h3 class="term-name">Link Farm</h3>
+          <div class="term-cat-row"><span class="term-cat spam">The Bad Stuff</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The undead of SEO tactics.</p>
+          <p class="term-def">A site or network of sites that exist only to link to client sites. Google has been killing link farms since 2011. Some agencies still try.</p>
+          <p class="term-why">Easy to detect. Penalties are heavy. The fact that they sometimes still "work" in the short term is the only reason they still exist.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Link Juice</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The actual industry term. Yes, really.</p>
+          <p class="term-def">The SEO power passed from one page to another via a hyperlink. We didn't make this name up. We blame the early 2000s.</p>
+          <p class="term-why">Some pages have more juice than others. A link from a DR 90 site beats a link from a DR 30 site every time — assuming the rest of the quality bar is met.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Link Velocity</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">How fast you're getting links — and whether it looks suspicious.</p>
+          <p class="term-def">The rate at which a site is gaining (or losing) backlinks. Sudden spikes look manipulated. Steady growth looks earned.</p>
+          <p class="term-why">We pace outreach to keep velocity natural. A site going from 10 to 800 backlinks in a month is begging Google to investigate.</p>
+        </div></article>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Linkbait</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A press release that's actually interesting.</p>
+          <p class="term-def">Content specifically designed to attract links — surprising data, contrarian opinions, beautiful visualisations, or genuinely useful tools.</p>
+          <p class="term-why">Almost every successful digital PR campaign is linkbait, just dressed up with a more polite name. Calling it "data study" sounds better in pitch decks.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">LLM</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The thing your customers now ask instead of Google.</p>
+          <p class="term-def"><em>Large Language Model.</em> The AI architecture behind ChatGPT, Gemini, Claude, and Perplexity. Trained on giant chunks of the internet to predict and generate text.</p>
+          <p class="term-why">LLMs decide which brands get named in their answers. Optimising for them is a separate craft from optimising for search engines.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Long-tail Keyword</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The specific question, not the generic one.</p>
+          <p class="term-def">A specific, lower-volume search phrase like "best dropshipping tools for India-based founders" instead of just "dropshipping."</p>
+          <p class="term-why">Long-tail keywords convert higher and face less competition. They're also exactly what people ask AI tools — full sentences, real intent.</p>
+        </div></article>
+      </div>
+
+      <!-- M -->
+      <div class="letter-group" id="M">
+        <div class="letter-head"><div class="letter-big">M</div><div class="letter-count">— 1 entry</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Meta Description</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The 150 characters that decide if anyone clicks.</p>
+          <p class="term-def">The short snippet shown beneath your link in search results. Doesn't directly impact rankings, but heavily influences click-through rate.</p>
+          <p class="term-why">Every page should have a unique, compelling one. Auto-generated meta descriptions leave clicks on the table.</p>
+        </div></article>
+      </div>
+
+      <!-- N -->
+      <div class="letter-group" id="N">
+        <div class="letter-head"><div class="letter-big">N</div><div class="letter-count">— 3 entries</div></div>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Newsjacking</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Surfing the news cycle for press coverage.</p>
+          <p class="term-def">Inserting your brand's expert commentary into a fast-breaking news story. The fastest way to land Tier 1 press — if your founder can move at journalist speed.</p>
+          <p class="term-why">A category of digital PR we run as a dedicated workstream for clients with quotable founders.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Niche Edit</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Sneaking your link into someone else's old article (politely).</p>
+          <p class="term-def">Earning a link inserted into an existing high-traffic article, instead of writing a new guest post. Faster than guest posts. Often more valuable.</p>
+          <p class="term-why">When the existing article is already ranking, the link starts compounding immediately. We do these by adding genuine value, not by paying.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Nofollow</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A link with the "I'm not vouching for this" tag.</p>
+          <p class="term-def">A hyperlink with <code>rel="nofollow"</code> that historically told Google "don't pass authority through this link." Most user-generated and sponsored links are nofollow.</p>
+          <p class="term-why">Used to be near-useless for SEO. Now Google treats nofollow as a "hint" rather than a hard directive — meaning some authority does still pass.</p>
+        </div></article>
+      </div>
+
+      <!-- O -->
+      <div class="letter-group" id="O">
+        <div class="letter-head"><div class="letter-big">O</div><div class="letter-count">— 3 entries</div></div>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Op-ed</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A long opinion piece, with your founder's face on it.</p>
+          <p class="term-def">A bylined opinion article, usually published in a major outlet, that establishes your founder as a category voice.</p>
+          <p class="term-why">One well-placed op-ed in <em>Mint</em>, <em>TechCrunch</em>, or <em>Inc.</em> generates more authority than fifty guest posts on small blogs.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Organic Traffic</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The traffic you didn't pay Google or Meta for.</p>
+          <p class="term-def">Visitors who arrive via unpaid search results. The opposite of paid traffic from ads.</p>
+          <p class="term-why">This is what every SEO and digital PR investment is ultimately trying to grow. Compounds over time. Doesn't disappear when your ad budget runs out.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Outreach</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Cold-emailing strangers, but in a smart way.</p>
+          <p class="term-def">Reaching out to publications, journalists, or website owners to pitch a story, link, or collaboration.</p>
+          <p class="term-why">Real outreach is personal, researched, and slow. Mass-blast outreach is spam. We do the slow kind — which is why our reply rates are 5–10× the industry average.</p>
+        </div></article>
+      </div>
+
+      <!-- P -->
+      <div class="letter-group" id="P">
+        <div class="letter-head"><div class="letter-big">P</div><div class="letter-count">— 3 entries</div></div>
+
+        <article class="term" data-cat="spam"><div class="term-left">
+          <h3 class="term-name">PBN</h3>
+          <div class="term-cat-row"><span class="term-cat spam">The Bad Stuff</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The walking dead of link building.</p>
+          <p class="term-def"><em>Private Blog Network.</em> A network of websites set up purely to link to client sites. Google has hunted PBNs since 2014. Still common. Still risky. We don't touch them.</p>
+          <p class="term-why">If your previous agency boasted about "their network," it was probably a PBN. The penalty doesn't always hit the agency. It hits you.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Perplexity</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The AI assistant that always shows its homework.</p>
+          <p class="term-def">An AI search tool that displays its sources alongside every answer. Built around citations from day one.</p>
+          <p class="term-why">The highest-trust AI surface to be cited on. If your brand appears in Perplexity, more sophisticated buyers see you first — and your name typically carries over to ChatGPT and Gemini within months.</p>
+        </div></article>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Prompt</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The thing you type. The thing your customers type.</p>
+          <p class="term-def">The text you enter into an AI assistant to get a response.</p>
+          <p class="term-why">We test 200+ buyer-intent prompts per industry every month to measure where your brand currently appears in AI answers. Same idea as keyword tracking, different output format.</p>
+        </div></article>
+      </div>
+
+      <!-- R -->
+      <div class="letter-group" id="R">
+        <div class="letter-head"><div class="letter-big">R</div><div class="letter-count">— 4 entries</div></div>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Reactive PR</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Press campaigns that move at the speed of Twitter.</p>
+          <p class="term-def">Press campaigns triggered by a breaking news event in your category. Faster than data studies. Cheaper. Higher hit-rate when timed right.</p>
+          <p class="term-why">One of our most effective campaign types when the founder can be made available within hours. Slow-moving brands miss the window.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Reciprocal Link</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">"You scratch my backlink, I'll scratch yours."</p>
+          <p class="term-def">When two sites agree to link to each other. Google views these with suspicion at scale.</p>
+          <p class="term-why">One or two reciprocal links happen naturally. A pattern of them looks like a coordinated network — and Google can spot the pattern.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Referring Domain</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A unique site that links to you — not "another link from the same place."</p>
+          <p class="term-def">A unique website that links to yours, regardless of how many individual pages on it link to you.</p>
+          <p class="term-why">100 referring domains are worth more than 100 links from a single site. We optimise for unique referring domains, not raw link count.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Robots.txt</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A tiny text file that can wreck your entire SEO.</p>
+          <p class="term-def">The text file at <code>yoursite.com/robots.txt</code> that tells crawlers which parts of your site to crawl and which to skip.</p>
+          <p class="term-why">Misconfigured robots.txt files have killed entire sites' SEO in a single deploy. Every audit checks this on day one.</p>
+        </div></article>
+      </div>
+
+      <!-- S -->
+      <div class="letter-group" id="S">
+        <div class="letter-head"><div class="letter-big">S</div><div class="letter-count">— 5 entries</div></div>
+
+        <article class="term" data-cat="ai"><div class="term-left">
+          <h3 class="term-name">Schema (Structured Data)</h3>
+          <div class="term-cat-row"><span class="term-cat ai">AI / LLM</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Speaking Google's native language with code.</p>
+          <p class="term-def">Code added to your pages that explicitly tells search engines what your content is about — a recipe, a product, an organisation, a review.</p>
+          <p class="term-why">Schema is rocket fuel for AI placement. LLMs prefer pages they can parse cleanly, and structured data is how they parse cleanly.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">SERP</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The page that appears after you Google something.</p>
+          <p class="term-def"><em>Search Engine Results Page.</em> What Google shows you after you type a query.</p>
+          <p class="term-why">SERPs in 2026 are 40%+ AI Overviews, 30% featured snippets, and 30% blue links. The blue links you used to fight for now get a smaller and smaller share of the page.</p>
+        </div></article>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">Sitemap</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A free, simple file that half of websites still get wrong.</p>
+          <p class="term-def">An XML file listing all the pages on your site, submitted to Google to help it crawl efficiently.</p>
+          <p class="term-why">Free. Easy. Surprisingly often broken or out of date. Always in our audit checklist.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Spam Score</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">How sketchy your backlink profile looks to a robot.</p>
+          <p class="term-def">Moz's metric for how spammy your backlink profile looks. Counts toxic neighbours, sketchy anchors, and bad-actor patterns.</p>
+          <p class="term-why">A high spam score is a sign your link profile is being polluted by toxic referring domains. We audit and disavow the worst offenders on every engagement.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Sponsored Link</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">An ad that's honest about being an ad.</p>
+          <p class="term-def">A paid placement marked <code>rel="sponsored"</code> per Google's guidelines. Doesn't pass ranking authority, but is fully compliant.</p>
+          <p class="term-why">Sponsored links don't pass authority — but they're honest. Sponsored links <em>not</em> marked sponsored are paid links pretending to be editorial. Those are the ones Google penalises.</p>
+        </div></article>
+      </div>
+
+      <!-- T -->
+      <div class="letter-group" id="T">
+        <div class="letter-head"><div class="letter-big">T</div><div class="letter-count">— 3 entries</div></div>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Tier 1 Press</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The publications everyone wants. The ones nobody can guarantee.</p>
+          <p class="term-def">The publications everyone wants in: Forbes, TechCrunch, Mint, Inc., Business Insider, Economic Times, Bloomberg, etc.</p>
+          <p class="term-why">A Tier 1 placement compounds. AI tools were trained heavily on these outlets, so a Forbes citation often becomes a ChatGPT mention months later.</p>
+        </div></article>
+
+        <article class="term" data-cat="pr"><div class="term-left">
+          <h3 class="term-name">Thought Leadership</h3>
+          <div class="term-cat-row"><span class="term-cat">Digital PR</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">The slowest PR play. Also the most defensible.</p>
+          <p class="term-def">The long game of turning your founder into a recognised voice in their category. Op-eds, expert quotes, podcasts, conference keynotes.</p>
+          <p class="term-why">The hardest service to rush. Also the hardest to compete with once you've built the moat — competitors can't catch up overnight.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">Toxic Link</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">A backlink that's actively making things worse.</p>
+          <p class="term-def">A backlink from a site so spammy that it's actively hurting your rankings instead of helping.</p>
+          <p class="term-why">Toxic links can come from negative SEO attacks, lazy old vendors, or random scraper sites. We find them and disavow them. Untreated, they suppress your whole site's authority.</p>
+        </div></article>
+      </div>
+
+      <!-- U -->
+      <div class="letter-group" id="U">
+        <div class="letter-head"><div class="letter-big">U</div><div class="letter-count">— 1 entry</div></div>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">UGC</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">User-generated. The Reddit and Quora kind.</p>
+          <p class="term-def"><em>User-Generated Content.</em> Content created by users — comments, reviews, forum posts. Links inside UGC are usually marked <code>rel="ugc"</code>.</p>
+          <p class="term-why">Less authority weight than editorial links, but still real signal — and AI tools weight Reddit and Quora UGC unusually high. We engineer placements there too.</p>
+        </div></article>
+      </div>
+
+      <!-- W -->
+      <div class="letter-group" id="W">
+        <div class="letter-head"><div class="letter-big">W</div><div class="letter-count">— 2 entries</div></div>
+
+        <article class="term" data-cat="seo"><div class="term-left">
+          <h3 class="term-name">White Hat SEO</h3>
+          <div class="term-cat-row"><span class="term-cat">SEO</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Boring name. Best results.</p>
+          <p class="term-def">SEO done strictly within Google's guidelines. Slower than black hat. Less risky than your morning coffee.</p>
+          <p class="term-why">This is who we are. The whole company runs on the assumption that white-hat is the only durable strategy — because every client we've watched go black hat eventually came back asking us to clean up the damage.</p>
+        </div></article>
+
+        <article class="term" data-cat="link-building"><div class="term-left">
+          <h3 class="term-name">White-Label</h3>
+          <div class="term-cat-row"><span class="term-cat">Link Building</span></div>
+        </div><div class="term-right">
+          <p class="term-aka">Your client. Our links. Their logo.</p>
+          <p class="term-def">Delivering services under a partner's brand instead of your own. Common in agencies that want to expand offerings without hiring.</p>
+          <p class="term-why">Half our business. We sign NDAs, never approach our partners' clients, and deliver everything as if it's their own work. <a href="/white-label" style="color: var(--purple); border-bottom: 1px solid var(--purple);">More on the white-label page</a>.</p>
+        </div></article>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty" id="empty">
+        <svg class="empty-mark doodle" viewBox="0 0 72 72" aria-hidden="true">
+          <circle cx="36" cy="36" r="28"/>
+          <line x1="20" y1="44" x2="52" y2="44" stroke-dasharray="3 3"/>
+          <circle cx="28" cy="30" r="2" fill="#320b35" stroke="none"/>
+          <circle cx="44" cy="30" r="2" fill="#320b35" stroke="none"/>
+        </svg>
+        <h3 class="empty-h">No matches.</h3>
+        <p class="empty-p">Either we haven't written about it yet, or your spelling needs a backlink. Try a different term — or scroll the alphabet above.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+
+    <svg class="final-doodle doodle cream" viewBox="0 0 70 70" aria-hidden="true">
+      <g transform="translate(35 35)">
+        <line x1="0" y1="-25" x2="0" y2="25"/>
+        <line x1="-25" y1="0" x2="25" y2="0"/>
+        <line x1="-18" y1="-18" x2="18" y2="18"/>
+        <line x1="18" y1="-18" x2="-18" y2="18"/>
+      </g>
+    </svg>
+    <svg class="final-doodle-2 doodle cream floating" viewBox="0 0 90 90" aria-hidden="true">
+      <circle cx="45" cy="45" r="30"/>
+      <path d="M30 45 Q 45 30, 60 45 Q 45 60, 30 45z"/>
+    </svg>
+
+    <div class="wrap final-inner">
+      <h2>Now you<br />speak <em>SEO</em>.</h2>
+      <p class="final-sub">Or at least enough to spot a vendor selling you "PBN packages" or promising "instant ChatGPT rankings." Want us to put the words to work for you instead?</p>
+      <a href="/contact" class="btn btn-cream btn-arrow">Book a free 20-minute audit</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul>
+          <li><a href="/services/link-building">Link Building</a></li>
+          <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+          <li><a href="/services/digital-pr">Digital PR</a></li>
+          <li><a href="/white-label">White Label</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/free-tools">Free Tools</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/refund">Refund</a></li>
+          <li><a href="/anti-spam">Anti-Spam</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Search + filter logic =====
+    const searchInput = document.getElementById('search');
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const terms = document.querySelectorAll('.term');
+    const groups = document.querySelectorAll('.letter-group');
+    const empty = document.getElementById('empty');
+    let activeFilter = 'all';
+
+    function filterTerms() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      terms.forEach(t => {
+        const name = t.querySelector('.term-name').textContent.toLowerCase();
+        const def = t.querySelector('.term-def').textContent.toLowerCase();
+        const aka = t.querySelector('.term-aka').textContent.toLowerCase();
+        const cat = t.dataset.cat;
+
+        const matchesQuery = !query || name.includes(query) || def.includes(query) || aka.includes(query);
+        const matchesFilter = activeFilter === 'all' || cat === activeFilter;
+
+        if (matchesQuery && matchesFilter) {
+          t.classList.remove('hide');
+          visibleCount++;
+        } else {
+          t.classList.add('hide');
+        }
+      });
+
+      // Hide empty letter groups
+      groups.forEach(g => {
+        const visible = g.querySelectorAll('.term:not(.hide)').length;
+        if (visible === 0) g.classList.add('hide');
+        else g.classList.remove('hide');
+      });
+
+      // Empty state
+      empty.classList.toggle('show', visibleCount === 0);
+    }
+
+    searchInput.addEventListener('input', filterTerms);
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeFilter = chip.dataset.filter;
+        filterTerms();
+      });
+    });
+  </script>
+</body>
+</html>
