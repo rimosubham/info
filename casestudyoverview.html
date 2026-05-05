@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies | Links Are Spam</title>
+  <meta name="description" content="Three real engagements. Three industries. Zero PBNs across all of them. Read how we built canva.in to DR 70, scaled Spocket to 5× traffic, and doubled WinningHunter's DR in 4 months." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --purple: #320b35; --purple-deep: #1f0721; --purple-soft: #4b1a4f; --cream: #f0e9c7; --cream-dim: #e8dfb6; --cream-bright: #f7f1d6; --ink: #1a0a1d; --line: rgba(50,11,53,0.18); --line-strong: rgba(50,11,53,0.5); --warning: #d4733a; --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace; --max: 1280px; --pad: clamp(20px, 5vw, 64px); --section-y: clamp(80px, 12vw, 140px); --radius: 4px; --ease: cubic-bezier(0.2, 0.8, 0.2, 1); }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect { fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-ghost { background: transparent; color: var(--purple); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--purple); background: rgba(50,11,53,0.04); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(40px, 7vw, 80px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 15%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07), transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 10vw, 144px); line-height: 0.92; letter-spacing: -0.035em; color: var(--purple); margin: 0 0 24px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3vw, 32px); color: var(--purple-soft); line-height: 1.3; margin: 0 0 28px; max-width: 820px; }
+    .hero-body { font-size: 17.5px; line-height: 1.65; max-width: 660px; margin: 0; }
+    .hero-floating { position: absolute; top: 18%; right: 6%; width: 130px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* AGGREGATE STATS */
+    .agg { padding: clamp(40px, 6vw, 64px) 0 clamp(40px, 6vw, 80px); }
+    .agg-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+    @media (max-width: 860px) { .agg-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .agg-grid { grid-template-columns: 1fr; } }
+    .agg-cell { padding: 36px 28px; border-right: 1px solid var(--line); }
+    .agg-cell:last-child { border-right: none; }
+    @media (max-width: 860px) {
+      .agg-cell:nth-child(2n) { border-right: none; }
+      .agg-cell:nth-child(1), .agg-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 480px) { .agg-cell { border-right: none; border-bottom: 1px solid var(--line); } .agg-cell:last-child { border-bottom: none; } }
+    .agg-num { font-family: var(--serif); font-weight: 300; font-size: clamp(48px, 6vw, 72px); line-height: 0.9; color: var(--purple); letter-spacing: -0.04em; margin-bottom: 12px; font-variation-settings: "opsz" 144; }
+    .agg-num .unit { font-size: 0.5em; font-style: italic; color: var(--purple-soft); }
+    .agg-lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.78; margin-bottom: 4px; }
+    .agg-sub { font-size: 13px; opacity: 0.7; }
+
+    /* CASE LIST */
+    .cases { padding: var(--section-y) 0; position: relative; }
+    .cases-doodle { position: absolute; left: 4%; top: 8%; width: 90px; opacity: 0.4; }
+    @media (max-width: 1000px) { .cases-doodle { display: none; } }
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 60px; }
+    @media (max-width: 860px) { .section-header { grid-template-columns: 1fr; gap: 24px; } }
+    .section-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.02em; color: var(--purple); margin: 0; font-variation-settings: "opsz" 144; }
+    .section-h2 em { font-style: italic; }
+    .section-sub { font-size: 17px; line-height: 1.6; max-width: 460px; margin: 0; }
+
+    .case-list { display: flex; flex-direction: column; gap: 32px; }
+    .case-row { background: var(--cream-bright); border: 1px solid var(--line-strong); border-radius: 12px; padding: 48px; display: grid; grid-template-columns: 320px 1fr auto; gap: 56px; align-items: center; transition: all 0.4s var(--ease); }
+    .case-row:hover { transform: translateY(-3px); box-shadow: 0 28px 64px -32px rgba(50,11,53,0.22); border-color: var(--purple); }
+    @media (max-width: 1100px) { .case-row { grid-template-columns: 280px 1fr; gap: 40px; } .case-row .case-cta-col { grid-column: 1 / -1; } }
+    @media (max-width: 720px) { .case-row { grid-template-columns: 1fr; gap: 24px; padding: 32px; } }
+
+    .case-visual { aspect-ratio: 4/5; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+    .case-visual.canva { background: linear-gradient(135deg, var(--purple) 0%, #5a2160 100%); color: var(--cream); }
+    .case-visual.spocket { background: linear-gradient(135deg, #2a4d52 0%, #4a8053 100%); color: var(--cream); }
+    .case-visual.wh { background: linear-gradient(135deg, var(--warning) 0%, #b85a2a 100%); color: var(--cream); }
+    .case-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 60%); pointer-events: none; }
+    .case-visual-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; position: relative; z-index: 1; }
+    .case-visual-stat { font-family: var(--serif); font-weight: 300; font-size: clamp(56px, 7vw, 80px); line-height: 0.9; letter-spacing: -0.04em; position: relative; z-index: 1; font-variation-settings: "opsz" 144; }
+    .case-visual-stat .arrow { font-style: italic; opacity: 0.7; font-size: 0.65em; padding: 0 4px; }
+    .case-visual-stat .unit { font-size: 0.5em; font-style: italic; opacity: 0.7; }
+    .case-visual-foot { font-family: var(--serif); font-style: italic; font-size: 13px; opacity: 0.75; position: relative; z-index: 1; line-height: 1.4; }
+    .case-visual-mono { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4vw, 52px); line-height: 1; opacity: 0.9; position: relative; z-index: 1; letter-spacing: -0.02em; }
+
+    .case-info { display: flex; flex-direction: column; }
+    .case-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .case-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); padding: 4px 10px; background: rgba(50,11,53,0.06); border-radius: 100px; }
+    .case-name { font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4vw, 48px); color: var(--purple); margin: 0 0 12px; line-height: 1.05; letter-spacing: -0.015em; font-variation-settings: "opsz" 144; }
+    .case-headline { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--purple-soft); line-height: 1.4; margin: 0 0 20px; }
+    .case-desc { font-size: 15px; line-height: 1.65; opacity: 0.85; margin: 0 0 24px; max-width: 540px; }
+    .case-mini-stats { display: flex; gap: 32px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+    .case-mini { display: flex; flex-direction: column; gap: 2px; }
+    .case-mini-num { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); line-height: 1; }
+    .case-mini-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.75; }
+    .case-cta-col { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; min-width: 160px; }
+    .case-link-btn { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .case-link-btn:hover { gap: 14px; }
+
+    /* FILTERS */
+    .filters-bar { padding: 32px 0 24px; border-bottom: 1px solid var(--line); }
+    .filters-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .filters-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); opacity: 0.7; margin-right: 8px; }
+    .filter-chip { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--purple); background: transparent; cursor: pointer; transition: all 0.2s var(--ease); }
+    .filter-chip:hover { background: var(--cream-bright); }
+    .filter-chip.active { background: var(--purple); color: var(--cream); border-color: var(--purple); }
+
+    /* FINAL */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final h2 em { font-style: italic; }
+    .final-sub { font-size: 17.5px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; line-height: 1.6; }
+
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+
+    .case-row.hide { display: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/><path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/><path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/></svg> Links Are Spam</a>
+      <ul class="nav-links"><li><a href="/services">Services</a></li><li><a href="/white-label">White Label</a></li><li><a href="/industries">Industries</a></li><li><a href="/case-studies" class="active">Case Studies</a></li><li><a href="/resources">Resources</a></li><li><a href="/about">About</a></li></ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <div class="wrap crumb"><div class="crumb-list"><a href="/">Home</a><span class="crumb-sep">/</span><span>Case Studies</span></div></div>
+
+  <section class="hero">
+    <div class="hero-orb"></div>
+    <svg class="hero-floating doodle floating" viewBox="0 0 130 130"><rect x="20" y="25" width="90" height="80" rx="3"/><line x1="32" y1="42" x2="98" y2="42"/><line x1="32" y1="55" x2="98" y2="55"/><line x1="32" y1="68" x2="80" y2="68"/><circle cx="98" cy="98" r="6" fill="#d4733a" stroke="none" opacity="0.7"/></svg>
+    <div class="wrap">
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Three engagements · Three industries · Zero PBNs</div>
+      <h1>The <em>receipts.</em></h1>
+      <p class="hero-subhead">Three real engagements. The challenges, the strategies, the numbers — including the campaigns that didn't work the first time.</p>
+      <p class="hero-body">Most agencies have "case studies" that are sales decks in disguise. Ours are the opposite. We name the client, name the metrics, and show the timeline week by week. If it didn't ship, it's not in here.</p>
+    </div>
+  </section>
+
+  <!-- AGGREGATE STATS -->
+  <section class="agg">
+    <div class="wrap">
+      <div class="agg-grid">
+        <div class="agg-cell">
+          <div class="agg-num">3.2K<span class="unit">+</span></div>
+          <div class="agg-lbl">— Backlinks earned</div>
+          <div class="agg-sub">Across all three clients, all earned organically</div>
+        </div>
+        <div class="agg-cell">
+          <div class="agg-num">23.5K</div>
+          <div class="agg-lbl">— AI citations</div>
+          <div class="agg-sub">Across ChatGPT, Gemini, Claude, Perplexity</div>
+        </div>
+        <div class="agg-cell">
+          <div class="agg-num">0</div>
+          <div class="agg-lbl">— PBNs used</div>
+          <div class="agg-sub">Across every engagement, every campaign, ever</div>
+        </div>
+        <div class="agg-cell">
+          <div class="agg-num">34</div>
+          <div class="agg-lbl">— Months of work</div>
+          <div class="agg-sub">Combined engagement time across the three</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <div class="filters-bar">
+    <div class="wrap">
+      <div class="filters-row">
+        <span class="filters-label">Filter by —</span>
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="saas">SaaS</button>
+        <button class="filter-chip" data-filter="india">India</button>
+        <button class="filter-chip" data-filter="global">Global</button>
+        <button class="filter-chip" data-filter="ai">AI Wins</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE LIST -->
+  <section class="cases">
+    <svg class="cases-doodle doodle floating-2" viewBox="0 0 90 90"><path d="M10 70 Q 30 40, 50 60 T 80 30"/><polyline points="72,28 80,30 80,40"/></svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">All three<br /><em>engagements.</em></h2>
+        <p class="section-sub">Click any one to read the full story — challenge, strategy, weekly timeline, and the receipts.</p>
+      </div>
+
+      <div class="case-list">
+
+        <!-- CANVA.IN -->
+        <article class="case-row" data-tags="saas india ai">
+          <div class="case-visual canva">
+            <span class="case-visual-tag">— Case · 01</span>
+            <div>
+              <div class="case-visual-mono">canva.in</div>
+              <div class="case-visual-stat" style="margin-top: 18px;">DR&nbsp;0<span class="arrow">→</span>70</div>
+            </div>
+            <div class="case-visual-foot">12 months · 12+ Indian languages · Zero link exchanges</div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-tag">Design SaaS</span>
+              <span class="case-tag">India</span>
+              <span class="case-tag">12-month engagement</span>
+            </div>
+            <h3 class="case-name">Canva.in</h3>
+            <p class="case-headline">Building canva.in from zero authority to DR 70 in 12 months — across 12+ Indian languages, with no link exchanges allowed.</p>
+            <p class="case-desc">When Canva launched its first country-specific TLD, we had to invent four new playbooks: telephonic outreach to regional magazines, brand-mention plays instead of links, multilingual campaigns across Hindi, Bengali, Tamil and more — all with a strict no-quid-pro-quo policy.</p>
+            <div class="case-mini-stats">
+              <div class="case-mini"><div class="case-mini-num">DR 0 → 70</div><div class="case-mini-lbl">Domain Rating</div></div>
+              <div class="case-mini"><div class="case-mini-num">500+</div><div class="case-mini-lbl">Referring domains</div></div>
+              <div class="case-mini"><div class="case-mini-num">456K</div><div class="case-mini-lbl">Monthly visitors</div></div>
+              <div class="case-mini"><div class="case-mini-num">12+</div><div class="case-mini-lbl">Languages</div></div>
+            </div>
+          </div>
+          <div class="case-cta-col">
+            <a href="/case-studies/canva-in" class="btn btn-primary btn-arrow">Read case study</a>
+            <a href="/case-studies/canva-in" class="case-link-btn">Or skip to results →</a>
+          </div>
+        </article>
+
+        <!-- SPOCKET -->
+        <article class="case-row" data-tags="saas global ai">
+          <div class="case-visual spocket">
+            <span class="case-visual-tag">— Case · 02</span>
+            <div>
+              <div class="case-visual-mono">spocket.co</div>
+              <div class="case-visual-stat" style="margin-top: 18px;">5<span class="unit">×</span></div>
+            </div>
+            <div class="case-visual-foot">18 months · 1,600 backlinks · 23K AI citations</div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-tag">Dropshipping SaaS</span>
+              <span class="case-tag">Global</span>
+              <span class="case-tag">18-month engagement</span>
+            </div>
+            <h3 class="case-name">Spocket</h3>
+            <p class="case-headline">5×'d Spocket's traffic with 1,600 backlinks and zero agency spend — surviving two Google core updates along the way.</p>
+            <p class="case-desc">Spocket's on-page SEO was world-class but their backlink profile was holding them back. We replaced expensive vendors with four organic campaigns: Slack outreach, backlink gap analysis, broken-link recovery, and the "drafts strategy" that intercepts placements before articles publish.</p>
+            <div class="case-mini-stats">
+              <div class="case-mini"><div class="case-mini-num">150K → 750K</div><div class="case-mini-lbl">Monthly traffic</div></div>
+              <div class="case-mini"><div class="case-mini-num">1,600+</div><div class="case-mini-lbl">Backlinks</div></div>
+              <div class="case-mini"><div class="case-mini-num">23K</div><div class="case-mini-lbl">AI citations</div></div>
+              <div class="case-mini"><div class="case-mini-num">DR 67 → 79</div><div class="case-mini-lbl">Domain Rating</div></div>
+            </div>
+          </div>
+          <div class="case-cta-col">
+            <a href="/case-studies/spocket" class="btn btn-primary btn-arrow">Read case study</a>
+            <a href="/case-studies/spocket" class="case-link-btn">Or skip to results →</a>
+          </div>
+        </article>
+
+        <!-- WINNINGHUNTER -->
+        <article class="case-row" data-tags="saas global ai">
+          <div class="case-visual wh">
+            <span class="case-visual-tag">— Case · 03</span>
+            <div>
+              <div class="case-visual-mono">winninghunter.com</div>
+              <div class="case-visual-stat" style="margin-top: 18px;">2<span class="unit">×</span> DR</div>
+            </div>
+            <div class="case-visual-foot">4 months · From spammy to cited · 259 AI mentions</div>
+          </div>
+          <div class="case-info">
+            <div class="case-meta">
+              <span class="case-tag">E-com Tools</span>
+              <span class="case-tag">Global</span>
+              <span class="case-tag">4-month engagement</span>
+            </div>
+            <h3 class="case-name">WinningHunter</h3>
+            <p class="case-headline">From spammy backlinks to 2× DR and 259 AI citations in 4 months — a full foundation rebuild for a builder-founder with zero marketing playbook.</p>
+            <p class="case-desc">Roggie had built a great product but inherited a profile full of toxic links and zero AI presence. We ran four parallel playbooks: topical authority rebuild, manual AI query hunting, the .edu PR stack (an .edu link as credibility leverage for tier-1 PR), and competitor reverse-engineering.</p>
+            <div class="case-mini-stats">
+              <div class="case-mini"><div class="case-mini-num">DR 20 → 41</div><div class="case-mini-lbl">Domain Rating</div></div>
+              <div class="case-mini"><div class="case-mini-num">175 → 675</div><div class="case-mini-lbl">Referring domains</div></div>
+              <div class="case-mini"><div class="case-mini-num">259</div><div class="case-mini-lbl">AI citations</div></div>
+              <div class="case-mini"><div class="case-mini-num">5</div><div class="case-mini-lbl">AI surfaces cited</div></div>
+            </div>
+          </div>
+          <div class="case-cta-col">
+            <a href="/case-studies/winninghunter" class="btn btn-primary btn-arrow">Read case study</a>
+            <a href="/case-studies/winninghunter" class="case-link-btn">Or skip to results →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap final-inner">
+      <h2>Want results like<br />these for <em>your brand?</em></h2>
+      <p class="final-sub">A free 20-minute audit. We'll tell you which of our three playbooks would move the needle hardest for your business — and whether we're the right team to run it.</p>
+      <a href="/contact" class="btn btn-cream btn-arrow">Book your free audit</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/><path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/><path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/></svg> Links Are Spam</div><p class="footer-tag">The white-hat opposite of our name.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="/services/link-building">Link Building</a></li><li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li><li><a href="/services/digital-pr">Digital PR</a></li><li><a href="/white-label">White Label</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="/blog">Blog</a></li><li><a href="/free-tools">Free Tools</a></li><li><a href="/guides">Guides</a></li><li><a href="/glossary">Glossary</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/case-studies">Case Studies</a></li><li><a href="/industries">Industries</a></li><li><a href="/contact">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/refund">Refund</a></li><li><a href="/anti-spam">Anti-Spam</a></li><li><a href="/cookies">Cookies</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span><span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.filter;
+        document.querySelectorAll('.case-row').forEach(r => {
+          if (f === 'all' || r.dataset.tags.split(' ').includes(f)) r.classList.remove('hide');
+          else r.classList.add('hide');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
