@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; LLM Placement Services | Links Are Spam</title>
+  <meta name="description" content="Get cited inside ChatGPT, Gemini, Claude, and Perplexity. Generative Engine Optimisation (GEO), brand entity strengthening, and AI mention audits — for the new front page of the internet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #320b35; --purple-deep: #1f0721; --purple-soft: #4b1a4f;
+      --cream: #f0e9c7; --cream-dim: #e8dfb6; --cream-bright: #f7f1d6;
+      --ink: #1a0a1d; --line: rgba(50,11,53,0.18); --line-strong: rgba(50,11,53,0.5);
+      --warning: #d4733a; --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace;
+      --max: 1280px; --pad: clamp(20px, 5vw, 64px); --section-y: clamp(80px, 12vw, 140px);
+      --radius: 4px; --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect { fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-ghost { background: transparent; color: var(--purple); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--purple); background: rgba(50,11,53,0.04); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO — futuristic on cream then tip into purple */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(60px, 10vw, 120px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 15%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07), transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--warning); border-radius: 50%; animation: pulse 1.6s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 132px); line-height: 0.95; letter-spacing: -0.03em; color: var(--purple); margin: 0 0 28px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; }
+    .hero h1 .underline { position: relative; }
+    .hero h1 .underline::after { content: ''; position: absolute; left: 0; bottom: 0.05em; width: 100%; height: 8px; background: var(--warning); opacity: 0.6; z-index: -1; }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3.4vw, 36px); color: var(--purple-soft); line-height: 1.25; margin: 0 0 32px; max-width: 760px; }
+    .hero-body { font-size: 18px; line-height: 1.6; max-width: 620px; margin: 0 0 44px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-floating { position: absolute; top: 18%; right: 6%; width: 130px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* SECTION HEADERS */
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 80px; }
+    @media (max-width: 860px) { .section-header { grid-template-columns: 1fr; gap: 24px; } }
+    .section-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.02em; color: var(--purple); margin: 0; font-variation-settings: "opsz" 144; }
+    .section-sub { font-size: 17px; line-height: 1.6; color: var(--ink); max-width: 460px; margin: 0; }
+
+    /* WHAT IS — beginner education */
+    .what-is { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+    .what-is-doodle { position: absolute; top: 8%; right: 5%; width: 110px; opacity: 0.4; }
+    @media (max-width: 960px) { .what-is-doodle { display: none; } }
+    .what-is-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media (max-width: 860px) { .what-is-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .what-is h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--purple); margin: 0 0 24px; }
+    .what-is p { font-size: 17.5px; line-height: 1.7; margin: 0 0 16px; }
+
+    /* Mock AI chat window */
+    .ai-mock { background: var(--cream-bright); border: 1px solid var(--line-strong); border-radius: 12px; padding: 24px; box-shadow: 0 24px 48px -24px rgba(50,11,53,0.2); }
+    .ai-mock-head { display: flex; align-items: center; gap: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+    .ai-mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .ai-mock-dot.r { background: #d4733a; opacity: 0.7; }
+    .ai-mock-dot.y { background: #c8a83d; opacity: 0.7; }
+    .ai-mock-dot.g { background: #4a8053; opacity: 0.7; }
+    .ai-mock-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple-soft); margin-left: auto; opacity: 0.7; }
+    .ai-q { font-family: var(--mono); font-size: 13px; color: var(--purple); padding: 12px 14px; background: rgba(50,11,53,0.05); border-radius: 6px; margin-bottom: 16px; }
+    .ai-q::before { content: '> '; opacity: 0.5; }
+    .ai-a { font-size: 15.5px; line-height: 1.65; color: var(--ink); }
+    .ai-a strong { color: var(--purple); font-weight: 600; }
+    .ai-a .highlight { background: var(--warning); color: var(--cream); padding: 0 4px; border-radius: 2px; font-weight: 500; }
+    .ai-a .missing { background: rgba(212,115,58,0.15); color: var(--warning); padding: 2px 6px; border-radius: 2px; font-style: italic; font-weight: 500; border: 1px dashed var(--warning); }
+
+    /* THE FOUR SURFACES */
+    .surfaces { padding: var(--section-y) 0; position: relative; }
+    .surfaces-doodle { position: absolute; left: 4%; top: 14%; width: 80px; opacity: 0.4; }
+    @media (max-width: 960px) { .surfaces-doodle { display: none; } }
+    .surfaces-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); margin-top: 60px; }
+    @media (max-width: 860px) { .surfaces-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .surfaces-grid { grid-template-columns: 1fr; } }
+    .surface { padding: 36px 28px; border-right: 1px solid var(--line); transition: background 0.4s var(--ease); }
+    .surface:last-child { border-right: none; }
+    @media (max-width: 860px) {
+      .surface:nth-child(2n) { border-right: none; }
+      .surface:nth-child(1), .surface:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 480px) {
+      .surface { border-right: none; border-bottom: 1px solid var(--line); }
+      .surface:last-child { border-bottom: none; }
+    }
+    .surface:hover { background: var(--cream-bright); }
+    .surface-icon { width: 40px; height: 40px; margin-bottom: 24px; }
+    .surface-name { font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--purple); margin: 0 0 4px; line-height: 1.1; letter-spacing: -0.005em; }
+    .surface-handle { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.7; margin-bottom: 18px; }
+    .surface-body { font-size: 14.5px; line-height: 1.55; opacity: 0.82; margin: 0; }
+
+    /* WHAT WE DO — 4 services within service */
+    .does { padding: var(--section-y) 0; background: var(--purple); color: var(--cream); position: relative; overflow: hidden; }
+    .does::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(240,233,199,0.06), transparent 30%), radial-gradient(circle at 80% 70%, rgba(240,233,199,0.05), transparent 35%); pointer-events: none; }
+    .does .section-h2 { color: var(--cream); }
+    .does .section-sub { color: var(--cream); opacity: 0.85; }
+    .does-floating { position: absolute; top: 10%; right: 6%; width: 110px; }
+    @media (max-width: 960px) { .does-floating { display: none; } }
+    .does-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); }
+    @media (max-width: 720px) { .does-grid { grid-template-columns: 1fr; } }
+    .does-item { padding: 48px 36px; border-right: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); position: relative; }
+    .does-grid > .does-item:nth-child(2n) { border-right: none; }
+    .does-grid > .does-item:nth-last-child(-n+2) { border-bottom: none; }
+    @media (max-width: 720px) {
+      .does-item { border-right: none; }
+      .does-grid > .does-item:nth-last-child(-n+1) { border-bottom: none; }
+    }
+    .does-num { font-family: var(--serif); font-style: italic; font-size: 48px; line-height: 1; color: var(--cream); opacity: 0.6; margin-bottom: 20px; font-weight: 300; }
+    .does-name { font-family: var(--serif); font-weight: 500; font-size: 30px; color: var(--cream); margin: 0 0 8px; line-height: 1.1; letter-spacing: -0.005em; }
+    .does-aka { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--cream); opacity: 0.55; margin: 0 0 20px; }
+    .does-body { font-size: 15.5px; line-height: 1.65; color: var(--cream); opacity: 0.82; margin: 0 0 24px; max-width: 480px; }
+    .does-list { list-style: none; padding: 0; margin: 0; }
+    .does-list li { font-size: 14px; line-height: 1.5; color: var(--cream); opacity: 0.78; padding: 6px 0 6px 18px; position: relative; }
+    .does-list li::before { content: '→'; position: absolute; left: 0; opacity: 0.6; }
+
+    /* HONEST EXPECTATIONS */
+    .expect { padding: var(--section-y) 0; }
+    .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; }
+    @media (max-width: 720px) { .expect-grid { grid-template-columns: 1fr; } }
+    .expect-card { padding: 36px; border-radius: 8px; border: 1px solid var(--line); background: var(--cream-bright); }
+    .expect-card.hot { border-color: var(--warning); background: rgba(212,115,58,0.05); }
+    .expect-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .expect-icon { width: 32px; height: 32px; }
+    .expect-icon.cross path { stroke: var(--warning); }
+    .expect-card-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); }
+    .expect-card.hot .expect-card-title { color: var(--warning); }
+    .expect-card h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; color: var(--purple); margin: 0 0 12px; line-height: 1.2; }
+    .expect-card p { font-size: 15.5px; line-height: 1.65; margin: 0 0 12px; }
+    .expect-card p:last-child { margin-bottom: 0; }
+
+    /* PROCESS — same as Link Building */
+    .process { padding: var(--section-y) 0; background: var(--cream-bright); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+    .process-doodle { position: absolute; right: 5%; bottom: 14%; width: 110px; opacity: 0.4; }
+    @media (max-width: 960px) { .process-doodle { display: none; } }
+    .process-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+    @media (max-width: 860px) { .process-flow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .process-flow { grid-template-columns: 1fr; } }
+    .flow-step { position: relative; padding-top: 32px; border-top: 1px solid var(--line-strong); }
+    .flow-num { font-family: var(--serif); font-style: italic; font-size: 48px; color: var(--purple); line-height: 1; margin-bottom: 16px; }
+    .flow-title { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); margin: 0 0 12px; line-height: 1.2; }
+    .flow-body { font-size: 14.5px; line-height: 1.6; opacity: 0.85; margin: 0; }
+    .flow-arrow { position: absolute; right: -22px; top: 56px; width: 18px; height: 12px; opacity: 0.5; }
+    .flow-arrow path, .flow-arrow polyline { fill: none; stroke: var(--purple-soft); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 860px) { .flow-arrow { display: none; } }
+
+    /* CASES */
+    .cases { padding: var(--section-y) 0; }
+    .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    @media (max-width: 860px) { .cases-grid { grid-template-columns: 1fr; } }
+    .case-card { background: var(--cream-bright); border: 1px solid var(--line); border-radius: 8px; padding: 36px; transition: all 0.4s var(--ease); display: flex; flex-direction: column; }
+    .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(50,11,53,0.18); border-color: var(--purple); }
+    .case-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); padding: 6px 12px; background: rgba(50,11,53,0.06); border-radius: 100px; align-self: flex-start; margin-bottom: 24px; }
+    .case-name { font-family: var(--serif); font-weight: 500; font-size: 30px; color: var(--purple); margin: 0 0 8px; }
+    .case-stat-row { display: flex; align-items: baseline; gap: 24px; margin: 24px 0 16px; flex-wrap: wrap; }
+    .case-stat { font-family: var(--serif); font-weight: 300; font-size: 64px; line-height: 0.9; color: var(--purple); letter-spacing: -0.03em; font-variation-settings: "opsz" 144; }
+    .case-stat-label { font-size: 13px; opacity: 0.7; max-width: 160px; }
+    .case-cap { font-size: 15px; line-height: 1.55; opacity: 0.82; margin: 0 0 24px; }
+    .case-link { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; align-self: flex-start; margin-top: auto; transition: gap 0.3s var(--ease); display: inline-flex; align-items: center; gap: 8px; }
+    .case-link:hover { gap: 14px; }
+
+    /* OTHER SERVICES */
+    .other { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .other-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    @media (max-width: 720px) { .other-grid { grid-template-columns: 1fr; } }
+    .other-card { padding: 40px 36px; border: 1px solid var(--line-strong); border-radius: 8px; transition: all 0.4s var(--ease); background: var(--cream-bright); }
+    .other-card:hover { background: var(--purple); transform: translateY(-3px); }
+    .other-card:hover .other-num, .other-card:hover .other-title, .other-card:hover .other-body, .other-card:hover .other-cta { color: var(--cream); }
+    .other-card:hover .other-cta { border-color: var(--cream); }
+    .other-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--purple-soft); opacity: 0.75; margin-bottom: 16px; transition: color 0.3s var(--ease); text-transform: uppercase; }
+    .other-title { font-family: var(--serif); font-weight: 500; font-size: 32px; color: var(--purple); margin: 0 0 16px; line-height: 1.1; transition: color 0.3s var(--ease); }
+    .other-body { font-size: 15.5px; line-height: 1.6; opacity: 0.82; margin: 0 0 24px; transition: color 0.3s var(--ease); }
+    .other-cta { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; transition: color 0.3s var(--ease); }
+
+    /* FAQ */
+    .faq { padding: var(--section-y) 0; }
+    .faq-list { margin-top: 60px; border-top: 1px solid var(--line-strong); max-width: 920px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; text-align: left; padding: 28px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; cursor: pointer; }
+    .faq-q:hover { opacity: 0.7; }
+    .faq-q-text { font-family: var(--serif); font-weight: 500; font-size: clamp(18px, 2vw, 24px); color: var(--purple); line-height: 1.3; }
+    .faq-toggle { font-family: var(--serif); font-size: 28px; color: var(--purple); flex-shrink: 0; transition: transform 0.4s var(--ease); }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease), padding 0.4s var(--ease); }
+    .faq-item.open .faq-a { max-height: 500px; padding: 0 0 32px; }
+    .faq-a-text { font-size: 15.5px; line-height: 1.7; opacity: 0.85; max-width: 760px; margin: 0; }
+
+    /* FINAL */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6.5vw, 88px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final-sub { font-size: 18px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; }
+
+    /* FOOTER */
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wrap crumb">
+    <div class="crumb-list">
+      <a href="/">Home</a><span class="crumb-sep">/</span>
+      <a href="/services">Services</a><span class="crumb-sep">/</span>
+      <span>AI &amp; LLM Placement</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <!-- Floating compass / AI orb -->
+    <svg class="hero-floating doodle floating" viewBox="0 0 130 130" aria-hidden="true">
+      <circle cx="65" cy="65" r="55" stroke-width="1.4"/>
+      <circle cx="65" cy="65" r="32" stroke-width="1.4"/>
+      <g transform="translate(65 65)" stroke-width="1.4">
+        <line x1="0" y1="-50" x2="0" y2="50"/>
+        <line x1="-50" y1="0" x2="50" y2="0"/>
+        <line x1="-35" y1="-35" x2="35" y2="35"/>
+        <line x1="35" y1="-35" x2="-35" y2="35"/>
+      </g>
+      <circle cx="65" cy="65" r="4" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Service · No. 02 · AI &amp; LLM Placement
+      </div>
+      <h1>Your brand.<br />Inside <em class="underline">the AI.</em></h1>
+      <p class="hero-subhead">Get cited inside ChatGPT, Gemini, Claude, and Perplexity — before your competitors realise the search box has moved.</p>
+      <p class="hero-body">Generative Engine Optimisation (GEO) is what SEO becomes when half the searches happen inside an AI assistant. We engineer the citations, mentions, and entity signals that make LLMs name your brand in the answer — not your competitor's.</p>
+      <div class="hero-ctas">
+        <a href="/contact?intent=ai-audit" class="btn btn-primary btn-arrow">Run a free AI visibility check</a>
+        <a href="#what-is" class="btn btn-ghost">Wait, what is this?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS — beginner education with AI mock -->
+  <section class="what-is" id="what-is">
+    <svg class="what-is-doodle doodle floating-2" viewBox="0 0 110 110" aria-hidden="true">
+      <circle cx="55" cy="55" r="45"/>
+      <path d="M40 50 a4 4 0 0 1 4 -4 h6 v3 h-6 a1 1 0 0 0 0 2 h6 v3 h-6 a4 4 0 0 1 -4 -4z M55 46 h6 a4 4 0 0 1 0 8 h-6 v-3 h6 a1 1 0 0 0 0 -2 h-6 z"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="what-is-grid">
+        <div>
+          <span class="eyebrow" style="display: block; margin-bottom: 24px;">— What this actually is, plainly</span>
+          <h2>When someone asks ChatGPT a question, three brands get named.</h2>
+          <p>You either own one of those three slots, or you don't exist for that buyer that day.</p>
+          <p>AI placement is the work of becoming one of those three brands. We do it through the same things AI tools were trained to value: real citations, strong entity profiles, structured content, and consistent mentions across the open web.</p>
+          <p>It's not a hack. It's not prompt engineering. It's authority — done in a way the next decade of search rewards.</p>
+        </div>
+
+        <!-- Mock AI chat -->
+        <div class="ai-mock">
+          <div class="ai-mock-head">
+            <span class="ai-mock-dot r"></span>
+            <span class="ai-mock-dot y"></span>
+            <span class="ai-mock-dot g"></span>
+            <span class="ai-mock-title">ChatGPT · 2026</span>
+          </div>
+          <div class="ai-q">What's the best dropshipping platform for India-based founders?</div>
+          <p class="ai-a">For Indian dropshippers, three platforms come up most consistently: <strong><span class="highlight">Spocket</span></strong> (strong supplier network, AI-curated catalogue), <strong>Shopify</strong>, and <strong>WinningHunter</strong>. <span class="missing">Your brand</span> doesn't appear in this answer — yet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FOUR SURFACES -->
+  <section class="surfaces">
+    <svg class="surfaces-doodle doodle floating" viewBox="0 0 80 80" aria-hidden="true">
+      <circle cx="40" cy="40" r="30"/>
+      <path d="M40 16 v48 M16 40 h48"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">The four surfaces<br />that matter in 2026.</h2>
+        <p class="section-sub">Together, they answer over 1.2 billion questions a day. Each one ranks brands differently. We optimise for all four — because your customers don't pick favourites.</p>
+      </div>
+
+      <div class="surfaces-grid">
+        <div class="surface">
+          <svg class="surface-icon doodle" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="14"/>
+            <path d="M14 20 a3 3 0 0 1 3 -3 h6 v3 h-6 a1 1 0 0 0 0 2 h6 v3 h-6 a3 3 0 0 1 -3 -3z" fill="#320b35" stroke="none"/>
+          </svg>
+          <h3 class="surface-name">ChatGPT</h3>
+          <div class="surface-handle">— 800M+ weekly users</div>
+          <p class="surface-body">The default AI assistant for English-speaking buyers. Citations live inside long-form answers and the new shopping surfaces.</p>
+        </div>
+        <div class="surface">
+          <svg class="surface-icon doodle" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 6 L36 20 L20 34 L4 20 Z"/>
+            <circle cx="20" cy="20" r="5" fill="#320b35" stroke="none"/>
+          </svg>
+          <h3 class="surface-name">Gemini</h3>
+          <div class="surface-handle">— Inside Android &amp; Google</div>
+          <p class="surface-body">Powers AI Overviews on Google, and ships natively on every Android phone. The largest single distribution surface for AI answers.</p>
+        </div>
+        <div class="surface">
+          <svg class="surface-icon doodle" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="6" y="10" width="28" height="22" rx="2"/>
+            <path d="M14 18 L26 18 M14 22 L24 22 M14 26 L26 26"/>
+          </svg>
+          <h3 class="surface-name">Claude</h3>
+          <div class="surface-handle">— Enterprise &amp; technical</div>
+          <p class="surface-body">The AI most B2B buyers and engineers default to. Cites carefully — when it names a brand, it usually wins the deal.</p>
+        </div>
+        <div class="surface">
+          <svg class="surface-icon doodle" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="14"/>
+            <line x1="29" y1="29" x2="36" y2="36" stroke-width="2.2"/>
+          </svg>
+          <h3 class="surface-name">Perplexity</h3>
+          <div class="surface-handle">— Citation-first search</div>
+          <p class="surface-body">Replaces Google for research-heavy buyers. Every answer shows its sources — making it the highest-trust AI surface to be cited on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO — 4 services within service -->
+  <section class="does">
+    <svg class="does-floating doodle cream spinning" viewBox="0 0 110 110" aria-hidden="true">
+      <circle cx="55" cy="55" r="48"/>
+      <g transform="translate(55 55)">
+        <line x1="0" y1="-36" x2="0" y2="36"/>
+        <line x1="-36" y1="0" x2="36" y2="0"/>
+        <line x1="-25" y1="-25" x2="25" y2="25"/>
+        <line x1="25" y1="-25" x2="-25" y2="25"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <span class="eyebrow" style="display: block; margin-bottom: 24px; color: var(--cream); opacity: 0.6;">— What's actually inside this service</span>
+      <div class="section-header" style="margin-bottom: 60px;">
+        <h2 class="section-h2">Four levers,<br />pulled in order.</h2>
+        <p class="section-sub">AI placement isn't one tactic. It's four interlocking workstreams. We run all of them, every month, for every client.</p>
+      </div>
+
+      <div class="does-grid">
+        <div class="does-item">
+          <div class="does-num">i.</div>
+          <h3 class="does-name">LLM Mention Audit</h3>
+          <p class="does-aka">"Where am I — and where am I not?"</p>
+          <p class="does-body">A monthly snapshot of which prompts mention you, which mention competitors, and where you're absent. We test 200+ prompts per industry across all four AI surfaces.</p>
+          <ul class="does-list">
+            <li>Brand mention frequency by surface</li>
+            <li>Competitor share-of-voice</li>
+            <li>Sentiment + accuracy of citations</li>
+            <li>Prompt categories you're losing</li>
+          </ul>
+        </div>
+        <div class="does-item">
+          <div class="does-num">ii.</div>
+          <h3 class="does-name">Generative Engine Optimisation</h3>
+          <p class="does-aka">"GEO. Like SEO, but for the new search box."</p>
+          <p class="does-body">We restructure your content, schema, and on-page signals so AI crawlers can extract, summarise, and cite your pages cleanly. Same craft as SEO. Different judges.</p>
+          <ul class="does-list">
+            <li>Schema and structured data</li>
+            <li>Question-led content architecture</li>
+            <li>Llms.txt, robots, and AI-bot rules</li>
+            <li>FAQ + How-To rewrites</li>
+          </ul>
+        </div>
+        <div class="does-item">
+          <div class="does-num">iii.</div>
+          <h3 class="does-name">Citation Engineering</h3>
+          <p class="does-aka">"Earning the third-party mentions LLMs are trained on."</p>
+          <p class="does-body">LLMs cite brands that are mentioned consistently across the open web. We engineer placements on the high-trust sources AI tools weight heaviest: tier-1 press, listicles, comparison pages, expert directories.</p>
+          <ul class="does-list">
+            <li>Tier-1 press mentions</li>
+            <li>"Best of [X]" listicle insertions</li>
+            <li>Comparison page placements</li>
+            <li>Q&amp;A platforms (Reddit, Quora)</li>
+          </ul>
+        </div>
+        <div class="does-item">
+          <div class="does-num">iv.</div>
+          <h3 class="does-name">Brand Entity Strengthening</h3>
+          <p class="does-aka">"Telling Google's knowledge graph who you are."</p>
+          <p class="does-body">A clean Wikipedia entry, a verified Wikidata entity, consistent G-Knowledge Panel data, and a strong Google Business presence — these are the entity signals every AI surface reads from.</p>
+          <ul class="does-list">
+            <li>Wikipedia &amp; Wikidata cleanup</li>
+            <li>Google Knowledge Panel claim</li>
+            <li>Schema entity linking</li>
+            <li>Cross-platform brand consistency</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST EXPECTATIONS -->
+  <section class="expect">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">The honest<br />expectations talk.</h2>
+        <p class="section-sub">AI placement is a real service. It's also a young one. We'd rather you sign up knowing the truth than knowing the pitch.</p>
+      </div>
+
+      <div class="expect-grid">
+        <div class="expect-card">
+          <div class="expect-card-head">
+            <svg class="expect-icon doodle" viewBox="0 0 32 32"><path d="M6 16 L13 23 L26 9" stroke="#320b35" stroke-width="2.4"/></svg>
+            <span class="expect-card-title">— What we will deliver</span>
+          </div>
+          <h3>Visible momentum in 60–120 days.</h3>
+          <p>You'll see the audit baseline in week 2. New citations appearing in week 6–8. Mention frequency climbing meaningfully across at least two AI surfaces by month 3. Real, traceable, screenshot-able results.</p>
+          <p>By month 6, AI citations typically become one of the top 5 traffic / discovery sources for our clients.</p>
+        </div>
+        <div class="expect-card hot">
+          <div class="expect-card-head">
+            <svg class="expect-icon doodle cross" viewBox="0 0 32 32"><line x1="8" y1="8" x2="24" y2="24" stroke-width="2.5"/><line x1="24" y1="8" x2="8" y2="24" stroke-width="2.5"/></svg>
+            <span class="expect-card-title">— What we won't promise</span>
+          </div>
+          <h3>"You'll show up in ChatGPT next week."</h3>
+          <p>Anyone who promises that is either guessing or lying. AI models retrain on cycles. Citations compound through web signals, not buttons. The work we do this month often only surfaces in answers two or three months later.</p>
+          <p>If a vendor pitches you "instant AI ranking," ask for a refund clause. They won't sign it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <svg class="process-doodle doodle floating-2" viewBox="0 0 110 80" aria-hidden="true">
+      <path d="M5 70 Q 30 30, 60 50 T 95 30"/>
+      <polyline points="86,28 95,30 95,40"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Four months<br />from baseline to citations.</h2>
+        <p class="section-sub">The process is the same whether you're a SaaS, a DTC brand, or a service business. The targets change. The motion doesn't.</p>
+      </div>
+
+      <div class="process-flow">
+        <div class="flow-step">
+          <div class="flow-num">i.</div>
+          <h3 class="flow-title">Baseline Audit</h3>
+          <p class="flow-body">We test 200+ buyer-intent prompts across ChatGPT, Gemini, Claude, and Perplexity. We document where you appear, where competitors win, and where the gaps are.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">ii.</div>
+          <h3 class="flow-title">GEO &amp; Entity Setup</h3>
+          <p class="flow-body">We restructure your highest-priority pages for AI extraction. We file Wikipedia + Wikidata cleanups. We make your brand entity unambiguous.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iii.</div>
+          <h3 class="flow-title">Citation Building</h3>
+          <p class="flow-body">We earn placements on the high-trust sources LLMs were trained on — tier-1 press, comparison pages, expert listicles, structured Q&amp;A.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iv.</div>
+          <h3 class="flow-title">Track &amp; Compound</h3>
+          <p class="flow-body">Monthly re-audits show share-of-voice climbing. We adjust the next month's plays based on what AI surfaces are rewarding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="cases">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Two clients,<br />24,000+ AI citations.</h2>
+        <p class="section-sub">Both engagements started before "GEO" was a real category. Both clients now get cited inside ChatGPT, Gemini, and Perplexity dozens of times a day.</p>
+      </div>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <span class="case-tag">Dropshipping SaaS · Global</span>
+          <h3 class="case-name">Spocket</h3>
+          <div class="case-stat-row">
+            <div class="case-stat">23K</div>
+            <div class="case-stat-label">AI citations earned across all four surfaces</div>
+          </div>
+          <p class="case-cap">A 5× organic traffic uplift was the original goal. AI citations became the unexpected bonus — and now drive nearly half of new account discovery.</p>
+          <a href="https://rimosubham.github.io/info/spocket-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+        </article>
+        <article class="case-card">
+          <span class="case-tag">E-com Tools · Global</span>
+          <h3 class="case-name">WinningHunter</h3>
+          <div class="case-stat-row">
+            <div class="case-stat">259</div>
+            <div class="case-stat-label">AI citations after 4 months of cleanup</div>
+          </div>
+          <p class="case-cap">Started with a backlink profile full of toxic spam. We cleaned it, doubled DR, and AI surfaces started citing the brand within the first 90 days.</p>
+          <a href="https://rimosubham.github.io/info/winninghunter-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="other">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Pairs well with.</h2>
+        <p class="section-sub">AI placement compounds when stacked on top of real authority. Here's the rest of the stack.</p>
+      </div>
+      <div class="other-grid">
+        <a href="/services/link-building" class="other-card">
+          <div class="other-num">— Service No. 01</div>
+          <h3 class="other-title">Link Building</h3>
+          <p class="other-body">The base layer. AI tools cite brands that are already cited across the open web. No links, no LLM mentions.</p>
+          <span class="other-cta">Explore link building →</span>
+        </a>
+        <a href="/services/digital-pr" class="other-card">
+          <div class="other-num">— Service No. 03</div>
+          <h3 class="other-title">Digital PR</h3>
+          <p class="other-body">Press placements that train the next generation of LLMs. Forbes, Mint, TechCrunch — these are the citations that compound.</p>
+          <span class="other-cta">See our PR work →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">AI placement<br />questions, answered.</h2>
+        <p class="section-sub">The ones we get on every first call.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is "AI placement" actually a real service, or a fad?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">It's real. The technical name — Generative Engine Optimisation — was coined in academic papers in 2023 and now has dedicated tools, agencies, and benchmarks. The fad is "I'll prompt-engineer your brand into ChatGPT for $200." That's not what this is.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How is this different from traditional SEO?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">SEO optimises for blue links. AI placement optimises for being mentioned inside an answer. Different output, overlapping inputs. Schema, entity profiles, and high-trust citations matter more for AI; backlinks and on-page keywords matter more for traditional SEO. We do both — they reinforce each other.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Can you guarantee I'll show up in ChatGPT?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">No. And neither can anyone else, honestly. What we can guarantee: a measurable increase in mention frequency across at least two of the four major AI surfaces within 120 days, or we extend the engagement at no cost.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How do you actually measure AI citations?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">We run a fixed prompt set (200+ buyer-intent queries per industry) every month across all four surfaces, log every brand mention with screenshots, and track share-of-voice over time. You see a dashboard. You see the receipts.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">My brand is brand-new. Can AI placement work?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">It can — but slower. New brands need 4–6 months of citation building before AI surfaces have enough signal to consistently mention them. If you're pre-launch or sub-12-months old, we'll often suggest pairing with link building first.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is this available white-label?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes. AI placement is the fastest-growing line in our white-label business — most agencies don't have the in-house capability for it yet. Full NDAs, your branding, your reports. <a href="/white-label" style="color: var(--purple); border-bottom: 1px solid var(--purple);">Details on the white-label page</a>.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap final-inner">
+      <h2>Find out where you<br />actually rank in AI.</h2>
+      <p class="final-sub">A free baseline audit across ChatGPT, Gemini, Claude, and Perplexity. We'll show you which prompts mention you, which mention competitors, and where the biggest wins are sitting.</p>
+      <a href="/contact?intent=ai-audit" class="btn btn-cream btn-arrow">Run my free AI audit</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul>
+          <li><a href="/services/link-building">Link Building</a></li>
+          <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+          <li><a href="/services/digital-pr">Digital PR</a></li>
+          <li><a href="/white-label">White Label</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/free-tools">Free Tools</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/refund">Refund</a></li>
+          <li><a href="/anti-spam">Anti-Spam</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.surface, .does-item, .expect-card, .flow-step, .case-card, .other-card, .faq-item').forEach(el => {
+      el.classList.add('reveal'); io.observe(el);
+    });
+  </script>
+</body>
+</html>
