@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Links Are Spam | White-Hat Link Building, AI Placement & Digital PR</title>
+  <meta name="description" content="Real backlinks, AI citations, and press placements — done the white-hat way. White-label link building for agencies, freelancers, and brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ========== TOKENS ========== */
+    :root {
+      --purple: #320b35;
+      --purple-deep: #1f0721;
+      --purple-soft: #4b1a4f;
+      --purple-glow: #6b2370;
+      --cream: #f0e9c7;
+      --cream-dim: #e8dfb6;
+      --cream-bright: #f7f1d6;
+      --ink: #1a0a1d;
+      --line: rgba(50, 11, 53, 0.18);
+      --line-strong: rgba(50, 11, 53, 0.5);
+      --warning: #d4733a;
+
+      --serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+
+      --max: 1280px;
+      --pad: clamp(20px, 5vw, 64px);
+      --section-y: clamp(80px, 12vw, 160px);
+
+      --radius: 4px;
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* ========== RESET ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ========== UTILITIES ========== */
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--purple);
+      opacity: 0.7;
+    }
+    .serif { font-family: var(--serif); }
+    .italic { font-style: italic; }
+
+    /* ========== DOODLES ========== */
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline {
+      fill: none;
+      stroke: var(--purple);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    .doodle-fill path { fill: var(--purple); stroke: none; }
+    .draw-on path, .draw-on line, .draw-on polyline {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawIn 2s var(--ease) forwards;
+      animation-delay: 0.6s;
+    }
+    @keyframes drawIn {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover {
+      background: var(--purple-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -10px rgba(50, 11, 53, 0.45);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--purple);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-ghost:hover {
+      border-color: var(--purple);
+      background: rgba(50, 11, 53, 0.04);
+    }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover {
+      background: var(--cream-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.3);
+    }
+    .btn-arrow::after {
+      content: '→';
+      transition: transform 0.3s var(--ease);
+    }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* ========== NAV ========== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(240, 233, 199, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--purple);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-mark {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--purple);
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 1px;
+      background: var(--purple);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      padding: clamp(60px, 10vw, 130px) 0 clamp(60px, 10vw, 120px);
+      overflow: hidden;
+    }
+    .hero-bg-orb {
+      position: absolute;
+      top: 15%; right: -15%;
+      width: 720px; height: 720px;
+      background: radial-gradient(circle, rgba(50, 11, 53, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-bg-orb-2 {
+      position: absolute;
+      bottom: -10%; left: -8%;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(50, 11, 53, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .hero-eyebrow .pulse {
+      width: 8px; height: 8px;
+      background: var(--purple);
+      border-radius: 50%;
+      animation: pulse 2.4s var(--ease) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    .hero-h1-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(64px, 11vw, 168px);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      color: var(--purple);
+      margin: 0 0 20px;
+      font-variation-settings: "opsz" 144;
+      position: relative;
+    }
+    .hero h1 .word-spam {
+      position: relative;
+      display: inline-block;
+    }
+    .squiggle-under {
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 100%;
+      height: 18px;
+    }
+    .stamp-rejected {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+      transform: rotate(-12deg);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--warning);
+      border: 2px solid var(--warning);
+      padding: 8px 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.85;
+      animation: float 7s ease-in-out infinite;
+    }
+    @media (max-width: 720px) {
+      .stamp-rejected { display: none; }
+    }
+    .hero-subhead {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--purple-soft);
+      line-height: 1.2;
+      margin: 0 0 36px;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-subhead-arrow {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 50px;
+    }
+    @media (max-width: 720px) { .hero-subhead-arrow { display: none; } }
+    .hero-body {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 620px;
+      margin: 0 0 44px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+    .hero-trust {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-trust-item {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--purple);
+      opacity: 0.7;
+    }
+    .hero-trust-divider {
+      width: 1px; height: 12px;
+      background: var(--line-strong);
+    }
+    .hero-floating-asterisk {
+      position: absolute;
+      top: 18%;
+      right: 8%;
+      width: 80px;
+      height: 80px;
+    }
+    @media (max-width: 960px) { .hero-floating-asterisk { display: none; } }
+
+    /* ========== SECTION DIVIDERS — DOODLE ORNAMENTS ========== */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 24px 0;
+    }
+    .ornament-line {
+      flex: 0 0 60px;
+      height: 1px;
+      background: var(--line-strong);
+    }
+    .ornament-mark { width: 24px; height: 24px; }
+
+    /* ========== SECTION 2 — HOOK ========== */
+    .hook {
+      padding: var(--section-y) 0;
+      text-align: center;
+      position: relative;
+    }
+    .hook-doodle-left {
+      position: absolute;
+      left: 6%;
+      top: 30%;
+      width: 100px;
+      opacity: 0.4;
+    }
+    .hook-doodle-right {
+      position: absolute;
+      right: 7%;
+      bottom: 25%;
+      width: 90px;
+      opacity: 0.4;
+      animation: float 9s ease-in-out infinite;
+    }
+    @media (max-width: 960px) { .hook-doodle-left, .hook-doodle-right { display: none; } }
+    .hook-eyebrow { margin-bottom: 36px; display: inline-block; }
+    .hook-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(26px, 3.4vw, 42px);
+      line-height: 1.35;
+      color: var(--purple);
+      max-width: 920px;
+      margin: 0 auto;
+      letter-spacing: -0.005em;
+    }
+    .hook-text .accent { color: var(--purple-soft); }
+    .hook-circle {
+      position: relative;
+      display: inline-block;
+    }
+    .hook-circle-svg {
+      position: absolute;
+      top: -12%;
+      left: -8%;
+      width: 116%;
+      height: 130%;
+    }
+
+    /* ========== SECTION 3 — BEGINNER CARDS ========== */
+    .beginners {
+      padding: var(--section-y) 0;
+      background: var(--cream-dim);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .beginners-doodle {
+      position: absolute;
+      top: 8%;
+      right: 4%;
+      width: 120px;
+      opacity: 0.5;
+    }
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 80px;
+      position: relative;
+    }
+    @media (max-width: 860px) {
+      .section-header { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .section-h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--purple);
+      margin: 0;
+      font-variation-settings: "opsz" 144;
+    }
+    .section-sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 460px;
+      margin: 0;
+    }
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 860px) {
+      .card-row { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--cream-bright);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 40px 36px;
+      transition: all 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-doodle {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 70px;
+      opacity: 0.18;
+      transition: opacity 0.4s var(--ease);
+    }
+    .card:hover .card-doodle { opacity: 0.4; }
+    .card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(50, 11, 53, 0.18);
+    }
+    .card-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--purple-soft);
+      margin-bottom: 24px;
+      opacity: 0.7;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--purple);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .card-body {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0;
+      opacity: 0.82;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========== SECTION — AI FOMO ========== */
+    .fomo {
+      padding: var(--section-y) 0;
+      background: var(--purple);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .fomo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(240, 233, 199, 0.06) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(240, 233, 199, 0.05) 0%, transparent 35%);
+      pointer-events: none;
+    }
+    .fomo-floating-orb {
+      position: absolute;
+      top: 8%;
+      right: 5%;
+      width: 90px;
+    }
+    .fomo-doodle-bottom {
+      position: absolute;
+      bottom: 6%;
+      left: 5%;
+      width: 110px;
+      opacity: 0.35;
+    }
+    @media (max-width: 960px) { .fomo-floating-orb, .fomo-doodle-bottom { display: none; } }
+    .fomo .eyebrow { color: var(--cream); opacity: 0.6; }
+    .fomo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(240, 233, 199, 0.25);
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 36px;
+    }
+    .fomo-tag-dot {
+      width: 6px; height: 6px;
+      background: var(--warning);
+      border-radius: 50%;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .fomo h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: var(--cream);
+      margin: 0 0 28px;
+      max-width: 1000px;
+      font-variation-settings: "opsz" 144;
+    }
+    .fomo h2 em {
+      font-style: italic;
+      color: var(--cream);
+      position: relative;
+    }
+    .fomo h2 em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.05em;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--warning);
+      opacity: 0.55;
+      z-index: -1;
+    }
+    .fomo-lede {
+      font-size: 19px;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 0 64px;
+      color: var(--cream);
+      opacity: 0.85;
+    }
+
+    .fomo-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(240, 233, 199, 0.2);
+      border-bottom: 1px solid rgba(240, 233, 199, 0.2);
+      margin-bottom: 72px;
+    }
+    @media (max-width: 720px) { .fomo-stats { grid-template-columns: 1fr; } }
+    .fomo-stat {
+      padding: 48px 32px;
+      border-right: 1px solid rgba(240, 233, 199, 0.2);
+    }
+    .fomo-stat:last-child { border-right: none; }
+    @media (max-width: 720px) {
+      .fomo-stat { border-right: none; border-bottom: 1px solid rgba(240, 233, 199, 0.2); }
+      .fomo-stat:last-child { border-bottom: none; }
+    }
+    .fomo-stat-num {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(56px, 8vw, 96px);
+      line-height: 0.9;
+      color: var(--cream);
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      font-variation-settings: "opsz" 144;
+    }
+    .fomo-stat-num .unit {
+      font-size: 0.55em;
+      font-style: italic;
+      color: var(--cream);
+      opacity: 0.7;
+    }
+    .fomo-stat-label {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--cream);
+      opacity: 0.75;
+      max-width: 220px;
+    }
+
+    /* THEN VS NOW visual */
+    .then-now {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 860px) {
+      .then-now { grid-template-columns: 1fr; }
+    }
+    .then-now-card {
+      padding: 32px;
+      border: 1px solid rgba(240, 233, 199, 0.25);
+      border-radius: 8px;
+      background: rgba(240, 233, 199, 0.04);
+    }
+    .then-now-card.faded { opacity: 0.55; }
+    .then-now-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+    .then-now-flow {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--cream);
+      letter-spacing: -0.005em;
+    }
+    .then-now-flow .step-arrow {
+      display: inline-block;
+      margin: 0 8px;
+      opacity: 0.5;
+    }
+    .then-now-flow .you {
+      font-style: italic;
+      color: var(--warning);
+      border-bottom: 1px dashed var(--warning);
+    }
+    .then-now-arrow {
+      width: 60px;
+      color: var(--cream);
+      opacity: 0.6;
+    }
+    @media (max-width: 860px) { .then-now-arrow { transform: rotate(90deg); margin: 0 auto; } }
+
+    .fomo-punchline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.25;
+      color: var(--cream);
+      max-width: 880px;
+      margin: 0 0 40px;
+      letter-spacing: -0.01em;
+    }
+    .fomo-punchline .strike {
+      position: relative;
+      color: var(--cream);
+      opacity: 0.55;
+    }
+    .fomo-punchline .strike::after {
+      content: '';
+      position: absolute;
+      top: 55%;
+      left: -2%;
+      width: 104%;
+      height: 2px;
+      background: var(--warning);
+      transform: rotate(-2deg);
+    }
+    .fomo-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ========== SECTION — SERVICES ========== */
+    .services {
+      padding: var(--section-y) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .services-doodle {
+      position: absolute;
+      left: 3%;
+      top: 12%;
+      width: 80px;
+      opacity: 0.4;
+    }
+    @media (max-width: 960px) { .services-doodle { display: none; } }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    @media (max-width: 860px) { .service-grid { grid-template-columns: 1fr; } }
+    .service {
+      padding: 56px 40px;
+      border-right: 1px solid var(--line);
+      transition: background 0.4s var(--ease);
+      cursor: pointer;
+      position: relative;
+    }
+    .service:last-child { border-right: none; }
+    @media (max-width: 860px) {
+      .service { border-right: none; border-bottom: 1px solid var(--line); }
+      .service:last-child { border-bottom: none; }
+    }
+    .service:hover { background: var(--cream-bright); }
+    .service-icon {
+      width: 44px; height: 44px;
+      margin-bottom: 28px;
+    }
+    .service-num {
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--purple-soft);
+      margin-bottom: 16px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .service-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(32px, 3.5vw, 44px);
+      color: var(--purple);
+      line-height: 1.05;
+      margin: 0 0 24px;
+      letter-spacing: -0.015em;
+    }
+    .service-body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink);
+      opacity: 0.82;
+      margin: 0 0 36px;
+      min-height: 120px;
+    }
+    .service-cta {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--purple);
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--purple);
+      padding-bottom: 4px;
+      transition: gap 0.3s var(--ease);
+    }
+    .service-cta:hover { gap: 14px; }
+
+    /* ========== SECTION — TWO PATHS ========== */
+    .paths {
+      padding: var(--section-y) 0;
+      background: var(--cream-bright);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 80px;
+      border: 1px solid var(--line-strong);
+      background: var(--cream);
+    }
+    @media (max-width: 860px) { .paths-grid { grid-template-columns: 1fr; } }
+    .path {
+      padding: 60px 48px;
+      border-right: 1px solid var(--line);
+      transition: background 0.4s var(--ease);
+      position: relative;
+    }
+    .path:last-child { border-right: none; }
+    @media (max-width: 860px) {
+      .path { border-right: none; border-bottom: 1px solid var(--line); }
+      .path:last-child { border-bottom: none; }
+    }
+    .path:hover { background: var(--cream-dim); }
+    .path-doodle {
+      position: absolute;
+      top: 28px; right: 28px;
+      width: 56px;
+      opacity: 0.35;
+    }
+    .path-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--purple);
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
+    .path-headline {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(34px, 3.6vw, 48px);
+      line-height: 1.05;
+      color: var(--purple);
+      margin: 0 0 24px;
+      letter-spacing: -0.015em;
+    }
+    .path-body {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      opacity: 0.82;
+      margin: 0 0 36px;
+    }
+    .path-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--purple);
+      border-bottom: 1px solid var(--purple);
+      padding-bottom: 4px;
+      transition: gap 0.3s var(--ease);
+    }
+    .path-cta:hover { gap: 16px; }
+
+    /* ========== SECTION — GLOSSARY ========== */
+    .glossary {
+      padding: var(--section-y) 0;
+      position: relative;
+    }
+    .glossary-doodle {
+      position: absolute;
+      right: 5%;
+      top: 14%;
+      width: 110px;
+      opacity: 0.4;
+    }
+    @media (max-width: 960px) { .glossary-doodle { display: none; } }
+    .glossary-list {
+      margin-top: 60px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .glossary-item {
+      display: grid;
+      grid-template-columns: 240px 1fr 40px;
+      gap: 60px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+      transition: background 0.3s var(--ease);
+    }
+    @media (max-width: 720px) {
+      .glossary-item { grid-template-columns: 1fr; gap: 12px; }
+    }
+    .glossary-item:hover {
+      background: rgba(50, 11, 53, 0.025);
+    }
+    .glossary-item:hover .glossary-mark { transform: rotate(45deg); }
+    .glossary-term {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 32px;
+      color: var(--purple);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .glossary-def {
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+    .glossary-def em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--purple-soft);
+      font-size: 17px;
+    }
+    .glossary-mark {
+      width: 24px; height: 24px;
+      transition: transform 0.3s var(--ease);
+    }
+    @media (max-width: 720px) { .glossary-mark { display: none; } }
+    .glossary-cta {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* ========== SECTION — CASE STUDIES ========== */
+    .cases {
+      padding: var(--section-y) 0;
+      background: var(--cream-dim);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .cases-doodle-tl {
+      position: absolute;
+      top: 6%;
+      left: 4%;
+      width: 90px;
+      opacity: 0.4;
+    }
+    .cases-doodle-br {
+      position: absolute;
+      bottom: 8%;
+      right: 5%;
+      width: 110px;
+      opacity: 0.35;
+    }
+    @media (max-width: 960px) { .cases-doodle-tl, .cases-doodle-br { display: none; } }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    @media (max-width: 960px) { .cases-grid { grid-template-columns: 1fr; } }
+    .case-card {
+      background: var(--cream-bright);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 40px 36px;
+      transition: all 0.4s var(--ease);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -20px rgba(50, 11, 53, 0.22);
+      border-color: var(--purple);
+    }
+    .case-card-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple-soft);
+      padding: 6px 12px;
+      background: rgba(50, 11, 53, 0.06);
+      border-radius: 100px;
+      align-self: flex-start;
+      margin-bottom: 28px;
+    }
+    .case-name {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 32px;
+      color: var(--purple);
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+      line-height: 1.05;
+    }
+    .case-name-sub {
+      font-size: 13px;
+      color: var(--purple-soft);
+      opacity: 0.75;
+      margin: 0 0 32px;
+      letter-spacing: 0.02em;
+    }
+    .case-stat-big {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(72px, 9vw, 108px);
+      line-height: 0.9;
+      color: var(--purple);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      font-variation-settings: "opsz" 144;
+    }
+    .case-stat-big .unit {
+      font-size: 0.45em;
+      font-style: italic;
+      color: var(--purple-soft);
+      vertical-align: middle;
+    }
+    .case-stat-caption {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+      opacity: 0.78;
+      margin: 0 0 28px;
+      max-width: 280px;
+    }
+    .case-mini-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+    .case-mini-stat-num {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--purple);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .case-mini-stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-soft);
+      opacity: 0.75;
+    }
+    .case-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink);
+      opacity: 0.85;
+      margin: 0 0 32px;
+      padding-left: 16px;
+      border-left: 2px solid var(--purple-soft);
+    }
+    .case-cta-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .case-link {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--purple);
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--purple);
+      padding-bottom: 3px;
+      transition: gap 0.3s var(--ease);
+    }
+    .case-link:hover { gap: 14px; }
+    .case-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--purple-soft);
+      opacity: 0.55;
+    }
+
+    /* ========== SECTION — HOW WE WORK ========== */
+    .how {
+      padding: var(--section-y) 0;
+      position: relative;
+    }
+    .how-doodle {
+      position: absolute;
+      left: 6%;
+      bottom: 14%;
+      width: 100px;
+      opacity: 0.35;
+    }
+    @media (max-width: 960px) { .how-doodle { display: none; } }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 80px;
+      position: relative;
+    }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+    .step {
+      position: relative;
+      padding-top: 36px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .step-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--purple);
+      margin-bottom: 24px;
+      opacity: 0.92;
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--purple);
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .step-body {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--ink);
+      opacity: 0.82;
+      margin: 0;
+    }
+    .step-connector {
+      position: absolute;
+      top: 50px;
+      right: -32px;
+      width: 24px;
+      height: 16px;
+      color: var(--purple-soft);
+      opacity: 0.5;
+    }
+    @media (max-width: 860px) { .step-connector { display: none; } }
+
+    /* ========== SECTION — FOUNDER ========== */
+    .founder {
+      padding: var(--section-y) 0;
+      background: var(--cream-bright);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .founder-doodle {
+      position: absolute;
+      top: 8%;
+      right: 6%;
+      width: 80px;
+      opacity: 0.45;
+    }
+    @media (max-width: 960px) { .founder-doodle { display: none; } }
+    .founder-inner {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (max-width: 860px) {
+      .founder-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .founder-portrait {
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-soft) 100%);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+    }
+    .founder-portrait::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(240, 233, 199, 0.18), transparent 60%);
+    }
+    .founder-portrait-decor {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      opacity: 0.7;
+    }
+    .founder-portrait-label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--cream);
+      opacity: 0.7;
+      position: relative;
+      z-index: 1;
+    }
+    .founder h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--purple);
+      margin: 0 0 32px;
+    }
+    .founder-text p {
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--ink);
+      margin: 0 0 18px;
+    }
+    .founder-text p:last-of-type { margin-bottom: 28px; }
+    .founder-sig {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--purple-soft);
+    }
+
+    /* ========== SECTION — FAQ ========== */
+    .faq {
+      padding: var(--section-y) 0;
+      position: relative;
+    }
+    .faq-doodle {
+      position: absolute;
+      right: 8%;
+      top: 16%;
+      width: 70px;
+      opacity: 0.45;
+    }
+    @media (max-width: 960px) { .faq-doodle { display: none; } }
+    .faq-list {
+      margin-top: 60px;
+      border-top: 1px solid var(--line-strong);
+      max-width: 920px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 32px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      cursor: pointer;
+      transition: opacity 0.2s var(--ease);
+    }
+    .faq-q:hover { opacity: 0.7; }
+    .faq-q-text {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.3;
+      color: var(--purple);
+      letter-spacing: -0.005em;
+    }
+    .faq-toggle {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--purple);
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease);
+      line-height: 1;
+      transform: translateY(2px);
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg) translateY(-2px); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s var(--ease), padding 0.4s var(--ease);
+    }
+    .faq-item.open .faq-a {
+      max-height: 600px;
+      padding: 0 0 36px;
+    }
+    .faq-a-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      opacity: 0.85;
+      max-width: 760px;
+      margin: 0;
+    }
+
+    /* ========== FINAL CTA ========== */
+    .final {
+      background: var(--purple);
+      color: var(--cream);
+      padding: clamp(100px, 14vw, 180px) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final::before, .final::after {
+      content: '';
+      position: absolute;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 233, 199, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-inner { position: relative; z-index: 1; }
+    .final-doodle {
+      position: absolute;
+      top: 14%;
+      left: 8%;
+      width: 70px;
+      opacity: 0.5;
+    }
+    .final-doodle-2 {
+      position: absolute;
+      bottom: 16%;
+      right: 8%;
+      width: 90px;
+      opacity: 0.5;
+    }
+    @media (max-width: 960px) { .final-doodle, .final-doodle-2 { display: none; } }
+    .final h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(48px, 7vw, 104px);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: var(--cream);
+      margin: 0 0 32px;
+      font-variation-settings: "opsz" 144;
+    }
+    .final-sub {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 580px;
+      margin: 0 auto 44px;
+      color: var(--cream);
+      opacity: 0.85;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--purple-deep);
+      color: var(--cream);
+      padding: 80px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo {
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .footer-tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--cream);
+      opacity: 0.65;
+      max-width: 240px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .footer-col h4 {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--cream);
+      opacity: 0.6;
+      margin: 0 0 20px;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a {
+      font-size: 14px;
+      color: var(--cream);
+      opacity: 0.85;
+      transition: opacity 0.2s var(--ease);
+    }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(240, 233, 199, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy, .footer-irony {
+      font-size: 12px;
+      color: var(--cream);
+      opacity: 0.55;
+    }
+    .footer-irony {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ========== TICKER MARQUEE ========== */
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid rgba(240, 233, 199, 0.18);
+      border-bottom: 1px solid rgba(240, 233, 199, 0.18);
+      padding: 16px 0;
+      margin-top: 56px;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: tick 50s linear infinite;
+      width: max-content;
+    }
+    @keyframes tick {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ticker-dot {
+      width: 4px; height: 4px;
+      background: var(--cream);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================== NAV ============================== -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="#cases">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="hero-bg-orb"></div>
+    <div class="hero-bg-orb-2"></div>
+
+    <!-- Floating asterisk doodle -->
+    <svg class="hero-floating-asterisk doodle floating" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M40 8 L40 72 M8 40 L72 40 M16 16 L64 64 M64 16 L16 64" />
+      <circle cx="40" cy="40" r="3" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-eyebrow">
+        <span class="pulse"></span>
+        <span class="eyebrow">A white-hat SEO &amp; AI studio · Est. 2026</span>
+      </div>
+
+      <h1>
+        Links Are<br />
+        <span class="word-spam">
+          Spam.
+          <!-- Squiggly underline -->
+          <svg class="squiggle-under draw-on" viewBox="0 0 400 18" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 10 Q 30 2, 60 10 T 120 10 T 180 10 T 240 10 T 300 10 T 360 10 T 398 8" stroke-width="2.5"/>
+          </svg>
+        </span>
+        <!-- Rejection stamp doodle -->
+        <span class="stamp-rejected">✕ Not&nbsp;here</span>
+      </h1>
+
+      <p class="hero-subhead">
+        Most of them. Not ours.
+        <svg class="hero-subhead-arrow doodle" viewBox="0 0 70 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 10 Q 30 5, 50 25 T 65 40" stroke-width="1.6"/>
+          <polyline points="58,32 65,40 56,42" stroke-width="1.6"/>
+        </svg>
+      </p>
+
+      <p class="hero-body">We're a white-hat link building, AI placement, and digital PR studio for brands that want to be found everywhere their customers look. Google. ChatGPT. Gemini. The press. All of it.</p>
+
+      <div class="hero-ctas">
+        <a href="/contact?intent=audit" class="btn btn-primary btn-arrow">Get a free link audit</a>
+        <a href="#how-we-work" class="btn btn-ghost">See how it works</a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="hero-trust-item">Trusted by 120+ agencies</span>
+        <span class="hero-trust-divider"></span>
+        <span class="hero-trust-item">50+ industries</span>
+        <span class="hero-trust-divider"></span>
+        <span class="hero-trust-item">0 PBNs, ever</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== HOOK ============================== -->
+  <section class="hook">
+
+    <!-- Doodle: scribbled link -->
+    <svg class="hook-doodle-left doodle floating" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 40 Q 30 20, 50 30 T 80 50 Q 70 70, 50 60 T 20 40z" />
+      <path d="M30 50 L 70 50" />
+      <circle cx="30" cy="50" r="2" fill="#320b35" stroke="none"/>
+      <circle cx="70" cy="50" r="2" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <!-- Doodle: asterisk burst -->
+    <svg class="hook-doodle-right doodle" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(45 45)">
+        <line x1="0" y1="-30" x2="0" y2="30"/>
+        <line x1="-30" y1="0" x2="30" y2="0"/>
+        <line x1="-21" y1="-21" x2="21" y2="21"/>
+        <line x1="21" y1="-21" x2="-21" y2="21"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <svg class="ornament-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(12 12)" stroke="#320b35" stroke-width="1.4" stroke-linecap="round">
+            <line x1="0" y1="-9" x2="0" y2="9"/>
+            <line x1="-9" y1="0" x2="9" y2="0"/>
+            <line x1="-6" y1="-6" x2="6" y2="6"/>
+            <line x1="6" y1="-6" x2="-6" y2="6"/>
+          </g>
+        </svg>
+        <span class="ornament-line"></span>
+      </div>
+      <span class="eyebrow hook-eyebrow">About the name</span>
+      <p class="hook-text">
+        Half the internet thinks all links are spam. <span class="accent">They're not wrong — most are.</span> We named ourselves after what skeptics already think, so when you Google us out of curiosity, you remember us.
+        <br /><br />
+        Now let us
+        <span class="hook-circle">
+          earn the rest.
+          <svg class="hook-circle-svg doodle" viewBox="0 0 200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 20 30 Q 10 10, 100 8 Q 195 8, 190 30 Q 195 55, 100 52 Q 8 50, 18 30" stroke-width="1.5" />
+          </svg>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== BEGINNERS ============================== -->
+  <section class="beginners">
+
+    <!-- Doodle: scribbly star/ornament -->
+    <svg class="beginners-doodle doodle floating-2" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 10 L70 50 L110 60 L70 70 L60 110 L50 70 L10 60 L50 50 Z"/>
+      <circle cx="60" cy="60" r="4" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Never built links<br />before? Start here.</h2>
+        <p class="section-sub">You don't need to know SEO to use us. Here's the whole industry, in three cards.</p>
+      </div>
+      <div class="card-row">
+        <div class="card">
+          <svg class="card-doodle" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15 35 a8 8 0 0 1 8 -8 h8 v4 h-8 a4 4 0 0 0 0 8 h8 v4 h-8 a8 8 0 0 1 -8 -8z M35 35 h8 a8 8 0 0 1 0 16 h-8 v-4 h8 a4 4 0 0 0 0 -8 h-8 z" stroke="#320b35" stroke-width="1.4" fill="none"/>
+          </svg>
+          <div class="card-num">i.</div>
+          <h3 class="card-title">What's a backlink?</h3>
+          <p class="card-body">A vote of confidence from one website to another. The more credible the site that links to you, the more Google trusts your business. That's it. That's the mechanic the whole internet runs on.</p>
+        </div>
+        <div class="card">
+          <svg class="card-doodle" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="35" cy="35" r="22" stroke="#320b35" stroke-width="1.4" fill="none"/>
+            <path d="M22 35 L48 35 M35 22 L35 48" stroke="#320b35" stroke-width="1.4"/>
+          </svg>
+          <div class="card-num">ii.</div>
+          <h3 class="card-title">What's link building?</h3>
+          <p class="card-body">The work of earning those votes — the legal way. Real journalists, real bloggers, real publications. No fake networks, no auto-tools, no "1,000 links for $20" nonsense in your inbox.</p>
+        </div>
+        <div class="card">
+          <svg class="card-doodle" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15 50 L25 35 L35 42 L50 20 L55 25" stroke="#320b35" stroke-width="1.6" fill="none"/>
+            <polyline points="48,18 55,18 55,25" stroke="#320b35" stroke-width="1.6" fill="none"/>
+          </svg>
+          <div class="card-num">iii.</div>
+          <h3 class="card-title">Why does it matter in 2026?</h3>
+          <p class="card-body">Because Google still ranks you on it. ChatGPT cites you because of it. AI Overviews quote you when it's done right. Skip link building today and you're invisible in two places at once.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== AI / FOMO SECTION ============================== -->
+  <section class="fomo">
+
+    <!-- Floating orb / spinning ornament -->
+    <svg class="fomo-floating-orb doodle cream spinning" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="45" cy="45" r="40" stroke="#f0e9c7" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <g transform="translate(45 45)" stroke="#f0e9c7" stroke-width="1.2" fill="none">
+        <line x1="0" y1="-32" x2="0" y2="32"/>
+        <line x1="-32" y1="0" x2="32" y2="0"/>
+        <line x1="-22" y1="-22" x2="22" y2="22"/>
+        <line x1="22" y1="-22" x2="-22" y2="22"/>
+      </g>
+      <circle cx="45" cy="45" r="3" fill="#f0e9c7"/>
+    </svg>
+
+    <!-- Bottom doodle -->
+    <svg class="fomo-doodle-bottom doodle cream" viewBox="0 0 110 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M5 25 Q 25 5, 50 25 T 95 25" stroke="#f0e9c7" stroke-width="1.4" fill="none"/>
+      <polyline points="86,18 95,25 84,30" stroke="#f0e9c7" stroke-width="1.4" fill="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="fomo-tag">
+        <span class="fomo-tag-dot"></span>
+        Industry alert · Q2 2026
+      </div>
+
+      <h2>The internet just changed.<br />Your customers <em>aren't Googling</em><br />anymore.</h2>
+
+      <p class="fomo-lede">800 million people now ask ChatGPT before they ask Google. Gemini ships inside every Android phone. AI Overviews answer searches without anyone clicking through. The blue links you spent years optimising for? Half your customers don't see them anymore.</p>
+
+      <!-- Big stats -->
+      <div class="fomo-stats">
+        <div class="fomo-stat">
+          <div class="fomo-stat-num" data-count="800"><span class="counter">800</span><span class="unit">M+</span></div>
+          <div class="fomo-stat-label">Weekly users on ChatGPT alone — and growing every month.</div>
+        </div>
+        <div class="fomo-stat">
+          <div class="fomo-stat-num" data-count="58"><span class="counter">58</span><span class="unit">%</span></div>
+          <div class="fomo-stat-label">of US Google searches now end without a single click on a website.</div>
+        </div>
+        <div class="fomo-stat">
+          <div class="fomo-stat-num" data-count="3"><span class="counter">3</span><span class="unit">x</span></div>
+          <div class="fomo-stat-label">more buying decisions are made from AI answers than this time last year.</div>
+        </div>
+      </div>
+
+      <!-- THEN VS NOW visual -->
+      <div class="then-now">
+        <div class="then-now-card faded">
+          <div class="then-now-eyebrow">— Then (the way you were taught)</div>
+          <p class="then-now-flow">
+            Customer <span class="step-arrow">→</span> Google <span class="step-arrow">→</span> 10 blue links <span class="step-arrow">→</span> <span class="you">Your site</span>
+          </p>
+        </div>
+
+        <svg class="then-now-arrow" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 15 L55 15" stroke="currentColor" stroke-width="1.6" fill="none"/>
+          <polyline points="46,8 55,15 46,22" stroke="currentColor" stroke-width="1.6" fill="none"/>
+        </svg>
+
+        <div class="then-now-card">
+          <div class="then-now-eyebrow">— Now (where the buyers actually are)</div>
+          <p class="then-now-flow">
+            Customer <span class="step-arrow">→</span> ChatGPT / Gemini <span class="step-arrow">→</span> Direct answer <span class="step-arrow">→</span> Names 3 brands. <span class="you">Not yours.</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="fomo-punchline">
+        If you're not in those answers, you're not in the conversation. <br />
+        And the brands being cited <span class="strike">tomorrow</span> <em>right now</em> are the ones that own the next decade.
+      </p>
+
+      <div class="fomo-cta-row">
+        <a href="/services/ai-llm-placement" class="btn btn-cream btn-arrow">Check my AI visibility — free</a>
+        <a href="#cases" class="btn btn-ghost" style="color: var(--cream); border-color: rgba(240,233,199,0.4);">See who's already winning</a>
+      </div>
+
+      <!-- Marquee ticker — competitor brands being cited -->
+      <div class="ticker">
+        <div class="ticker-track">
+          <span class="ticker-item">★ Your competitors are getting cited <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ ChatGPT mentioned them 2,400× last month <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Gemini quotes them in AI Overviews <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Perplexity links to their pages <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Claude cites their case studies <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ You? Still on page 1 of Google. <span class="ticker-dot"></span></span>
+          <!-- duplicate for seamless loop -->
+          <span class="ticker-item">★ Your competitors are getting cited <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ ChatGPT mentioned them 2,400× last month <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Gemini quotes them in AI Overviews <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Perplexity links to their pages <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ Claude cites their case studies <span class="ticker-dot"></span></span>
+          <span class="ticker-item">★ You? Still on page 1 of Google. <span class="ticker-dot"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SERVICES ============================== -->
+  <section class="services">
+
+    <svg class="services-doodle doodle floating" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="20" cy="40" r="6" fill="none"/>
+      <circle cx="60" cy="20" r="6" fill="none"/>
+      <circle cx="60" cy="60" r="6" fill="none"/>
+      <line x1="26" y1="40" x2="54" y2="22"/>
+      <line x1="26" y1="40" x2="54" y2="58"/>
+      <line x1="60" y1="26" x2="60" y2="54"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Three things<br />we're very good at.</h2>
+        <p class="section-sub">We don't do generic SEO. We do the three parts of it that actually move rankings, traffic, and trust.</p>
+      </div>
+
+      <div class="service-grid">
+        <a href="/services/link-building" class="service">
+          <svg class="service-icon" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 22 a6 6 0 0 1 6 -6 h6 v3 h-6 a3 3 0 0 0 0 6 h6 v3 h-6 a6 6 0 0 1 -6 -6z" fill="#320b35"/>
+            <path d="M22 16 h6 a6 6 0 0 1 0 12 h-6 v-3 h6 a3 3 0 0 0 0 -6 h-6 z" fill="#320b35"/>
+          </svg>
+          <div class="service-num">— Service No. 01</div>
+          <h3 class="service-title">Link Building</h3>
+          <p class="service-body">Real links from real sites. Manually pitched, individually relevant, never bought from a PBN. The kind of links Google was originally built to reward — and still does.</p>
+          <span class="service-cta">Explore link building →</span>
+        </a>
+
+        <a href="/services/ai-llm-placement" class="service">
+          <svg class="service-icon" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="22" cy="22" r="14" fill="none" stroke="#320b35" stroke-width="1.6"/>
+            <path d="M14 22 Q 22 12, 30 22 Q 22 32, 14 22z" fill="none" stroke="#320b35" stroke-width="1.6"/>
+            <circle cx="22" cy="22" r="3" fill="#320b35"/>
+          </svg>
+          <div class="service-num">— Service No. 02</div>
+          <h3 class="service-title">AI &amp; LLM Placement</h3>
+          <p class="service-body">Get cited inside ChatGPT, Gemini, Claude, and Perplexity. AI is the new front page of the internet, and the brands being mentioned now will own the next decade.</p>
+          <span class="service-cta">Get cited by AI →</span>
+        </a>
+
+        <a href="/services/digital-pr" class="service">
+          <svg class="service-icon" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="14" width="28" height="20" rx="2" fill="none" stroke="#320b35" stroke-width="1.6"/>
+            <line x1="14" y1="20" x2="30" y2="20" stroke="#320b35" stroke-width="1.6"/>
+            <line x1="14" y1="24" x2="26" y2="24" stroke="#320b35" stroke-width="1.6"/>
+            <line x1="14" y1="28" x2="30" y2="28" stroke="#320b35" stroke-width="1.6"/>
+          </svg>
+          <div class="service-num">— Service No. 03</div>
+          <h3 class="service-title">Digital PR</h3>
+          <p class="service-body">Press in Forbes, TechCrunch, Mint, and the publications your customers actually read — earned through real campaigns. The links are a side effect. The authority is the point.</p>
+          <span class="service-cta">See our PR work →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TWO PATHS ============================== -->
+  <section class="paths">
+    <div class="wrap">
+      <h2 class="section-h2">Pick the door<br />that sounds like you.</h2>
+      <div class="paths-grid">
+        <div class="path">
+          <svg class="path-doodle" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="14" width="40" height="28" rx="2" fill="none" stroke="#320b35" stroke-width="1.4"/>
+            <path d="M8 22 L28 32 L48 22" fill="none" stroke="#320b35" stroke-width="1.4"/>
+          </svg>
+          <div class="path-eyebrow">I'm an agency or freelancer</div>
+          <h3 class="path-headline">Sell our links<br />under your logo.</h3>
+          <p class="path-body">White-label link building, AI placement, and digital PR — branded as yours, delivered by us. NDAs signed, no-poach written into the contract, your clients never see our name.</p>
+          <a href="/white-label" class="path-cta">Become a partner →</a>
+        </div>
+        <div class="path">
+          <svg class="path-doodle" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 8 L48 22 L48 48 L8 48 L8 22 Z" fill="none" stroke="#320b35" stroke-width="1.4"/>
+            <path d="M22 48 L22 32 L34 32 L34 48" fill="none" stroke="#320b35" stroke-width="1.4"/>
+          </svg>
+          <div class="path-eyebrow">I own a business</div>
+          <h3 class="path-headline">Get found by your<br />next 10,000 customers.</h3>
+          <p class="path-body">We build the kind of online authority that Google ranks, journalists trust, and AI cites. From SaaS to CBD, we know how each industry actually earns visibility.</p>
+          <a href="/industries" class="path-cta">See our industries →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== GLOSSARY ============================== -->
+  <section class="glossary">
+
+    <svg class="glossary-doodle doodle floating-2" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 70 Q 30 50, 50 60 Q 70 70, 90 40 Q 100 30, 100 15"/>
+      <polyline points="93,22 100,15 105,25"/>
+      <text x="20" y="35" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#320b35" stroke="none" opacity="0.6">define this!</text>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">The Spam<br />Glossary.</h2>
+        <p class="section-sub" style="font-family: var(--serif); font-size: 22px; font-style: italic;">Words you'll hear us say. Now you'll know what they mean.</p>
+      </div>
+
+      <div class="glossary-list">
+        <div class="glossary-item">
+          <div class="glossary-term">PBN</div>
+          <div class="glossary-def"><em>A Private Blog Network.</em> Translation: a fake blog farm built to game Google. Translation of that translation: a Google penalty waiting to happen. We don't touch them.</div>
+          <svg class="glossary-mark doodle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="12" y1="4" x2="12" y2="20"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+          </svg>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">White-hat SEO</div>
+          <div class="glossary-def"><em>Playing by Google's rules.</em> Boring name. Best results. Less risky than your morning coffee.</div>
+          <svg class="glossary-mark doodle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="12" y1="4" x2="12" y2="20"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+          </svg>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Toxic link</div>
+          <div class="glossary-def"><em>A link from a site so sketchy</em> that Google penalises you for owning it. We find them. We help you disavow them.</div>
+          <svg class="glossary-mark doodle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="12" y1="4" x2="12" y2="20"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+          </svg>
+        </div>
+        <div class="glossary-item">
+          <div class="glossary-term">Link juice</div>
+          <div class="glossary-def"><em>The SEO power passed</em> from one page to another. Yes, that's the actual industry term. Yes, we know how that sounds.</div>
+          <svg class="glossary-mark doodle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="12" y1="4" x2="12" y2="20"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="glossary-cta">
+        <a href="/glossary" class="btn btn-ghost btn-arrow">Read the full glossary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CASE STUDIES (3) ============================== -->
+  <section class="cases" id="cases">
+
+    <svg class="cases-doodle-tl doodle floating" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M45 10 L52 38 L80 45 L52 52 L45 80 L38 52 L10 45 L38 38 Z"/>
+    </svg>
+    <svg class="cases-doodle-br doodle floating-2" viewBox="0 0 110 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M5 70 Q 30 30, 60 50 Q 90 70, 100 30"/>
+      <polyline points="92,38 100,30 102,42"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">What real white-hat<br />work looks like.</h2>
+        <p class="section-sub">Three engagements. Three different industries. Zero PBNs across all of them.</p>
+      </div>
+
+      <div class="cases-grid">
+
+        <!-- CASE 1 — CANVA.IN -->
+        <article class="case-card">
+          <span class="case-card-tag">Design SaaS · India</span>
+          <h3 class="case-name">Canva.in</h3>
+          <p class="case-name-sub">Country-TLD launch · 12-month engagement</p>
+
+          <div class="case-stat-big">DR&nbsp;0<span class="unit">→</span>70</div>
+          <p class="case-stat-caption">Domain Rating built from absolute zero. Across 12+ Indian languages, with zero link exchanges.</p>
+
+          <div class="case-mini-stats">
+            <div>
+              <div class="case-mini-stat-num">500+</div>
+              <div class="case-mini-stat-label">Referring Domains</div>
+            </div>
+            <div>
+              <div class="case-mini-stat-num">456K</div>
+              <div class="case-mini-stat-label">Monthly Visitors</div>
+            </div>
+          </div>
+
+          <p class="case-quote">"The brief took away every comfortable tactic I had — no link exchanges, no shortcuts. So I had to invent new ones, in 12 languages."</p>
+
+          <div class="case-cta-row">
+            <a href="https://rimosubham.github.io/info/canva-in-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+            <span class="case-num">i.</span>
+          </div>
+        </article>
+
+        <!-- CASE 2 — SPOCKET -->
+        <article class="case-card">
+          <span class="case-card-tag">Dropshipping SaaS · Global</span>
+          <h3 class="case-name">Spocket</h3>
+          <p class="case-name-sub">Authority &amp; AI visibility · 18-month engagement</p>
+
+          <div class="case-stat-big">5<span class="unit">×</span></div>
+          <p class="case-stat-caption">Organic traffic in 18 months for a leading dropshipping platform — earned through real placements only.</p>
+
+          <div class="case-mini-stats">
+            <div>
+              <div class="case-mini-stat-num">1,600</div>
+              <div class="case-mini-stat-label">Backlinks</div>
+            </div>
+            <div>
+              <div class="case-mini-stat-num">23K</div>
+              <div class="case-mini-stat-label">AI Citations</div>
+            </div>
+          </div>
+
+          <p class="case-quote">"Real placements. Real authority. The AI citations were the unexpected bonus — and they're now half our discovery."</p>
+
+          <div class="case-cta-row">
+            <a href="https://rimosubham.github.io/info/spocket-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+            <span class="case-num">ii.</span>
+          </div>
+        </article>
+
+        <!-- CASE 3 — WINNINGHUNTER -->
+        <article class="case-card">
+          <span class="case-card-tag">E-com Tools · Global</span>
+          <h3 class="case-name">WinningHunter</h3>
+          <p class="case-name-sub">Backlink rehab &amp; AI play · 4-month engagement</p>
+
+          <div class="case-stat-big">2<span class="unit">×</span></div>
+          <p class="case-stat-caption">Doubled Domain Rating in just 4 months — by cleaning toxic links and earning real ones.</p>
+
+          <div class="case-mini-stats">
+            <div>
+              <div class="case-mini-stat-num">259</div>
+              <div class="case-mini-stat-label">AI Citations</div>
+            </div>
+            <div>
+              <div class="case-mini-stat-num">100%</div>
+              <div class="case-mini-stat-label">Spam Cleaned</div>
+            </div>
+          </div>
+
+          <p class="case-quote">"From spammy backlinks to a doubled DR — and AI surfaces started citing us within the first 90 days."</p>
+
+          <div class="case-cta-row">
+            <a href="https://rimosubham.github.io/info/winninghunter-case-study.html" target="_blank" rel="noopener" class="case-link">Read case study →</a>
+            <span class="case-num">iii.</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== HOW WE WORK ============================== -->
+  <section class="how" id="how-we-work">
+
+    <svg class="how-doodle doodle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 50 Q 30 10, 50 50 T 90 50"/>
+      <circle cx="10" cy="50" r="2.5" fill="#320b35" stroke="none"/>
+      <circle cx="50" cy="50" r="2.5" fill="#320b35" stroke="none"/>
+      <circle cx="90" cy="50" r="2.5" fill="#320b35" stroke="none"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">How we work.</h2>
+        <p class="section-sub">No black boxes. No "trust us." Three honest steps.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">i.</div>
+          <h3 class="step-title">Audit</h3>
+          <p class="step-body">We pull your backlink profile, your AI mentions, and your press footprint. We show you exactly where you're bleeding authority — and where your competitors are winning. Free, no strings, no obligation to continue.</p>
+          <svg class="step-connector" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 8 L20 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-dasharray="3 3"/>
+            <polyline points="16,4 20,8 16,12" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          </svg>
+        </div>
+        <div class="step">
+          <div class="step-num">ii.</div>
+          <h3 class="step-title">Strategy</h3>
+          <p class="step-body">We build a placement plan around <em>your</em> industry, audience, and goals. Not a template. Not a "package." A plan that names the publications, the stories, the AI citations we're chasing, and why each one matters to your bottom line.</p>
+          <svg class="step-connector" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 8 L20 8" stroke="currentColor" stroke-width="1.4" fill="none" stroke-dasharray="3 3"/>
+            <polyline points="16,4 20,8 16,12" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          </svg>
+        </div>
+        <div class="step">
+          <div class="step-num">iii.</div>
+          <h3 class="step-title">Earn</h3>
+          <p class="step-body">Real outreach. Real placements. Monthly reports showing every link, every mention, every citation — and the email thread that earned it, if you ever want to see the receipts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FOUNDER ============================== -->
+  <section class="founder">
+
+    <svg class="founder-doodle doodle floating" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M40 8 L40 72 M8 40 L72 40 M16 16 L64 64 M64 16 L16 64"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="founder-inner">
+        <div class="founder-portrait">
+          <svg class="founder-portrait-decor doodle cream" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="30" cy="30" r="26" stroke="#f0e9c7" stroke-width="1.2" fill="none"/>
+            <path d="M22 30 a4 4 0 0 1 4 -4 h4 v3 h-4 a1 1 0 0 0 0 2 h4 v3 h-4 a4 4 0 0 1 -4 -4z M30 26 h4 a4 4 0 0 1 0 8 h-4 v-3 h4 a1 1 0 0 0 0 -2 h-4 z" fill="#f0e9c7"/>
+          </svg>
+          <span class="founder-portrait-label">Subham, founder</span>
+        </div>
+        <div>
+          <h2>Why call ourselves<br />something so wrong?</h2>
+          <div class="founder-text">
+            <p>Most of the SEO industry — and most business owners who've been burned by it — believe links are spam. They've seen the dodgy networks. The cold emails offering "do-follow links for $50." The agencies that disappear in month two.</p>
+            <p>We agreed with them. So we named the company after their complaint.</p>
+            <p>The bet was simple: when you see the name, it sticks. When you click out of curiosity, we get a chance to show you the opposite of what you expected. The links we build are real. The press we earn is real. The AI citations we engineer are public, traceable, and yours to keep — long after you stop paying us.</p>
+            <p>The name is the joke. The work isn't.</p>
+          </div>
+          <div class="founder-sig">— Subham, founder</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ ============================== -->
+  <section class="faq">
+
+    <svg class="faq-doodle doodle floating" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="35" cy="35" r="28" fill="none"/>
+      <path d="M28 28 a7 7 0 0 1 14 0 c0 4 -7 4 -7 8 M35 44 v2"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Questions you'd<br />be silly not to ask.</h2>
+        <p class="section-sub">Six honest answers. No salesman speak.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">Are these links safe? Will Google penalise me?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">Every link we build is white-hat: a real publication, a real editorial process, a real audience. We won't touch a PBN, a paid placement disguised as editorial, or any tactic that breaks Google's guidelines. The risk profile is the same as a journalist deciding to write about you of their own accord.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">How long until I see results?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">Honestly? Link building is a 90-to-180-day game for organic rankings, and 60-to-120 days for AI citations. Anyone promising "results in 30 days" is selling you a PBN. You'll see visible momentum — placements, AI mentions, keyword shifts — inside the first 60 days of a real campaign.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">Do you do PBNs, link farms, or private networks?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">No. Not as a stretch goal. Not "for the right client." Not ever. Our entire model breaks the moment we touch them.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What is "AI placement," exactly?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">It's the work of getting your brand cited inside answers from ChatGPT, Gemini, Claude, and Perplexity. When someone asks an AI for "the best [your category]," we make sure your name is in the response. The technical term is Generative Engine Optimisation (GEO). The plain-English version: it's SEO for the next decade.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">Do you offer white-label for my agency?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">Yes — it's a core part of our business. We sign NDAs, deliver everything under your branding, and contractually commit to never approaching your clients. The white-label page covers the rest.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">Do you work with my industry / my country?</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-a">
+            <p class="faq-a-text">Probably. We have direct experience in SaaS, design, health, law, home services, multilingual markets, and CBD — and the link-building motion translates across most B2B and B2C verticals. The few we don't take are the truly grey ones (gambling, crypto exchanges, adult). If we're not the right fit, we'll say so on the first call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FINAL CTA ============================== -->
+  <section class="final">
+
+    <svg class="final-doodle doodle cream" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="translate(35 35)" stroke="#f0e9c7" stroke-width="1.4">
+        <line x1="0" y1="-25" x2="0" y2="25"/>
+        <line x1="-25" y1="0" x2="25" y2="0"/>
+        <line x1="-18" y1="-18" x2="18" y2="18"/>
+        <line x1="18" y1="-18" x2="-18" y2="18"/>
+      </g>
+    </svg>
+    <svg class="final-doodle-2 doodle cream floating" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="45" cy="45" r="30" stroke="#f0e9c7" stroke-width="1.2" fill="none"/>
+      <path d="M30 45 Q 45 30, 60 45 Q 45 60, 30 45z" stroke="#f0e9c7" stroke-width="1.2" fill="none"/>
+    </svg>
+
+    <div class="wrap final-inner">
+      <h2>Stop overthinking<br />your backlinks.</h2>
+      <p class="final-sub">A 20-minute call. We tell you what's broken, what's working, and whether we're the right team to fix it. No pitch. No pressure. No follow-up sequence designed by a robot.</p>
+      <a href="/contact" class="btn btn-cream btn-arrow">Book a 20-minute call</a>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/link-building">Link Building</a></li>
+            <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+            <li><a href="/services/digital-pr">Digital PR</a></li>
+            <li><a href="/white-label">White Label</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/free-tools">Free Tools</a></li>
+            <li><a href="/guides">Guides</a></li>
+            <li><a href="/glossary">Glossary</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/case-studies/canva-in">Case Studies</a></li>
+            <li><a href="/industries">Industries</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/refund">Refund</a></li>
+            <li><a href="/anti-spam">Anti-Spam</a></li>
+            <li><a href="/cookies">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.card, .service, .path, .step, .glossary-item, .faq-item, .case-card, .fomo-stat, .then-now-card').forEach(el => {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+
+    // Counter animation for FOMO stats
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = parseInt(el.parentElement.dataset.count, 10);
+          const duration = 1600;
+          const start = performance.now();
+          const animate = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(target * eased);
+            if (progress < 1) requestAnimationFrame(animate);
+            else el.textContent = target;
+          };
+          requestAnimationFrame(animate);
+          counterIO.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
+  </script>
+
+</body>
+</html>
