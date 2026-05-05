@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital PR Services | Links Are Spam</title>
+  <meta name="description" content="Press placements in Forbes, TechCrunch, Mint, and the publications your customers actually read. Data studies, reactive PR, founder thought leadership — earned, not paid." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #320b35; --purple-deep: #1f0721; --purple-soft: #4b1a4f;
+      --cream: #f0e9c7; --cream-dim: #e8dfb6; --cream-bright: #f7f1d6;
+      --ink: #1a0a1d; --line: rgba(50,11,53,0.18); --line-strong: rgba(50,11,53,0.5);
+      --warning: #d4733a; --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', sans-serif; --mono: 'JetBrains Mono', monospace;
+      --max: 1280px; --pad: clamp(20px, 5vw, 64px); --section-y: clamp(80px, 12vw, 140px);
+      --radius: 4px; --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img, svg { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); position: relative; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--purple); opacity: 0.7; }
+    .doodle { position: absolute; pointer-events: none; opacity: 0.85; }
+    .doodle path, .doodle line, .doodle circle, .doodle polyline, .doodle rect { fill: none; stroke: var(--purple); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle.cream path, .doodle.cream line, .doodle.cream circle, .doodle.cream polyline { stroke: var(--cream); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(3deg); } }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+    .spinning { animation: spin 30s linear infinite; }
+
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: var(--radius); font-family: var(--sans); font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease); cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--purple); color: var(--cream); }
+    .btn-primary:hover { background: var(--purple-deep); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(50,11,53,0.45); }
+    .btn-ghost { background: transparent; color: var(--purple); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--purple); background: rgba(50,11,53,0.04); }
+    .btn-cream { background: var(--cream); color: var(--purple); }
+    .btn-cream:hover { background: var(--cream-bright); transform: translateY(-2px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.3); }
+    .btn-arrow::after { content: '→'; transition: transform 0.3s var(--ease); }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(240,233,199,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--purple); display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--purple); position: relative; padding-bottom: 4px; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px; background: var(--purple); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta { font-size: 14px; padding: 10px 18px; }
+    @media (max-width: 960px) { .nav-links { display: none; } }
+
+    .crumb { padding: 24px 0 0; }
+    .crumb-list { display: flex; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); opacity: 0.7; }
+    .crumb-sep { opacity: 0.4; }
+
+    /* HERO */
+    .hero { position: relative; padding: clamp(48px, 8vw, 100px) 0 clamp(60px, 10vw, 120px); overflow: hidden; }
+    .hero-orb { position: absolute; top: 20%; right: -12%; width: 720px; height: 720px; background: radial-gradient(circle, rgba(50,11,53,0.07), transparent 70%); pointer-events: none; }
+    .hero .wrap > * { position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple); margin-bottom: 36px; }
+    .hero-tag-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(56px, 9vw, 132px); line-height: 0.95; letter-spacing: -0.03em; color: var(--purple); margin: 0 0 28px; font-variation-settings: "opsz" 144; }
+    .hero h1 em { font-style: italic; }
+    .hero-subhead { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3.4vw, 36px); color: var(--purple-soft); line-height: 1.25; margin: 0 0 32px; max-width: 760px; }
+    .hero-body { font-size: 18px; line-height: 1.6; max-width: 620px; margin: 0 0 44px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-floating { position: absolute; top: 22%; right: 8%; width: 110px; }
+    @media (max-width: 960px) { .hero-floating { display: none; } }
+
+    /* SECTION HEADERS */
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 80px; }
+    @media (max-width: 860px) { .section-header { grid-template-columns: 1fr; gap: 24px; } }
+    .section-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.02em; color: var(--purple); margin: 0; font-variation-settings: "opsz" 144; }
+    .section-sub { font-size: 17px; line-height: 1.6; color: var(--ink); max-width: 460px; margin: 0; }
+
+    /* COMPARE — PR vs traditional */
+    .compare { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+    .compare-doodle { position: absolute; top: 8%; right: 5%; width: 100px; opacity: 0.4; }
+    @media (max-width: 960px) { .compare-doodle { display: none; } }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; }
+    @media (max-width: 720px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-card { padding: 36px; border-radius: 8px; background: var(--cream-bright); border: 1px solid var(--line); }
+    .compare-card.us { border-color: var(--purple); }
+    .compare-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 16px; }
+    .compare-card.us .compare-eyebrow { color: var(--purple); }
+    .compare-h { font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--purple); margin: 0 0 24px; line-height: 1.2; }
+    .compare-list { list-style: none; padding: 0; margin: 0; }
+    .compare-list li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; gap: 12px; font-size: 15px; line-height: 1.5; }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-list li::before { content: '•'; color: var(--purple-soft); flex-shrink: 0; }
+    .compare-card.them { opacity: 0.85; }
+
+    /* PRESS LOGOS — bordered grid */
+    .press { padding: var(--section-y) 0; position: relative; }
+    .press-doodle { position: absolute; left: 4%; top: 14%; width: 100px; opacity: 0.4; }
+    @media (max-width: 960px) { .press-doodle { display: none; } }
+    .press-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid var(--line-strong); margin-top: 60px; }
+    @media (max-width: 860px) { .press-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px) { .press-grid { grid-template-columns: repeat(2, 1fr); } }
+    .press-tile { padding: 36px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: center; min-height: 110px; transition: background 0.3s var(--ease); }
+    .press-tile:hover { background: var(--cream-bright); }
+    .press-name { font-family: var(--serif); font-weight: 500; font-size: clamp(18px, 2vw, 24px); color: var(--purple); letter-spacing: -0.01em; }
+    .press-name.italic { font-style: italic; font-weight: 400; }
+    .press-name.tight { letter-spacing: -0.04em; }
+
+    /* CAMPAIGN TYPES — 5 cards */
+    .types { padding: var(--section-y) 0; background: var(--purple); color: var(--cream); position: relative; overflow: hidden; }
+    .types::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(240,233,199,0.06), transparent 30%), radial-gradient(circle at 80% 70%, rgba(240,233,199,0.05), transparent 35%); pointer-events: none; }
+    .types .section-h2 { color: var(--cream); }
+    .types .section-sub { color: var(--cream); opacity: 0.85; }
+    .types-floating { position: absolute; top: 10%; right: 6%; width: 100px; }
+    @media (max-width: 960px) { .types-floating { display: none; } }
+    .types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); }
+    @media (max-width: 860px) { .types-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .types-grid { grid-template-columns: 1fr; } }
+    .type-tile { padding: 40px 32px; border-right: 1px solid rgba(240,233,199,0.2); border-bottom: 1px solid rgba(240,233,199,0.2); position: relative; }
+    .types-grid > .type-tile:nth-child(3n) { border-right: none; }
+    .types-grid > .type-tile:nth-last-child(-n+2) { border-bottom: none; }
+    @media (max-width: 860px) {
+      .type-tile:nth-child(3n) { border-right: 1px solid rgba(240,233,199,0.2); }
+      .type-tile:nth-child(2n) { border-right: none; }
+      .types-grid > .type-tile:nth-last-child(-n+2) { border-bottom: 1px solid rgba(240,233,199,0.2); }
+      .types-grid > .type-tile:nth-last-child(-n+1) { border-bottom: none; }
+    }
+    @media (max-width: 560px) {
+      .type-tile { border-right: none; border-bottom: 1px solid rgba(240,233,199,0.2); }
+      .types-grid > .type-tile:nth-last-child(-n+1) { border-bottom: none; }
+    }
+    .type-icon { width: 36px; height: 36px; margin-bottom: 24px; }
+    .type-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--cream); opacity: 0.55; margin-bottom: 12px; text-transform: uppercase; }
+    .type-name { font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--cream); margin: 0 0 12px; line-height: 1.15; letter-spacing: -0.005em; }
+    .type-body { font-size: 14.5px; line-height: 1.6; color: var(--cream); opacity: 0.78; margin: 0 0 14px; }
+    .type-eg { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--cream); opacity: 0.65; line-height: 1.5; margin: 0; padding: 12px 14px; background: rgba(240,233,199,0.06); border-left: 2px solid var(--warning); border-radius: 2px; }
+
+    /* TEARDOWN — sample campaign */
+    .teardown { padding: var(--section-y) 0; position: relative; }
+    .teardown-doodle { position: absolute; right: 5%; top: 12%; width: 110px; opacity: 0.4; }
+    @media (max-width: 960px) { .teardown-doodle { display: none; } }
+    .teardown-card { background: var(--cream-bright); border: 1px solid var(--line-strong); border-radius: 12px; padding: 56px; margin-top: 60px; box-shadow: 0 24px 64px -32px rgba(50,11,53,0.18); }
+    @media (max-width: 720px) { .teardown-card { padding: 32px; } }
+    .teardown-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+    .teardown-title { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 3vw, 34px); color: var(--purple); margin: 0; line-height: 1.2; }
+    .teardown-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple-soft); padding: 6px 12px; background: rgba(50,11,53,0.06); border-radius: 100px; }
+    .teardown-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 40px; }
+    @media (max-width: 720px) { .teardown-steps { grid-template-columns: 1fr; } }
+    .td-step-num { font-family: var(--serif); font-style: italic; font-size: 36px; color: var(--purple); line-height: 1; margin-bottom: 12px; opacity: 0.85; }
+    .td-step-title { font-family: var(--serif); font-weight: 500; font-size: 18px; color: var(--purple); margin: 0 0 8px; }
+    .td-step-body { font-size: 14.5px; line-height: 1.6; opacity: 0.85; margin: 0; }
+    .teardown-results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-top: 32px; border-top: 1px solid var(--line); }
+    @media (max-width: 720px) { .teardown-results { grid-template-columns: 1fr 1fr; } }
+    .td-stat { font-family: var(--serif); font-weight: 300; font-size: clamp(36px, 5vw, 56px); line-height: 0.9; color: var(--purple); letter-spacing: -0.03em; margin-bottom: 8px; font-variation-settings: "opsz" 144; }
+    .td-stat .unit { font-size: 0.45em; font-style: italic; color: var(--purple-soft); }
+    .td-stat-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); opacity: 0.75; }
+
+    /* PROCESS */
+    .process { padding: var(--section-y) 0; background: var(--cream-bright); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .process-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+    @media (max-width: 860px) { .process-flow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .process-flow { grid-template-columns: 1fr; } }
+    .flow-step { position: relative; padding-top: 32px; border-top: 1px solid var(--line-strong); }
+    .flow-num { font-family: var(--serif); font-style: italic; font-size: 48px; color: var(--purple); line-height: 1; margin-bottom: 16px; }
+    .flow-title { font-family: var(--serif); font-weight: 500; font-size: 22px; color: var(--purple); margin: 0 0 12px; line-height: 1.2; }
+    .flow-body { font-size: 14.5px; line-height: 1.6; opacity: 0.85; margin: 0; }
+    .flow-arrow { position: absolute; right: -22px; top: 56px; width: 18px; height: 12px; opacity: 0.5; }
+    .flow-arrow path, .flow-arrow polyline { fill: none; stroke: var(--purple-soft); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 860px) { .flow-arrow { display: none; } }
+
+    /* OTHER SERVICES */
+    .other { padding: var(--section-y) 0; }
+    .other-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px; }
+    @media (max-width: 720px) { .other-grid { grid-template-columns: 1fr; } }
+    .other-card { padding: 40px 36px; border: 1px solid var(--line-strong); border-radius: 8px; transition: all 0.4s var(--ease); background: var(--cream-bright); }
+    .other-card:hover { background: var(--purple); transform: translateY(-3px); }
+    .other-card:hover .other-num, .other-card:hover .other-title, .other-card:hover .other-body, .other-card:hover .other-cta { color: var(--cream); }
+    .other-card:hover .other-cta { border-color: var(--cream); }
+    .other-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--purple-soft); opacity: 0.75; margin-bottom: 16px; transition: color 0.3s var(--ease); text-transform: uppercase; }
+    .other-title { font-family: var(--serif); font-weight: 500; font-size: 32px; color: var(--purple); margin: 0 0 16px; line-height: 1.1; transition: color 0.3s var(--ease); }
+    .other-body { font-size: 15.5px; line-height: 1.6; opacity: 0.82; margin: 0 0 24px; transition: color 0.3s var(--ease); }
+    .other-cta { font-size: 13px; font-weight: 500; color: var(--purple); border-bottom: 1px solid var(--purple); padding-bottom: 3px; transition: color 0.3s var(--ease); }
+
+    /* FAQ */
+    .faq { padding: var(--section-y) 0; background: var(--cream-dim); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .faq-list { margin-top: 60px; border-top: 1px solid var(--line-strong); max-width: 920px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; text-align: left; padding: 28px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; cursor: pointer; }
+    .faq-q:hover { opacity: 0.7; }
+    .faq-q-text { font-family: var(--serif); font-weight: 500; font-size: clamp(18px, 2vw, 24px); color: var(--purple); line-height: 1.3; }
+    .faq-toggle { font-family: var(--serif); font-size: 28px; color: var(--purple); flex-shrink: 0; transition: transform 0.4s var(--ease); }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease), padding 0.4s var(--ease); }
+    .faq-item.open .faq-a { max-height: 500px; padding: 0 0 32px; }
+    .faq-a-text { font-size: 15.5px; line-height: 1.7; opacity: 0.85; max-width: 760px; margin: 0; }
+
+    /* FINAL */
+    .final { background: var(--purple); color: var(--cream); padding: clamp(80px, 14vw, 160px) 0; text-align: center; position: relative; overflow: hidden; }
+    .final::before, .final::after { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(240,233,199,0.06), transparent 60%); pointer-events: none; }
+    .final::before { top: -300px; left: -200px; }
+    .final::after { bottom: -400px; right: -200px; }
+    .final-inner { position: relative; z-index: 1; }
+    .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6.5vw, 88px); line-height: 1; color: var(--cream); margin: 0 0 28px; letter-spacing: -0.02em; font-variation-settings: "opsz" 144; }
+    .final-sub { font-size: 18px; max-width: 580px; margin: 0 auto 40px; opacity: 0.85; }
+
+    /* FOOTER */
+    footer { background: var(--purple-deep); color: var(--cream); padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 12px; }
+    .footer-tag { font-family: var(--serif); font-style: italic; font-size: 15px; opacity: 0.65; max-width: 240px; line-height: 1.5; margin: 0; }
+    .footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; margin: 0 0 20px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { font-size: 14px; opacity: 0.85; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(240,233,199,0.12); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-copy, .footer-irony { font-size: 12px; opacity: 0.55; }
+    .footer-irony { font-family: var(--serif); font-style: italic; font-size: 13px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" fill="none" stroke="#320b35" stroke-width="1.5"/>
+          <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#320b35"/>
+          <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#320b35"/>
+        </svg>
+        Links Are Spam
+      </a>
+      <ul class="nav-links">
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/white-label">White Label</a></li>
+        <li><a href="/industries">Industries</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="/contact" class="btn btn-primary nav-cta">Get a free audit</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wrap crumb">
+    <div class="crumb-list">
+      <a href="/">Home</a><span class="crumb-sep">/</span>
+      <a href="/services">Services</a><span class="crumb-sep">/</span>
+      <span>Digital PR</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <!-- Floating megaphone / quote doodle -->
+    <svg class="hero-floating doodle floating" viewBox="0 0 110 110" aria-hidden="true">
+      <path d="M20 50 L40 35 L75 25 L75 75 L40 65 Z"/>
+      <path d="M85 35 Q 95 50, 85 65"/>
+      <line x1="40" y1="35" x2="40" y2="65"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Service · No. 03 · Digital PR
+      </div>
+      <h1>Press that<br /><em>earns</em> the link.</h1>
+      <p class="hero-subhead">Real coverage in the publications your customers actually read. Forbes, TechCrunch, Mint, Inc., Business Insider — earned, not paid.</p>
+      <p class="hero-body">Digital PR is what happens when journalists genuinely want to write about you. The links and AI citations are the side effects. The trust is the main course. We engineer the campaigns that get reporters to call you back.</p>
+      <div class="hero-ctas">
+        <a href="/contact?intent=pr" class="btn btn-primary btn-arrow">Pitch us your story</a>
+        <a href="#campaign-types" class="btn btn-ghost">See our campaign types</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE — PR vs traditional -->
+  <section class="compare">
+    <svg class="compare-doodle doodle floating-2" viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="10" y="20" width="80" height="60" rx="2"/>
+      <line x1="20" y1="32" x2="80" y2="32"/>
+      <line x1="20" y1="42" x2="70" y2="42"/>
+      <line x1="20" y1="52" x2="80" y2="52"/>
+      <line x1="20" y1="62" x2="60" y2="62"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Digital PR is not<br /><em>your dad's</em> PR.</h2>
+        <p class="section-sub">Traditional PR is about magazine covers, press releases, and quarterly events. Digital PR is about online authority, search rankings, and AI citations. Same craft. Different output.</p>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card them">
+          <div class="compare-eyebrow">— Traditional PR</div>
+          <h3 class="compare-h">Built for the front page of yesterday's newspaper.</h3>
+          <ul class="compare-list">
+            <li>Optimised for impressions and brand awareness</li>
+            <li>Print-first, online second</li>
+            <li>Deliverables measured in column inches</li>
+            <li>Press releases blasted to a wire service</li>
+            <li>Event-driven (launches, fundraises, anniversaries)</li>
+            <li>Often disconnected from SEO and AI strategy</li>
+          </ul>
+        </div>
+        <div class="compare-card us">
+          <div class="compare-eyebrow">— Digital PR (what we do)</div>
+          <h3 class="compare-h">Built for Google, ChatGPT, and the customer reading on a phone.</h3>
+          <ul class="compare-list">
+            <li>Optimised for backlinks, brand mentions, and AI citations</li>
+            <li>Online-first — the URL is the deliverable</li>
+            <li>Measured in DR, links, and search authority</li>
+            <li>Targeted pitches to individual journalists</li>
+            <li>Story-driven (data, expertise, contrarian takes)</li>
+            <li>Wired into your SEO and GEO strategy from day one</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS LOGOS -->
+  <section class="press">
+    <svg class="press-doodle doodle floating" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">The publications<br />we land you in.</h2>
+        <p class="section-sub">A slice of the press footprint we've built across SaaS, fintech, design, and consumer brands. Tier 1 outlets only. Real editorial placements, not paid features.</p>
+      </div>
+
+      <div class="press-grid">
+        <div class="press-tile"><span class="press-name">Forbes</span></div>
+        <div class="press-tile"><span class="press-name italic">TechCrunch</span></div>
+        <div class="press-tile"><span class="press-name tight">BUSINESS INSIDER</span></div>
+        <div class="press-tile"><span class="press-name">Inc.</span></div>
+        <div class="press-tile"><span class="press-name italic">Mint</span></div>
+        <div class="press-tile"><span class="press-name tight">ECONOMIC&nbsp;TIMES</span></div>
+        <div class="press-tile"><span class="press-name">Hans India</span></div>
+        <div class="press-tile"><span class="press-name italic">DigitalOcean</span></div>
+        <div class="press-tile"><span class="press-name tight">BIGCOMMERCE</span></div>
+        <div class="press-tile"><span class="press-name">Hugging Face</span></div>
+        <div class="press-tile"><span class="press-name italic">Shiprocket</span></div>
+        <div class="press-tile"><span class="press-name tight">SPRINTZEAL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN TYPES -->
+  <section class="types" id="campaign-types">
+    <svg class="types-floating doodle cream spinning" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="42"/>
+      <line x1="50" y1="8" x2="50" y2="92"/>
+      <line x1="8" y1="50" x2="92" y2="50"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header" style="margin-bottom: 60px;">
+        <h2 class="section-h2">Five campaign<br />types we run.</h2>
+        <p class="section-sub">Different stories need different vehicles. We pick the right one for your industry, your founder, and the kind of authority you're trying to build.</p>
+      </div>
+
+      <div class="types-grid">
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <rect x="6" y="6" width="24" height="24" rx="2"/>
+            <line x1="12" y1="14" x2="24" y2="14"/>
+            <line x1="12" y1="20" x2="24" y2="20"/>
+            <line x1="12" y1="26" x2="20" y2="26"/>
+          </svg>
+          <div class="type-num">— No. 01</div>
+          <h3 class="type-name">Data Studies</h3>
+          <p class="type-body">We commission proprietary research, surveys, or data analyses, then pitch the findings to journalists who cover your space. Hardest-working PR vehicle ever invented.</p>
+          <p class="type-eg">"Spocket analysed 50,000 dropshipping orders. Here's what's selling in 2026."</p>
+        </div>
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="18" r="14"/>
+            <line x1="18" y1="10" x2="18" y2="18"/>
+            <line x1="18" y1="18" x2="24" y2="22"/>
+          </svg>
+          <div class="type-num">— No. 02</div>
+          <h3 class="type-name">Reactive PR &amp; Newsjacking</h3>
+          <p class="type-body">When a story breaks in your category, we get your founder quoted within hours. The fastest way to land Tier 1 placements — but only if you can move at journalist speed.</p>
+          <p class="type-eg">"OpenAI just released a new model — here's what fintech founders should do this week."</p>
+        </div>
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="14" r="6"/>
+            <path d="M8 30 a10 10 0 0 1 20 0"/>
+          </svg>
+          <div class="type-num">— No. 03</div>
+          <h3 class="type-name">Founder Thought Leadership</h3>
+          <p class="type-body">A consistent op-ed and bylined-article programme that turns your founder into a recognised voice in their category. The slowest PR play. Also the most defensible.</p>
+          <p class="type-eg">"How we built canva.in to DR 70 in 12 months — and why it changed how we think about TLD launches."</p>
+        </div>
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M6 14 L18 6 L30 14 L30 30 L6 30 Z"/>
+            <line x1="6" y1="14" x2="30" y2="14"/>
+          </svg>
+          <div class="type-num">— No. 04</div>
+          <h3 class="type-name">Expert Commentary &amp; HARO</h3>
+          <p class="type-body">We position your team's experts as the go-to source for journalists. Daily monitoring, fast pitching, and pre-written quote libraries that make reporters' jobs easy.</p>
+          <p class="type-eg">"For comment on India's new digital payment regulations — Subham, founder of [client]."</p>
+        </div>
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M10 6 L26 6 L30 10 L30 30 L6 30 L6 10 Z"/>
+            <line x1="10" y1="14" x2="26" y2="14"/>
+            <line x1="10" y1="20" x2="22" y2="20"/>
+            <line x1="10" y1="26" x2="26" y2="26"/>
+          </svg>
+          <div class="type-num">— No. 05</div>
+          <h3 class="type-name">Product Launches &amp; Milestones</h3>
+          <p class="type-body">When you actually have news (a launch, fundraise, milestone), we run a coordinated press push that maximises landings instead of "press release into the void."</p>
+          <p class="type-eg">"Series B announcement coordinated across TechCrunch, Mint, and 8 industry outlets in a 4-hour window."</p>
+        </div>
+
+        <div class="type-tile">
+          <svg class="type-icon doodle cream" viewBox="0 0 36 36" aria-hidden="true">
+            <line x1="18" y1="6" x2="18" y2="30"/>
+            <line x1="6" y1="18" x2="30" y2="18"/>
+            <circle cx="18" cy="18" r="3" fill="#f0e9c7" stroke="none"/>
+          </svg>
+          <div class="type-num">— No. 06</div>
+          <h3 class="type-name">Awards &amp; Recognition Plays</h3>
+          <p class="type-body">We map every relevant award, list, and "30 under 30" your founder qualifies for, then run a structured submission programme. The links and brand-trust ROI is enormous.</p>
+          <p class="type-eg">"Three awards submissions in Q1 → Two wins → Forty-six press mentions citing the wins."</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEARDOWN — sample campaign -->
+  <section class="teardown">
+    <svg class="teardown-doodle doodle floating-2" viewBox="0 0 110 90" aria-hidden="true">
+      <path d="M5 70 Q 30 30, 60 50 T 100 30"/>
+      <polyline points="92,28 100,30 100,40"/>
+      <text x="20" y="25" font-family="Fraunces, serif" font-style="italic" font-size="12" fill="#320b35" stroke="none" opacity="0.6">a real one</text>
+    </svg>
+
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">A real campaign,<br />pulled apart.</h2>
+        <p class="section-sub">One of our published data-study campaigns. Stripped down so you can see what each step actually delivered.</p>
+      </div>
+
+      <div class="teardown-card">
+        <div class="teardown-head">
+          <h3 class="teardown-title">"India's first dropshipping benchmarks: what 50,000 orders revealed."</h3>
+          <span class="teardown-tag">Data Study · 6 weeks</span>
+        </div>
+
+        <div class="teardown-steps">
+          <div>
+            <div class="td-step-num">i.</div>
+            <h4 class="td-step-title">Origin angle</h4>
+            <p class="td-step-body">Client had years of internal order data nobody had ever published. We identified five surprising patterns that journalists in the SMB / e-com beat would care about.</p>
+          </div>
+          <div>
+            <div class="td-step-num">ii.</div>
+            <h4 class="td-step-title">Asset build</h4>
+            <p class="td-step-body">Two weeks of analysis, design, and a public landing page (linkable, citable, share-ready). Visualisations built so editors could drop them straight into their articles.</p>
+          </div>
+          <div>
+            <div class="td-step-num">iii.</div>
+            <h4 class="td-step-title">Targeted outreach</h4>
+            <p class="td-step-body">42 hand-picked journalists across SMB, e-commerce, and India business. Personalised pitches with the most relevant stat surfaced for each beat.</p>
+          </div>
+          <div>
+            <div class="td-step-num">iv.</div>
+            <h4 class="td-step-title">Coverage &amp; compounding</h4>
+            <p class="td-step-body">First week: tier-2 coverage. Following two weeks: Forbes, Mint, and Business Insider picked it up. Six months on, the page is still earning syndicated citations and AI mentions.</p>
+          </div>
+        </div>
+
+        <div class="teardown-results">
+          <div>
+            <div class="td-stat">23<span class="unit">×</span></div>
+            <div class="td-stat-label">Press placements</div>
+          </div>
+          <div>
+            <div class="td-stat">DR&nbsp;90<span class="unit">+</span></div>
+            <div class="td-stat-label">Avg. publishing site</div>
+          </div>
+          <div>
+            <div class="td-stat">187</div>
+            <div class="td-stat-label">Backlinks earned</div>
+          </div>
+          <div>
+            <div class="td-stat">∞</div>
+            <div class="td-stat-label">AI citations &amp; counting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Four steps from<br />story to press.</h2>
+        <p class="section-sub">The same framework whether the campaign is a data study or a reactive newsjack. The speeds change. The structure doesn't.</p>
+      </div>
+
+      <div class="process-flow">
+        <div class="flow-step">
+          <div class="flow-num">i.</div>
+          <h3 class="flow-title">Story Discovery</h3>
+          <p class="flow-body">We mine your data, your team's expertise, and your industry's trending conversations for the angle a journalist would actually open the email for.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">ii.</div>
+          <h3 class="flow-title">Asset Build</h3>
+          <p class="flow-body">We produce the linkable asset — landing page, study, hero data viz — designed to be quoted, screenshotted, and cited without modification.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iii.</div>
+          <h3 class="flow-title">Targeted Outreach</h3>
+          <p class="flow-body">No press wires. We hand-pick journalists by beat, byline, and recency, then send personalised pitches built around what *they* cover.</p>
+          <svg class="flow-arrow" viewBox="0 0 18 12"><path d="M2 6 L14 6"/><polyline points="11,3 14,6 11,9"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">iv.</div>
+          <h3 class="flow-title">Compound &amp; Track</h3>
+          <p class="flow-body">Every placement gets logged. We chase syndications, request link upgrades on brand mentions, and feed the campaign back into AI citation work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER SERVICES -->
+  <section class="other">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Pairs well with.</h2>
+        <p class="section-sub">PR is loudest when it's stacked with link building below it and AI placement above it.</p>
+      </div>
+      <div class="other-grid">
+        <a href="/services/link-building" class="other-card">
+          <div class="other-num">— Service No. 01</div>
+          <h3 class="other-title">Link Building</h3>
+          <p class="other-body">PR earns the headline placements. Link building fills in the long tail with the dozens of contextual links that compound between campaigns.</p>
+          <span class="other-cta">Explore link building →</span>
+        </a>
+        <a href="/services/ai-llm-placement" class="other-card">
+          <div class="other-num">— Service No. 02</div>
+          <h3 class="other-title">AI &amp; LLM Placement</h3>
+          <p class="other-body">PR placements are exactly what LLMs were trained on. Stacking AI placement on top compounds every press hit into ChatGPT and Gemini citations.</p>
+          <span class="other-cta">Get cited by AI →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="section-header">
+        <h2 class="section-h2">Digital PR<br />questions, answered.</h2>
+        <p class="section-sub">Six honest answers. No agency theatre.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Are these placements paid? Are they sponsored?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">No. Every placement we earn is editorial — meaning the journalist or editor decided to publish it on merit, not because money changed hands. Paid features are clearly disclosed by the publication. We don't do paid features.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How many placements will I get?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">It depends entirely on the campaign type. A data study can yield 15–30 placements over 6 weeks. A reactive PR programme might land 4–8 quotes a month. A founder thought leadership programme is slower — 1–3 quality placements a month, but they tend to be higher quality.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What if my industry isn't "press-friendly"?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Every industry is press-friendly to *someone*. The trick is finding the right beat. We've placed B2B compliance SaaS, dropshipping platforms, and regional design tools in tier-1 press — none of those sound press-friendly on paper. The angle is what matters.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Do you guarantee Tier 1 placements?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">No, and run away from anyone who does. Tier 1 placements are earned, not promised. What we *do* guarantee is a rigorous campaign, multiple Tier 2/3 placements as a baseline, and a process that maximises the chance of Tier 1 hits.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Will you write the content for our founder?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes. We ghostwrite op-eds, expert quotes, and bylined articles in your founder's voice — based on interview sessions where we extract their actual perspectives. Nothing we publish is "made up." Everything is reviewed and approved before it goes out.</p></div></div>
+        <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is digital PR available white-label?</span><span class="faq-toggle">+</span></button>
+          <div class="faq-a"><p class="faq-a-text">Yes — though it's the slowest of our three services to white-label cleanly because PR involves journalist relationships. We can run campaigns under your brand, but we'll need to discuss the relationship layer in detail. <a href="/white-label" style="color: var(--purple); border-bottom: 1px solid var(--purple);">Read the white-label page</a>.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap final-inner">
+      <h2>Got a story?<br />We'll get it printed.</h2>
+      <p class="final-sub">Tell us what's interesting about your business. If we think there's a campaign in there, we'll come back with three specific story angles, the publications we'd target, and what the realistic outcome looks like. Free.</p>
+      <a href="/contact?intent=pr" class="btn btn-cream btn-arrow">Pitch us your story</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <svg class="logo-mark" viewBox="0 0 28 28" aria-hidden="true">
+              <circle cx="14" cy="14" r="13" fill="none" stroke="#f0e9c7" stroke-width="1.5"/>
+              <path d="M9 14 a3 3 0 0 1 3 -3 h2 v2 h-2 a1 1 0 0 0 0 2 h2 v2 h-2 a3 3 0 0 1 -3 -3z" fill="#f0e9c7"/>
+              <path d="M14 11 h2 a3 3 0 0 1 0 6 h-2 v-2 h2 a1 1 0 0 0 0 -2 h-2 z" fill="#f0e9c7"/>
+            </svg>
+            Links Are Spam
+          </div>
+          <p class="footer-tag">The white-hat opposite of our name.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul>
+          <li><a href="/services/link-building">Link Building</a></li>
+          <li><a href="/services/ai-llm-placement">AI &amp; LLM Placement</a></li>
+          <li><a href="/services/digital-pr">Digital PR</a></li>
+          <li><a href="/white-label">White Label</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/free-tools">Free Tools</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/glossary">Glossary</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Company</h4><ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/refund">Refund</a></li>
+          <li><a href="/anti-spam">Anti-Spam</a></li>
+          <li><a href="/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Links Are Spam. Registered in India. GST: [number] · CIN: [number].</span>
+        <span class="footer-irony">Yes, we have an Anti-Spam Policy. We get the irony.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+    const io = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.compare-card, .press-tile, .type-tile, .flow-step, .other-card, .faq-item').forEach(el => {
+      el.classList.add('reveal'); io.observe(el);
+    });
+  </script>
+</body>
+</html>
