@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Klaviyo Pricing History · PricePulse</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --mint-pale: #C6F6FA;
+  --pixel-mint: #C8E5D5;
+  --teal: #406B6E;
+  --teal-deep: #2F5256;
+  --teal-soft: rgba(64, 107, 110, 0.08);
+  --coral: #F4A580;
+  --coral-deep: #E88858;
+  --coral-soft: #FBD9C0;
+  --peach: #FBD9C0;
+  --ink: #1A2E2F;
+  --ink-soft: #5C6F70;
+  --ink-faint: #94A3A5;
+  --rule: rgba(26, 46, 47, 0.08);
+  --rule-strong: rgba(26, 46, 47, 0.15);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+.display { font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; cursor: pointer; }
+
+/* ===== NAV (matches homepage) ===== */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 247, 240, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1320px; margin: 0 auto; padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--teal); color: var(--cream);
+  display: grid; place-items: center; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px;
+}
+.brand-wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+.nav-menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.nav-menu a { transition: color .15s; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--teal); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.btn {
+  padding: 11px 20px; border-radius: 100px; font-weight: 600; font-size: 14px;
+  transition: all .2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-ghost { color: var(--ink); background: transparent; }
+.btn-ghost:hover { color: var(--teal); }
+.btn-primary { background: var(--teal); color: var(--cream); }
+.btn-primary:hover { background: var(--teal-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(64,107,110,0.25); }
+.btn-coral { background: var(--coral); color: var(--ink); }
+.btn-coral:hover { background: var(--coral-deep); color: var(--white); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--cream); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  max-width: 1320px; margin: 0 auto; padding: 24px 32px 0;
+  font-size: 13px; color: var(--ink-soft); font-weight: 500;
+}
+.breadcrumb .sep { margin: 0 8px; opacity: .4; }
+.breadcrumb a:hover { color: var(--teal); }
+.breadcrumb .active { color: var(--ink); font-weight: 600; }
+
+/* ===== TOOL HERO ===== */
+.tool-hero {
+  max-width: 1320px; margin: 0 auto; padding: 32px 32px 0;
+  display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;
+}
+.tool-id { display: flex; align-items: flex-start; gap: 24px; }
+.tool-logo-big {
+  width: 100px; height: 100px; border-radius: 24px; flex-shrink: 0;
+  display: grid; place-items: center; color: var(--white);
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; font-weight: 800;
+  background: linear-gradient(135deg, #FF6B8A, #FFA86B);
+  box-shadow: 0 12px 32px rgba(255, 107, 138, 0.25);
+}
+.tool-info h1 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800;
+  line-height: 1; letter-spacing: -2px; margin-bottom: 12px;
+}
+.tool-info .desc {
+  font-size: 18px; color: var(--ink-soft); margin-bottom: 18px; max-width: 580px;
+}
+.tool-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  display: inline-block; padding: 6px 12px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.3px;
+}
+.tag.cat { background: var(--teal-soft); color: var(--teal-deep); }
+.tag.public { background: var(--coral-soft); color: var(--coral-deep); }
+.tag.shop { background: var(--mint-pale); color: var(--teal-deep); }
+.tag.tracked { background: var(--pixel-mint); color: var(--teal-deep); }
+
+.tool-hero-cta {
+  display: flex; flex-direction: column; gap: 12px; align-items: end;
+}
+.events-count {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--ink-soft); letter-spacing: 0.5px;
+}
+.events-count strong { color: var(--ink); font-weight: 600; }
+
+/* ===== STATS STRIP ===== */
+.stats-strip {
+  max-width: 1320px; margin: 36px auto 0; padding: 0 32px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.stat-card {
+  background: var(--white); border-radius: 20px; padding: 22px 24px;
+  border: 1px solid var(--rule); position: relative; overflow: hidden;
+}
+.stat-card::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px;
+  border-radius: 50%; opacity: 0.4;
+}
+.stat-card.s1::before { background: var(--mint-pale); top: -30px; right: -30px; }
+.stat-card.s2::before { background: var(--coral-soft); top: -30px; right: -30px; }
+.stat-card.s3::before { background: var(--peach); top: -30px; right: -30px; }
+.stat-card.s4::before { background: var(--pixel-mint); top: -30px; right: -30px; }
+.stat-label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700; margin-bottom: 12px; position: relative;
+}
+.stat-value {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 42px; font-weight: 800;
+  letter-spacing: -2px; line-height: 1; color: var(--ink); position: relative;
+}
+.stat-value.up { color: var(--coral-deep); }
+.stat-value.down { color: var(--teal); }
+.stat-value .unit { font-size: 18px; color: var(--ink-soft); font-weight: 600; margin-left: 4px; }
+.stat-sub { font-size: 12px; color: var(--ink-soft); margin-top: 6px; position: relative; }
+.stat-sub.up { color: var(--coral-deep); font-weight: 600; }
+
+/* ===== MAIN GRID ===== */
+.main-grid {
+  max-width: 1320px; margin: 36px auto 0; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 340px; gap: 36px;
+}
+
+/* ===== CARD (reusable) ===== */
+.card {
+  background: var(--white); border-radius: 24px; padding: 32px;
+  border: 1px solid var(--rule); margin-bottom: 24px;
+}
+.card-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; gap: 16px; flex-wrap: wrap; }
+.card-head h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; }
+.card-head .sub { color: var(--ink-soft); font-size: 14px; margin-top: 6px; }
+
+/* ===== CHART ===== */
+.range-toggle { display: inline-flex; background: var(--cream); border-radius: 100px; padding: 4px; gap: 2px; }
+.range-toggle button {
+  padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 600;
+  color: var(--ink-soft); font-family: 'JetBrains Mono', monospace;
+}
+.range-toggle button.active { background: var(--teal); color: var(--cream); }
+
+.chart-wrap { background: var(--cream); border-radius: 18px; padding: 24px; }
+.chart-svg { width: 100%; height: 320px; }
+.chart-legend {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--rule);
+  font-size: 13px;
+}
+.chart-legend-left { display: flex; gap: 20px; }
+.legend-item { display: flex; align-items: center; gap: 6px; color: var(--ink-soft); }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+/* ===== PREDICTION PANEL (the "not magic, just math" callback) ===== */
+.predict {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--teal-deep) 100%);
+  border-radius: 24px; padding: 36px; color: var(--cream); margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+.predict::before {
+  content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px;
+  background: var(--coral); opacity: 0.15; border-radius: 50%; filter: blur(40px);
+}
+.predict-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(244, 165, 128, 0.15); color: var(--coral);
+  padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.predict-eyebrow .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+.predict h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px; font-weight: 800;
+  letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 14px;
+}
+.predict h2 em { color: var(--coral); font-style: normal; }
+.predict-sub { color: rgba(250,247,240,0.75); font-size: 15px; max-width: 540px; line-height: 1.6; margin-bottom: 24px; }
+.predict-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: center; }
+.confidence-ring {
+  position: relative; width: 200px; height: 200px;
+}
+.confidence-num {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.confidence-num .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--coral); line-height: 1; letter-spacing: -2px; }
+.confidence-num .l { font-size: 11px; letter-spacing: 1.5px; color: rgba(250,247,240,0.65); margin-top: 4px; text-transform: uppercase; font-weight: 700; }
+
+.signals { display: flex; flex-direction: column; gap: 12px; }
+.signal-row {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.05); border-radius: 12px; padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.signal-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center; flex-shrink: 0; font-size: 18px;
+  background: rgba(244,165,128,0.15);
+}
+.signal-meta { flex: 1; }
+.signal-title { font-weight: 700; font-size: 14px; color: var(--cream); margin-bottom: 2px; }
+.signal-detail { font-size: 12px; color: rgba(250,247,240,0.65); line-height: 1.4; }
+.signal-strength { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11px; color: var(--coral); }
+
+.predict-foot {
+  margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex; justify-content: space-between; align-items: center; font-size: 13px;
+  color: rgba(250,247,240,0.6); flex-wrap: wrap; gap: 12px;
+}
+.predict-foot a { color: var(--coral); font-weight: 600; }
+
+/* ===== PLAN TIERS ===== */
+.plans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.plan {
+  background: var(--cream); border-radius: 18px; padding: 24px;
+  border: 1px solid var(--rule); position: relative;
+}
+.plan.featured { background: linear-gradient(135deg, var(--mint-pale), var(--peach)); border: none; }
+.plan-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
+.plan-tag-line { font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; }
+.plan-price { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; line-height: 1; color: var(--ink); margin-bottom: 4px; }
+.plan-price .pu { font-size: 14px; color: var(--ink-soft); margin-left: 4px; font-weight: 500; }
+.plan-feats { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+.plan-feats .check { color: var(--teal); font-weight: 700; margin-right: 6px; }
+.plan-change-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--coral); color: var(--ink); padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 700; font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== CHANGELOG TABLE ===== */
+.log-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.log-table thead tr { border-bottom: 2px solid var(--rule-strong); }
+.log-table th {
+  text-align: left; padding: 12px 16px;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700;
+}
+.log-table tbody tr { border-bottom: 1px solid var(--rule); transition: background .15s; }
+.log-table tbody tr:hover { background: var(--cream); }
+.log-table tbody tr:last-child { border: none; }
+.log-table td { padding: 16px; vertical-align: middle; }
+.log-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); }
+.log-plan { font-weight: 700; font-size: 14px; }
+.log-change { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--ink); }
+.log-impact { display: inline-flex; padding: 4px 10px; border-radius: 100px; font-weight: 700; font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+.log-impact.up { background: var(--coral-soft); color: var(--coral-deep); }
+.log-impact.down { background: var(--mint-pale); color: var(--teal-deep); }
+.log-impact.neutral { background: var(--rule); color: var(--ink-soft); }
+.log-note { color: var(--ink-soft); font-size: 13px; }
+
+/* ===== EDITORIAL ===== */
+.editorial {
+  background: linear-gradient(135deg, var(--peach) 0%, var(--coral-soft) 100%);
+  border-radius: 24px; padding: 40px; margin-bottom: 24px; position: relative; overflow: hidden;
+}
+.editorial::before {
+  content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px;
+  background: var(--mint-pale); opacity: 0.5; border-radius: 50%;
+}
+.editorial-quote {
+  position: relative;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 700;
+  letter-spacing: -0.6px; line-height: 1.3; color: var(--ink);
+  margin-bottom: 24px;
+}
+.editorial-author {
+  position: relative;
+  display: flex; align-items: center; gap: 14px;
+  padding-top: 24px; border-top: 1px solid rgba(26,46,47,0.15);
+}
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--teal); color: var(--cream);
+  display: grid; place-items: center; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+.author-name { font-weight: 700; font-size: 14px; }
+.author-meta { font-size: 12px; color: var(--ink-soft); }
+.editorial-link { color: var(--teal-deep); font-weight: 600; font-size: 13px; }
+
+/* ===== SIDEBAR ===== */
+.sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 100px; align-self: start; }
+.side-card {
+  background: var(--white); border-radius: 24px; padding: 24px;
+  border: 1px solid var(--rule);
+}
+.side-card.dark { background: var(--ink); color: var(--cream); }
+.side-card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 800;
+  letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.2;
+}
+.side-card .label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-bottom: 12px; }
+
+/* Watch panel */
+.watch-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: var(--cream); border-radius: 14px;
+  margin-bottom: 14px;
+}
+.watch-toggle .lbl { font-size: 13px; font-weight: 600; color: var(--ink); }
+.watch-toggle .lbl span { font-size: 12px; font-weight: 500; color: var(--ink-soft); display: block; }
+.toggle {
+  width: 38px; height: 22px; border-radius: 100px; background: var(--rule-strong); position: relative; cursor: pointer; transition: all .2s;
+}
+.toggle::after { content: ''; position: absolute; left: 2px; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--white); transition: all .2s; }
+.toggle.on { background: var(--teal); }
+.toggle.on::after { left: 18px; }
+
+/* Alternatives */
+.alt-row {
+  display: flex; align-items: center; gap: 12px; padding: 12px 0;
+  border-bottom: 1px solid var(--rule); cursor: pointer; transition: all .15s;
+}
+.alt-row:last-child { border: none; padding-bottom: 0; }
+.alt-row:hover { padding-left: 4px; }
+.alt-logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center; color: white; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; flex-shrink: 0;
+}
+.alt-name { font-size: 14px; font-weight: 700; }
+.alt-price { font-size: 12px; color: var(--ink-soft); }
+.alt-pct { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 6px; }
+.alt-pct.down { background: var(--mint-pale); color: var(--teal-deep); }
+.alt-pct.up { background: var(--coral-soft); color: var(--coral-deep); }
+
+/* Embed widget */
+.embed-card { background: var(--cream); border-radius: 14px; padding: 14px; margin-top: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); border: 1px solid var(--rule); word-break: break-all; }
+.embed-card .copy-btn {
+  display: inline-block; margin-top: 8px; padding: 6px 12px; background: var(--ink); color: var(--cream);
+  border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer;
+}
+
+/* ===== RELATED ARTICLES ===== */
+.related {
+  max-width: 1320px; margin: 0 auto; padding: 60px 32px;
+}
+.related-head { text-align: center; margin-bottom: 40px; }
+.related h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 42px; font-weight: 800; letter-spacing: -1.2px; margin-bottom: 8px; }
+.related-head p { color: var(--ink-soft); font-size: 16px; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.article-card {
+  background: var(--white); border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--rule); transition: all .25s; cursor: pointer;
+}
+.article-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -8px rgba(26,46,47,0.12); }
+.article-cover {
+  aspect-ratio: 16/10; background: var(--mint-pale); position: relative; overflow: hidden;
+  display: grid; place-items: center;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; color: var(--teal-deep);
+}
+.article-cover.c2 { background: var(--peach); color: var(--coral-deep); }
+.article-cover.c3 { background: var(--pixel-mint); color: var(--teal-deep); }
+.article-cover.c4 { background: var(--coral-soft); color: var(--coral-deep); }
+.article-body { padding: 20px; }
+.article-tag { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--coral-deep); font-weight: 700; margin-bottom: 8px; }
+.article-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.4px; line-height: 1.25; margin-bottom: 8px; }
+.article-meta { font-size: 12px; color: var(--ink-soft); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink); color: var(--cream); padding: 60px 32px 30px; margin-top: 60px;
+}
+.footer-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+footer h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 700; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: rgba(250,247,240,0.65); }
+footer a:hover { color: var(--cream); }
+footer .desc { color: rgba(250,247,240,0.65); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 16px; }
+.footer-bottom { max-width: 1320px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,247,240,0.5); letter-spacing: 1px; }
+
+@media (max-width: 1024px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+  .predict-grid { grid-template-columns: 1fr; }
+  .confidence-ring { margin: 0 auto; }
+  .plans-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .tool-hero { grid-template-columns: 1fr; }
+  .tool-info h1 { font-size: 40px; }
+  .stats-strip { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div class="brand-wordmark">PricePulse</div>
+    </div>
+    <div class="nav-menu">
+      <a href="#" class="active">The Ledger</a>
+      <a href="#">Categories</a>
+      <a href="#">How it Works</a>
+      <a href="#">Reports</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Start watching →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">The Ledger</a>
+  <span class="sep">/</span>
+  <a href="#">Email &amp; SMS</a>
+  <span class="sep">/</span>
+  <span class="active">Klaviyo</span>
+</div>
+
+<!-- TOOL HERO -->
+<header class="tool-hero">
+  <div class="tool-id">
+    <div class="tool-logo-big">K</div>
+    <div class="tool-info">
+      <h1 class="display">Klaviyo</h1>
+      <p class="desc">Email marketing &amp; SMS automation built for ecommerce brands. The dominant Shopify-stack email tool, public since 2023.</p>
+      <div class="tool-tags">
+        <span class="tag cat">📧 Email &amp; SMS</span>
+        <span class="tag shop">🛒 Shopify App</span>
+        <span class="tag public">📈 Public · NYSE: KVYO</span>
+        <span class="tag tracked">✓ Tracked since Apr 2024</span>
+      </div>
+    </div>
+  </div>
+  <div class="tool-hero-cta">
+    <button class="btn btn-primary">🔔 Watch this tool</button>
+    <button class="btn btn-outline btn-sm">↗ Visit klaviyo.com</button>
+    <span class="events-count"><strong>14 events</strong> tracked · last scrape <strong>2h ago</strong></span>
+  </div>
+</header>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stat-card s1">
+    <div class="stat-label">Current entry price</div>
+    <div class="stat-value">$45<span class="unit">/mo</span></div>
+    <div class="stat-sub">Email plan · 1,500 contacts</div>
+  </div>
+  <div class="stat-card s2">
+    <div class="stat-label">12-month change</div>
+    <div class="stat-value up">+18.4%</div>
+    <div class="stat-sub up">▲ vs. April 2025</div>
+  </div>
+  <div class="stat-card s3">
+    <div class="stat-label">All-time hikes</div>
+    <div class="stat-value">9</div>
+    <div class="stat-sub">across all plan tiers</div>
+  </div>
+  <div class="stat-card s4">
+    <div class="stat-label">Last change</div>
+    <div class="stat-value">2h<span class="unit"> ago</span></div>
+    <div class="stat-sub up">▲ Email Plus +11.5%</div>
+  </div>
+</section>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- MAIN COLUMN -->
+  <main>
+
+    <!-- CHART -->
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="display">Pricing history</h2>
+          <p class="sub">Email Pro tier · monthly cost for 10,000 contacts · USD</p>
+        </div>
+        <div class="range-toggle">
+          <button>6M</button>
+          <button>1Y</button>
+          <button class="active">2Y</button>
+          <button>ALL</button>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <svg class="chart-svg" viewBox="0 0 800 320">
+          <!-- grid -->
+          <line x1="60" y1="40" x2="780" y2="40" stroke="rgba(26,46,47,0.08)" stroke-dasharray="3 4"/>
+          <line x1="60" y1="100" x2="780" y2="100" stroke="rgba(26,46,47,0.08)" stroke-dasharray="3 4"/>
+          <line x1="60" y1="160" x2="780" y2="160" stroke="rgba(26,46,47,0.08)" stroke-dasharray="3 4"/>
+          <line x1="60" y1="220" x2="780" y2="220" stroke="rgba(26,46,47,0.08)" stroke-dasharray="3 4"/>
+          <line x1="60" y1="280" x2="780" y2="280" stroke="rgba(26,46,47,0.15)"/>
+
+          <!-- y axis -->
+          <text x="20" y="44" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">$200</text>
+          <text x="20" y="104" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">$170</text>
+          <text x="20" y="164" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">$140</text>
+          <text x="20" y="224" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">$110</text>
+
+          <!-- area gradient -->
+          <defs>
+            <linearGradient id="ar" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#F4A580" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#F4A580" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="prediction" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#406B6E" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#406B6E" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M60,210 L60,210 L150,210 L150,180 L300,180 L300,150 L450,150 L450,150 L580,150 L580,110 L680,110 L680,80 L720,80 L720,280 L60,280 Z" fill="url(#ar)"/>
+
+          <!-- step line (history) -->
+          <path d="M60,210 L150,210 L150,180 L300,180 L300,150 L450,150 L580,150 L580,110 L680,110 L680,80 L720,80" stroke="#E88858" stroke-width="2.5" fill="none" stroke-linejoin="miter"/>
+
+          <!-- prediction line (dashed forward) -->
+          <path d="M720,80 L760,68 L780,55" stroke="#406B6E" stroke-width="2.5" stroke-dasharray="5 3" fill="none"/>
+          <path d="M720,80 L760,68 L780,55 L780,280 L720,280 Z" fill="url(#prediction)"/>
+
+          <!-- change dots -->
+          <circle cx="150" cy="180" r="5" fill="#E88858"/>
+          <circle cx="300" cy="150" r="5" fill="#E88858"/>
+          <circle cx="580" cy="110" r="5" fill="#E88858"/>
+          <circle cx="680" cy="80" r="6" fill="#E88858" stroke="#FAF7F0" stroke-width="2"/>
+          <circle cx="780" cy="55" r="5" fill="#406B6E" stroke="#FAF7F0" stroke-width="2"/>
+
+          <!-- tooltip -->
+          <g transform="translate(595, 18)">
+            <rect width="160" height="48" rx="10" fill="#1A2E2F"/>
+            <text x="14" y="22" font-size="10" fill="#F4A580" font-family="JetBrains Mono" letter-spacing="1">22 APR 2026</text>
+            <text x="14" y="38" font-size="13" fill="#FAF7F0" font-family="JetBrains Mono" font-weight="600">$170 → $189 +11.5%</text>
+          </g>
+          <line x1="680" y1="62" x2="680" y2="80" stroke="#1A2E2F" stroke-dasharray="2 2"/>
+
+          <!-- forecast tag -->
+          <g transform="translate(720, 20)">
+            <rect width="60" height="22" rx="6" fill="#406B6E"/>
+            <text x="30" y="15" font-size="9" fill="#FAF7F0" font-family="JetBrains Mono" letter-spacing="1" text-anchor="middle">FORECAST</text>
+          </g>
+
+          <!-- x axis -->
+          <text x="60" y="305" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">Apr '24</text>
+          <text x="220" y="305" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">Oct '24</text>
+          <text x="380" y="305" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">Apr '25</text>
+          <text x="540" y="305" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">Oct '25</text>
+          <text x="675" y="305" font-size="11" fill="#5C6F70" font-family="JetBrains Mono">Apr '26</text>
+          <text x="745" y="305" font-size="11" fill="#406B6E" font-family="JetBrains Mono" font-weight="600">Q4 '26</text>
+        </svg>
+
+        <div class="chart-legend">
+          <div class="chart-legend-left">
+            <div class="legend-item"><span class="legend-dot" style="background:#E88858;"></span>Confirmed price</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#406B6E; border-radius:0; height:3px;"></span>PricePulse forecast</div>
+            <div class="legend-item"><span class="legend-dot" style="background:#1A2E2F;"></span>Major event</div>
+          </div>
+          <div style="font-size:13px; color: var(--ink-soft);">Hover any point for details</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREDICTION PANEL -->
+    <section class="predict">
+      <div class="predict-eyebrow"><span class="pulse"></span>PRICEPULSE FORECAST · 22 APR 2026</div>
+      <h2 class="display">Klaviyo's next hike: <em>8–12 months</em>.</h2>
+      <p class="predict-sub">
+        Based on historical cadence, Q1 earnings pressure, recent CEO commentary on "value capture", and three competitor moves in the last 90 days, our model expects a 6–10% increase to the Email Pro tier between Q4 2026 and Q1 2027.
+      </p>
+      <div class="predict-grid">
+        <div class="confidence-ring">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="80" stroke="rgba(255,255,255,0.1)" stroke-width="14" fill="none"/>
+            <circle cx="100" cy="100" r="80" stroke="#F4A580" stroke-width="14" fill="none"
+                    stroke-dasharray="502" stroke-dashoffset="111"
+                    stroke-linecap="round" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div class="confidence-num">
+            <span class="v">78%</span>
+            <span class="l">CONFIDENCE</span>
+          </div>
+        </div>
+        <div class="signals">
+          <div class="signal-row">
+            <div class="signal-icon">📈</div>
+            <div class="signal-meta">
+              <div class="signal-title">Pricing cadence</div>
+              <div class="signal-detail">9 hikes in 24 months. Last gap: 18mo. Klaviyo is overdue by ~2 months.</div>
+            </div>
+            <div class="signal-strength">+++</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-icon">💼</div>
+            <div class="signal-meta">
+              <div class="signal-title">Financial pressure</div>
+              <div class="signal-detail">Q1 2026 gross margin slipped 240bps. NYSE analyst pressure mounting.</div>
+            </div>
+            <div class="signal-strength">++</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-icon">🎤</div>
+            <div class="signal-meta">
+              <div class="signal-title">Leadership behaviour</div>
+              <div class="signal-detail">CEO mentioned "value capture" 4× last earnings call. Hired new VP Pricing in Feb.</div>
+            </div>
+            <div class="signal-strength">+++</div>
+          </div>
+          <div class="signal-row">
+            <div class="signal-icon">🌊</div>
+            <div class="signal-meta">
+              <div class="signal-title">Market pressure</div>
+              <div class="signal-detail">3 of 5 direct competitors raised in last 90d. Postscript +15%, Attentive +8%, Sendlane +12%.</div>
+            </div>
+            <div class="signal-strength">++</div>
+          </div>
+        </div>
+      </div>
+      <div class="predict-foot">
+        <span>Built from 14,392 historical events &amp; 4 live signal streams. Updated daily.</span>
+        <a href="#">Read methodology →</a>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="display">Current plans</h2>
+          <p class="sub">Snapshot as of 06 May 2026 · prices in USD</p>
+        </div>
+      </div>
+
+      <div class="plans-grid">
+        <div class="plan">
+          <div class="plan-name">Free</div>
+          <div class="plan-tag-line">Get started</div>
+          <div class="plan-price">$0<span class="pu">/mo</span></div>
+          <div class="plan-feats">
+            <div><span class="check">✓</span>Up to 250 contacts</div>
+            <div><span class="check">✓</span>500 emails/month</div>
+            <div><span class="check">✓</span>Basic templates</div>
+          </div>
+        </div>
+
+        <div class="plan featured">
+          <div class="plan-change-badge">▲ +28% YoY</div>
+          <div class="plan-name">Email</div>
+          <div class="plan-tag-line">Most popular · entry</div>
+          <div class="plan-price">$45<span class="pu">/mo</span></div>
+          <div class="plan-feats">
+            <div><span class="check">✓</span>1,500 contacts</div>
+            <div><span class="check">✓</span>15,000 emails/month</div>
+            <div><span class="check">✓</span>Full automations</div>
+            <div><span class="check">✓</span>Reviews module included</div>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">Email + SMS</div>
+          <div class="plan-tag-line">Cross-channel</div>
+          <div class="plan-price">$60<span class="pu">/mo</span></div>
+          <div class="plan-feats">
+            <div><span class="check">✓</span>1,500 contacts + 150 SMS credits</div>
+            <div><span class="check">✓</span>$0.014 per US SMS thereafter</div>
+            <div><span class="check">✓</span>All Email tier features</div>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="plan-change-badge">▲ +11.5%</div>
+          <div class="plan-name">Email Plus</div>
+          <div class="plan-tag-line">Enterprise</div>
+          <div class="plan-price">$1,895<span class="pu">/mo</span></div>
+          <div class="plan-feats">
+            <div><span class="check">✓</span>Custom contact limits</div>
+            <div><span class="check">✓</span>Advanced segmentation</div>
+            <div><span class="check">✓</span>Dedicated CSM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="display">Complete change log</h2>
+          <p class="sub">Every pricing &amp; plan change we've recorded since April 2024</p>
+        </div>
+        <button class="btn btn-outline btn-sm">Export CSV</button>
+      </div>
+
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Plan</th>
+            <th>Change</th>
+            <th>Impact</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="log-date">22 APR 2026</span></td>
+            <td><span class="log-plan">Email Plus</span></td>
+            <td><span class="log-change">$1,700 → $1,895/mo</span></td>
+            <td><span class="log-impact up">▲ 11.5%</span></td>
+            <td><span class="log-note">First Email Plus increase since Oct 2024</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">14 MAR 2026</span></td>
+            <td><span class="log-plan">SMS</span></td>
+            <td><span class="log-change">$0.012 → $0.014 per msg</span></td>
+            <td><span class="log-impact up">▲ 16.7%</span></td>
+            <td><span class="log-note">US carrier fee passthrough cited</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">09 JAN 2026</span></td>
+            <td><span class="log-plan">Email Pro</span></td>
+            <td><span class="log-change">$60 → $70/mo (5k contacts)</span></td>
+            <td><span class="log-impact up">▲ 16.7%</span></td>
+            <td><span class="log-note">Reviews module bundled in</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">21 OCT 2025</span></td>
+            <td><span class="log-plan">Email Plus</span></td>
+            <td><span class="log-change">Min commit $1,500 → $1,700</span></td>
+            <td><span class="log-impact up">▲ 13.3%</span></td>
+            <td><span class="log-note">Custom segment limits raised</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">15 AUG 2025</span></td>
+            <td><span class="log-plan">Email (entry)</span></td>
+            <td><span class="log-change">$35 → $45/mo</span></td>
+            <td><span class="log-impact up">▲ 28.6%</span></td>
+            <td><span class="log-note">Largest single increase to date</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">04 JUN 2025</span></td>
+            <td><span class="log-plan">Free tier</span></td>
+            <td><span class="log-change">500 → 250 contact cap</span></td>
+            <td><span class="log-impact up">▼ feature</span></td>
+            <td><span class="log-note">Quietly halved free tier limits</span></td>
+          </tr>
+          <tr>
+            <td><span class="log-date">12 FEB 2025</span></td>
+            <td><span class="log-plan">Email Pro</span></td>
+            <td><span class="log-change">$150 → $140/mo</span></td>
+            <td><span class="log-impact down">▼ 6.7%</span></td>
+            <td><span class="log-note">Briefly competitive vs Omnisend</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- EDITORIAL -->
+    <section class="editorial">
+      <div class="editorial-quote">
+        "Klaviyo's pricing trajectory tells the post-IPO story bluntly: the entry tier has climbed 28% in two years, while Email Plus has crossed the $1,895 floor. For brands sub-$3M GMV, alternatives like Omnisend and Sendlane now win on TCO."
+      </div>
+      <div class="editorial-author">
+        <div class="author-avatar">SP</div>
+        <div style="flex: 1;">
+          <div class="author-name">Subham Paul</div>
+          <div class="author-meta">Editor · Updated 22 Apr 2026</div>
+        </div>
+        <a href="#" class="editorial-link">Read full review →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Watch panel -->
+    <div class="side-card">
+      <h3>Watch this tool</h3>
+      <p style="font-size: 13px; color: var(--ink-soft); margin-bottom: 18px; line-height: 1.5;">Get notified the moment Klaviyo's pricing changes — usually 2 hours after we detect it.</p>
+
+      <div class="watch-toggle">
+        <div class="lbl">Email alerts<span>To spaul@canva.com</span></div>
+        <div class="toggle on"></div>
+      </div>
+      <div class="watch-toggle">
+        <div class="lbl">Slack alerts<span>To #ops channel</span></div>
+        <div class="toggle"></div>
+      </div>
+      <div class="watch-toggle">
+        <div class="lbl">Forecast updates<span>Weekly digest of model changes</span></div>
+        <div class="toggle on"></div>
+      </div>
+      <button class="btn btn-primary" style="width: 100%; margin-top: 14px; justify-content: center;">Save preferences</button>
+    </div>
+
+    <!-- Alternatives -->
+    <div class="side-card">
+      <h3>Cheaper alternatives</h3>
+      <span class="label">Same category · ranked by TCO</span>
+      <div class="alt-row">
+        <div class="alt-logo" style="background:linear-gradient(135deg,#004733,#00875A);">O</div>
+        <div>
+          <div class="alt-name">Omnisend</div>
+          <div class="alt-price">From $16/mo</div>
+        </div>
+        <span class="alt-pct down">−64%</span>
+      </div>
+      <div class="alt-row">
+        <div class="alt-logo" style="background:#000; color: var(--coral);">P</div>
+        <div>
+          <div class="alt-name">Postscript</div>
+          <div class="alt-price">From $25/mo</div>
+        </div>
+        <span class="alt-pct down">−44%</span>
+      </div>
+      <div class="alt-row">
+        <div class="alt-logo" style="background:#FF5C8A;">D</div>
+        <div>
+          <div class="alt-name">Drip</div>
+          <div class="alt-price">From $39/mo</div>
+        </div>
+        <span class="alt-pct down">−13%</span>
+      </div>
+      <div class="alt-row">
+        <div class="alt-logo" style="background:linear-gradient(135deg,#FF8E2B,#FFC53D);">S</div>
+        <div>
+          <div class="alt-name">Sendlane</div>
+          <div class="alt-price">From $99/mo</div>
+        </div>
+        <span class="alt-pct up">+120%</span>
+      </div>
+      <button class="btn btn-outline btn-sm" style="width: 100%; margin-top: 14px; justify-content: center;">Compare side-by-side →</button>
+    </div>
+
+    <!-- Embed widget -->
+    <div class="side-card dark">
+      <h3 style="color: var(--cream);">Embed this chart</h3>
+      <p style="font-size: 13px; color: rgba(250,247,240,0.65); margin-bottom: 16px; line-height: 1.5;">Drop the live Klaviyo pricing-history chart on your blog or comparison post. Updates automatically.</p>
+      <div class="embed-card" style="background: rgba(255,255,255,0.05); color: rgba(250,247,240,0.75); border-color: rgba(255,255,255,0.1);">
+        &lt;script src="pricepulse.io/<br/>embed/klaviyo"&gt;&lt;/script&gt;
+        <span class="copy-btn" style="background: var(--coral); color: var(--ink);">Copy code</span>
+      </div>
+    </div>
+
+    <!-- Quick facts -->
+    <div class="side-card">
+      <h3>Quick facts</h3>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">Founded</span><strong>2012</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">HQ</span><strong>Boston, MA</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">Employees</span><strong>~1,800</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">CEO</span><strong>Andrew Bialecki</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">IPO</span><strong>Sep 2023 (NYSE)</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">Pricing model</span><strong>Contact-tiered</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">Free plan</span><strong>Yes (limited)</strong></div>
+        <div style="display: flex; justify-content: space-between;"><span style="color: var(--ink-soft);">Free trial</span><strong>14 days</strong></div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related">
+  <div class="related-head">
+    <h2>Read next</h2>
+    <p>Editorial coverage and head-to-head comparisons featuring Klaviyo</p>
+  </div>
+  <div class="related-grid">
+    <a href="#" class="article-card">
+      <div class="article-cover">vs.</div>
+      <div class="article-body">
+        <div class="article-tag">COMPARISON</div>
+        <div class="article-title">Klaviyo vs Omnisend: which email tool wins in 2026?</div>
+        <div class="article-meta">12 min read · Updated 28 Apr</div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-cover c2">★</div>
+      <div class="article-body">
+        <div class="article-tag">LISTICLE</div>
+        <div class="article-title">9 Klaviyo alternatives for sub-$3M Shopify brands</div>
+        <div class="article-meta">8 min read · Updated 22 Apr</div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-cover c3">📊</div>
+      <div class="article-body">
+        <div class="article-tag">REPORT</div>
+        <div class="article-title">The 2026 State of Email Marketing Pricing</div>
+        <div class="article-meta">25 min read · Q1 2026</div>
+      </div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-cover c4">$</div>
+      <div class="article-body">
+        <div class="article-tag">DEEP DIVE</div>
+        <div class="article-title">Klaviyo SMS pricing: every hidden fee, deconstructed</div>
+        <div class="article-meta">14 min read · Updated 14 Mar</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="brand">
+        <div class="brand-mark" style="background:var(--coral);color:var(--ink);">P</div>
+        <div class="brand-wordmark" style="color:var(--cream);">PricePulse</div>
+      </div>
+      <p class="desc">The watchtower for SaaS &amp; Shopify pricing. Every change, every tier, every day — so you never get blindsided again.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul><li><a href="#">The Ledger</a></li><li><a href="#">Live Changes</a></li><li><a href="#">Pricing API</a></li><li><a href="#">Browser Extension</a></li><li><a href="#">Embed Widgets</a></li></ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul><li><a href="#">Reports</a></li><li><a href="#">Blog</a></li><li><a href="#">Methodology</a></li><li><a href="#">Comparisons</a></li><li><a href="#">Newsletter</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Advertise</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Privacy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PRICEPULSE · UPDATED DAILY 00:00 UTC</span>
+    <span>BUILT FOR FOUNDERS, FREELANCERS &amp; OPS LEADS</span>
+  </div>
+</footer>
+
+</body>
+</html>
