@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Ledger · 5,847 SaaS &amp; Shopify tools tracked · PricePulse</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --mint-pale: #C6F6FA;
+  --pixel-mint: #C8E5D5;
+  --teal: #406B6E;
+  --teal-deep: #2F5256;
+  --teal-soft: rgba(64, 107, 110, 0.08);
+  --coral: #F4A580;
+  --coral-deep: #E88858;
+  --coral-soft: #FBD9C0;
+  --peach: #FBD9C0;
+  --ink: #1A2E2F;
+  --ink-soft: #5C6F70;
+  --ink-faint: #94A3A5;
+  --rule: rgba(26, 46, 47, 0.08);
+  --rule-strong: rgba(26, 46, 47, 0.15);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+.display { font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; cursor: pointer; background: none; color: inherit; }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 247, 240, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1440px; margin: 0 auto; padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--teal); color: var(--cream);
+  display: grid; place-items: center; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px;
+}
+.brand-wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+.nav-menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--teal); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.btn {
+  padding: 11px 20px; border-radius: 100px; font-weight: 600; font-size: 14px;
+  transition: all .2s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.btn-ghost { color: var(--ink); background: transparent; }
+.btn-ghost:hover { color: var(--teal); }
+.btn-primary { background: var(--teal); color: var(--cream); }
+.btn-primary:hover { background: var(--teal-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(64,107,110,0.25); }
+.btn-coral { background: var(--coral); color: var(--ink); }
+.btn-coral:hover { background: var(--coral-deep); color: var(--white); }
+.btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--cream); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  max-width: 1440px; margin: 0 auto; padding: 24px 32px 0;
+  font-size: 13px; color: var(--ink-soft); font-weight: 500;
+}
+.breadcrumb .sep { margin: 0 8px; opacity: .4; }
+.breadcrumb .active { color: var(--ink); font-weight: 600; }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1440px; margin: 0 auto; padding: 32px 32px 48px;
+  position: relative;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--mint-pale); padding: 8px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: var(--teal-deep); margin-bottom: 24px;
+}
+.hero-eyebrow .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(48px, 6vw, 76px); font-weight: 800;
+  line-height: 0.96; letter-spacing: -0.04em; color: var(--ink);
+  margin-bottom: 24px; max-width: 900px;
+}
+.hero h1 em { color: var(--coral-deep); font-style: normal; position: relative; }
+.hero h1 em::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 12px;
+  background: var(--mint-pale); z-index: -1; border-radius: 4px;
+}
+.hero-sub {
+  font-size: 19px; color: var(--ink-soft); max-width: 720px;
+  line-height: 1.55; margin-bottom: 36px;
+}
+.hero-stats {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+}
+.hero-stat {
+  background: var(--white); border-radius: 18px; padding: 22px;
+  border: 1px solid var(--rule); position: relative; overflow: hidden;
+}
+.hero-stat::after {
+  content: ''; position: absolute; top: -20px; right: -20px; width: 80px; height: 80px;
+  border-radius: 50%; opacity: 0.4;
+}
+.hero-stat.s1::after { background: var(--mint-pale); }
+.hero-stat.s2::after { background: var(--coral-soft); }
+.hero-stat.s3::after { background: var(--peach); }
+.hero-stat.s4::after { background: var(--pixel-mint); }
+.hero-stat.s5::after { background: var(--mint-pale); }
+.hero-stat .lbl { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-bottom: 8px; position: relative; }
+.hero-stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1.2px; line-height: 1; color: var(--ink); position: relative; }
+.hero-stat .v.coral { color: var(--coral-deep); }
+.hero-stat .v.teal { color: var(--teal); }
+.hero-stat .v .unit { font-size: 13px; color: var(--ink-soft); font-weight: 600; margin-left: 4px; }
+.hero-stat .sub { font-size: 12px; color: var(--ink-soft); margin-top: 4px; position: relative; }
+
+/* ===== STACK STARTERS (PERSONAS) ===== */
+.stacks {
+  max-width: 1440px; margin: 0 auto; padding: 16px 32px 56px;
+}
+.stacks-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+.stacks-head h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+.stacks-head .desc { color: var(--ink-soft); font-size: 14px; margin-top: 6px; max-width: 540px; }
+.stacks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stack-card {
+  background: var(--white); border-radius: 22px; padding: 24px;
+  border: 1px solid var(--rule); cursor: pointer;
+  transition: all .25s; position: relative; overflow: hidden;
+}
+.stack-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px -10px rgba(26,46,47,0.12); }
+.stack-card.s1 { background: linear-gradient(135deg, var(--mint-pale) 0%, var(--white) 60%); }
+.stack-card.s2 { background: linear-gradient(135deg, var(--coral-soft) 0%, var(--white) 60%); }
+.stack-card.s3 { background: linear-gradient(135deg, var(--peach) 0%, var(--white) 60%); }
+.stack-card.s4 { background: linear-gradient(135deg, var(--pixel-mint) 0%, var(--white) 60%); }
+.stack-emoji { font-size: 32px; margin-bottom: 14px; display: block; }
+.stack-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
+.stack-meta { font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; font-weight: 500; }
+.stack-cost { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.stack-cost .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--ink); }
+.stack-cost .unit { font-size: 12px; color: var(--ink-soft); }
+.stack-cost .change { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 100px; background: var(--coral-soft); color: var(--coral-deep); }
+.stack-tools { display: flex; gap: 4px; margin-bottom: 16px; }
+.stack-tool {
+  width: 28px; height: 28px; border-radius: 7px;
+  display: grid; place-items: center; color: white; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px;
+  border: 2px solid var(--white); margin-left: -6px;
+}
+.stack-tool:first-child { margin-left: 0; }
+.stack-cta { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; font-weight: 600; color: var(--teal-deep); }
+
+/* ===== INSIGHT BAR ===== */
+.insights {
+  max-width: 1440px; margin: 0 auto 40px; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+.insight {
+  background: var(--white); border-radius: 18px; padding: 22px 24px;
+  border: 1px solid var(--rule); display: flex; gap: 16px; align-items: center;
+}
+.insight-icon {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: grid; place-items: center; font-size: 26px;
+}
+.insight.i1 .insight-icon { background: var(--coral-soft); }
+.insight.i2 .insight-icon { background: var(--mint-pale); }
+.insight.i3 .insight-icon { background: var(--peach); }
+.insight-body .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.7px; line-height: 1.1; }
+.insight-body .v.coral { color: var(--coral-deep); }
+.insight-body .lbl { font-size: 13px; color: var(--ink-soft); margin-top: 2px; line-height: 1.4; }
+
+/* ===== CATEGORY BAR ===== */
+.cat-bar-wrap {
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  background: var(--white);
+}
+.cat-bar {
+  max-width: 1440px; margin: 0 auto; padding: 18px 32px;
+  display: flex; gap: 8px; overflow-x: auto;
+}
+.cat-bar::-webkit-scrollbar { display: none; }
+.cat-pill {
+  padding: 9px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
+  color: var(--ink-soft); white-space: nowrap; border: 1px solid var(--rule);
+  background: var(--cream); transition: all .15s;
+}
+.cat-pill:hover { color: var(--ink); border-color: var(--teal); }
+.cat-pill.active { background: var(--teal); color: var(--cream); border-color: var(--teal); }
+.cat-pill.featured { background: var(--coral); color: var(--ink); border-color: var(--coral); position: relative; }
+.cat-pill.featured::after {
+  content: 'NEW'; position: absolute; top: -6px; right: -6px;
+  background: var(--ink); color: var(--coral); font-size: 9px; font-weight: 800;
+  padding: 2px 5px; border-radius: 4px; letter-spacing: 0.5px;
+}
+.cat-pill .count { opacity: .6; margin-left: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+.cat-pill.active .count, .cat-pill.featured .count { opacity: .85; }
+
+/* ===== MAIN GRID ===== */
+.main-grid {
+  max-width: 1440px; margin: 0 auto; padding: 32px;
+  display: grid; grid-template-columns: 280px 1fr; gap: 28px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: sticky; top: 100px; align-self: start;
+  max-height: calc(100vh - 120px); overflow-y: auto;
+  padding-right: 8px;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--rule-strong); border-radius: 2px; }
+.filter-card {
+  background: var(--white); border-radius: 18px; padding: 22px;
+  border: 1px solid var(--rule); margin-bottom: 16px;
+}
+.filter-card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 800;
+  margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center;
+}
+.filter-card h3 .clear { font-size: 11px; font-weight: 600; color: var(--coral-deep); cursor: pointer; }
+.search-input {
+  width: 100%; padding: 11px 14px; background: var(--cream);
+  border: 1px solid var(--rule); border-radius: 100px;
+  font-family: inherit; color: var(--ink); font-size: 13px; transition: border-color .15s;
+}
+.search-input:focus { outline: none; border-color: var(--teal); }
+.search-input::placeholder { color: var(--ink-faint); }
+.check-list { display: flex; flex-direction: column; gap: 11px; font-size: 13px; }
+.check-row { display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--ink); }
+.check-row input[type="checkbox"] { accent-color: var(--teal); width: 14px; height: 14px; cursor: pointer; }
+.check-row .count { margin-left: auto; font-size: 11px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; }
+.check-row:hover .count { color: var(--ink-soft); }
+.persona-list { display: flex; flex-direction: column; gap: 6px; }
+.persona-row {
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+  border-radius: 12px; background: var(--cream); cursor: pointer; transition: all .15s;
+  font-size: 13px; font-weight: 600;
+}
+.persona-row:hover { background: var(--mint-pale); }
+.persona-row .ico { font-size: 18px; }
+.persona-row .count { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); font-weight: 500; }
+.range-inputs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; }
+.range-inputs input {
+  width: 100%; padding: 9px 12px; background: var(--cream);
+  border: 1px solid var(--rule); border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace; color: var(--ink); font-size: 12px;
+}
+.range-inputs input:focus { outline: none; border-color: var(--teal); }
+.range-sep { color: var(--ink-soft); font-size: 11px; font-weight: 600; }
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+  background: var(--white); border-radius: 18px; padding: 16px 22px;
+  border: 1px solid var(--rule); margin-bottom: 16px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.toolbar-left { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--ink-soft); }
+.toolbar-left .strong { color: var(--ink); font-weight: 700; }
+.toolbar-left .accent { color: var(--coral-deep); font-weight: 700; }
+.toolbar-right { display: flex; align-items: center; gap: 10px; }
+.select {
+  padding: 9px 14px; background: var(--cream); border: 1px solid var(--rule);
+  border-radius: 100px; font-size: 12px; color: var(--ink); font-family: inherit;
+  font-weight: 600; cursor: pointer;
+}
+.select:focus { outline: none; border-color: var(--teal); }
+.view-toggle {
+  display: inline-flex; background: var(--cream); border-radius: 100px; padding: 3px; gap: 2px;
+}
+.view-toggle button {
+  padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 600;
+  color: var(--ink-soft);
+}
+.view-toggle button.active { background: var(--teal); color: var(--cream); }
+
+/* ===== TABLE ===== */
+.ledger {
+  background: var(--white); border-radius: 22px; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.ledger-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ledger-table thead tr {
+  background: var(--cream); border-bottom: 2px solid var(--rule-strong);
+}
+.ledger-table th {
+  text-align: left; padding: 14px 12px;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 700; cursor: pointer;
+}
+.ledger-table th:hover { color: var(--teal); }
+.ledger-table th.sorted { color: var(--teal); }
+.ledger-table th.sorted::after { content: ' ↓'; }
+.ledger-table tbody tr {
+  border-bottom: 1px solid var(--rule); transition: background .15s;
+}
+.ledger-table tbody tr:hover { background: var(--cream); }
+.ledger-table tbody tr:last-child { border-bottom: none; }
+.ledger-table td { padding: 16px 12px; vertical-align: middle; }
+
+.tool-cell { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+.tool-logo {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: grid; place-items: center; font-weight: 800; font-size: 16px;
+  color: white; font-family: 'Bricolage Grotesque', sans-serif;
+}
+.tool-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.tool-meta { font-size: 11px; color: var(--ink-soft); }
+
+.tag {
+  display: inline-block; padding: 4px 9px; border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+}
+.tag.cat { background: var(--teal-soft); color: var(--teal-deep); }
+.tag.shop { background: var(--mint-pale); color: var(--teal-deep); }
+.tag.public { background: var(--coral-soft); color: var(--coral-deep); }
+.tag.role { background: var(--pixel-mint); color: var(--teal-deep); }
+
+.price-cell { font-family: 'JetBrains Mono', monospace; }
+.price-big { font-size: 16px; font-weight: 700; color: var(--ink); }
+.price-unit { font-size: 11px; color: var(--ink-soft); margin-left: 2px; font-weight: 500; }
+.price-range { font-size: 10px; color: var(--ink-faint); margin-top: 3px; }
+
+.hike-cell { display: flex; flex-direction: column; gap: 2px; }
+.hike-total {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 800;
+  color: var(--coral-deep); line-height: 1; letter-spacing: -0.5px;
+}
+.hike-total .flame { font-size: 12px; }
+.hike-sub { font-size: 10px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px; }
+
+.change {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 4px 8px; border-radius: 100px; font-weight: 700; font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.change.up { background: var(--coral-soft); color: var(--coral-deep); }
+.change.down { background: var(--mint-pale); color: var(--teal-deep); }
+.change.flat { background: var(--rule); color: var(--ink-soft); }
+
+.spark { display: block; width: 80px; height: 26px; }
+
+.forecast {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 9px; border-radius: 100px; font-weight: 700; font-size: 10px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.forecast.hot { background: var(--coral-deep); color: var(--white); }
+.forecast.warm { background: var(--peach); color: var(--coral-deep); }
+.forecast.cold { background: var(--mint-pale); color: var(--teal-deep); }
+.forecast.stable { background: var(--rule); color: var(--ink-soft); }
+
+.last-change { font-size: 11px; color: var(--ink-soft); line-height: 1.3; }
+.last-change strong { color: var(--ink); font-weight: 700; display: block; font-family: 'JetBrains Mono', monospace; }
+
+.icon-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: inline-grid; place-items: center; color: var(--ink-soft);
+  border: 1px solid var(--rule); transition: all .15s;
+}
+.icon-btn:hover { color: var(--teal); border-color: var(--teal); }
+.icon-btn.active { background: var(--teal); color: var(--cream); border-color: var(--teal); }
+
+/* ===== PAGINATION ===== */
+.pagination {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 0; font-size: 13px; color: var(--ink-soft);
+}
+.page-ctrl { display: flex; gap: 4px; }
+.page-btn {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule);
+  display: grid; place-items: center; font-size: 13px; color: var(--ink); font-weight: 600;
+  background: var(--white); cursor: pointer;
+}
+.page-btn:hover { border-color: var(--teal); color: var(--teal); }
+.page-btn.active { background: var(--teal); color: var(--cream); border-color: var(--teal); }
+.page-btn.disabled { opacity: .3; cursor: not-allowed; }
+
+/* ===== MOST VOLATILE / MOST STABLE ===== */
+.callouts {
+  max-width: 1440px; margin: 40px auto 0; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.callout {
+  background: var(--white); border-radius: 24px; padding: 32px;
+  border: 1px solid var(--rule); position: relative; overflow: hidden;
+}
+.callout::before {
+  content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px;
+  border-radius: 50%; opacity: 0.4;
+}
+.callout.hot::before { background: var(--coral-soft); }
+.callout.cold::before { background: var(--mint-pale); }
+.callout-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+  margin-bottom: 16px; position: relative;
+}
+.callout.hot .callout-eyebrow { background: var(--coral); color: var(--ink); }
+.callout.cold .callout-eyebrow { background: var(--pixel-mint); color: var(--teal-deep); }
+.callout h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 8px; position: relative; }
+.callout p { color: var(--ink-soft); font-size: 14px; margin-bottom: 20px; position: relative; }
+.callout-list { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.callout-row {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+  background: var(--cream); border-radius: 12px;
+}
+.callout-row .ico {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: grid; place-items: center; color: white; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px; flex-shrink: 0;
+}
+.callout-row .meta { flex: 1; }
+.callout-row .name { font-weight: 700; font-size: 13px; }
+.callout-row .sub { font-size: 11px; color: var(--ink-soft); }
+.callout-row .v { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; }
+.callout-row .v.up { color: var(--coral-deep); }
+.callout-row .v.down { color: var(--teal); }
+
+/* ===== COMPARE TRAY ===== */
+.compare-tray {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: var(--cream); border-radius: 100px;
+  padding: 12px 18px; display: flex; align-items: center; gap: 18px;
+  box-shadow: 0 24px 60px -12px rgba(26,46,47,0.4); z-index: 40;
+  max-width: calc(100vw - 48px);
+}
+.compare-count { display: flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 1px; }
+.compare-count strong { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; color: var(--coral); margin-right: 4px; }
+.compare-chips { display: flex; gap: 4px; }
+.compare-chip {
+  background: rgba(255,255,255,0.08); padding: 5px 12px; border-radius: 100px;
+  font-size: 12px; display: flex; gap: 6px; align-items: center;
+}
+.compare-chip .x { opacity: 0.5; cursor: pointer; }
+.compare-chip .x:hover { opacity: 1; }
+
+/* ===== BOTTOM CTA ===== */
+.bottom-cta {
+  max-width: 1440px; margin: 60px auto 0; padding: 60px 32px;
+}
+.bottom-cta-card {
+  background: linear-gradient(135deg, var(--mint-pale) 0%, var(--peach) 100%);
+  border-radius: 32px; padding: 56px; position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+}
+.bottom-cta-card::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 280px; height: 100%;
+  background: var(--coral); clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%); opacity: 0.85;
+}
+.bottom-cta-content { position: relative; z-index: 2; }
+.bottom-cta-content h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.4px; line-height: 1; margin-bottom: 14px; }
+.bottom-cta-content p { font-size: 17px; color: var(--ink-soft); margin-bottom: 24px; max-width: 480px; }
+.bottom-cta-form {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.bottom-cta-form input {
+  padding: 14px 20px; background: var(--white); border: 1px solid var(--rule);
+  border-radius: 100px; font-family: inherit; font-size: 14px; color: var(--ink);
+}
+.bottom-cta-form input:focus { outline: none; border-color: var(--teal); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink); color: var(--cream); padding: 60px 32px 30px; margin-top: 60px;
+}
+.footer-inner { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+footer h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 700; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: rgba(250,247,240,0.65); }
+footer a:hover { color: var(--cream); }
+footer .desc { color: rgba(250,247,240,0.65); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 16px; }
+.footer-bottom { max-width: 1440px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,247,240,0.5); letter-spacing: 1px; }
+
+@media (max-width: 1100px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .stacks-grid { grid-template-columns: 1fr 1fr; }
+  .insights { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .callouts { grid-template-columns: 1fr; }
+  .bottom-cta-card { grid-template-columns: 1fr; padding: 36px; }
+  .bottom-cta-card::before { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div class="brand-wordmark">PricePulse</div>
+    </div>
+    <div class="nav-menu">
+      <a href="#" class="active">The Ledger</a>
+      <a href="#">Categories</a>
+      <a href="#">How it Works</a>
+      <a href="#">Reports</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Start watching →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a><span class="sep">/</span><span class="active">The Ledger</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="pulse"></span>5,847 SaaS &amp; Shopify tools tracked daily</div>
+  <h1>Every tool you run on.<br/>Every <em>price hike</em>. One ledger.</h1>
+  <p class="hero-sub">
+    Built for the founder running 14 tools, the freelancer juggling 8 subscriptions, the people-ops lead managing the company stack, and the project manager who notices Notion just billed 20% more than last month. Search any tool. See its complete pricing history. Get notified the moment it changes.
+  </p>
+
+  <div class="hero-stats">
+    <div class="hero-stat s1">
+      <div class="lbl">Tools tracked</div>
+      <div class="v">5,847</div>
+      <div class="sub">+214 added last 30 days</div>
+    </div>
+    <div class="hero-stat s2">
+      <div class="lbl">Total hikes logged</div>
+      <div class="v coral">14,392</div>
+      <div class="sub">since Apr 2024</div>
+    </div>
+    <div class="hero-stat s3">
+      <div class="lbl">Avg hikes per tool</div>
+      <div class="v">2.4<span class="unit">/yr</span></div>
+      <div class="sub">across active vendors</div>
+    </div>
+    <div class="hero-stat s4">
+      <div class="lbl">Vendors who hiked YTD</div>
+      <div class="v coral">73%</div>
+      <div class="sub">of tools we track</div>
+    </div>
+    <div class="hero-stat s5">
+      <div class="lbl">Updated</div>
+      <div class="v teal">2h<span class="unit"> ago</span></div>
+      <div class="sub">next scrape · 22:00 UTC</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS BAR -->
+<section class="insights">
+  <div class="insight i1">
+    <div class="insight-icon">🔥</div>
+    <div class="insight-body">
+      <div class="v coral">+11.4%</div>
+      <div class="lbl">Average price hike year-to-date across the SaaS landscape</div>
+    </div>
+  </div>
+  <div class="insight i2">
+    <div class="insight-icon">⚠️</div>
+    <div class="insight-body">
+      <div class="v">1 in 4</div>
+      <div class="lbl">Vendors held headline price flat but cut features or quotas</div>
+    </div>
+  </div>
+  <div class="insight i3">
+    <div class="insight-icon">🎯</div>
+    <div class="insight-body">
+      <div class="v">73%</div>
+      <div class="lbl">Of major hikes our model flagged 60+ days early</div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK STARTERS -->
+<section class="stacks">
+  <div class="stacks-head">
+    <div>
+      <h2 class="display">Start with your stack.</h2>
+      <p class="desc">Curated watchlists for the way you actually work. One click to start tracking everything in your role's typical toolkit.</p>
+    </div>
+    <button class="btn btn-outline">Build a custom stack →</button>
+  </div>
+
+  <div class="stacks-grid">
+    <div class="stack-card s1">
+      <span class="stack-emoji">🎨</span>
+      <div class="stack-name">The Freelancer</div>
+      <div class="stack-meta">8 essentials · designers, writers, devs</div>
+      <div class="stack-cost">
+        <span class="num">$182</span><span class="unit">/mo total</span>
+        <span class="change">+9.2% YoY</span>
+      </div>
+      <div class="stack-tools">
+        <div class="stack-tool" style="background:linear-gradient(135deg,#FF0F00,#FFA500);">A</div>
+        <div class="stack-tool" style="background:#000;">N</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#F24E1E,#A259FF);">F</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#4A154B,#ECB22E);">S</div>
+        <div class="stack-tool" style="background:#625DF5;">L</div>
+        <div class="stack-tool" style="background:#006BFF;">C</div>
+        <div class="stack-tool" style="background:#15C39A;">G</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#00C4CC,#7D2AE8);">C</div>
+      </div>
+      <div class="stack-cta"><span>Adobe CC, Notion, Figma, Slack...</span><span>→</span></div>
+    </div>
+
+    <div class="stack-card s2">
+      <span class="stack-emoji">🚀</span>
+      <div class="stack-name">SMB Founder</div>
+      <div class="stack-meta">14 tools · ecommerce / SaaS / agency</div>
+      <div class="stack-cost">
+        <span class="num">$1,247</span><span class="unit">/mo total</span>
+        <span class="change">+14.1% YoY</span>
+      </div>
+      <div class="stack-tools">
+        <div class="stack-tool" style="background:linear-gradient(135deg,#FF7A59,#FF3D00);">H</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#FF6B8A,#FFA86B);">K</div>
+        <div class="stack-tool" style="background:#FF642D;">S</div>
+        <div class="stack-tool" style="background:#0A66C2;">A</div>
+        <div class="stack-tool" style="background:#000;">N</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#4A154B,#ECB22E);">S</div>
+        <div class="stack-tool" style="background:#FFB100;">A</div>
+        <div class="stack-tool" style="background:#95BF47;">S</div>
+      </div>
+      <div class="stack-cta"><span>HubSpot, Klaviyo, Semrush, Asana...</span><span>→</span></div>
+    </div>
+
+    <div class="stack-card s3">
+      <span class="stack-emoji">👥</span>
+      <div class="stack-name">People Ops / HR</div>
+      <div class="stack-meta">9 tools · payroll, hiring, comms</div>
+      <div class="stack-cost">
+        <span class="num">$894</span><span class="unit">/mo total</span>
+        <span class="change">+18.7% YoY</span>
+      </div>
+      <div class="stack-tools">
+        <div class="stack-tool" style="background:#F45D48;">G</div>
+        <div class="stack-tool" style="background:#73C41D;">B</div>
+        <div class="stack-tool" style="background:#6D2EFF;">R</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#4A154B,#ECB22E);">S</div>
+        <div class="stack-tool" style="background:#22C55E;">G</div>
+        <div class="stack-tool" style="background:#000;">N</div>
+        <div class="stack-tool" style="background:#FFCD00;">D</div>
+        <div class="stack-tool" style="background:#0073B1;">L</div>
+      </div>
+      <div class="stack-cta"><span>Gusto, BambooHR, Rippling, Slack...</span><span>→</span></div>
+    </div>
+
+    <div class="stack-card s4">
+      <span class="stack-emoji">📋</span>
+      <div class="stack-name">Project Manager</div>
+      <div class="stack-meta">7 tools · roadmaps, async, comms</div>
+      <div class="stack-cost">
+        <span class="num">$340</span><span class="unit">/mo total</span>
+        <span class="change">+11.5% YoY</span>
+      </div>
+      <div class="stack-tools">
+        <div class="stack-tool" style="background:#000;">N</div>
+        <div class="stack-tool" style="background:#F06A6A;">A</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#4A154B,#ECB22E);">S</div>
+        <div class="stack-tool" style="background:#5E6AD2;">L</div>
+        <div class="stack-tool" style="background:#625DF5;">L</div>
+        <div class="stack-tool" style="background:linear-gradient(135deg,#F24E1E,#A259FF);">F</div>
+        <div class="stack-tool" style="background:#172B4D; color:#0052CC;">J</div>
+      </div>
+      <div class="stack-cta"><span>Notion, Asana, Slack, Linear...</span><span>→</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY PILLS -->
+<div class="cat-bar-wrap">
+  <div class="cat-bar">
+    <button class="cat-pill active">All<span class="count">5,847</span></button>
+    <button class="cat-pill featured">Product Hunt<span class="count">312</span></button>
+    <button class="cat-pill">Shopify Apps<span class="count">847</span></button>
+    <button class="cat-pill">Email &amp; SMS<span class="count">142</span></button>
+    <button class="cat-pill">CRM &amp; Sales<span class="count">128</span></button>
+    <button class="cat-pill">Analytics<span class="count">94</span></button>
+    <button class="cat-pill">SEO Tools<span class="count">73</span></button>
+    <button class="cat-pill">Support &amp; CS<span class="count">81</span></button>
+    <button class="cat-pill">Project Mgmt<span class="count">112</span></button>
+    <button class="cat-pill">Design<span class="count">58</span></button>
+    <button class="cat-pill">Accounting<span class="count">46</span></button>
+    <button class="cat-pill">HR &amp; Payroll<span class="count">39</span></button>
+    <button class="cat-pill">Subscriptions<span class="count">22</span></button>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="filter-card">
+      <h3>Search <span class="clear">Clear</span></h3>
+      <input type="text" class="search-input" placeholder="Tool name or keyword…" />
+    </div>
+
+    <div class="filter-card">
+      <h3>Filter by role</h3>
+      <div class="persona-list">
+        <div class="persona-row"><span class="ico">🎨</span>Freelancer<span class="count">487</span></div>
+        <div class="persona-row"><span class="ico">🚀</span>Founder / SMB<span class="count">1,243</span></div>
+        <div class="persona-row"><span class="ico">📋</span>Project Manager<span class="count">298</span></div>
+        <div class="persona-row"><span class="ico">👥</span>People Ops / HR<span class="count">142</span></div>
+        <div class="persona-row"><span class="ico">📈</span>Marketing Lead<span class="count">681</span></div>
+        <div class="persona-row"><span class="ico">💰</span>Finance / Ops<span class="count">203</span></div>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>Pricing model</h3>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" /> Per-seat <span class="count">1,892</span></label>
+        <label class="check-row"><input type="checkbox" /> Flat monthly <span class="count">2,104</span></label>
+        <label class="check-row"><input type="checkbox" /> Usage-based <span class="count">487</span></label>
+        <label class="check-row"><input type="checkbox" /> Contact-tiered <span class="count">341</span></label>
+        <label class="check-row"><input type="checkbox" /> Revenue % <span class="count">203</span></label>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>Hike frequency</h3>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" /> 🔥 Volatile (3+ /yr) <span class="count">412</span></label>
+        <label class="check-row"><input type="checkbox" /> ⚡ Active (1–2 /yr) <span class="count">2,891</span></label>
+        <label class="check-row"><input type="checkbox" /> ❄️ Stable (&lt;1 /yr) <span class="count">2,544</span></label>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>Entry price</h3>
+      <div class="range-inputs">
+        <input type="text" placeholder="$0" />
+        <span class="range-sep">to</span>
+        <input type="text" placeholder="$5k+" />
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>Free tier</h3>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" /> Free forever <span class="count">1,247</span></label>
+        <label class="check-row"><input type="checkbox" /> Free trial only <span class="count">2,891</span></label>
+        <label class="check-row"><input type="checkbox" /> No free option <span class="count">1,709</span></label>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>Platform</h3>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" /> Shopify App <span class="count">847</span></label>
+        <label class="check-row"><input type="checkbox" /> BigCommerce <span class="count">112</span></label>
+        <label class="check-row"><input type="checkbox" /> WooCommerce <span class="count">198</span></label>
+        <label class="check-row"><input type="checkbox" /> Standalone SaaS <span class="count">3,914</span></label>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h3>PricePulse forecast</h3>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" /> 🔥 Hot · hike likely &lt;60d <span class="count">87</span></label>
+        <label class="check-row"><input type="checkbox" /> ⚡ Warm · 60–180d <span class="count">412</span></label>
+        <label class="check-row"><input type="checkbox" /> ❄️ Cold · stable <span class="count">3,219</span></label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        Showing <span class="strong">1–20</span> of <span class="strong">5,847</span> tools
+        <span style="color: var(--ink-faint);">·</span>
+        <span class="accent">142 changed this week</span>
+      </div>
+      <div class="toolbar-right">
+        <select class="select">
+          <option>Sort: Most hikes</option>
+          <option>Sort: Recently changed</option>
+          <option>Sort: Biggest 12M increase</option>
+          <option>Sort: Biggest 12M decrease</option>
+          <option>Sort: Forecast confidence</option>
+          <option>Sort: Price low → high</option>
+          <option>Sort: Price high → low</option>
+          <option>Sort: Most watched</option>
+          <option>Sort: Name A–Z</option>
+        </select>
+        <div class="view-toggle">
+          <button class="active">☰ Table</button>
+          <button>▦ Grid</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEDGER TABLE -->
+    <div class="ledger">
+      <table class="ledger-table">
+        <thead>
+          <tr>
+            <th style="width: 28px;"><input type="checkbox" /></th>
+            <th>Tool</th>
+            <th>Category</th>
+            <th>Entry price</th>
+            <th class="sorted">Hikes</th>
+            <th>12M</th>
+            <th>History</th>
+            <th>Forecast</th>
+            <th>Last change</th>
+            <th style="width: 40px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- Row 1 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #FF6B8A, #FFA86B);">K</div>
+                <div>
+                  <div class="tool-name">Klaviyo</div>
+                  <div class="tool-meta">Contact-tiered · NYSE</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Email/SMS</span> <span class="tag role">Founder</span></td>
+            <td class="price-cell">
+              <span class="price-big">$45</span><span class="price-unit">/mo</span>
+              <div class="price-range">$0 → $1,895</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total"><span class="flame">🔥</span>9</span>
+                <span class="hike-sub">3 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 18.4%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,22 L16,22 L16,18 L32,18 L32,14 L56,14 L56,8 L70,8 L70,4 L80,4" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 78%</span></td>
+            <td class="last-change"><strong>2h ago</strong>Email Plus +11.5%</td>
+            <td><button class="icon-btn active">🔔</button></td>
+          </tr>
+
+          <!-- Row 2 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #000;">N</div>
+                <div>
+                  <div class="tool-name">Notion</div>
+                  <div class="tool-meta">Per seat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Productivity</span> <span class="tag role">All roles</span></td>
+            <td class="price-cell">
+              <span class="price-big">$12</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → Enterprise</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">5</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 20.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L60,18 L65,6 L80,6" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 64%</span></td>
+            <td class="last-change"><strong>14h ago</strong>Plus plan +20%</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <td><input type="checkbox" checked /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #FF7A59, #FF3D00);">H</div>
+                <div>
+                  <div class="tool-name">HubSpot CRM</div>
+                  <div class="tool-meta">Per seat · NYSE</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">CRM</span> <span class="tag role">Founder</span></td>
+            <td class="price-cell">
+              <span class="price-big">$20</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $1,200</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total"><span class="flame">🔥</span>12</span>
+                <span class="hike-sub">4 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 33.3%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,22 L30,22 L30,16 L55,16 L55,10 L80,4" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 81%</span></td>
+            <td class="last-change"><strong>22d ago</strong>Starter seat +33%</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 4 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #00C4CC, #7D2AE8);">C</div>
+                <div>
+                  <div class="tool-name">Canva</div>
+                  <div class="tool-meta">Per seat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Design</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$15</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $30</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">6</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 25.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,20 L25,20 L25,14 L55,14 L55,6 L80,4" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 58%</span></td>
+            <td class="last-change"><strong>72d ago</strong>Pro +$3/seat</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 5 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #F24E1E, #A259FF);">F</div>
+                <div>
+                  <div class="tool-name">Figma</div>
+                  <div class="tool-meta">Per seat · Adobe</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Design</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$16</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $75</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">3</span>
+                <span class="hike-sub">0 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change flat">— 0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,14 L80,14" stroke="#94A3A5" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 22%</span></td>
+            <td class="last-change"><strong>178d ago</strong>No recent change</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 6 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #4A154B, #ECB22E);">S</div>
+                <div>
+                  <div class="tool-name">Slack</div>
+                  <div class="tool-meta">Per seat · NYSE: CRM</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Collab</span> <span class="tag role">All roles</span></td>
+            <td class="price-cell">
+              <span class="price-big">$8.75</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $18</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">7</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 15.1%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,20 L25,20 L25,16 L50,16 L50,10 L80,8" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 52%</span></td>
+            <td class="last-change"><strong>55d ago</strong>Pro +$0.25/seat</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 7 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #F06A6A;">A</div>
+                <div>
+                  <div class="tool-name">Asana</div>
+                  <div class="tool-meta">Per seat · NYSE</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Project Mgmt</span> <span class="tag role">PM</span></td>
+            <td class="price-cell">
+              <span class="price-big">$10.99</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $24.99</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">4</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 10.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L40,18 L40,14 L80,12" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 31%</span></td>
+            <td class="last-change"><strong>110d ago</strong>Starter +$1</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 8 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #F45D48;">G</div>
+                <div>
+                  <div class="tool-name">Gusto</div>
+                  <div class="tool-meta">Per employee · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">HR/Payroll</span> <span class="tag role">People Ops</span></td>
+            <td class="price-cell">
+              <span class="price-big">$49</span><span class="price-unit">+$6/emp</span>
+              <div class="price-range">$49 → $149 base</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total"><span class="flame">🔥</span>10</span>
+                <span class="hike-sub">3 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 22.5%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,22 L20,22 L20,16 L40,16 L40,10 L60,10 L60,4 L80,4" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 74%</span></td>
+            <td class="last-change"><strong>18d ago</strong>Plus +$6/emp</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 9 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #73C41D;">B</div>
+                <div>
+                  <div class="tool-name">BambooHR</div>
+                  <div class="tool-meta">Per employee · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">HR</span> <span class="tag role">People Ops</span></td>
+            <td class="price-cell">
+              <span class="price-big">$5.25</span><span class="price-unit">/emp</span>
+              <div class="price-range">$5.25 → $12 /emp</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">5</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 13.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L40,18 L40,14 L60,14 L60,10 L80,10" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 56%</span></td>
+            <td class="last-change"><strong>92d ago</strong>Advantage +13%</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 10 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #2CA01C;">Q</div>
+                <div>
+                  <div class="tool-name">QuickBooks</div>
+                  <div class="tool-meta">Flat · Intuit (NASDAQ)</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Accounting</span> <span class="tag role">Finance</span></td>
+            <td class="price-cell">
+              <span class="price-big">$30</span><span class="price-unit">/mo</span>
+              <div class="price-range">$30 → $200</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total"><span class="flame">🔥</span>8</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 20.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,20 L30,20 L30,14 L55,14 L55,8 L80,8" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 71%</span></td>
+            <td class="last-change"><strong>40d ago</strong>Simple Start +$5</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 11 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #FF0F00, #FFA500);">A</div>
+                <div>
+                  <div class="tool-name">Adobe Creative Cloud</div>
+                  <div class="tool-meta">Per seat · NASDAQ: ADBE</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Design</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$59.99</span><span class="price-unit">/mo</span>
+              <div class="price-range">$22.99 → $79.99</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">6</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 9.1%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,16 L40,16 L40,12 L80,10" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 49%</span></td>
+            <td class="last-change"><strong>140d ago</strong>All Apps +$5</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 12 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #006BFF;">C</div>
+                <div>
+                  <div class="tool-name">Calendly</div>
+                  <div class="tool-meta">Per seat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Scheduling</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$10</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $20</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">3</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 25.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,20 L40,20 L40,14 L80,8" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 28%</span></td>
+            <td class="last-change"><strong>190d ago</strong>Standard +$2</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 13 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #625DF5;">L</div>
+                <div>
+                  <div class="tool-name">Loom</div>
+                  <div class="tool-meta">Per seat · Atlassian</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Video</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$15</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $20</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">4</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 25.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L25,18 L25,12 L50,12 L50,8 L80,6" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 61%</span></td>
+            <td class="last-change"><strong>62d ago</strong>Free tier capped</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 14 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #6D2EFF;">R</div>
+                <div>
+                  <div class="tool-name">Rippling</div>
+                  <div class="tool-meta">Per employee · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">HR/Payroll</span> <span class="tag role">People Ops</span></td>
+            <td class="price-cell">
+              <span class="price-big">$8</span><span class="price-unit">/emp</span>
+              <div class="price-range">$8 → $35 /emp</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">3</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 14.3%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L40,18 L40,12 L80,8" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 69%</span></td>
+            <td class="last-change"><strong>48d ago</strong>HR Cloud +$1</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 15 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: linear-gradient(135deg, #C8FF3E, #34D399); color:#0A0F1E;">R</div>
+                <div>
+                  <div class="tool-name">Recharge</div>
+                  <div class="tool-meta">Flat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag shop">Shopify</span> <span class="tag role">Founder</span></td>
+            <td class="price-cell">
+              <span class="price-big">$99</span><span class="price-unit">/mo</span>
+              <div class="price-range">$99 → $399</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">5</span>
+                <span class="hike-sub">2 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change down">▼ 20.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,6 L40,6 L60,18 L80,18" stroke="#406B6E" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 18%</span></td>
+            <td class="last-change"><strong>2d ago</strong>Pro plan −20%</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 16 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #4353FF;">W</div>
+                <div>
+                  <div class="tool-name">Webflow</div>
+                  <div class="tool-meta">Flat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Web/Dev</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$14</span><span class="price-unit">/mo</span>
+              <div class="price-range">$0 → $235</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">4</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 16.7%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,18 L50,18 L50,12 L80,10" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast warm">⚡ Warm · 54%</span></td>
+            <td class="last-change"><strong>108d ago</strong>Basic +$2</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 17 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #15C39A;">G</div>
+                <div>
+                  <div class="tool-name">Grammarly</div>
+                  <div class="tool-meta">Per seat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Writing</span> <span class="tag role">Freelancer</span></td>
+            <td class="price-cell">
+              <span class="price-big">$12</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $25</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">3</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 9.1%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,16 L60,16 L60,12 L80,12" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 35%</span></td>
+            <td class="last-change"><strong>156d ago</strong>Premium +$1</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 18 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #5E6AD2;">L</div>
+                <div>
+                  <div class="tool-name">Linear</div>
+                  <div class="tool-meta">Per seat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Project Mgmt</span> <span class="tag role">PM</span></td>
+            <td class="price-cell">
+              <span class="price-big">$8</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $14</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">2</span>
+                <span class="hike-sub">0 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change flat">— 0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,14 L80,14" stroke="#94A3A5" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 21%</span></td>
+            <td class="last-change"><strong>240d ago</strong>No recent change</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 19 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #0A66C2;">A</div>
+                <div>
+                  <div class="tool-name">Ahrefs</div>
+                  <div class="tool-meta">Flat · Private</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">SEO</span> <span class="tag role">Marketing</span></td>
+            <td class="price-cell">
+              <span class="price-big">$129</span><span class="price-unit">/mo</span>
+              <div class="price-range">$129 → $1,499</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total"><span class="flame">🔥</span>11</span>
+                <span class="hike-sub">3 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 29.0%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,20 L20,20 L20,15 L40,15 L40,8 L60,8 L60,4 L80,4" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast hot">🔥 Hot · 76%</span></td>
+            <td class="last-change"><strong>11d ago</strong>Lite → $129</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+          <!-- Row 20 -->
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+              <div class="tool-cell">
+                <div class="tool-logo" style="background: #2C68F6;">Z</div>
+                <div>
+                  <div class="tool-name">Zoom</div>
+                  <div class="tool-meta">Per seat · NASDAQ: ZM</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="tag cat">Comms</span> <span class="tag role">All roles</span></td>
+            <td class="price-cell">
+              <span class="price-big">$15.99</span><span class="price-unit">/seat</span>
+              <div class="price-range">$0 → $22.49</div>
+            </td>
+            <td>
+              <div class="hike-cell">
+                <span class="hike-total">4</span>
+                <span class="hike-sub">1 in 12mo · since 2024</span>
+              </div>
+            </td>
+            <td><span class="change up">▲ 6.7%</span></td>
+            <td><svg class="spark" viewBox="0 0 80 26"><path d="M0,16 L60,16 L60,12 L80,12" stroke="#E88858" stroke-width="1.5" fill="none"/></svg></td>
+            <td><span class="forecast cold">❄️ Cold · 33%</span></td>
+            <td class="last-change"><strong>164d ago</strong>Pro +$1</td>
+            <td><button class="icon-btn">🔔</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      <div>Showing 1–20 of 5,847 tools</div>
+      <div class="page-ctrl">
+        <button class="page-btn disabled">‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <span style="align-self: center; padding: 0 8px; color: var(--ink-faint);">…</span>
+        <button class="page-btn">293</button>
+        <button class="page-btn">›</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- MOST VOLATILE / MOST STABLE -->
+<section class="callouts">
+  <div class="callout hot">
+    <div class="callout-eyebrow">🔥 Most volatile this year</div>
+    <h3>Tools that won't sit still</h3>
+    <p>The 5 vendors with the most pricing changes in the last 12 months. Watchlist priority — assume another move is coming.</p>
+    <div class="callout-list">
+      <div class="callout-row">
+        <div class="ico" style="background:linear-gradient(135deg,#FF7A59,#FF3D00);">H</div>
+        <div class="meta"><div class="name">HubSpot</div><div class="sub">CRM · 4 hikes in 12mo</div></div>
+        <div class="v up">+33.3%</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#0A66C2;">A</div>
+        <div class="meta"><div class="name">Ahrefs</div><div class="sub">SEO · 3 hikes in 12mo</div></div>
+        <div class="v up">+29.0%</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:linear-gradient(135deg,#FF6B8A,#FFA86B);">K</div>
+        <div class="meta"><div class="name">Klaviyo</div><div class="sub">Email · 3 hikes in 12mo</div></div>
+        <div class="v up">+18.4%</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#F45D48;">G</div>
+        <div class="meta"><div class="name">Gusto</div><div class="sub">HR · 3 hikes in 12mo</div></div>
+        <div class="v up">+22.5%</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#6366F1;">S</div>
+        <div class="meta"><div class="name">Shogun</div><div class="sub">Page Builder · 3 hikes</div></div>
+        <div class="v up">+95.0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout cold">
+    <div class="callout-eyebrow">❄️ Most stable this year</div>
+    <h3>Tools that held the line</h3>
+    <p>The 5 vendors with no headline price changes in the last 12 months. Useful for budget planning — but watch for quiet feature reductions.</p>
+    <div class="callout-list">
+      <div class="callout-row">
+        <div class="ico" style="background:linear-gradient(135deg,#F24E1E,#A259FF);">F</div>
+        <div class="meta"><div class="name">Figma</div><div class="sub">Design · stable since Sep '24</div></div>
+        <div class="v">$16</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#5E6AD2;">L</div>
+        <div class="meta"><div class="name">Linear</div><div class="sub">PM · stable since 2023</div></div>
+        <div class="v">$8</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#1A73E8;">G</div>
+        <div class="meta"><div class="name">Gorgias</div><div class="sub">Support · stable since Feb '25</div></div>
+        <div class="v">$10</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#000; color:#C8FF3E;">P</div>
+        <div class="meta"><div class="name">Postscript</div><div class="sub">SMS · stable since '24</div></div>
+        <div class="v">$25</div>
+      </div>
+      <div class="callout-row">
+        <div class="ico" style="background:#FF642D;">S</div>
+        <div class="meta"><div class="name">Semrush</div><div class="sub">SEO · only +3.7% in 12mo</div></div>
+        <div class="v">$139.95</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TRAY -->
+<div class="compare-tray">
+  <div class="compare-count"><strong>1</strong>SELECTED</div>
+  <div class="compare-chips">
+    <span class="compare-chip">HubSpot CRM <span class="x">×</span></span>
+  </div>
+  <button class="btn btn-coral btn-sm">Add to compare</button>
+  <button class="btn btn-primary btn-sm">Compare →</button>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-card">
+    <div class="bottom-cta-content">
+      <h3 class="display">Don't see a tool you use?</h3>
+      <p>Request tracking and we'll add it to The Ledger within 48 hours. Free, forever — your stack belongs in the watchtower.</p>
+      <button class="btn btn-primary">Request a tool →</button>
+    </div>
+    <form class="bottom-cta-form">
+      <input type="text" placeholder="Tool name (e.g. Mailchimp)" />
+      <input type="text" placeholder="Pricing page URL" />
+      <input type="email" placeholder="Your email (for the alert when we add it)" />
+      <button type="submit" class="btn btn-coral" style="justify-content: center;">Submit request →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="brand">
+        <div class="brand-mark" style="background:var(--coral);color:var(--ink);">P</div>
+        <div class="brand-wordmark" style="color:var(--cream);">PricePulse</div>
+      </div>
+      <p class="desc">The watchtower for SaaS &amp; Shopify pricing. Every change, every tier, every day — so you never get blindsided again.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul><li><a href="#">The Ledger</a></li><li><a href="#">Live Changes</a></li><li><a href="#">Pricing API</a></li><li><a href="#">Browser Extension</a></li><li><a href="#">Embed Widgets</a></li></ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul><li><a href="#">Reports</a></li><li><a href="#">Blog</a></li><li><a href="#">Methodology</a></li><li><a href="#">Comparisons</a></li><li><a href="#">Newsletter</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Advertise</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Privacy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PRICEPULSE · UPDATED DAILY 00:00 UTC</span>
+    <span>BUILT FOR FOUNDERS, FREELANCERS &amp; OPS LEADS</span>
+  </div>
+</footer>
+
+</body>
+</html>
