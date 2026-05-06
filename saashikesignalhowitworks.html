@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How PricePulse Works · The pipeline, the AI, and who it's for</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --mint-pale: #C6F6FA;
+  --pixel-mint: #C8E5D5;
+  --teal: #406B6E;
+  --teal-deep: #2F5256;
+  --teal-soft: rgba(64, 107, 110, 0.08);
+  --coral: #F4A580;
+  --coral-deep: #E88858;
+  --coral-soft: #FBD9C0;
+  --peach: #FBD9C0;
+  --ink: #1A2E2F;
+  --ink-soft: #5C6F70;
+  --ink-faint: #94A3A5;
+  --rule: rgba(26, 46, 47, 0.08);
+  --rule-strong: rgba(26, 46, 47, 0.15);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream); color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; line-height: 1.5;
+}
+.display { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; cursor: pointer; }
+
+/* ===== NAV ===== */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(250,247,240,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); }
+.nav-inner { max-width: 1320px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--teal); color: var(--cream); display: grid; place-items: center; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; }
+.brand-wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.nav-menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.nav-menu a:hover, .nav-menu a.active { color: var(--teal); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.btn { padding: 11px 20px; border-radius: 100px; font-weight: 600; font-size: 14px; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.btn-ghost { color: var(--ink); }
+.btn-ghost:hover { color: var(--teal); }
+.btn-primary { background: var(--teal); color: var(--cream); }
+.btn-primary:hover { background: var(--teal-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(64,107,110,0.25); }
+.btn-coral { background: var(--coral); color: var(--ink); }
+.btn-coral:hover { background: var(--coral-deep); color: var(--white); }
+.btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--cream); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+.breadcrumb { max-width: 1320px; margin: 0 auto; padding: 24px 32px 0; font-size: 13px; color: var(--ink-soft); font-weight: 500; }
+.breadcrumb .sep { margin: 0 8px; opacity: .4; }
+.breadcrumb .active { color: var(--ink); font-weight: 600; }
+
+/* ===== HERO ===== */
+.hero { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; background: var(--coral-soft); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 700; color: var(--coral-deep); margin-bottom: 24px; letter-spacing: 0.5px; }
+.eyebrow.mint { background: var(--mint-pale); color: var(--teal-deep); }
+.eyebrow.peach { background: var(--peach); color: var(--coral-deep); }
+.eyebrow.dark { background: var(--ink); color: var(--coral); }
+.eyebrow .pulse { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+
+.hero h1 { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(54px, 7vw, 92px); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 28px; max-width: 920px; }
+.hero h1 em { color: var(--coral-deep); font-style: normal; position: relative; }
+.hero h1 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 14px; background: var(--mint-pale); z-index: -1; border-radius: 4px; }
+.hero-sub { font-size: 20px; color: var(--ink-soft); max-width: 720px; line-height: 1.6; margin-bottom: 48px; }
+
+.three-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+.pillar { background: var(--white); border-radius: 22px; padding: 28px; border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.pillar::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border-radius: 50%; opacity: 0.45; }
+.pillar.p1::before { background: var(--coral-soft); }
+.pillar.p2::before { background: var(--mint-pale); }
+.pillar.p3::before { background: var(--peach); }
+.pillar-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; font-weight: 700; color: var(--ink-soft); margin-bottom: 14px; position: relative; }
+.pillar h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.7px; line-height: 1.05; margin-bottom: 12px; position: relative; }
+.pillar p { color: var(--ink-soft); font-size: 14px; line-height: 1.55; position: relative; }
+.pillar a { display: inline-block; margin-top: 16px; color: var(--teal-deep); font-weight: 700; font-size: 13px; position: relative; }
+
+/* ===== HERO STATS ===== */
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+.h-stat { background: var(--white); border-radius: 18px; padding: 22px; border: 1px solid var(--rule); }
+.h-stat .lbl { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-bottom: 8px; }
+.h-stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px; font-weight: 800; letter-spacing: -1.4px; line-height: 1; }
+.h-stat .v.coral { color: var(--coral-deep); }
+.h-stat .v.teal { color: var(--teal); }
+.h-stat .v .unit { font-size: 14px; color: var(--ink-soft); margin-left: 4px; font-weight: 600; }
+.h-stat .sub { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+/* ===== SECTION HEAD ===== */
+.section { max-width: 1320px; margin: 0 auto; padding: 80px 32px; }
+.section-head { text-align: center; margin-bottom: 56px; }
+.section-head h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 14px; }
+.section-head h2 em { color: var(--teal); font-style: normal; position: relative; }
+.section-head h2 em::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 12px; background: var(--mint-pale); z-index: -1; border-radius: 4px; }
+.section-head p { color: var(--ink-soft); font-size: 18px; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+/* ===== PROBLEM CARDS ===== */
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.problem { background: var(--white); border-radius: 24px; padding: 32px; border: 1px solid var(--rule); }
+.problem-num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 60px; font-weight: 800; color: var(--coral); line-height: 1; margin-bottom: 14px; letter-spacing: -3px; }
+.problem h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 14px; }
+.problem p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+
+/* ===== PIPELINE ===== */
+.pipeline-section { background: var(--ink); color: var(--cream); }
+.pipeline-section .section-head h2 { color: var(--cream); }
+.pipeline-section .section-head h2 em { color: var(--coral); }
+.pipeline-section .section-head h2 em::after { background: rgba(244,165,128,0.2); }
+.pipeline-section .section-head p { color: rgba(250,247,240,0.7); }
+.pipeline { max-width: 1100px; margin: 0 auto; }
+.pipeline-step { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+.pipeline-step:last-child { border-bottom: none; }
+.pipeline-step::before { content: ''; position: absolute; left: 39px; top: 80px; bottom: -16px; width: 2px; background: rgba(244,165,128,0.3); }
+.pipeline-step:last-child::before { display: none; }
+.pipe-num { width: 80px; height: 80px; border-radius: 24px; background: var(--coral); color: var(--ink); display: grid; place-items: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; flex-shrink: 0; box-shadow: 0 0 32px rgba(244,165,128,0.3); position: relative; z-index: 2; }
+.pipe-content {}
+.pipe-tag { display: inline-block; padding: 4px 10px; background: rgba(244,165,128,0.15); color: var(--coral); border-radius: 100px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.pipe-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 14px; color: var(--cream); }
+.pipe-desc { color: rgba(250,247,240,0.8); font-size: 16px; line-height: 1.6; margin-bottom: 16px; max-width: 720px; }
+.pipe-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.pipe-stat { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 16px; display: flex; gap: 12px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: rgba(250,247,240,0.85); }
+.pipe-stat .key { color: var(--coral); font-weight: 600; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.pipe-code { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--coral); line-height: 1.7; margin-top: 14px; max-width: 720px; overflow-x: auto; }
+.pipe-code .comment { color: var(--ink-faint); }
+.pipe-code .key { color: var(--mint-pale); }
+
+/* ===== AI ENGINE ===== */
+.engine-section { background: linear-gradient(180deg, var(--cream) 0%, var(--peach) 100%); }
+.engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1240px; margin: 0 auto; }
+.engine-vis { background: var(--white); border-radius: 32px; padding: 40px; border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.engine-vis::before { content: ''; position: absolute; top: -80px; right: -80px; width: 240px; height: 240px; background: var(--coral-soft); border-radius: 50%; opacity: 0.5; }
+.engine-vis-inner { position: relative; }
+.flow-stream { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+.flow-stream + .flow-stream { border-top: 1px dashed var(--rule-strong); }
+.flow-stream-num { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 800; }
+.flow-stream-num.s1 { background: var(--mint-pale); color: var(--teal-deep); }
+.flow-stream-num.s2 { background: var(--coral-soft); color: var(--coral-deep); }
+.flow-stream-num.s3 { background: var(--peach); color: var(--coral-deep); }
+.flow-stream-num.s4 { background: var(--pixel-mint); color: var(--teal-deep); }
+.flow-stream-meta { flex: 1; }
+.flow-stream-name { font-weight: 700; font-size: 14px; }
+.flow-stream-detail { font-size: 11px; color: var(--ink-soft); }
+.flow-bar-wrap { width: 80px; height: 6px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+.flow-bar { height: 100%; border-radius: 3px; }
+.flow-arrow { text-align: center; color: var(--ink-faint); margin: 8px 0; font-size: 14px; letter-spacing: 4px; }
+.flow-output { background: var(--ink); color: var(--cream); border-radius: 16px; padding: 16px 20px; margin-top: 12px; display: flex; justify-content: space-between; align-items: center; }
+.flow-output-lbl { font-size: 12px; color: var(--coral); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; }
+.flow-output-val { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; color: var(--coral); letter-spacing: -1px; }
+.engine-text h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(36px, 4vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 20px; }
+.engine-text h2 em { color: var(--coral-deep); font-style: normal; }
+.engine-text p { color: var(--ink-soft); font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+.engine-text .lead { font-size: 19px; color: var(--ink); font-weight: 500; }
+
+/* ===== SIGNAL DETAILS ===== */
+.signals-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+.signal-deep { background: var(--white); border-radius: 24px; padding: 28px; border: 1px solid var(--rule); position: relative; }
+.signal-deep-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; color: var(--coral-deep); margin-bottom: 12px; font-weight: 700; }
+.signal-deep h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+.signal-deep .method { font-size: 13px; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.5; }
+.signal-deep .features { background: var(--cream); border-radius: 12px; padding: 14px 18px; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); line-height: 1.7; }
+.signal-deep .features .k { color: var(--teal); font-weight: 600; }
+.signal-deep .meta-row { display: flex; gap: 16px; font-size: 12px; color: var(--ink-soft); margin-top: 10px; }
+.signal-deep .meta-row .item strong { color: var(--ink); display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+
+/* ===== TRUST BLOCK ===== */
+.trust-block { background: var(--ink); color: var(--cream); border-radius: 32px; padding: 56px; max-width: 1320px; margin: 60px auto 0; position: relative; overflow: hidden; }
+.trust-block::before { content: ''; position: absolute; top: -100px; right: -100px; width: 360px; height: 360px; background: var(--coral); opacity: 0.15; border-radius: 50%; filter: blur(60px); }
+.trust-grid { position: relative; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+.trust-block h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 18px; }
+.trust-block h2 em { color: var(--coral); font-style: normal; }
+.trust-block p { color: rgba(250,247,240,0.75); font-size: 16px; line-height: 1.65; margin-bottom: 24px; }
+.trust-stats { display: flex; flex-direction: column; gap: 12px; }
+.trust-stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+.trust-stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; color: var(--coral); letter-spacing: -1px; line-height: 1; }
+.trust-stat .l { font-size: 13px; color: rgba(250,247,240,0.7); text-align: right; max-width: 220px; line-height: 1.4; }
+
+/* ===== METHODOLOGY: WHAT WE DO / DON'T DO ===== */
+.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 60px auto 0; }
+.method-card { background: var(--white); border-radius: 24px; padding: 36px; border: 1px solid var(--rule); }
+.method-card.do { background: linear-gradient(180deg, var(--white) 0%, var(--mint-pale) 200%); }
+.method-card.dont { background: linear-gradient(180deg, var(--white) 0%, var(--coral-soft) 200%); }
+.method-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.7px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.method-card.do h3 { color: var(--teal-deep); }
+.method-card.dont h3 { color: var(--coral-deep); }
+.method-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.method-list li { padding-left: 30px; position: relative; font-size: 14px; line-height: 1.6; color: var(--ink); }
+.method-list li::before { position: absolute; left: 0; top: 2px; font-weight: 800; }
+.method-card.do .method-list li::before { content: '✓'; color: var(--teal); }
+.method-card.dont .method-list li::before { content: '✕'; color: var(--coral-deep); }
+.method-list li strong { font-weight: 700; }
+
+/* ===== PERSONAS ===== */
+.personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.persona-card { background: var(--white); border-radius: 28px; padding: 36px; border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.persona-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; opacity: 0.4; }
+.persona-card.p1::before { background: var(--mint-pale); }
+.persona-card.p2::before { background: var(--coral-soft); }
+.persona-card.p3::before { background: var(--peach); }
+.persona-card.p4::before { background: var(--pixel-mint); }
+.persona-icon { font-size: 44px; margin-bottom: 16px; display: block; position: relative; }
+.persona-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1; margin-bottom: 6px; position: relative; }
+.persona-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; position: relative; }
+.persona-quote { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 600; line-height: 1.35; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 18px; position: relative; padding-left: 20px; border-left: 3px solid var(--coral); }
+.persona-uses { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.persona-use { background: var(--cream); padding: 12px 16px; border-radius: 12px; font-size: 13px; color: var(--ink-soft); display: flex; gap: 10px; align-items: start; }
+.persona-use::before { content: '→'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* ===== TECH STACK ===== */
+.tech-section { background: var(--ink); color: var(--cream); }
+.tech-section .section-head h2 { color: var(--cream); }
+.tech-section .section-head h2 em { color: var(--coral); }
+.tech-section .section-head p { color: rgba(250,247,240,0.7); }
+.tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1240px; margin: 0 auto; }
+.tech-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 24px; }
+.tech-card-cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--coral); margin-bottom: 12px; font-weight: 700; }
+.tech-card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--cream); }
+.tech-card p { font-size: 13px; color: rgba(250,247,240,0.7); line-height: 1.55; }
+
+/* ===== CTA ===== */
+.cta { max-width: 1320px; margin: 80px auto; padding: 0 32px; }
+.cta-card { background: linear-gradient(135deg, var(--mint-pale) 0%, var(--peach) 100%); border-radius: 40px; padding: 80px 56px; text-align: center; position: relative; overflow: hidden; }
+.cta-card::before { content: ''; position: absolute; top: 0; right: 0; width: 320px; height: 100%; background: var(--coral); clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%); opacity: 0.85; }
+.cta-card-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+.cta-card h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 18px; }
+.cta-card p { font-size: 18px; color: var(--ink); margin-bottom: 32px; line-height: 1.6; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--ink); color: var(--cream); padding: 60px 32px 30px; }
+.footer-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+footer h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 700; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: rgba(250,247,240,0.65); }
+footer a:hover { color: var(--cream); }
+footer .desc { color: rgba(250,247,240,0.65); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 16px; }
+.footer-bottom { max-width: 1320px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,247,240,0.5); letter-spacing: 1px; }
+
+@media (max-width: 1024px) {
+  .three-pillars { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .problems { grid-template-columns: 1fr; }
+  .pipeline-step { grid-template-columns: 1fr; gap: 16px; }
+  .pipeline-step::before { display: none; }
+  .engine-grid { grid-template-columns: 1fr; gap: 32px; }
+  .signals-detail { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; gap: 32px; }
+  .method-grid { grid-template-columns: 1fr; }
+  .personas { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div class="brand-wordmark">PricePulse</div>
+    </div>
+    <div class="nav-menu">
+      <a href="#">The Ledger</a>
+      <a href="#">Categories</a>
+      <a href="#" class="active">How it Works</a>
+      <a href="#">Reports</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Start watching →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a><span class="sep">/</span><span class="active">How it Works</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span class="pulse"></span>METHODOLOGY · FULLY OPEN · UPDATED DAILY</div>
+  <h1>Built differently.<br/>Built <em>openly</em>.</h1>
+  <p class="hero-sub">PricePulse runs a 9-stage pipeline that watches 5,847 SaaS &amp; Shopify-app pricing pages every day, detects what changed, extracts structured plan data with AI, validates it against history, and forecasts what's coming next. This page is the full breakdown — what we build, how we build it, and exactly who we built it for.</p>
+
+  <div class="three-pillars">
+    <div class="pillar p1">
+      <div class="pillar-num">PILLAR 01</div>
+      <h2>What we do.</h2>
+      <p>We turn the messy, opaque, ever-changing world of SaaS pricing into a single public ledger — so every founder, freelancer, and ops lead can see, search, and predict the cost of their stack.</p>
+      <a href="#what">Read in detail →</a>
+    </div>
+    <div class="pillar p2">
+      <div class="pillar-num">PILLAR 02</div>
+      <h2>How we do it.</h2>
+      <p>Three-tier scraping, LLM-based extraction, schema-validated diffs, human-in-the-loop QA, and an ensemble forecasting model — running daily, fully audited, fully transparent.</p>
+      <a href="#how">See the pipeline →</a>
+    </div>
+    <div class="pillar p3">
+      <div class="pillar-num">PILLAR 03</div>
+      <h2>For whom.</h2>
+      <p>The freelancer running 8 tools, the SMB founder running 14, the people-ops lead running the company stack, and the project manager who spotted Notion just billed 20% more than last month.</p>
+      <a href="#who">Meet the personas →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="h-stat">
+      <div class="lbl">Pipeline uptime</div>
+      <div class="v teal">99.94<span class="unit">%</span></div>
+      <div class="sub">Trailing 90 days</div>
+    </div>
+    <div class="h-stat">
+      <div class="lbl">Extraction accuracy</div>
+      <div class="v">98.7<span class="unit">%</span></div>
+      <div class="sub">After human QA layer</div>
+    </div>
+    <div class="h-stat">
+      <div class="lbl">Forecast recall</div>
+      <div class="v coral">73<span class="unit">%</span></div>
+      <div class="sub">Major hikes flagged 60+d early</div>
+    </div>
+    <div class="h-stat">
+      <div class="lbl">Data freshness</div>
+      <div class="v teal">2<span class="unit">h</span></div>
+      <div class="sub">Median time to detect change</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="section" id="what">
+  <div class="section-head">
+    <div class="eyebrow mint"><span class="pulse"></span>PILLAR 01 · WHAT WE DO</div>
+    <h2>The problem we exist to <em>solve</em>.</h2>
+    <p>Every business runs on a stack of SaaS tools. Those tools change pricing constantly. There is no single place to see what's changed, what's about to change, or what it's costing you year over year. We built the place.</p>
+  </div>
+
+  <div class="problems">
+    <div class="problem">
+      <div class="problem-num">01</div>
+      <h3>Pricing pages change quietly.</h3>
+      <p>SaaS vendors don't email when they raise prices — they update the page, ship a release note nobody reads, and rely on the fact that 90% of customers won't notice for months. Of the 14,392 changes we've logged, fewer than 8% were announced publicly before they shipped.</p>
+    </div>
+    <div class="problem">
+      <div class="problem-num">02</div>
+      <h3>Stacks are fragmented.</h3>
+      <p>The average freelancer runs 8 tools. The average SMB runs 14. People-ops leads run 9. That's 9 different vendors, 9 different roadmaps, 9 different surprise emails — and no human has the time to monitor all of them. We do it for you, in one ledger.</p>
+    </div>
+    <div class="problem">
+      <div class="problem-num">03</div>
+      <h3>Forecasting is opaque.</h3>
+      <p>Finance teams plan 12 months ahead. SaaS pricing changes within 30. Without forward visibility, every renewal is a budget surprise. PricePulse is the first system to forecast pricing changes 60–180 days early using public, auditable signals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE DO IT (THE PIPELINE) ============ -->
+<section class="pipeline-section section" id="how">
+  <div class="section-head">
+    <div class="eyebrow dark"><span class="pulse"></span>PILLAR 02 · HOW WE DO IT</div>
+    <h2>The 9-stage <em>pipeline</em>.</h2>
+    <p>Every tool in The Ledger flows through this pipeline every day. Every stage is automated, monitored, and human-audited. Below is the actual sequence — no marketing fluff, no hidden steps.</p>
+  </div>
+
+  <div class="pipeline">
+
+    <!-- Stage 1 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">01</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">DISCOVERY · ONBOARDING</div>
+        <h3 class="pipe-title">Tool discovery and onboarding.</h3>
+        <p class="pipe-desc">New tools enter The Ledger via four channels: a Product Hunt scraper that catches launches within 24 hours, a Crunchbase feed for funded SaaS, manual editorial curation for niche categories, and the public "Request a tool" form. Every candidate is verified, classified by scrape tier, fitted with an initial parser, then run through a 14-day calibration window before going live.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">RATE</span>~214 tools added per month</div>
+          <div class="pipe-stat"><span class="key">CALIBRATION</span>14 days before publish</div>
+          <div class="pipe-stat"><span class="key">SOURCES</span>4 discovery channels</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">02</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">SCRAPING · 3-TIER</div>
+        <h3 class="pipe-title">Three-tier daily scraping.</h3>
+        <p class="pipe-desc">Pricing pages aren't built the same way. Roughly 40% are static HTML we scrape with httpx (~0.5s per page). 45% require JavaScript rendering via headless Chrome on Playwright (~5–8s per page). The remaining 15% sit behind Cloudflare, DataDome, or PerimeterX and route through residential proxies and Web Unlocker services. Jobs are distributed across an 18-hour window so we don't pattern-match like a bot.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">TIER 1</span>2,338 tools · static HTML</div>
+          <div class="pipe-stat"><span class="key">TIER 2</span>2,631 tools · Playwright</div>
+          <div class="pipe-stat"><span class="key">TIER 3</span>878 tools · Web Unlocker</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">03</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">SNAPSHOT · DIFF</div>
+        <h3 class="pipe-title">Snapshot &amp; intelligent diffing.</h3>
+        <p class="pipe-desc">Every scraped page is normalised to clean markdown via Trafilatura, then hashed and compared against yesterday's snapshot. If the hash matches, we skip the rest of the pipeline — no LLM call, no human review, no cost. This single optimisation cuts our processing budget by ~85% on stable tools while still capturing every real change.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">SNAPSHOTS</span>5,847/day to R2 storage</div>
+          <div class="pipe-stat"><span class="key">CHANGE RATE</span>~12% of tools change daily</div>
+          <div class="pipe-stat"><span class="key">RETENTION</span>90 days hot, archived after</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">04</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">AI EXTRACTION · LLM</div>
+        <h3 class="pipe-title">LLM-based structured extraction.</h3>
+        <p class="pipe-desc">Pages that changed are passed to a small, fast LLM (Claude Haiku or GPT-4o-mini) with a strict JSON schema prompt. The model extracts plan tiers, prices, billing units, included quotas, and feature deltas — all in a single round trip. We pay roughly $0.001 per page change. Because we only call the LLM on actual changes, total monthly LLM cost stays under $600 for 5,847 tools.</p>
+        <div class="pipe-code">
+<span class="comment">// Extraction schema — strictly enforced</span>
+{
+  <span class="key">"plans"</span>: [{
+    <span class="key">"name"</span>: string,
+    <span class="key">"monthly_price_usd"</span>: number | null,
+    <span class="key">"annual_price_usd"</span>: number | null,
+    <span class="key">"billing_unit"</span>: <span class="comment">"per_seat" | "flat" | "usage" | "contact_tier"</span>,
+    <span class="key">"included_quota"</span>: { <span class="comment">/* category-specific */</span> },
+    <span class="key">"is_enterprise_gated"</span>: boolean
+  }],
+  <span class="key">"pricing_model_changed"</span>: boolean,
+  <span class="key">"notes"</span>: string
+}
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">05</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">VALIDATION · GUARDRAILS</div>
+        <h3 class="pipe-title">Schema validation &amp; hallucination guards.</h3>
+        <p class="pipe-desc">LLM output is validated by a Pydantic schema, then run through a substring check — every extracted price must literally appear in the source HTML. This single rule catches ~80% of LLM hallucinations on its own. Anything that fails validation is re-queued with a different prompt; if it fails three times, it's flagged for human review.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">PASS RATE</span>96.4% on first attempt</div>
+          <div class="pipe-stat"><span class="key">SUBSTRING CHECK</span>Catches 80% of hallucinations</div>
+          <div class="pipe-stat"><span class="key">RETRIES</span>Max 3 before human queue</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 6 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">06</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">HUMAN QA · IN-THE-LOOP</div>
+        <h3 class="pipe-title">Human-in-the-loop verification.</h3>
+        <p class="pipe-desc">Not all changes auto-publish. Anything that looks suspicious — a >25% price swing, a plan removal, a first extraction for a new tool, an LLM confidence below 0.85 — is routed to our editorial dashboard. A human reviewer (currently a senior VA, soon two) approves, edits, or rejects within 24 hours. Decisions feed back into the LLM prompt library, so the system gets better every week.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">QUEUE RATE</span>~3.6% of changes flagged</div>
+          <div class="pipe-stat"><span class="key">REVIEW SLA</span>&lt;24 hours</div>
+          <div class="pipe-stat"><span class="key">LEARNING LOOP</span>Decisions retrain weekly</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 7 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">07</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">STORAGE · APPEND-ONLY</div>
+        <h3 class="pipe-title">The price_events ledger.</h3>
+        <p class="pipe-desc">Verified changes land in our append-only price_events table — a Postgres database that has never been edited or pruned, only grown. Every change has a date, a source HTML snapshot in R2, an author (LLM or human), and a confidence score. This is the single most valuable asset on the platform. It's backed up nightly to two separate cloud providers and snapshotted weekly to cold storage.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">EVENTS</span>14,392 logged · append-only</div>
+          <div class="pipe-stat"><span class="key">BACKUP</span>2 providers + cold archive</div>
+          <div class="pipe-stat"><span class="key">SCHEMA</span>Public DDL on /methodology</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 8 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">08</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">FORECASTING · ML ENSEMBLE</div>
+        <h3 class="pipe-title">The forecast engine.</h3>
+        <p class="pipe-desc">Once data is verified, it feeds a four-signal ensemble model that predicts the probability of a hike in the next 30/60/90/180 days. The model combines time-series analysis on pricing cadence, NLP on financial filings and earnings calls, behavioural pattern matching on leadership signals, and competitive cluster analysis. The full architecture is detailed in the next section.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">UPDATED</span>Daily, post-extraction</div>
+          <div class="pipe-stat"><span class="key">RECALL</span>73% on major hikes 60d+ early</div>
+          <div class="pipe-stat"><span class="key">RETRAINING</span>Quarterly on new data</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 9 -->
+    <div class="pipeline-step">
+      <div class="pipe-num">09</div>
+      <div class="pipe-content">
+        <div class="pipe-tag">DISTRIBUTION · ALERTS</div>
+        <h3 class="pipe-title">Alerts, API, embeds, newsletter.</h3>
+        <p class="pipe-desc">Verified changes fan out through six channels in parallel: instant email alerts to watchers, Slack alerts via our app, weekly digest newsletter, a public REST API, embeddable price-history widgets, and an RSS feed. Median time from scraper detection to notification: under 2 minutes for high-priority subscribers.</p>
+        <div class="pipe-stats">
+          <div class="pipe-stat"><span class="key">CHANNELS</span>Email · Slack · API · Embed · RSS · Newsletter</div>
+          <div class="pipe-stat"><span class="key">LATENCY</span>&lt;2 min to subscriber</div>
+          <div class="pipe-stat"><span class="key">SUBSCRIBERS</span>8,400+ on the digest</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ AI ENGINE DEEP DIVE ============ -->
+<section class="engine-section section">
+  <div class="section-head">
+    <div class="eyebrow"><span class="pulse"></span>THE FORECAST ENGINE · DEEP DIVE</div>
+    <h2>Four signals.<br/>One <em>confidence score</em>.</h2>
+    <p>Our ensemble model doesn't predict pricing by magic, intuition, or trend-line extrapolation. It runs four independent signal streams every night, weighs them via a learned ensemble, and produces a single probability — validated quarterly against the historical events table.</p>
+  </div>
+
+  <div class="engine-grid">
+    <div class="engine-text">
+      <h2 class="display">Not magic.<br/>Just <em>math</em>.</h2>
+      <p class="lead">Each of the four streams below produces an independent score from 0 to 1. The ensemble combines them with weights learned from 14,392 historical events.</p>
+      <p>The model has flagged 73% of major price increases more than 60 days before they shipped. It misses the rest — usually because the pricing change was triggered by an external event (acquisition, ToS lawsuit, regulatory shift) the model has no visibility into. We publish the misses too, in our quarterly methodology updates.</p>
+      <p>Every prediction on every tool page links back to the underlying signal data, so you can see exactly why we think what we think — and decide for yourself if our reasoning holds up.</p>
+    </div>
+
+    <div class="engine-vis">
+      <div class="engine-vis-inner">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1.5px; color:var(--ink-soft); margin-bottom: 14px; font-weight: 700;">KLAVIYO · LIVE FORECAST</div>
+
+        <div class="flow-stream">
+          <div class="flow-stream-num s1">S1</div>
+          <div class="flow-stream-meta">
+            <div class="flow-stream-name">Pricing cadence</div>
+            <div class="flow-stream-detail">Time-series · 89% strong</div>
+          </div>
+          <div class="flow-bar-wrap"><div class="flow-bar" style="width:89%; background:var(--teal);"></div></div>
+        </div>
+        <div class="flow-stream">
+          <div class="flow-stream-num s2">S2</div>
+          <div class="flow-stream-meta">
+            <div class="flow-stream-name">Financial pressure</div>
+            <div class="flow-stream-detail">NLP · 72% strong</div>
+          </div>
+          <div class="flow-bar-wrap"><div class="flow-bar" style="width:72%; background:var(--coral);"></div></div>
+        </div>
+        <div class="flow-stream">
+          <div class="flow-stream-num s3">S3</div>
+          <div class="flow-stream-meta">
+            <div class="flow-stream-name">Leadership behaviour</div>
+            <div class="flow-stream-detail">NLP · 84% strong</div>
+          </div>
+          <div class="flow-bar-wrap"><div class="flow-bar" style="width:84%; background:var(--coral);"></div></div>
+        </div>
+        <div class="flow-stream">
+          <div class="flow-stream-num s4">S4</div>
+          <div class="flow-stream-meta">
+            <div class="flow-stream-name">Market pressure</div>
+            <div class="flow-stream-detail">Cluster · 68% strong</div>
+          </div>
+          <div class="flow-bar-wrap"><div class="flow-bar" style="width:68%; background:var(--teal);"></div></div>
+        </div>
+
+        <div class="flow-arrow">↓ ENSEMBLE ↓</div>
+
+        <div class="flow-output">
+          <div>
+            <div class="flow-output-lbl">PREDICTION CONFIDENCE</div>
+            <div style="font-size: 11px; color: rgba(250,247,240,0.7); margin-top: 4px;">Hike likely Q4 2026 / Q1 2027</div>
+          </div>
+          <div class="flow-output-val">78%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILED SIGNAL CARDS -->
+  <div class="signals-detail">
+
+    <div class="signal-deep">
+      <div class="signal-deep-tag">SIGNAL 01 · STATISTICAL</div>
+      <h3>Pricing cadence model</h3>
+      <p class="method">A vendor-specific time-series model that learns the rhythm of every tool's historical changes — when, how big, and which tier — and projects the most likely next change.</p>
+      <div class="features">
+<span class="k">method:</span> Time-series · Poisson process<br/>
+<span class="k">features:</span> days_since_last, hike_count_24mo, avg_magnitude<br/>
+<span class="k">trains_on:</span> 14,392 historical events<br/>
+<span class="k">output:</span> P(hike in next 30/60/90/180d)
+      </div>
+      <div class="meta-row">
+        <div class="item"><strong>SOURCES</strong>Internal price_events</div>
+        <div class="item"><strong>UPDATE</strong>Daily</div>
+      </div>
+    </div>
+
+    <div class="signal-deep">
+      <div class="signal-deep-tag">SIGNAL 02 · NLP + FINANCIAL</div>
+      <h3>Financial pressure model</h3>
+      <p class="method">A natural-language model trained on public 10-Q filings, earnings transcripts, and news that detects financial signals correlating with future pricing moves 4–9 months out.</p>
+      <div class="features">
+<span class="k">method:</span> Fine-tuned NLP · transformer<br/>
+<span class="k">features:</span> margin_trend, revenue_growth_delta,<br/>            layoff_signal, IPO_pressure_score<br/>
+<span class="k">sources:</span> SEC EDGAR · Crunchbase · news API<br/>
+<span class="k">output:</span> Pressure score 0–1
+      </div>
+      <div class="meta-row">
+        <div class="item"><strong>SOURCES</strong>Public filings only</div>
+        <div class="item"><strong>UPDATE</strong>Weekly + on filing event</div>
+      </div>
+    </div>
+
+    <div class="signal-deep">
+      <div class="signal-deep-tag">SIGNAL 03 · NLP + BEHAVIOURAL</div>
+      <h3>Leadership behaviour model</h3>
+      <p class="method">Sentiment and keyword analysis on CEO public statements, earnings-call language, and senior-hiring patterns. Telegraphs pricing changes within two quarters.</p>
+      <div class="features">
+<span class="k">method:</span> NLP · pattern matching<br/>
+<span class="k">features:</span> "value_capture" mentions, pricing_keyword_count,<br/>            VP_pricing_hires, exec_changes<br/>
+<span class="k">sources:</span> Earnings transcripts · LinkedIn · news<br/>
+<span class="k">output:</span> Behaviour score 0–1
+      </div>
+      <div class="meta-row">
+        <div class="item"><strong>SOURCES</strong>Public statements only</div>
+        <div class="item"><strong>UPDATE</strong>Weekly</div>
+      </div>
+    </div>
+
+    <div class="signal-deep">
+      <div class="signal-deep-tag">SIGNAL 04 · CLUSTER ANALYSIS</div>
+      <h3>Market pressure model</h3>
+      <p class="method">Cluster-based competitive monitoring. When 3 or more vendors in a category move pricing within 90 days, the laggards almost always follow within the next quarter.</p>
+      <div class="features">
+<span class="k">method:</span> Cluster analysis · category cohort<br/>
+<span class="k">features:</span> competitor_hikes_90d, category_drift,<br/>            market_share_delta<br/>
+<span class="k">sources:</span> Internal price_events · category map<br/>
+<span class="k">output:</span> Market pressure score 0–1
+      </div>
+      <div class="meta-row">
+        <div class="item"><strong>SOURCES</strong>Internal data only</div>
+        <div class="item"><strong>UPDATE</strong>Daily</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TRUST BLOCK -->
+  <div class="trust-block">
+    <div class="trust-grid">
+      <div>
+        <h2>The model is wrong sometimes. <em>We publish those misses too.</em></h2>
+        <p>Every quarter we publish a methodology update with our hit rate, our miss rate, the cases we got wrong, and the model adjustments we made in response. No black box. No "trust us." Just the actual numbers.</p>
+        <p style="opacity:0.7;">The full methodology document — including signal weights, training set composition, retraining cadence, and known blind spots — is published at <strong style="color:var(--coral);">pricepulse.io/methodology</strong>.</p>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat"><span class="v">73%</span><span class="l">Recall on major hikes flagged 60+ days early</span></div>
+        <div class="trust-stat"><span class="v">14,392</span><span class="l">Historical events the model is validated against</span></div>
+        <div class="trust-stat"><span class="v">±9d</span><span class="l">Median timing error on confirmed predictions</span></div>
+        <div class="trust-stat"><span class="v">Q</span><span class="l">Quarterly retraining + public methodology update</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODOLOGY: WHAT WE DO / DON'T DO ============ -->
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow mint">METHODOLOGY · THE LINES WE WON'T CROSS</div>
+    <h2>What we <em>do</em>. What we don't.</h2>
+    <p>A pricing-data company has many ways to cheat — fabricate prices, scrape behind logins, manipulate forecasts to favour partners, or quietly correlate user data. We won't. Here's the exact list.</p>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card do">
+      <h3>✓ What we do</h3>
+      <ul class="method-list">
+        <li><strong>Scrape only public pricing pages.</strong> If a vendor publishes a price, we read it. If they hide it behind sales, we mark it as "Contact Sales" and move on.</li>
+        <li><strong>Validate every extraction.</strong> Substring check, schema check, confidence score — and a human reviews anything suspicious before publish.</li>
+        <li><strong>Publish historical data openly.</strong> Every event in the price_events ledger has a public URL with the source HTML snapshot.</li>
+        <li><strong>Disclose our methodology.</strong> Pipeline architecture, signal weights, error rates — published quarterly, updated when we change anything.</li>
+        <li><strong>Treat sponsored content as walled.</strong> Our tool detail pages contain zero paid placements. Sponsorships live only on listicles and comparisons, clearly marked.</li>
+      </ul>
+    </div>
+    <div class="method-card dont">
+      <h3>✕ What we don't</h3>
+      <ul class="method-list">
+        <li><strong>Scrape behind authentication.</strong> No fake accounts, no impersonation, no scraping anything that requires a login or violates a vendor's reasonable expectations.</li>
+        <li><strong>Use AI to fabricate prices.</strong> If our extraction can't find a price in source HTML, we leave the field null. We never let the LLM "infer" a number.</li>
+        <li><strong>Tilt forecasts to favour anyone.</strong> Sponsored vendors don't get softer predictions. Our affiliate links don't bend the model. Predictions are blind to commercial relationships.</li>
+        <li><strong>Sell user data.</strong> We don't sell, share, or monetise the watchlists or alert preferences of our users — full stop.</li>
+        <li><strong>Auto-publish without QA gates.</strong> Anything flagged by our validation layer waits for human review. Speed never overrides accuracy.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR WHOM ============ -->
+<section class="section" id="who">
+  <div class="section-head">
+    <div class="eyebrow peach"><span class="pulse"></span>PILLAR 03 · FOR WHOM WE BUILT IT</div>
+    <h2>Four real <em>people</em> we obsess over.</h2>
+    <p>PricePulse isn't built for "the SaaS market" in the abstract. It's built for four very specific people, with very specific jobs to be done. If you recognise yourself in any of these, the product was made for you.</p>
+  </div>
+
+  <div class="personas">
+
+    <div class="persona-card p1">
+      <span class="persona-icon">🎨</span>
+      <h3 class="display">The Freelancer</h3>
+      <div class="persona-tag">8 TOOLS · ~$182/MO</div>
+      <div class="persona-quote">"I'm running 8 subscriptions to deliver client work. I notice when one of them charges me more — but I never know which one is next."</div>
+      <div class="persona-uses">
+        <div class="persona-use">Track Adobe CC, Figma, Loom, Calendly, and Notion in one place — get alerted before renewal.</div>
+        <div class="persona-use">Discover cheaper alternatives on every tool page so you can swap out the bloat.</div>
+        <div class="persona-use">Use stack-cost comparisons in client proposals to justify markup on tool overhead.</div>
+      </div>
+    </div>
+
+    <div class="persona-card p2">
+      <span class="persona-icon">🚀</span>
+      <h3 class="display">The SMB Founder</h3>
+      <div class="persona-tag">14 TOOLS · ~$1,247/MO</div>
+      <div class="persona-quote">"My SaaS spend goes up 14% a year and nobody on my team has time to renegotiate every renewal. I need forward visibility on what's coming."</div>
+      <div class="persona-uses">
+        <div class="persona-use">Watch your full stack — HubSpot, Klaviyo, Slack, Asana, Shopify — with one dashboard.</div>
+        <div class="persona-use">Use forecast confidence scores to prioritise which renewals to negotiate first.</div>
+        <div class="persona-use">Export annual SaaS-spend reports for your board pack with three clicks.</div>
+      </div>
+    </div>
+
+    <div class="persona-card p3">
+      <span class="persona-icon">📋</span>
+      <h3 class="display">The Project Manager</h3>
+      <div class="persona-tag">7 TOOLS · ~$340/MO</div>
+      <div class="persona-quote">"Notion just billed 20% more than last month. My PMO budget didn't move. I need a paper trail and a heads-up."</div>
+      <div class="persona-uses">
+        <div class="persona-use">Get an audit log of every change to Notion, Asana, Linear, Slack, Jira, Loom, and Figma.</div>
+        <div class="persona-use">Forward the change-log email straight to finance when you escalate a renewal.</div>
+        <div class="persona-use">Compare team-tier pricing across alternatives without doing it manually each time.</div>
+      </div>
+    </div>
+
+    <div class="persona-card p4">
+      <span class="persona-icon">👥</span>
+      <h3 class="display">The People Ops Lead</h3>
+      <div class="persona-tag">9 TOOLS · ~$894/MO</div>
+      <div class="persona-quote">"My HR stack went up 18.7% YoY. I need to explain that to finance with actual data, not vibes."</div>
+      <div class="persona-uses">
+        <div class="persona-use">Track Gusto, BambooHR, Rippling, Greenhouse, and Lever with per-employee cost projections.</div>
+        <div class="persona-use">Spot quiet feature reductions ("shrinkflation") that bypass headline-price tracking.</div>
+        <div class="persona-use">Build justification packs with exportable historical data for finance reviews.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="tech-section section">
+  <div class="section-head">
+    <div class="eyebrow dark">INFRASTRUCTURE · TRANSPARENT BY DEFAULT</div>
+    <h2>The <em>stack</em> behind the ledger.</h2>
+    <p>If you've made it this far, here's the boring stuff. Our infrastructure is intentionally simple — fewer moving parts means fewer ways to break.</p>
+  </div>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-card-cat">SCRAPING</div>
+      <h4>Playwright + ScrapingBee</h4>
+      <p>Headless Chrome on a worker pool plus Web Unlocker for protected sites. ~5,847 jobs/day across three tiers.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">EXTRACTION</div>
+      <h4>Claude Haiku · GPT-4o-mini</h4>
+      <p>Small fast LLMs running JSON-schema-constrained prompts. ~$0.001 per change extracted.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">STORAGE</div>
+      <h4>Postgres + Cloudflare R2</h4>
+      <p>Append-only price_events table on Postgres, raw HTML snapshots on R2 (zero egress). Backed up nightly.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">QUEUE</div>
+      <h4>Redis + Celery</h4>
+      <p>Distributed job queue with retry, exponential backoff, and dead-letter handling for failed scrapes.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">FORECASTING</div>
+      <h4>Python ensemble</h4>
+      <p>scikit-learn + custom NLP models on Hugging Face transformers. Retrained quarterly on new events.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">FRONTEND</div>
+      <h4>Next.js + ISR</h4>
+      <p>Pre-rendered tool pages refreshed every 6 hours via Incremental Static Regeneration. CDN'd via Cloudflare.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">SEARCH</div>
+      <h4>Meilisearch</h4>
+      <p>Self-hosted full-text search across 5,847 tools and 14,392 events. Typo-tolerant, sub-50ms response.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-card-cat">ALERTS</div>
+      <h4>Resend + Slack API</h4>
+      <p>Transactional email + Slack incoming-webhook fanout. Median time from change to notification: under 2 min.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="cta-card">
+    <div class="cta-card-inner">
+      <h2 class="display">Ready to build your own watchtower?</h2>
+      <p>Pick a stack template that matches your role, customise from there, and we'll start watching the moment you sign up. Free, forever — the watchtower stays public, even at scale.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary">Start watching →</button>
+        <button class="btn btn-outline">Read the methodology</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="brand">
+        <div class="brand-mark" style="background:var(--coral);color:var(--ink);">P</div>
+        <div class="brand-wordmark" style="color:var(--cream);">PricePulse</div>
+      </div>
+      <p class="desc">The watchtower for SaaS &amp; Shopify pricing. Every change, every tier, every day — so you never get blindsided again.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul><li><a href="#">The Ledger</a></li><li><a href="#">Live Changes</a></li><li><a href="#">Pricing API</a></li><li><a href="#">Browser Extension</a></li><li><a href="#">Embed Widgets</a></li></ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul><li><a href="#">Reports</a></li><li><a href="#">Blog</a></li><li><a href="#">Methodology</a></li><li><a href="#">Comparisons</a></li><li><a href="#">Newsletter</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Advertise</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Privacy</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PRICEPULSE · UPDATED DAILY 00:00 UTC</span>
+    <span>BUILT FOR FOUNDERS, FREELANCERS &amp; OPS LEADS</span>
+  </div>
+</footer>
+
+</body>
+</html>
