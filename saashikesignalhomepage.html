@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PricePulse — Every SaaS price. One watchtower.</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F0;
+  --white: #FFFFFF;
+  --mint-pale: #C6F6FA;
+  --pixel-mint: #C8E5D5;
+  --teal: #406B6E;
+  --teal-deep: #2F5256;
+  --teal-soft: rgba(64, 107, 110, 0.08);
+  --coral: #F4A580;
+  --coral-deep: #E88858;
+  --coral-soft: #FBD9C0;
+  --peach: #FBD9C0;
+  --ink: #1A2E2F;
+  --ink-soft: #5C6F70;
+  --ink-faint: #94A3A5;
+  --rule: rgba(26, 46, 47, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+.serif, .display { font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; border: none; cursor: pointer; }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 247, 240, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1320px; margin: 0 auto; padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--teal); color: var(--cream);
+  display: grid; place-items: center; font-weight: 800;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px;
+}
+.brand-wordmark { font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+.nav-menu { display: flex; gap: 28px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.nav-menu a { transition: color .15s; }
+.nav-menu a:hover { color: var(--teal); }
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.btn {
+  padding: 12px 22px; border-radius: 100px; font-weight: 600; font-size: 15px;
+  transition: all .2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-ghost { color: var(--ink); background: transparent; }
+.btn-ghost:hover { color: var(--teal); }
+.btn-primary { background: var(--teal); color: var(--cream); }
+.btn-primary:hover { background: var(--teal-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(64,107,110,0.25); }
+.btn-coral { background: var(--coral); color: var(--ink); }
+.btn-coral:hover { background: var(--coral-deep); color: var(--white); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+.btn-outline:hover { background: var(--teal); color: var(--cream); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  max-width: 1320px; margin: 0 auto; padding: 80px 32px 100px;
+  display: grid; grid-template-columns: 1fr 1.05fr; gap: 60px; align-items: center;
+}
+.hero-pixel-bg {
+  position: absolute; top: 60px; right: -100px; width: 240px; height: 240px;
+  opacity: 0.55; pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--mint-pale); padding: 8px 16px; border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: var(--teal-deep); margin-bottom: 24px;
+}
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(54px, 6.4vw, 88px); font-weight: 800;
+  line-height: 0.96; letter-spacing: -0.04em; color: var(--ink);
+  margin-bottom: 28px;
+}
+.hero h1 .accent { color: var(--coral); position: relative; display: inline-block; }
+.hero h1 .accent::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 12px;
+  background: var(--mint-pale); z-index: -1; border-radius: 4px;
+}
+.hero-sub {
+  font-size: 19px; color: var(--ink-soft); max-width: 540px;
+  line-height: 1.55; margin-bottom: 36px;
+}
+.hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.hero-stats {
+  margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.stat .num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; font-weight: 800; color: var(--teal); letter-spacing: -1.5px; }
+.stat .label { font-size: 13px; color: var(--ink-soft); margin-top: 2px; font-weight: 500; }
+
+/* ===== WATCHTOWER VISUAL ===== */
+.watchtower {
+  position: relative; aspect-ratio: 1.05/1; max-width: 640px; margin: 0 auto;
+}
+.watchtower-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--mint-pale) 0%, var(--peach) 100%);
+  border-radius: 32px;
+  overflow: hidden;
+}
+.watchtower-bg::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 60%;
+  background: var(--coral); clip-path: polygon(100% 0, 0 0, 100% 100%);
+  opacity: 0.85;
+}
+.tw-hub {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 200px; height: 200px; background: var(--white);
+  border-radius: 24px; box-shadow: 0 30px 60px -10px rgba(26,46,47,0.25), 0 0 0 8px rgba(255,255,255,0.4);
+  display: flex; flex-direction: column; padding: 18px;
+  z-index: 5;
+}
+.tw-hub-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.tw-hub-logo { width: 28px; height: 28px; border-radius: 8px; background: var(--teal); display: grid; place-items: center; color: var(--cream); font-weight: 800; font-size: 13px; font-family: 'Bricolage Grotesque', sans-serif; }
+.tw-hub-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+.tw-hub-stat { font-size: 11px; color: var(--ink-soft); margin-bottom: 6px; font-weight: 500; }
+.tw-hub-mini-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 11px; }
+.tw-hub-mini-row:last-child { border: none; }
+.tw-hub-mini-row .name { font-weight: 600; color: var(--ink); }
+.tw-hub-mini-row .change { color: var(--coral-deep); font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+.tw-hub-mini-row .change.down { color: var(--teal); }
+
+/* Floating tool cards */
+.tw-tool {
+  position: absolute; background: var(--white);
+  padding: 10px 14px 10px 10px; border-radius: 14px;
+  box-shadow: 0 12px 28px -8px rgba(26,46,47,0.18);
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--ink);
+  animation: float 4s ease-in-out infinite;
+}
+.tw-tool .ico { width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center; color: white; font-weight: 700; font-size: 12px; flex-shrink: 0; font-family: 'Bricolage Grotesque', sans-serif; }
+.tw-tool .price { font-size: 11px; color: var(--coral-deep); margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+.tw-tool .info { display: flex; flex-direction: column; line-height: 1.1; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+.tw-tool.t1 { top: 8%; left: 6%; animation-delay: 0s; }
+.tw-tool.t2 { top: 4%; right: 8%; animation-delay: 0.6s; }
+.tw-tool.t3 { top: 38%; left: 0%; animation-delay: 1.2s; }
+.tw-tool.t4 { top: 38%; right: 0%; animation-delay: 1.8s; }
+.tw-tool.t5 { bottom: 6%; left: 14%; animation-delay: 2.4s; }
+.tw-tool.t6 { bottom: 12%; right: 12%; animation-delay: 3.0s; }
+
+.tw-line {
+  position: absolute; top: 50%; left: 50%; pointer-events: none; z-index: 2;
+  transform: translate(-50%,-50%);
+}
+
+/* ===== STORY SECTION (Editorial dark) ===== */
+.story {
+  background: var(--teal); color: var(--cream);
+  padding: 100px 32px; position: relative; overflow: hidden;
+}
+.story::before {
+  content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px;
+  background: var(--coral); border-radius: 50%; opacity: 0.18; filter: blur(40px);
+}
+.story-inner {
+  max-width: 1320px; margin: 0 auto; position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start;
+}
+.story-eyebrow {
+  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 24px; font-weight: 600;
+}
+.story h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(42px, 5vw, 68px); font-weight: 800;
+  line-height: 1; letter-spacing: -0.03em; margin-bottom: 32px;
+}
+.story h2 em { color: var(--coral); font-style: normal; }
+.story-body p { font-size: 18px; line-height: 1.65; opacity: 0.85; margin-bottom: 18px; max-width: 540px; }
+.story-quote {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(32px, 4vw, 48px); font-weight: 700;
+  color: var(--coral); line-height: 1.1; letter-spacing: -0.02em;
+  margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.story-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; }
+.story-stat { background: var(--teal-deep); padding: 32px 28px; }
+.story-stat .big { font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--cream); line-height: 1; letter-spacing: -2px; margin-bottom: 10px; }
+.story-stat .big.coral { color: var(--coral); }
+.story-stat .lbl { font-size: 13px; line-height: 1.5; color: rgba(250,247,240,0.75); }
+.story-stat .lbl strong { color: var(--cream); display: block; margin-bottom: 4px; font-weight: 700; font-size: 14px; }
+
+/* ===== ALGORITHM SECTION ===== */
+.algo {
+  max-width: 1320px; margin: 0 auto; padding: 110px 32px;
+}
+.algo-head { text-align: center; margin-bottom: 64px; }
+.algo-eyebrow {
+  display: inline-block;
+  background: var(--coral-soft); color: var(--coral-deep);
+  padding: 8px 16px; border-radius: 100px; font-weight: 600; font-size: 13px;
+  margin-bottom: 20px;
+}
+.algo h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(44px, 5vw, 68px); font-weight: 800;
+  line-height: 1; letter-spacing: -0.03em; margin-bottom: 18px;
+}
+.algo h2 em { color: var(--teal); font-style: normal; position: relative; }
+.algo h2 em::after {
+  content: ''; position: absolute; left: -4px; right: -4px; bottom: 4px; height: 14px;
+  background: var(--mint-pale); z-index: -1; border-radius: 4px;
+}
+.algo-sub { font-size: 19px; color: var(--ink-soft); max-width: 620px; margin: 0 auto; }
+.algo-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  margin-bottom: 40px;
+}
+.signal {
+  background: var(--white); padding: 36px 32px; border-radius: 24px;
+  border: 1px solid var(--rule); position: relative; overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.signal:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(26,46,47,0.12); }
+.signal-num {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 700;
+  color: var(--coral-deep); letter-spacing: 2px; margin-bottom: 14px;
+}
+.signal-icon {
+  width: 56px; height: 56px; border-radius: 14px; margin-bottom: 18px;
+  display: grid; place-items: center; font-size: 28px;
+}
+.signal-icon.s1 { background: var(--mint-pale); }
+.signal-icon.s2 { background: var(--coral-soft); }
+.signal-icon.s3 { background: var(--peach); }
+.signal-icon.s4 { background: var(--pixel-mint); }
+.signal h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+.signal p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+.signal .tag {
+  display: inline-block; margin-top: 16px; padding: 5px 11px; border-radius: 100px;
+  background: var(--teal-soft); color: var(--teal); font-weight: 600; font-size: 12px;
+}
+
+.algo-trust {
+  background: var(--ink); color: var(--cream); border-radius: 24px;
+  padding: 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
+}
+.algo-trust h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px; font-weight: 800;
+  line-height: 1.1; letter-spacing: -1px; margin-bottom: 14px;
+}
+.algo-trust h3 em { color: var(--coral); font-style: normal; }
+.algo-trust p { color: rgba(250,247,240,0.7); font-size: 15px; line-height: 1.6; }
+.algo-trust-stats { display: flex; flex-direction: column; gap: 14px; }
+.algo-trust-stat {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 18px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.algo-trust-stat .v { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 800; color: var(--coral); letter-spacing: -1px; }
+.algo-trust-stat .l { font-size: 13px; color: rgba(250,247,240,0.7); text-align: right; line-height: 1.4; max-width: 200px; }
+
+/* ===== TICKER ===== */
+.ticker-bar {
+  background: var(--ink); color: var(--cream);
+  padding: 18px 0; overflow: hidden; position: relative;
+}
+.ticker-label {
+  position: absolute; left: 0; top: 0; bottom: 0; z-index: 2;
+  background: linear-gradient(to right, var(--ink) 75%, transparent);
+  padding: 0 24px 0 32px; display: flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 2.5px; color: var(--coral); font-weight: 700;
+}
+.ticker-track {
+  display: flex; gap: 40px; white-space: nowrap; padding-left: 240px;
+  animation: scroll 50s linear infinite; font-size: 14px; font-family: 'JetBrains Mono', monospace;
+}
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-item { display: inline-flex; align-items: center; gap: 8px; }
+.ticker-item strong { color: var(--cream); font-weight: 600; }
+.tu { color: var(--coral); }
+.td { color: var(--mint-pale); }
+
+/* ===== MOVERS ===== */
+.movers {
+  max-width: 1320px; margin: 0 auto; padding: 110px 32px 60px;
+}
+.movers-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+.movers-head h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -1.5px; line-height: 1; }
+.movers-head p { color: var(--ink-soft); margin-top: 8px; font-size: 16px; }
+.movers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.mover-card {
+  background: var(--white); border-radius: 24px; padding: 28px; border: 1px solid var(--rule);
+  transition: all .2s;
+}
+.mover-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(26,46,47,0.12); }
+.mover-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px; }
+.mover-id { display: flex; gap: 12px; align-items: center; }
+.mover-logo { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--white); font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; }
+.mover-name { font-weight: 700; font-size: 16px; }
+.mover-cat { font-size: 12px; color: var(--ink-soft); }
+.mover-time { font-size: 12px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; }
+.mover-prices { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; }
+.mover-old { color: var(--ink-faint); text-decoration: line-through; font-size: 14px; }
+.mover-arrow { color: var(--ink-soft); font-size: 18px; }
+.mover-new { font-weight: 700; font-size: 22px; }
+.mover-new.up { color: var(--coral-deep); }
+.mover-new.down { color: var(--teal); }
+.mover-pct {
+  display: inline-flex; padding: 4px 10px; border-radius: 100px; font-weight: 700; font-size: 12px;
+}
+.mover-pct.up { background: var(--coral-soft); color: var(--coral-deep); }
+.mover-pct.down { background: var(--mint-pale); color: var(--teal-deep); }
+.mover-note { color: var(--ink-soft); font-size: 13px; margin-top: 14px; line-height: 1.5; }
+
+/* ===== CATEGORIES ===== */
+.categories {
+  max-width: 1320px; margin: 0 auto; padding: 80px 32px;
+}
+.cat-head { text-align: center; margin-bottom: 56px; }
+.cat-head h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -1.5px; line-height: 1; margin-bottom: 14px; }
+.cat-head p { color: var(--ink-soft); font-size: 17px; max-width: 540px; margin: 0 auto; }
+.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cat-card {
+  position: relative;
+  background: var(--white); border-radius: 20px; padding: 28px;
+  border: 1px solid var(--rule); transition: all .2s; overflow: hidden;
+}
+.cat-card:hover { transform: translateY(-4px); }
+.cat-card.featured {
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);
+  color: var(--white); border: none;
+}
+.cat-card.featured::before {
+  content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px;
+  background: var(--peach); border-radius: 50%; opacity: 0.25;
+}
+.cat-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--ink); color: var(--coral);
+  padding: 4px 10px; border-radius: 100px; font-size: 10px; font-weight: 800; letter-spacing: 1px;
+}
+.cat-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+.cat-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.4px; }
+.cat-count { font-size: 13px; color: var(--ink-soft); font-family: 'JetBrains Mono', monospace; }
+.cat-card.featured .cat-count { color: rgba(255,255,255,0.8); }
+
+/* ===== REPORT BANNER ===== */
+.report {
+  max-width: 1320px; margin: 60px auto; padding: 0 32px;
+}
+.report-card {
+  background: linear-gradient(135deg, var(--mint-pale) 0%, var(--peach) 100%);
+  border-radius: 32px; padding: 60px 56px; position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center;
+}
+.report-card::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 280px; height: 100%;
+  background: var(--coral); clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+  opacity: 0.85;
+}
+.report-content { position: relative; z-index: 2; }
+.report-eyebrow {
+  display: inline-block; background: var(--white); padding: 6px 14px;
+  border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal);
+  margin-bottom: 18px;
+}
+.report-content h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -1.5px; margin-bottom: 16px; }
+.report-content p { font-size: 17px; color: var(--ink-soft); margin-bottom: 28px; max-width: 480px; }
+
+.report-mini {
+  position: relative; z-index: 2;
+  background: var(--ink); color: var(--cream); border-radius: 18px; padding: 24px;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+}
+.report-mini .head { color: var(--coral); font-size: 11px; letter-spacing: 2px; margin-bottom: 14px; font-weight: 700; }
+.report-mini-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.report-mini-row:last-child { border: none; }
+.report-mini-row .v { color: var(--coral); font-weight: 600; }
+.report-mini-row .v.green { color: var(--mint-pale); }
+
+/* ===== NEWSLETTER ===== */
+.newsletter {
+  max-width: 920px; margin: 80px auto; padding: 0 32px; text-align: center;
+}
+.newsletter h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -1.5px; line-height: 1; margin-bottom: 14px; }
+.newsletter p { color: var(--ink-soft); font-size: 17px; margin-bottom: 32px; }
+.newsletter-form {
+  display: flex; max-width: 520px; margin: 0 auto;
+  background: var(--white); border-radius: 100px; padding: 6px; border: 1px solid var(--rule);
+}
+.newsletter-form input {
+  flex: 1; padding: 12px 22px; border: none; outline: none;
+  font-family: inherit; font-size: 15px; background: transparent; color: var(--ink);
+}
+.newsletter-form input::placeholder { color: var(--ink-faint); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--ink); color: var(--cream); padding: 60px 32px 30px; margin-top: 80px;
+}
+.footer-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+footer h4 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 18px; font-weight: 700; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: rgba(250,247,240,0.65); }
+footer a:hover { color: var(--cream); }
+footer .desc { color: rgba(250,247,240,0.65); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 16px; }
+.footer-bottom { max-width: 1320px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,247,240,0.5); letter-spacing: 1px; }
+
+/* Pixel pattern */
+.pixel-pattern {
+  display: grid; grid-template-columns: repeat(8, 12px); gap: 2px; pointer-events: none;
+}
+.pixel-pattern div { width: 12px; height: 12px; }
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 50px 24px; }
+  .watchtower { aspect-ratio: 1/1; max-width: 480px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .story-inner { grid-template-columns: 1fr; gap: 40px; }
+  .algo-grid { grid-template-columns: 1fr; }
+  .algo-trust { grid-template-columns: 1fr; padding: 32px; }
+  .movers-grid { grid-template-columns: 1fr; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .report-card { grid-template-columns: 1fr; padding: 36px; }
+  .report-card::before { display: none; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div class="brand-wordmark">PricePulse</div>
+    </div>
+    <div class="nav-menu">
+      <a href="#">The Ledger</a>
+      <a href="#">Categories</a>
+      <a href="#">How it Works</a>
+      <a href="#">Reports</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn btn-ghost">Sign in</button>
+      <button class="btn btn-primary">Start watching →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO: WATCHTOWER ========== -->
+<section class="hero">
+  <!-- pixel decoration -->
+  <svg class="hero-pixel-bg" viewBox="0 0 240 240">
+    <g fill="#C8E5D5">
+      <rect x="0" y="0" width="20" height="20"/><rect x="24" y="0" width="20" height="20"/>
+      <rect x="48" y="0" width="20" height="20"/><rect x="0" y="24" width="20" height="20"/>
+      <rect x="48" y="24" width="20" height="20"/><rect x="72" y="24" width="20" height="20"/>
+      <rect x="0" y="48" width="20" height="20"/><rect x="24" y="48" width="20" height="20"/>
+    </g>
+  </svg>
+
+  <div class="hero-text">
+    <div class="hero-eyebrow"><span class="dot"></span>5,847 SaaS tools tracked daily</div>
+    <h1>
+      Every SaaS price.<br/>
+      One <span class="accent">watchtower</span>.
+    </h1>
+    <p class="hero-sub">
+      The average freelancer runs on 8 SaaS tools. The average business, 14. They all change their pricing — quietly, on different days, in different ways. PricePulse watches every one of them, in one place, so you don't have to.
+    </p>
+    <div class="hero-cta">
+      <button class="btn btn-primary">Track my stack →</button>
+      <button class="btn btn-ghost">See today's changes ↓</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">5,847</div><div class="label">Tools tracked</div></div>
+      <div class="stat"><div class="num">14,392</div><div class="label">Price events logged</div></div>
+      <div class="stat"><div class="num">+11.4%</div><div class="label">Average YTD hike</div></div>
+    </div>
+  </div>
+
+  <!-- WATCHTOWER VISUAL -->
+  <div class="watchtower">
+    <div class="watchtower-bg"></div>
+
+    <!-- Floating tool subscriptions -->
+    <div class="tw-tool t1">
+      <div class="ico" style="background:linear-gradient(135deg,#FF6B8A,#FFA86B);">K</div>
+      <div class="info"><span>Klaviyo</span><span class="price">$45 → $52 ↑</span></div>
+    </div>
+    <div class="tw-tool t2">
+      <div class="ico" style="background:#000;">N</div>
+      <div class="info"><span>Notion</span><span class="price">$10 → $12 ↑</span></div>
+    </div>
+    <div class="tw-tool t3">
+      <div class="ico" style="background:#0A66C2;">A</div>
+      <div class="info"><span>Ahrefs</span><span class="price">$99 → $129 ↑</span></div>
+    </div>
+    <div class="tw-tool t4">
+      <div class="ico" style="background:#FF642D;">S</div>
+      <div class="info"><span>Semrush</span><span class="price">$129 → $139</span></div>
+    </div>
+    <div class="tw-tool t5">
+      <div class="ico" style="background:linear-gradient(135deg,#7856FF,#5946D4);">M</div>
+      <div class="info"><span>Mixpanel</span><span class="price">$24 → $28 ↑</span></div>
+    </div>
+    <div class="tw-tool t6">
+      <div class="ico" style="background:#1F8DED;">I</div>
+      <div class="info"><span>Intercom</span><span class="price">$52 → $74 ↑</span></div>
+    </div>
+
+    <!-- Connection lines -->
+    <svg class="tw-line" width="600" height="600" viewBox="0 0 600 600" style="opacity:0.25;">
+      <line x1="60" y1="50" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="540" y1="40" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="20" y1="280" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="580" y1="280" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="120" y1="540" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="500" y1="520" x2="300" y2="300" stroke="#1A2E2F" stroke-width="1.5" stroke-dasharray="4 4"/>
+    </svg>
+
+    <!-- Central watchtower hub -->
+    <div class="tw-hub">
+      <div class="tw-hub-header">
+        <div class="tw-hub-logo">P</div>
+        <div class="tw-hub-name">Your Watchtower</div>
+      </div>
+      <div class="tw-hub-stat">6 tools · 4 changes today</div>
+      <div class="tw-hub-mini-row"><span class="name">Klaviyo</span><span class="change">+15.5%</span></div>
+      <div class="tw-hub-mini-row"><span class="name">Notion</span><span class="change">+20%</span></div>
+      <div class="tw-hub-mini-row"><span class="name">Ahrefs</span><span class="change">+30%</span></div>
+      <div class="tw-hub-mini-row"><span class="name">Recharge</span><span class="change down">-20%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STORY: THE RISE OF AI & SAAS ========== -->
+<section class="story">
+  <div class="story-inner">
+    <div>
+      <div class="story-eyebrow">A short story about your stack</div>
+      <h2>You run on tools<br/>you don't <em>track</em>.</h2>
+      <div class="story-body">
+        <p>
+          The rise of AI broke the SaaS rulebook. What was once a single all-in-one suite has fractured into a galaxy of specialised tools. Every founder, freelancer, and team is now stitched together by a stack of subscriptions — each with its own roadmap, its own pricing team, its own quiet "we've adjusted our plans" email.
+        </p>
+        <p>
+          They don't all raise prices on the same day. They don't all raise prices at all — some just remove features and call it a "plan refresh". And nobody, anywhere, is keeping a single ledger of what actually changed.
+        </p>
+        <p>
+          Until now.
+        </p>
+      </div>
+      <div class="story-quote">
+        "But are you really tracking the price?"
+      </div>
+    </div>
+
+    <div class="story-stats">
+      <div class="story-stat">
+        <div class="big">8</div>
+        <div class="lbl"><strong>Tools per freelancer</strong>The average solo operator runs 8 paid SaaS subscriptions. Mid-market businesses run 14+.</div>
+      </div>
+      <div class="story-stat">
+        <div class="big coral">73%</div>
+        <div class="lbl"><strong>Vendors raised prices</strong>Of tracked SaaS vendors that pushed at least one price increase in the last 12 months.</div>
+      </div>
+      <div class="story-stat">
+        <div class="big">18mo</div>
+        <div class="lbl"><strong>Between hikes</strong>Average gap between published pricing changes — but the gap is shrinking every year.</div>
+      </div>
+      <div class="story-stat">
+        <div class="big coral">1 in 4</div>
+        <div class="lbl"><strong>Quiet shrinkflation</strong>Vendors who held their headline price flat but reduced features, caps, or quotas in the last year.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ALGORITHM SECTION ========== -->
+<section class="algo">
+  <div class="algo-head">
+    <div class="algo-eyebrow">How we predict</div>
+    <h2>Not magic.<br/>Just <em>math</em>.</h2>
+    <p class="algo-sub">
+      We don't guess when prices will rise. We model it. PricePulse runs four signal streams on every tool we track — fed by daily scrapes, public filings, and behavioural data — to forecast pricing moves before the email lands in your inbox.
+    </p>
+  </div>
+
+  <div class="algo-grid">
+    <div class="signal">
+      <div class="signal-num">SIGNAL 01</div>
+      <div class="signal-icon s1">📈</div>
+      <h3>Pricing cadence</h3>
+      <p>Every tool has a rhythm. We map every previous change — the month, the magnitude, the plan tier targeted — to predict the shape of the next one. Vendors who hiked twice in 24 months almost always hike a third time.</p>
+      <span class="tag">Source · Daily scrape diff</span>
+    </div>
+
+    <div class="signal">
+      <div class="signal-num">SIGNAL 02</div>
+      <div class="signal-icon s2">💼</div>
+      <h3>Financial pressure</h3>
+      <p>Public earnings, recent funding rounds, layoffs, IPO readiness, and gross-margin trends all show up in pricing 4–9 months later. We feed every public filing into the model.</p>
+      <span class="tag">Source · 10-Q, Crunchbase, news</span>
+    </div>
+
+    <div class="signal">
+      <div class="signal-num">SIGNAL 03</div>
+      <div class="signal-icon s3">🎤</div>
+      <h3>Leadership behaviour</h3>
+      <p>CEOs telegraph price changes. Public statements about "value capture", senior hiring in finance teams, board changes, and earnings-call language all correlate with pricing moves within two quarters.</p>
+      <span class="tag">Source · Earnings transcripts, LinkedIn</span>
+    </div>
+
+    <div class="signal">
+      <div class="signal-num">SIGNAL 04</div>
+      <div class="signal-icon s4">🌊</div>
+      <h3>Market pressure</h3>
+      <p>A category-wide hike makes laggards follow. We watch every competitor, every adjacent tool, every benchmark. When 3 vendors in a category move, the fourth almost always does within 90 days.</p>
+      <span class="tag">Source · Competitive set scan</span>
+    </div>
+  </div>
+
+  <div class="algo-trust">
+    <div>
+      <h3>The model has flagged <em>73% of major price hikes</em> 60+ days before they shipped.</h3>
+      <p>Not magic. Not luck. A purpose-built ensemble running daily across 5,847 tools, validated against 14,392 historical price events. We get it wrong sometimes — that's why we publish our methodology in full.</p>
+    </div>
+    <div class="algo-trust-stats">
+      <div class="algo-trust-stat"><span class="v">73%</span><span class="l">Major hikes flagged 60+ days early</span></div>
+      <div class="algo-trust-stat"><span class="v">5,847</span><span class="l">Tools modeled in real time</span></div>
+      <div class="algo-trust-stat"><span class="v">14,392</span><span class="l">Historical events validated against</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TICKER ========== -->
+<div class="ticker-bar">
+  <div class="ticker-label">● LIVE · 24H</div>
+  <div class="ticker-track">
+    <span class="ticker-item"><strong>KLAVIYO</strong> $1,700 → <span class="tu">$1,895 ▲ 11.5%</span></span>
+    <span class="ticker-item"><strong>NOTION PLUS</strong> $10 → <span class="tu">$12 ▲ 20%</span></span>
+    <span class="ticker-item"><strong>RECHARGE PRO</strong> $499 → <span class="td">$399 ▼ 20%</span></span>
+    <span class="ticker-item"><strong>GORGIAS ADV.</strong> $300 → <span class="tu">$360 ▲ 20%</span></span>
+    <span class="ticker-item"><strong>SHOGUN</strong> $149 → <span class="tu">$199 ▲ 33.6%</span></span>
+    <span class="ticker-item"><strong>POSTSCRIPT</strong> trial extended <span class="td">▼ feature</span></span>
+    <span class="ticker-item"><strong>AHREFS LITE</strong> $99 → <span class="tu">$129 ▲ 30%</span></span>
+    <span class="ticker-item"><strong>AMPLITUDE</strong> $995 → <span class="td">$815 ▼ 18%</span></span>
+    <span class="ticker-item"><strong>KLAVIYO</strong> $1,700 → <span class="tu">$1,895 ▲ 11.5%</span></span>
+    <span class="ticker-item"><strong>NOTION PLUS</strong> $10 → <span class="tu">$12 ▲ 20%</span></span>
+    <span class="ticker-item"><strong>RECHARGE PRO</strong> $499 → <span class="td">$399 ▼ 20%</span></span>
+  </div>
+</div>
+
+<!-- ========== BIGGEST MOVERS ========== -->
+<section class="movers">
+  <div class="movers-head">
+    <div>
+      <h2>Biggest movers this week</h2>
+      <p>Pricing &amp; feature changes our scrapers caught in the last 7 days.</p>
+    </div>
+    <button class="btn btn-outline">View all changes →</button>
+  </div>
+
+  <div class="movers-grid">
+    <div class="mover-card">
+      <div class="mover-top">
+        <div class="mover-id">
+          <div class="mover-logo" style="background:linear-gradient(135deg,#FF6B8A,#FFA86B);">K</div>
+          <div>
+            <div class="mover-name">Klaviyo</div>
+            <div class="mover-cat">Email / Email Plus tier</div>
+          </div>
+        </div>
+        <div class="mover-time">2h ago</div>
+      </div>
+      <div class="mover-prices">
+        <span class="mover-old">$1,700/mo</span>
+        <span class="mover-arrow">→</span>
+        <span class="mover-new up">$1,895/mo</span>
+      </div>
+      <span class="mover-pct up">▲ 11.5% increase</span>
+      <p class="mover-note">First Email Plus increase in 18 months. SMS pricing held flat.</p>
+    </div>
+
+    <div class="mover-card">
+      <div class="mover-top">
+        <div class="mover-id">
+          <div class="mover-logo" style="background:#000;">N</div>
+          <div>
+            <div class="mover-name">Notion</div>
+            <div class="mover-cat">Productivity / Plus plan</div>
+          </div>
+        </div>
+        <div class="mover-time">14h ago</div>
+      </div>
+      <div class="mover-prices">
+        <span class="mover-old">$10/seat</span>
+        <span class="mover-arrow">→</span>
+        <span class="mover-new up">$12/seat</span>
+      </div>
+      <span class="mover-pct up">▲ 20% increase</span>
+      <p class="mover-note">AI add-on bundled into Plus. Existing customers grandfathered for 6 months.</p>
+    </div>
+
+    <div class="mover-card">
+      <div class="mover-top">
+        <div class="mover-id">
+          <div class="mover-logo" style="background:linear-gradient(135deg,#406B6E,#34D399);">R</div>
+          <div>
+            <div class="mover-name">Recharge</div>
+            <div class="mover-cat">Subscriptions / Pro plan</div>
+          </div>
+        </div>
+        <div class="mover-time">2d ago</div>
+      </div>
+      <div class="mover-prices">
+        <span class="mover-old">$499/mo</span>
+        <span class="mover-arrow">→</span>
+        <span class="mover-new down">$399/mo</span>
+      </div>
+      <span class="mover-pct down">▼ 20% decrease</span>
+      <p class="mover-note">Likely competitive response to Skio undercutting at $299/mo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATEGORIES ========== -->
+<section class="categories">
+  <div class="cat-head">
+    <h2>Browse by category</h2>
+    <p>Pricing histories across the SaaS landscape — from Shopify apps to the freshest Product Hunt launches.</p>
+  </div>
+  <div class="cat-grid">
+    <a href="#" class="cat-card featured">
+      <div class="cat-badge">NEW</div>
+      <span class="cat-emoji">🚀</span>
+      <div class="cat-name">Product Hunt</div>
+      <div class="cat-count">312 tools tracked · updated daily</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">🛒</span>
+      <div class="cat-name">Shopify Apps</div>
+      <div class="cat-count">847 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">📧</span>
+      <div class="cat-name">Email &amp; SMS</div>
+      <div class="cat-count">142 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">🎯</span>
+      <div class="cat-name">CRM &amp; Sales</div>
+      <div class="cat-count">128 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">📊</span>
+      <div class="cat-name">Analytics</div>
+      <div class="cat-count">94 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">🔍</span>
+      <div class="cat-name">SEO Tools</div>
+      <div class="cat-count">73 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">💬</span>
+      <div class="cat-name">Support &amp; CS</div>
+      <div class="cat-count">81 tools tracked</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-emoji">📐</span>
+      <div class="cat-name">Design</div>
+      <div class="cat-count">58 tools tracked</div>
+    </a>
+  </div>
+</section>
+
+<!-- ========== REPORT BANNER ========== -->
+<section class="report">
+  <div class="report-card">
+    <div class="report-content">
+      <span class="report-eyebrow">Quarterly report</span>
+      <h3>The State of SaaS Pricing — Q1 2026</h3>
+      <p>2,847 tools analysed. Average hike: 11.4%. The category seeing the steepest hikes might surprise you. Plus: 14 tools that quietly added usage caps last quarter.</p>
+      <button class="btn btn-primary">Download free report →</button>
+    </div>
+    <div class="report-mini">
+      <div class="head">TOP HIKES Q1 2026</div>
+      <div class="report-mini-row"><span>Notion Plus</span><span class="v">+20.0%</span></div>
+      <div class="report-mini-row"><span>Klaviyo Plus</span><span class="v">+11.5%</span></div>
+      <div class="report-mini-row"><span>Gorgias Adv</span><span class="v">+20.0%</span></div>
+      <div class="report-mini-row"><span>Shogun Build</span><span class="v">+33.6%</span></div>
+      <div class="report-mini-row"><span>Postscript</span><span class="v">+15.0%</span></div>
+      <div class="report-mini-row"><span>Yotpo Premium</span><span class="v">+12.5%</span></div>
+      <div class="report-mini-row"><span>Recharge Pro</span><span class="v green">−20.0%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWSLETTER ========== -->
+<section class="newsletter">
+  <h2>Get the Tuesday brief.</h2>
+  <p>The most significant SaaS &amp; Shopify pricing changes, summarised. 8,400+ founders &amp; ops leads read it.</p>
+  <form class="newsletter-form">
+    <input type="email" placeholder="founder@yourcompany.com" />
+    <button type="submit" class="btn btn-coral">Subscribe →</button>
+  </form>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="brand">
+        <div class="brand-mark" style="background:var(--coral);color:var(--ink);">P</div>
+        <div class="brand-wordmark" style="color:var(--cream);">PricePulse</div>
+      </div>
+      <p class="desc">The watchtower for SaaS &amp; Shopify pricing. Every change, every tier, every day — so you never get blindsided again.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#">The Ledger</a></li>
+        <li><a href="#">Live Changes</a></li>
+        <li><a href="#">Pricing API</a></li>
+        <li><a href="#">Browser Extension</a></li>
+        <li><a href="#">Embed Widgets</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Methodology</a></li>
+        <li><a href="#">Comparisons</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Advertise</a></li>
+        <li><a href="#">Editorial Policy</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PRICEPULSE · UPDATED DAILY 00:00 UTC</span>
+    <span>BUILT FOR FOUNDERS, FREELANCERS &amp; OPS LEADS</span>
+  </div>
+</footer>
+
+</body>
+</html>
