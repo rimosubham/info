@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hex Pen Stand — Cubiko (Redesign mockup)</title>
+<!--
+  CUBIKO PRODUCT PAGE REDESIGN — MOCKUP
+  =====================================
+  Built from your existing Hex Pen Stand page + Pura Vida Palma Ring inspiration.
+
+  CHANGES APPLIED (per your brief):
+    1. FAQ moved to AFTER "What Customers Are Saying"
+    2. "Reviews" removed from any tab/dropdown
+    3. NEW pin-code delivery checker right after "Add to Cart"
+    4. Hero (title + "inspired by classical architecture") rebuilt as a creative,
+       eye-catching block using the brand colour
+    5. Eco-friendly / Hand-finished / Gift-ready chips rewritten with
+       Gen-Z + eco + caring vocabulary
+    6. Specifications / Care / Shipping / Returns dropdowns REMOVED — info now
+       presented inline in clean, hassle-free visual sections (no tabs, no accordions)
+
+  BRAND COLOUR
+  ============
+  Set --brand-primary below to your exact brand hex. I've used a warm terracotta
+  (#B85C38) as a placeholder because the architectural / eco-luxe positioning
+  of Cubiko reads well with that palette. Swap and the whole page reskins.
+-->
+<style>
+  :root {
+    --brand-primary: #B85C38;     /* swap with your exact brand hex */
+    --brand-primary-dark: #8E4528;
+    --brand-soft: #F4E8DF;         /* tinted background for hero accent */
+    --cream: #F8F4ED;
+    --cream-deep: #EFE7DA;
+    --ink: #1E1E1E;
+    --ink-muted: #6B6B6B;
+    --ink-soft: #9A9A9A;
+    --line: #E5DDD0;
+    --green: #4F6E4A;
+    --bg: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  .serif { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; }
+
+  /* === ANNOUNCEMENT BAR === */
+  .announce {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 20px;
+    letter-spacing: 0.5px;
+  }
+  .announce span { color: var(--brand-primary); font-weight: 500; }
+
+  /* === HEADER === */
+  .header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+  }
+  .logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; letter-spacing: 1px; }
+  .logo span { color: var(--brand-primary); }
+  .nav { display: flex; gap: 30px; font-size: 14px; }
+  .nav a:hover { color: var(--brand-primary); }
+  .header-actions { display: flex; gap: 20px; font-size: 14px; }
+
+  /* === BREADCRUMB === */
+  .breadcrumb {
+    padding: 20px 40px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .breadcrumb a:hover { color: var(--brand-primary); }
+
+  /* === PRODUCT MAIN === */
+  .product {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 40px 80px;
+  }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: start; }
+  .thumbs { display: flex; flex-direction: column; gap: 10px; }
+  .thumb {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .thumb.active { border-color: var(--brand-primary); border-width: 2px; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .main-image {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--cream);
+    aspect-ratio: 3/4;
+  }
+  .main-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Product info */
+  .product-info { padding-top: 10px; }
+  .badges { display: flex; gap: 8px; margin-bottom: 16px; }
+  .badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .badge-best { background: var(--brand-primary); color: #fff; }
+  .badge-eco { background: #E8EFE5; color: var(--green); }
+
+  /* === CHANGE #4: CREATIVE EYE-CATCHING HERO BLOCK === */
+  .hero-title-block {
+    position: relative;
+    padding: 28px 28px 30px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--brand-soft) 0%, var(--cream) 100%);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .hero-title-block::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    background: var(--brand-primary);
+    opacity: 0.08;
+    border-radius: 50%;
+  }
+  .hero-tagline-small {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .product-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .hero-tagline {
+    font-size: 16px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .hero-tagline strong { color: var(--brand-primary); font-style: normal; font-weight: 500; }
+
+  /* Price */
+  .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .price { font-size: 30px; font-weight: 600; color: var(--ink); }
+  .price-old { font-size: 18px; color: var(--ink-soft); text-decoration: line-through; }
+  .price-save {
+    font-size: 12px;
+    background: var(--green);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .reviews-inline { font-size: 13px; color: var(--ink-muted); margin-bottom: 20px; }
+  .reviews-inline .stars { color: var(--brand-primary); letter-spacing: 1px; }
+
+  /* Description */
+  .description {
+    color: var(--ink-muted);
+    margin-bottom: 22px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === CHANGE #5: GEN-Z + ECO + CARING VOCABULARY CHIPS === */
+  .vibe-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    background: #fff;
+    transition: all 0.15s;
+  }
+  .chip:hover { border-color: var(--brand-primary); }
+  .chip-eco { background: #F0F5ED; border-color: #D5E2CE; color: var(--green); }
+  .chip-hand { background: var(--cream); border-color: var(--cream-deep); color: var(--ink); }
+  .chip-vibe { background: var(--brand-soft); border-color: #EDD4C2; color: var(--brand-primary-dark); }
+  .chip-slow { background: #F4F0FA; border-color: #DCD2EA; color: #6E5B97; }
+  .chip-rare { background: #FEF3E2; border-color: #F3DDB5; color: #9C6B12; }
+
+  /* Variant selectors */
+  .option-group { margin-bottom: 22px; }
+  .option-label { font-size: 13px; font-weight: 500; margin-bottom: 10px; display: block; }
+  .option-label span { color: var(--ink-muted); font-weight: 400; }
+  .colors { display: flex; gap: 10px; }
+  .color-swatch {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--line);
+    transition: box-shadow 0.15s;
+    position: relative;
+  }
+  .color-swatch.active { box-shadow: 0 0 0 2px var(--brand-primary); }
+  .color-blue { background: #3D5A80; }
+  .color-brown { background: #6B4423; }
+  .color-red { background: #9B2C2C; }
+
+  /* Quantity + Add to cart */
+  .buy-row { display: grid; grid-template-columns: auto 1fr; gap: 12px; margin-bottom: 14px; }
+  .quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 54px;
+  }
+  .quantity button { padding: 0 16px; font-size: 18px; color: var(--ink-muted); height: 100%; }
+  .quantity input {
+    width: 50px; border: none; text-align: center;
+    font-size: 16px; font-family: inherit; height: 100%;
+  }
+  .quantity input:focus { outline: none; }
+  .add-to-cart {
+    background: var(--ink);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    height: 54px;
+    transition: background 0.2s;
+  }
+  .add-to-cart:hover { background: var(--brand-primary); }
+  .wishlist {
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .wishlist:hover { color: var(--brand-primary); }
+
+  /* === CHANGE #3: PIN CODE DELIVERY CHECKER === */
+  .pincode-box {
+    border: 1px dashed var(--brand-primary);
+    background: var(--brand-soft);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+  }
+  .pincode-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-primary-dark);
+    margin-bottom: 4px;
+  }
+  .pincode-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+  .pincode-input-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .pincode-input {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+  }
+  .pincode-input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+  }
+  .pincode-button {
+    background: var(--brand-primary);
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .pincode-button:hover { background: var(--brand-primary-dark); }
+  .pincode-result {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: none;
+  }
+  .pincode-result.success {
+    display: block;
+    background: #EDF5EA;
+    color: var(--green);
+  }
+  .pincode-result.error {
+    display: block;
+    background: #FBEAEA;
+    color: #9B2C2C;
+  }
+
+  /* Trust badges row */
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-item { text-align: center; }
+  .trust-icon {
+    font-size: 22px; margin-bottom: 6px; color: var(--brand-primary);
+  }
+  .trust-label { font-size: 12px; font-weight: 600; }
+  .trust-sub { font-size: 11px; color: var(--ink-muted); }
+
+  /* === CHANGE #6: INLINE INFO SECTIONS (no dropdowns) === */
+  .info-strip { background: var(--cream); padding: 80px 40px; }
+  .info-container { max-width: 1280px; margin: 0 auto; }
+  .info-eyebrow {
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--brand-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .info-heading {
+    text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 48px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 36px;
+    margin-bottom: 48px;
+  }
+  .info-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 32px;
+    border: 1px solid var(--line);
+  }
+  .info-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .info-card-sub { font-size: 13px; color: var(--ink-muted); margin-bottom: 20px; }
+  .specs-table {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 24px;
+    font-size: 14px;
+  }
+  .specs-table dt { color: var(--ink-muted); }
+  .specs-table dd { font-weight: 500; }
+  .care-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .care-col h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    color: var(--brand-primary);
+  }
+  .care-list { list-style: none; font-size: 13px; line-height: 1.8; }
+  .care-list li {
+    padding-left: 22px; position: relative;
+  }
+  .care-list.do li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 600; }
+  .care-list.dont li::before { content: '×'; position: absolute; left: 0; color: #9B2C2C; font-weight: 600; }
+
+  .ship-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .ship-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    text-align: left;
+  }
+  .ship-icon {
+    width: 44px; height: 44px;
+    background: var(--brand-soft);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+    color: var(--brand-primary);
+  }
+  .ship-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 8px; font-weight: 500; }
+  .ship-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* === WHY SHOP === */
+  .why-shop { padding: 80px 40px; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1280px; margin: 0 auto; }
+  .why-card { text-align: center; }
+  .why-icon {
+    width: 70px; height: 70px;
+    background: var(--brand-soft);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 18px;
+    color: var(--brand-primary);
+  }
+  .why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 8px; font-weight: 500; }
+  .why-card p { font-size: 14px; color: var(--ink-muted); }
+
+  /* === TESTIMONIALS === */
+  .testimonials { background: var(--cream); padding: 80px 40px; }
+  .test-container { max-width: 1280px; margin: 0 auto; }
+  .test-heading {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 48px;
+    font-weight: 500;
+  }
+  .test-heading em { font-style: italic; color: var(--brand-primary); }
+  .test-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .test-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid var(--line);
+  }
+  .test-stars { color: var(--brand-primary); letter-spacing: 2px; margin-bottom: 12px; font-size: 14px; }
+  .test-quote { font-size: 16px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); }
+  .test-author { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .test-author strong { font-weight: 600; }
+  .test-author span { color: var(--ink-muted); }
+
+  /* === CHANGE #1: FAQ MOVED TO AFTER TESTIMONIALS === */
+  .faq-section { padding: 80px 40px; }
+  .faq-container { max-width: 820px; margin: 0 auto; }
+  .faq-heading {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .faq-sub { text-align: center; color: var(--ink-muted); margin-bottom: 40px; font-size: 14px; }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--brand-primary);
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-answer { padding-top: 12px; color: var(--ink-muted); font-size: 14px; line-height: 1.7; }
+
+  /* === RELATED === */
+  .related { padding: 80px 40px; background: var(--cream); }
+  .related-container { max-width: 1280px; margin: 0 auto; }
+  .related-heading {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .related-heading em { font-style: italic; color: var(--brand-primary); }
+  .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .related-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .related-img { aspect-ratio: 1; background: var(--cream-deep); }
+  .related-img img { width: 100%; height: 100%; object-fit: cover; }
+  .related-info { padding: 16px; }
+  .related-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; margin-bottom: 4px; }
+  .related-price { font-size: 14px; color: var(--ink-muted); font-weight: 500; }
+
+  /* === INSTAGRAM FEED === */
+  .insta { padding: 80px 40px; }
+  .insta-container { max-width: 1280px; margin: 0 auto; text-align: center; }
+  .insta-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .insta-heading em { font-style: italic; color: var(--brand-primary); }
+  .insta-sub { color: var(--ink-muted); font-size: 14px; margin-bottom: 36px; }
+  .insta-sub a { color: var(--brand-primary); font-weight: 500; }
+  .insta-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+  }
+  .insta-tile {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--cream-deep);
+    position: relative;
+    cursor: pointer;
+  }
+  .insta-tile img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .insta-tile:hover img { transform: scale(1.08); }
+  .insta-tile::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(184, 92, 56, 0);
+    transition: background 0.2s;
+  }
+  .insta-tile:hover::after { background: rgba(184, 92, 56, 0.18); }
+
+  /* === NEWSLETTER === */
+  .newsletter {
+    background: var(--brand-soft);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 240px; height: 240px;
+    background: var(--brand-primary);
+    opacity: 0.06;
+    border-radius: 50%;
+  }
+  .newsletter::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; right: -80px;
+    width: 280px; height: 280px;
+    background: var(--brand-primary);
+    opacity: 0.05;
+    border-radius: 50%;
+  }
+  .newsletter-container { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+  .newsletter-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--brand-primary);
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .newsletter-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .newsletter-heading em { font-style: italic; color: var(--brand-primary); }
+  .newsletter-sub {
+    color: var(--ink-muted);
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .newsletter-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    max-width: 460px;
+    margin: 0 auto 14px;
+  }
+  .newsletter-input {
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .newsletter-input:focus { outline: none; border-color: var(--brand-primary); }
+  .newsletter-button {
+    background: var(--ink);
+    color: #fff;
+    padding: 0 26px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .newsletter-button:hover { background: var(--brand-primary); }
+  .newsletter-fineprint {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.5px;
+  }
+  .newsletter-fineprint span { color: var(--brand-primary); }
+
+  /* === FOOTER (compact placeholder) === */
+  .footer {
+    background: var(--ink);
+    color: #fff;
+    padding: 60px 40px 30px;
+    text-align: center;
+  }
+  .footer .logo { color: #fff; }
+  .footer .logo span { color: var(--brand-primary); }
+  .footer p { font-size: 13px; color: rgba(255,255,255,0.6); margin: 16px 0; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .product { grid-template-columns: 1fr; gap: 30px; padding: 20px; }
+    .gallery { grid-template-columns: 1fr; }
+    .thumbs { flex-direction: row; overflow-x: auto; }
+    .thumb { min-width: 70px; }
+    .product-title { font-size: 34px; }
+    .info-grid, .ship-row, .related-grid, .test-grid, .why-grid {
+      grid-template-columns: 1fr;
+    }
+    .info-strip, .why-shop, .testimonials, .faq-section, .related, .insta, .newsletter { padding: 50px 20px; }
+    .insta-grid { grid-template-columns: repeat(4, 1fr); }
+    .newsletter-heading { font-size: 32px; }
+    .newsletter-form { grid-template-columns: 1fr; }
+    .header { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+    .nav { display: none; }
+    .breadcrumb { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <span>✨ NEW NEW NEW ✨</span> &nbsp;The Home Décor Collection &nbsp;·&nbsp; Free shipping on orders ₹999+
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">cubik<span>o.</span></div>
+  <nav class="nav">
+    <a href="#">Wholesale</a>
+    <a href="#">The Cubiko Story</a>
+    <a href="#">All Products</a>
+    <a href="#">Blog</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <a href="#">Account</a>
+    <a href="#">Cart (0)</a>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a> / <a href="#">Lamps</a> / Hex Pen Stand
+</div>
+
+<!-- PRODUCT MAIN -->
+<section class="product">
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="thumbs">
+      <div class="thumb active"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043-600x800.webp" alt=""></div>
+      <div class="thumb"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/Spiral-Black-Vass-600x900.png" alt=""></div>
+      <div class="thumb"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043-600x800.webp" alt=""></div>
+    </div>
+    <div class="main-image">
+      <img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043.webp" alt="Hex Pen Stand">
+    </div>
+  </div>
+
+  <!-- PRODUCT INFO -->
+  <div class="product-info">
+
+    <div class="badges">
+      <span class="badge badge-best">Bestseller</span>
+      <span class="badge badge-eco">Eco-Friendly</span>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- CHANGE #4: CREATIVE HERO TITLE BLOCK (uses brand colour)     -->
+    <!-- ============================================================ -->
+    <div class="hero-title-block">
+      <div class="hero-tagline-small">Designed in Dimension · Made-to-Order</div>
+      <h1 class="product-title">The Hex <em class="serif" style="color: var(--brand-primary); font-style: italic;">Pen Stand</em></h1>
+      <p class="hero-tagline">Inspired by <strong>classical architecture</strong>, reimagined through 3D printing — a quiet sculpture for your desk.</p>
+    </div>
+
+    <div class="price-row">
+      <span class="price">₹999</span>
+      <span class="price-old">₹1,099</span>
+      <span class="price-save">SAVE 9%</span>
+    </div>
+
+    <div class="reviews-inline">
+      <span class="stars">★★★★★</span> &nbsp;4.9 · 27 reviews
+    </div>
+
+    <p class="description">
+      Inspired by the fluted columns of classical architecture, the Hex Pen Stand
+      features deep vertical ridges that create a mesmerising interplay of light
+      and shadow. Its matte finish gives it a sculptural, gallery-worthy presence
+      — perfect on a desk, a side table, or as a standalone art piece.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- CHANGE #5: GEN-Z + ECO + CARING VOCAB CHIPS                  -->
+    <!-- Replaces "Eco-friendly PLA / Hand-finished / Gift-ready"     -->
+    <!-- ============================================================ -->
+    <div class="vibe-chips">
+      <span class="chip chip-eco">🌱 Plant-coded PLA</span>
+      <span class="chip chip-hand">✋ Hand-touched, not factory-stamped</span>
+      <span class="chip chip-vibe">🎁 Unboxing-as-a-vibe</span>
+      <span class="chip chip-slow">🐢 Slow-made energy</span>
+      <span class="chip chip-rare">⭐ Print-of-one</span>
+    </div>
+
+    <div class="option-group">
+      <label class="option-label">Colour: <span>Brown</span></label>
+      <div class="colors">
+        <div class="color-swatch color-blue" title="Blue"></div>
+        <div class="color-swatch color-brown active" title="Brown"></div>
+        <div class="color-swatch color-red" title="Red"></div>
+      </div>
+    </div>
+
+    <div class="buy-row">
+      <div class="quantity">
+        <button>−</button>
+        <input type="text" value="1">
+        <button>+</button>
+      </div>
+      <button class="add-to-cart">Add to Cart · ₹999</button>
+    </div>
+
+    <a href="#" class="wishlist">♡ Add to Wishlist</a>
+
+    <!-- ============================================================ -->
+    <!-- CHANGE #3: PIN CODE DELIVERY CHECKER (new section)           -->
+    <!-- ============================================================ -->
+    <div class="pincode-box">
+      <div class="pincode-header">
+        📍 Check delivery to your doorstep
+      </div>
+      <div class="pincode-sub">Enter your 6-digit pin code to see ETA & shipping options.</div>
+      <div class="pincode-input-row">
+        <input type="text" class="pincode-input" maxlength="6" placeholder="e.g. 462001" id="pincode">
+        <button class="pincode-button" onclick="checkPin()">Check</button>
+      </div>
+      <div class="pincode-result" id="pinResult"></div>
+    </div>
+
+    <!-- INLINE TRUST ROW -->
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-label">Free Shipping</div>
+        <div class="trust-sub">Orders ₹999+</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">↩</div>
+        <div class="trust-label">7-Day Returns</div>
+        <div class="trust-sub">No questions</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🌱</div>
+        <div class="trust-label">Eco-Friendly</div>
+        <div class="trust-sub">Plant-based PLA</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">⚙️</div>
+        <div class="trust-label">Made to Order</div>
+        <div class="trust-sub">Fresh for you</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHANGE #6: INLINE INFO SECTIONS (no dropdowns / no accordions)   -->
+<!-- Replaces Specifications / Care Instructions / Shipping & Returns -->
+<!-- ================================================================ -->
+<section class="info-strip">
+  <div class="info-container">
+    <div class="info-eyebrow">The Honest Details</div>
+    <h2 class="info-heading">No fine print. <em class="serif" style="color: var(--brand-primary); font-style: italic;">Just the stuff that matters.</em></h2>
+
+    <div class="info-grid">
+
+      <!-- LEFT: Specs (was the "Specifications" dropdown) -->
+      <div class="info-card">
+        <div class="info-card-title">The Specs</div>
+        <p class="info-card-sub">Everything you'd want to know before adding to cart.</p>
+        <dl class="specs-table">
+          <dt>Height</dt><dd>22 cm</dd>
+          <dt>Base diameter</dt><dd>11 cm</dd>
+          <dt>Neck opening</dt><dd>2.4 cm</dd>
+          <dt>Weight</dt><dd>180 g ± 10 g</dd>
+          <dt>Material</dt><dd>Plant-based PLA (cornstarch)</dd>
+          <dt>Finish</dt><dd>Matte, lightly textured</dd>
+          <dt>Layer height</dt><dd>0.2 mm, vase-mode print</dd>
+          <dt>Print time</dt><dd>~6 hours per piece</dd>
+          <dt>Made in</dt><dd>Bhopal, India</dd>
+        </dl>
+      </div>
+
+      <!-- RIGHT: Care (was "Care Instructions" dropdown) -->
+      <div class="info-card">
+        <div class="info-card-title">How to Love It</div>
+        <p class="info-card-sub">Treat it kindly — it's plant-based and made by hand.</p>
+        <div class="care-cols">
+          <div class="care-col">
+            <h4>Do</h4>
+            <ul class="care-list do">
+              <li>Dust with a soft, dry cloth</li>
+              <li>Wipe with a damp cloth for smudges</li>
+              <li>Use a glass tube for fresh flowers</li>
+              <li>Keep indoors, away from direct sun</li>
+            </ul>
+          </div>
+          <div class="care-col">
+            <h4>Avoid</h4>
+            <ul class="care-list dont">
+              <li>Direct sunlight for long hours</li>
+              <li>Temperatures above 55°C</li>
+              <li>Hot liquids &amp; dishwashers</li>
+              <li>Harsh chemical cleaners</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: Shipping & Returns (was its own dropdown) -->
+    <div class="ship-row">
+      <div class="ship-card">
+        <div class="ship-icon">⏱</div>
+        <h4>Made to order</h4>
+        <p>We print your piece after you order. Production takes 2–3 days, then ships within 24 hours.</p>
+      </div>
+      <div class="ship-card">
+        <div class="ship-icon">🚚</div>
+        <h4>Free shipping</h4>
+        <p>Across India in 3–5 business days. Free on orders over ₹999. Cash on delivery available.</p>
+      </div>
+      <div class="ship-card">
+        <div class="ship-icon">♻️</div>
+        <h4>Easy returns</h4>
+        <p>7 days from delivery for unused items. Damaged in transit? We replace it free — just send a photo within 48 hours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY SHOP CUBIKO -->
+<section class="why-shop">
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🖨</div>
+      <h3>Printed, Not Manufactured</h3>
+      <p>Every Cubiko piece is 3D printed on demand. No warehouses, no overstock, no compromises.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <h3>Planet-First Material</h3>
+      <p>Bio-based PLA from cornstarch. Biodegradable, low-emission, zero-waste production.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎁</div>
+      <h3>Unboxing as an Experience</h3>
+      <p>Recycled craft packaging, hand-tied jute, and a thank-you note from the Cubiko team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-container">
+    <h2 class="test-heading">What customers are <em>saying</em></h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Looks like a sculpture from a design museum. The matte finish is incredibly rich."</p>
+        <div class="test-author"><strong>Aisha K.</strong> <span>· Mumbai</span></div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Bought it for my entryway with dried pampas — every guest comments on it."</p>
+        <div class="test-author"><strong>Rohan D.</strong> <span>· Bangalore</span></div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Heavier and sturdier than I expected. Worth every rupee."</p>
+        <div class="test-author"><strong>Meera S.</strong> <span>· Delhi</span></div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★☆</div>
+        <p class="test-quote">"Stunning piece. Wish there was a larger size option."</p>
+        <div class="test-author"><strong>Vikram T.</strong> <span>· Pune</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- CHANGE #1: FAQ MOVED HERE (after "What Customers Are Saying")    -->
+<!-- ================================================================ -->
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-heading">Quick questions, quick answers</h2>
+    <p class="faq-sub">Everything else customers usually ask before buying.</p>
+
+    <details class="faq-item" open>
+      <summary>Can I put fresh flowers with water inside?</summary>
+      <div class="faq-answer">The vase isn't watertight by default. For fresh stems, drop a slim glass test tube inside the neck — we can include one free if you leave a note at checkout.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Will the colour fade in sunlight?</summary>
+      <div class="faq-answer">PLA is UV-stable for normal indoor use. Prolonged direct sunlight (all day, every day) can lighten dark shades over 1–2 years — we recommend a shaded spot.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I get a custom colour or size?</summary>
+      <div class="faq-answer">Yes — drop us a line at hello@cubiko3d.in. Custom orders usually add 3–4 days to production.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is it really biodegradable?</summary>
+      <div class="faq-answer">PLA is industrially compostable and breaks down in commercial facilities. At home it's stable for years — so it won't crumble on your shelf, but it won't sit in a landfill forever either.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How long does delivery take?</summary>
+      <div class="faq-answer">Made-to-order means 2–3 days production + 3–5 business days shipping across India. Use the pin-code checker above for your exact ETA.</div>
+    </details>
+  </div>
+</section>
+
+<!-- RELATED PRODUCTS -->
+<section class="related">
+  <div class="related-container">
+    <h2 class="related-heading">You may also <em>like</em></h2>
+    <div class="related-grid">
+      <a href="#" class="related-card">
+        <div class="related-img"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043.webp" alt=""></div>
+        <div class="related-info">
+          <div class="related-name">Spiral Vase — Bone</div>
+          <div class="related-price">₹1,499</div>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="related-img"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043.webp" alt=""></div>
+        <div class="related-info">
+          <div class="related-name">Wave Planter</div>
+          <div class="related-price">₹1,299</div>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="related-img"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043.webp" alt=""></div>
+        <div class="related-info">
+          <div class="related-name">Geometric Lamp</div>
+          <div class="related-price">₹1,899</div>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="related-img"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/a2e02953-72e8-4ea5-a5ab-8826123c6043.webp" alt=""></div>
+        <div class="related-info">
+          <div class="related-name">Lumen Vase</div>
+          <div class="related-price">₹1,599</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- INSTAGRAM FEED — @cubiko3d                                       -->
+<!-- ================================================================ -->
+<section class="insta">
+  <div class="insta-container">
+    <h2 class="insta-heading">@cubiko3d on <em>Instagram</em></h2>
+    <p class="insta-sub">Tag us with <strong>#CubikoAtHome</strong> to get featured · <a href="https://instagram.com/cubiko3d" target="_blank">Follow us →</a></p>
+    <div class="insta-grid">
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1493809842364-78817add7ffb.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1618220179428-22790b461013-_1_.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1586023492125-27b2c045efd7.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1600585154340-be6161a56a0c.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1416879595882-3373a0480b5b.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1505691938895-1758d7feb511.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1567225477277-c8162eb4991d.webp" alt=""></a>
+      <a href="https://instagram.com/cubiko3d" target="_blank" class="insta-tile"><img src="https://cubiko3dprints.com/wp-content/uploads/2026/04/photo-1616046229478-9901c5536a45.png" alt=""></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- NEWSLETTER — 10% OFF first order                                 -->
+<!-- ================================================================ -->
+<section class="newsletter">
+  <div class="newsletter-container">
+    <span class="newsletter-badge">Welcome gift</span>
+    <h2 class="newsletter-heading">Get <em>10% off</em> your first order when you sign up</h2>
+    <p class="newsletter-sub">New drops, restocks &amp; exclusive offers — straight to your inbox. <strong>No spam, pinky promise.</strong></p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Thanks! Check your inbox for your 10% off code 💌');">
+      <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+      <button type="submit" class="newsletter-button">Subscribe</button>
+    </form>
+    <p class="newsletter-fineprint">By signing up you agree to our <span>privacy policy</span>. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="logo">cubik<span>o.</span></div>
+  <p>Designed in Dimension. Original 3D-printed objects for your home, desk, and the people you love.</p>
+  <div class="footer-bottom">© 2026 Cubiko 3D Solutions LLC · Bhopal, India</div>
+</footer>
+
+<script>
+  // Pin-code checker demo (replace with real API call to your courier / WooCommerce serviceability plugin)
+  function checkPin() {
+    const pin = document.getElementById('pincode').value.trim();
+    const result = document.getElementById('pinResult');
+
+    // Demo logic — accepts any valid 6-digit pin
+    if (!/^\d{6}$/.test(pin)) {
+      result.className = 'pincode-result error';
+      result.textContent = 'Please enter a valid 6-digit pin code.';
+      return;
+    }
+
+    // Sample serviceable pins (demo)
+    const cityMap = {
+      '462001': 'Bhopal', '110001': 'Delhi', '400001': 'Mumbai',
+      '560001': 'Bangalore', '600001': 'Chennai', '700001': 'Kolkata'
+    };
+    const city = cityMap[pin] || 'your area';
+
+    result.className = 'pincode-result success';
+    result.innerHTML = `✓ Yes! We deliver to <strong>${city}</strong>. Standard delivery in <strong>3–5 business days</strong>. Cash on delivery available.`;
+  }
+</script>
+
+</body>
+</html>
